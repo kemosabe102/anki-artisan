@@ -5,18 +5,11 @@
     "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:30317",
     "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
     "OTEL_SERVICE_NAME": "anki-artisan",
-    "OTEL_RESOURCE_ATTRIBUTES": "environment=local,developer=lyken",
     "OTEL_METRICS_EXPORTER": "otlp",
     "OTEL_TRACES_EXPORTER": "otlp",
     "OTEL_LOGS_EXPORTER": "otlp",
     "OTEL_METRIC_EXPORT_INTERVAL": "60000",
-    "OTEL_EXPORTER_OTLP_INSECURE": "true",
-    "HOOK_LOG_FORMAT": "text",
-    "HOOK_LOG_LEVEL": "INFO",
-    "AI_COMMAND_VALIDATION": "strict",
-    "AI_ALLOW_CHAINING": "true",
-    "AI_REQUIRE_CHAIN_APPROVAL": "false",
-    "AI_BLOCK_CD_COMMAND": "true"
+    "OTEL_EXPORTER_OTLP_INSECURE": "true"
   },
   "permissions": {
     "allow": [],
@@ -63,15 +56,5 @@
     "defaultMode": "bypassPermissions"
   },
   "model": "opus",
-  "enabledPlugins": {
-    "dev@salsita-marketplace": true
-  },
-  "extraKnownMarketplaces": {
-    "salsita-marketplace": {
-      "source": {
-        "source": "github",
-        "repo": "kemosabe102/salsita-marketplace"
-      }
-    }
-  }
+  "extraKnownMarketplaces": {}
 }

@@ -1,0 +1,65 @@
+# Italian Language Configuration for Anki Artisan
+
+language_code: "it"
+language_name: "Italian"
+native_name: "Italiano"
+
+elevenlabs:
+  # Sara - E-learning: Native Italian, designed for educational content
+  # Clear, warm, consistent pronunciation ideal for A1 learners
+  voice_id: "uV2Bhcm1HwmAqPqkbjfl"
+  voice_name: "Sara - E-learning"
+  model_id: "eleven_multilingual_v2"
+  
+  # Settings optimized for flashcard consistency and beginner clarity
+  voice_settings:
+    stability: 0.7        # Higher = consistent pronunciation across cards
+    similarity_boost: 0.8 # Strong voice adherence
+    style: 0.0            # No expressive variation (predictable output)
+    use_speaker_boost: true
+    speed: 0.9            # Slightly slower for beginners to distinguish sounds
+
+  # Alternative voices (all native Italian, education-optimized)
+  alternative_voices:
+    - voice_id: "wytO3xyllSDjJKHNkchr"
+      name: "GianP - Edu"
+      gender: "male"
+      notes: "Clear Italian with warm, elegant, upbeat tone"
+    - voice_id: "HuK8QKF35exsCh2e7fLT"
+      name: "Carmelo La Rosa - Pro"
+      gender: "male"
+      notes: "Professional, perfect for e-learning, webinar, institutional"
+    - voice_id: "KWeLTn8KirI8X720ioLC"
+      name: "Roberto - Gentle"
+      gender: "male"
+      notes: "Gentle yet engaging, perfect for educational videos"
+    - voice_id: "oVJbgLwL0s5pk9e2U6QH"
+      name: "Manuela"
+      gender: "female"
+      notes: "PRO actress, warm, clear, versatile, perfect for e-learning"
+
+deck:
+  name_template: "Italian {level} Vocabulary"
+  # Unique IDs for Italian (prevents Anki deck conflicts)
+  deck_id_base: 2059400100
+  model_id_base: 1607390100
+
+# Italian-specific features
+features:
+  has_gender: true
+  has_articles: true
+  gender_types: ["m", "f"]
+  article_forms:
+    masculine:
+      - "il"   # before most consonants
+      - "lo"   # before z, s+consonant, gn, ps, x, y
+      - "l'"   # before vowels
+    feminine:
+      - "la"   # before consonants
+      - "l'"   # before vowels
+
+# Pronunciation notes for Italian
+pronunciation_notes:
+  - "Always spell out numbers in text (write 'venti' not '20')"
+  - "Test consonant clusters: gli, gn, sc before bulk generation"
+  - "Words to verify: famiglia (gli), gnocchi (gn), pesce vs pesca (sc)"

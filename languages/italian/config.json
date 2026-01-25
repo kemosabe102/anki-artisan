@@ -1,8 +1,0 @@
-{
-  "language_code": "it",
-  "language_name": "Italian",
-  "elevenlabs_voice_id": "italian_voice_id",
-  "card_template": "language_card.html",
-  "deck_name": "Italian Vocabulary",
-  "deck_description": "Italian language learning deck with neural TTS audio"
-}

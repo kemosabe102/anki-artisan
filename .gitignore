@@ -211,6 +211,10 @@ __marimo__/
 cache/*
 !cache/.gitkeep
 
+# Generated decks
+output/*
+!output/.gitkeep
+
 # API keys
 *.key
 
