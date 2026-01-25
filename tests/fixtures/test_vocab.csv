@@ -1,0 +1,4 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+test,test,Test phrase here.,Test phrase translation.,noun,m,test
+hello,ciao,Hello world today.,Ciao mondo oggi.,interjection,n/a,greetings
+book,libro,The red book.,Il libro rosso.,noun,m,objects
