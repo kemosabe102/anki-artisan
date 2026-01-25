@@ -14,7 +14,7 @@ from elevenlabs import ElevenLabs
 from elevenlabs import save as elevenlabs_save
 
 from .config import CACHE_DIR, get_settings
-from .models import GeneratedAudio, LanguageConfig
+from .models import GeneratedAudio, LanguageConfig, VoiceSettings
 
 logger = logging.getLogger(__name__)
 
@@ -118,9 +118,12 @@ class TTSService:
 
         for attempt in range(max_retries):
             try:
+                # Prepare text with SSML break if configured
+                tts_text = self._prepare_text_for_tts(text, settings)
+
                 audio = self._client.text_to_speech.convert(
                     voice_id=voice_id,
-                    text=text,
+                    text=tts_text,
                     model_id=language_config.elevenlabs.model_id,
                     output_format="mp3_44100_128",
                     voice_settings={
@@ -165,6 +168,21 @@ class TTSService:
         hash_value = hashlib.sha256(hash_input.encode()).hexdigest()[:16]
 
         return CACHE_DIR / language / voice_id / f"{hash_value}.mp3"
+
+    def _prepare_text_for_tts(self, text: str, voice_settings: VoiceSettings) -> str:
+        """Prepare text for TTS API, adding SSML break if configured.
+
+        Args:
+            text: Original text to speak
+            voice_settings: Voice settings with leading_pause_seconds
+
+        Returns:
+            Text with SSML break tag if pause > 0, otherwise original text
+        """
+        pause = voice_settings.leading_pause_seconds
+        if pause > 0:
+            return f'<break time="{pause}s"/>{text}'
+        return text
 
     def list_voices(self) -> list[dict]:
         """List available ElevenLabs voices.

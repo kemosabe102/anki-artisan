@@ -83,6 +83,9 @@ class VoiceSettings(BaseModel):
     style: float = Field(0.0, ge=0.0, le=1.0, description="Expressive variation")
     use_speaker_boost: bool = Field(True, description="Speaker boost enhancement")
     speed: float = Field(0.9, ge=0.5, le=2.0, description="Speech speed")
+    leading_pause_seconds: float = Field(
+        0.0, ge=0.0, le=3.0, description="Leading pause to prevent audio truncation"
+    )
 
 
 class ElevenLabsConfig(BaseModel):
