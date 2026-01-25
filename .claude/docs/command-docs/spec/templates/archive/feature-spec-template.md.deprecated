@@ -1,0 +1,69 @@
+# FEATURE SPEC: [Feature Name]
+
+> **Status:** Draft | Locked
+> **Owner:** [Your Name]
+> **Date:** [YYYY-MM-DD]
+
+---
+
+## 1. The "Why" (User Story)
+
+**As a** [specific user type],
+**I want to** [specific action],
+**So that** [valuable outcome].
+
+---
+
+## 2. The Value (ICE Score)
+
+| Metric | Score (1-10) | Rationale (1 sentence) |
+|:-------|:------------:|:-----------------------|
+| **Impact** | **[X]** | [How much does this move success metrics?] |
+| **Confidence** | **[X]** | [How sure are we about impact/effort?] |
+| **Ease** | **[X]** | [How fast can we build this?] |
+| **TOTAL** | **[XXX]** | *(Impact × Confidence × Ease)* |
+
+> **Threshold:** Score < 200 → Backlog | 200-500 → Discuss | > 500 → Build
+
+---
+
+## 3. Acceptance Criteria (Definition of Done)
+
+*Observable behaviors only. No implementation details.*
+
+- [ ] User can [Action A] and see [Result A] within [Time]
+- [ ] System handles [Edge Case B] by showing [Error Message]
+- [ ] [Data C] is saved and persists after refresh
+- [ ] [Performance requirement, e.g., response < 500ms]
+
+---
+
+## 4. Constraints & Out of Scope
+
+**Constraints** (must follow):
+- Must use existing [Tech Stack/Library]
+- Max latency: [X]ms
+- Budget: <$[X]/month for external APIs
+
+**Out of Scope** (explicitly cut):
+- [Feature X] — will consider in future iteration
+- [Feature Y] — separate spec needed
+
+---
+
+## 5. Dependencies
+
+- [ ] Requires [Feature/Component Z] to be done first
+- [ ] Requires [API Key/Service Access]
+- [ ] Blocked by [Decision/Approval]
+
+---
+
+## 6. Open Questions (Optional)
+
+- [ ] [Question that needs answering before or during implementation]
+- [ ] [Decision that affects scope]
+
+---
+
+**Next:** Once status is "Locked", run `/plan` to create implementation plan.

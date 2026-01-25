@@ -1,0 +1,174 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "spec-reviewer.schema.json",
+  "title": "Spec Reviewer Agent Schema",
+  "description": "Input/output validation for spec-reviewer agent. Extends base-agent two-state model.",
+  "oneOf": [
+    {
+      "title": "Success Output",
+      "type": "object",
+      "properties": {
+        "status": { "const": "SUCCESS" },
+        "agent": { "const": "spec-reviewer" },
+        "task_id": { "type": "string", "pattern": "^spec-review-" },
+        "operation_type": { "enum": ["comprehensive_review", "focused_review", "ambiguity_detection"] },
+        "summary": { "type": "string", "description": "1-3 sentence executive summary" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "execution_timestamp": { "type": "string", "format": "date-time" },
+        "agent_specific_output": {
+          "type": "object",
+          "properties": {
+            "quality_assessment": {
+              "type": "object",
+              "properties": {
+                "completeness_score": { "type": "number", "minimum": 0, "maximum": 1 },
+                "testability_score": { "type": "number", "minimum": 0, "maximum": 1 },
+                "clarity_score": { "type": "number", "minimum": 0, "maximum": 1 },
+                "ambiguity_index": { "type": "integer", "minimum": 0, "maximum": 10 },
+                "progressive_disclosure_score": { "type": "number", "minimum": 0, "maximum": 1 },
+                "ice_score": {
+                  "type": "object",
+                  "description": "ICE prioritization score for lean spec workflow",
+                  "properties": {
+                    "impact": { "type": "number", "minimum": 1, "maximum": 10 },
+                    "confidence": { "type": "number", "minimum": 1, "maximum": 10 },
+                    "ease": { "type": "number", "minimum": 1, "maximum": 10 },
+                    "total": { "type": "number", "minimum": 1, "maximum": 1000 },
+                    "valid": { "type": "boolean", "description": "true if total >= 200" }
+                  },
+                  "required": ["impact", "confidence", "ease", "total", "valid"]
+                },
+                "overall_grade": { "enum": ["A", "B", "C", "D", "F"] }
+              },
+              "required": ["completeness_score", "testability_score", "clarity_score", "ambiguity_index", "overall_grade"]
+            },
+            "review_findings": {
+              "type": "object",
+              "properties": {
+                "strengths": { "type": "array", "items": { "type": "string" } },
+                "weaknesses": { "type": "array", "items": { "type": "string" } },
+                "recommendations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "priority": { "enum": ["High", "Medium", "Low"] },
+                      "category": { "enum": ["requirements", "testability", "clarity", "structure", "progressive_disclosure"] },
+                      "finding": { "type": "string" },
+                      "recommendation": { "type": "string" },
+                      "location": { "type": "string" }
+                    },
+                    "required": ["priority", "category", "finding", "recommendation"]
+                  }
+                }
+              },
+              "required": ["strengths", "weaknesses", "recommendations"]
+            },
+            "verdict": {
+              "type": "object",
+              "description": "Structured review verdict for orchestrator routing",
+              "properties": {
+                "decision": { 
+                  "enum": ["READY", "CONDITIONAL", "NOT_READY"],
+                  "description": "READY=proceed to planning, CONDITIONAL=address issues first, NOT_READY=major rework needed"
+                },
+                "blocking_issues": { 
+                  "type": "array", 
+                  "items": { "type": "string" },
+                  "description": "Issues that must be resolved (for NOT_READY)"
+                },
+                "conditions": { 
+                  "type": "array", 
+                  "items": { "type": "string" },
+                  "description": "Conditions to address (for CONDITIONAL)"
+                },
+                "confidence": { 
+                  "type": "number", 
+                  "minimum": 0, 
+                  "maximum": 1,
+                  "description": "Confidence in verdict decision"
+                }
+              },
+              "required": ["decision", "confidence"]
+            },
+            "validation_results": {
+              "type": "object",
+              "description": "Included for comprehensive_review mode",
+              "properties": {
+                "requirements_complete": { "type": "boolean" },
+                "planning_metadata_present": { "type": "boolean" },
+                "quality_threshold_met": { "type": "boolean" },
+                "testability_validated": { "type": "boolean" },
+                "ice_score_valid": { "type": "boolean", "description": "true if ICE total >= 200" }
+              }
+            },
+            "ambiguity_analysis": {
+              "type": "object",
+              "description": "Included when ambiguity_index > 3 OR mode=ambiguity_detection",
+              "properties": {
+                "ambiguous_terms": { "type": "array", "items": { "type": "string" } },
+                "unclear_requirements": { "type": "array", "items": { "type": "string" } },
+                "missing_specifications": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "testability_analysis": {
+              "type": "object",
+              "description": "Included when testability_score < 0.8 OR mode=focused_review(testability)",
+              "properties": {
+                "testable_requirements": { "type": "integer" },
+                "non_testable_requirements": { "type": "integer" },
+                "specific_concerns": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          },
+          "required": ["quality_assessment", "review_findings", "verdict"]
+        }
+      },
+      "required": ["status", "agent", "confidence", "agent_specific_output"],
+      "additionalProperties": false
+    },
+    {
+      "title": "Failure Output",
+      "type": "object",
+      "properties": {
+        "status": { "const": "FAILURE" },
+        "agent": { "const": "spec-reviewer" },
+        "task_id": { "type": "string" },
+        "operation_type": { "enum": ["comprehensive_review", "focused_review", "ambiguity_detection"] },
+        "summary": { "type": "string", "description": "1-3 sentence summary of why task failed" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "execution_timestamp": { "type": "string", "format": "date-time" },
+        "failure_details": {
+          "type": "object",
+          "properties": {
+            "failure_type": { 
+              "enum": ["missing_file", "invalid_structure", "review_error", "permission_denied", "template_not_found"],
+              "description": "Primary failure category"
+            },
+            "reasons": { 
+              "type": "array", 
+              "items": { "type": "string" },
+              "description": "Specific reasons why task failed"
+            },
+            "recovery_suggestions": { 
+              "type": "array", 
+              "items": { "type": "string" },
+              "description": "Actionable steps to resolve failure"
+            },
+            "partial_results": {
+              "type": "object",
+              "description": "Any partial analysis completed before failure",
+              "properties": {
+                "dimensions_scored": { "type": "array", "items": { "type": "string" } },
+                "partial_grade": { "enum": ["A", "B", "C", "D", "F", "INCOMPLETE"] }
+              }
+            }
+          },
+          "required": ["failure_type", "reasons"]
+        }
+      },
+      "required": ["status", "agent", "confidence", "failure_details"],
+      "additionalProperties": false
+    }
+  ]
+}

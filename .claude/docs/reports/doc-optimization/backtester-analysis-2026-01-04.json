@@ -1,0 +1,217 @@
+{
+  "report_metadata": {
+    "agent_path": ".claude/agents/investing/backtester/backtester.md",
+    "analysis_date": "2026-01-04",
+    "analyzer": "doc-reference-optimizer",
+    "baseline_tokens": 3191,
+    "baseline_chars": 12764
+  },
+  "efficiency_score": 58,
+  "anti_patterns_detected": [
+    {
+      "type": "DUPLICATION",
+      "severity": "HIGH",
+      "location": "lines 45-62",
+      "description": "Deflated Sharpe Ratio formula and trial penalty table duplicated from gate-thresholds.md",
+      "duplicated_content": "DSR formula, gamma=0.08 penalty factor, trial penalty table (trials 1-5)",
+      "canonical_source": ".claude/docs/command-docs/backtest/docs/gate-thresholds.md",
+      "estimated_tokens": 175,
+      "confidence": 0.92
+    },
+    {
+      "type": "DUPLICATION",
+      "severity": "MEDIUM",
+      "location": "lines 216-222",
+      "description": "Tier-specific gates table duplicated from gate-thresholds.md",
+      "duplicated_content": "Tier 1-4 gate thresholds table (Sharpe, DD, Trades, Win Rate, Regime CV, OOS/IS)",
+      "canonical_source": ".claude/docs/command-docs/backtest/docs/gate-thresholds.md",
+      "estimated_tokens": 85,
+      "confidence": 0.95
+    },    {
+      "type": "VERBOSITY",
+      "severity": "MEDIUM",
+      "location": "lines 125-143",
+      "description": "Regime Classification section duplicates regime-classifier skill content",
+      "duplicated_content": "Regime mapping table, multi-factor methodology reference, usage example",
+      "canonical_source": ".claude/skills/regime-classifier/SKILL.md",
+      "estimated_tokens": 120,
+      "confidence": 0.88
+    },
+    {
+      "type": "REDUNDANCY",
+      "severity": "LOW",
+      "location": "lines 329-358",
+      "description": "Statistical Validation Gates section repeats gate logic already defined in Mode Details",
+      "duplicated_content": "Gate thresholds table and evaluation logic pseudo-code",
+      "internal_duplication": true,
+      "estimated_tokens": 200,
+      "confidence": 0.85
+    },
+    {
+      "type": "OVER_EXPLANATION",
+      "severity": "LOW",
+      "location": "lines 404-435",
+      "description": "Output Structure JSON example is verbose - schema reference would suffice",
+      "explanation": "Full JSON schema example when schemas/backtester.schema.json exists",
+      "canonical_source": ".claude/agents/investing/backtester/schemas/backtester.schema.json",
+      "estimated_tokens": 175,
+      "confidence": 0.75
+    },    {
+      "type": "STALE_REFS",
+      "severity": "MEDIUM",
+      "location": "lines 469-476",
+      "description": "Knowledge Base references docs that do not exist",
+      "stale_references": [
+        "skills/hypothesis-tracking/ (listed as directory, actual: SKILL.md)",
+        "skills/failure-analyzer/ (listed as directory, actual: SKILL.md)",
+        "skills/walk-forward-validation/ (listed as directory, actual: SKILL.md)",
+        "skills/strategy-specification/ (listed as directory, actual: SKILL.md)"
+      ],
+      "estimated_tokens": 0,
+      "confidence": 0.90,
+      "note": "References work but are imprecise - no token cost but reduces clarity"
+    }
+  ],
+  "optimization_opportunities": [
+    {
+      "id": "OPT-001",
+      "strategy": "reference_existing",
+      "title": "Externalize DSR Formula to gate-thresholds.md",
+      "current_location": "lines 45-62",
+      "target_doc": "gate-thresholds.md",
+      "overlap_percentage": 0.92,
+      "tokens_saved": 175,
+      "confidence": 0.92,
+      "value_score": 8.05,
+      "replacement_text": "### Deflated Sharpe Calculation\n\nSee `gate-thresholds.md` for DSR formula, penalty factor (gamma=0.08), and trial penalty table.",
+      "effort": "LOW"
+    },    {
+      "id": "OPT-002",
+      "strategy": "reference_existing",
+      "title": "Externalize Tier Gates Table to gate-thresholds.md",
+      "current_location": "lines 216-222",
+      "target_doc": "gate-thresholds.md",
+      "overlap_percentage": 0.95,
+      "tokens_saved": 85,
+      "confidence": 0.95,
+      "value_score": 8.08,
+      "replacement_text": "**Tier-Specific Gates**: See `gate-thresholds.md` for complete threshold table by tier.",
+      "effort": "LOW"
+    },
+    {
+      "id": "OPT-003",
+      "strategy": "reference_existing",
+      "title": "Consolidate Regime Classification to Skill Reference",
+      "current_location": "lines 125-143",
+      "target_doc": "regime-classifier/SKILL.md",
+      "overlap_percentage": 0.88,
+      "tokens_saved": 100,
+      "confidence": 0.88,
+      "value_score": 4.40,
+      "replacement_text": "### Regime Classification\n\nDelegate to `regime-classifier` skill for multi-factor regime detection.\nSee `regime-classifier/SKILL.md` for 5-factor methodology and output schema.",
+      "effort": "LOW"
+    },    {
+      "id": "OPT-004",
+      "strategy": "consolidate_internal",
+      "title": "Merge Duplicate Gate Logic Sections",
+      "current_location": "lines 329-358 (Statistical Validation Gates)",
+      "related_location": "lines 216-222 (Tier-Specific Gates) and MODE: validate",
+      "overlap_percentage": 0.85,
+      "tokens_saved": 150,
+      "confidence": 0.85,
+      "value_score": 4.25,
+      "recommendation": "Keep gate logic in MODE: validate section only; remove redundant Statistical Validation Gates section",
+      "effort": "MEDIUM"
+    },
+    {
+      "id": "OPT-005",
+      "strategy": "schema_reference",
+      "title": "Replace Output JSON Example with Schema Reference",
+      "current_location": "lines 404-435",
+      "target_doc": "schemas/backtester.schema.json",
+      "overlap_percentage": 0.75,
+      "tokens_saved": 125,
+      "confidence": 0.75,
+      "value_score": 2.34,
+      "replacement_text": "### Backtest Result Schema\n\nSee `schemas/backtester.schema.json` for complete output contract.\n\nKey fields: `status`, `hypothesis_id`, `metrics` (sharpe_raw, sharpe_deflated, deflation_factor), `validation_gates`, `verdict`, `next_action`.",
+      "effort": "LOW"
+    },    {
+      "id": "OPT-006",
+      "strategy": "fix_references",
+      "title": "Update Knowledge Base with Precise Paths",
+      "current_location": "lines 469-476",
+      "tokens_saved": 0,
+      "confidence": 0.90,
+      "value_score": 0,
+      "recommendation": "Update directory references to precise file paths (e.g., skills/hypothesis-tracking/ -> skills/hypothesis-tracking/SKILL.md)",
+      "effort": "LOW",
+      "note": "No token savings but improves reference accuracy"
+    }
+  ],
+  "savings_metadata": {
+    "total_tokens_saveable": 635,
+    "high_confidence_savings": 360,
+    "accuracy_range": "+/- 5%",
+    "percentage_reduction": "19.9%",
+    "post_optimization_tokens": 2556
+  },
+  "varma_update_context": {
+    "description": "User context: Backtester needs updates for Varma-style reactive risk management",
+    "required_additions": [
+      {
+        "feature": "Regime-adjusted gate thresholds",
+        "description": "HIGH regime = lower Sharpe threshold (e.g., 0.20 vs 0.30)",
+        "suggested_location": "MODE: validate section or new docs/regime-gates.md",
+        "estimated_tokens": 80
+      },      {
+        "feature": "Regime context in backtest verdict JSON",
+        "description": "Include regime classification in output schema",
+        "suggested_location": "Output Structure section, update schemas/backtester.schema.json",
+        "estimated_tokens": 40
+      },
+      {
+        "feature": "Regime consistency across walk-forward windows",
+        "description": "Track regime CV metric across rolling windows",
+        "suggested_location": "walk_forward mode section",
+        "estimated_tokens": 60
+      }
+    ],
+    "net_token_impact": "After optimization (-635) and Varma additions (+180) = net -455 tokens"
+  },
+  "inline_retention_recommendations": [
+    {
+      "section": "Cardinal Rule: ONE RUN PER HYPOTHESIS",
+      "reason": "Critical identity/behavior - must be immediately visible",
+      "tokens": 150
+    },
+    {
+      "section": "Anti-Patterns / Good Patterns",
+      "reason": "Essential guardrails - quick reference needed",
+      "tokens": 120
+    },
+    {
+      "section": "Modes table",
+      "reason": "Mode detection is core functionality",
+      "tokens": 85
+    },    {
+      "section": "Error Recovery table",
+      "reason": "Operational reference - needed during execution",
+      "tokens": 75
+    }
+  ],
+  "recommendations_summary": {
+    "immediate_actions": [
+      "OPT-001: Externalize DSR formula (175 tokens, confidence 0.92)",
+      "OPT-002: Externalize tier gates table (85 tokens, confidence 0.95)",
+      "OPT-006: Fix Knowledge Base references (clarity improvement)"
+    ],
+    "secondary_actions": [
+      "OPT-003: Consolidate regime classification (100 tokens, confidence 0.88)",
+      "OPT-005: Schema reference for output (125 tokens, confidence 0.75)"
+    ],
+    "deferred_actions": [
+      "OPT-004: Merge duplicate gate sections (requires structural review)"
+    ],
+    "varma_integration_note": "Before implementing Varma updates, apply OPT-001 and OPT-002 to create headroom. New regime-adjusted thresholds should be added to gate-thresholds.md (canonical source), then referenced from agent."
+  }
+}

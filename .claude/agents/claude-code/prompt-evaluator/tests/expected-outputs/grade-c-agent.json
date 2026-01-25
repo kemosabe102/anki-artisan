@@ -1,0 +1,215 @@
+{
+  "$schema": "../../schemas/prompt-evaluator.schema.json",
+  "_test_metadata": {
+    "description": "Expected output for grade-c-agent.md evaluation",
+    "variance_thresholds": {
+      "overall_grade": "+-1 letter (C->B or C->D acceptable)",
+      "weighted_score": "+-0.3",
+      "structural_score": "+-2/16",
+      "confidence": "+-0.1"
+    },
+    "last_updated": "2025-11-30"
+  },
+  "status": "SUCCESS",
+  "agent": "prompt-evaluator",
+  "operation_type": "evaluate_agent",
+  "summary": "Mediocre agent with significant gaps in structure, workflow, and error handling.",
+  "confidence": 0.85,
+  "agent_specific_output": {
+    "evaluation_summary": {
+      "agent_name": "test-grade-c-agent",
+      "overall_grade": "C",
+      "risk_level": "LOW",
+      "agent_type": "Analyzer",
+      "evaluation_timestamp": "{{DYNAMIC}}"
+    },
+    "structural_quality": {
+      "score": "6/16",
+      "percentage": 37.5,
+      "passing_criteria": [
+        { "criterion": "Frontmatter compliance", "evidence": "grade-c-agent.md:1-6 - Valid YAML with name, description, model, tools" },
+        { "criterion": "Performance-first tool selection", "evidence": "grade-c-agent.md:5 - Read, Grep (Tier 1 tools)" },
+        { "criterion": "Single responsibility mentioned", "evidence": "grade-c-agent.md:9 - Agent purpose stated (vaguely)" },
+        { "criterion": "Workflow exists", "evidence": "grade-c-agent.md:17-20 - Basic 3-step workflow" },
+        { "criterion": "Tools listed", "evidence": "grade-c-agent.md:13-15 - Tools mentioned" },
+        { "criterion": "Output mentioned", "evidence": "grade-c-agent.md:26 - Returns JSON" }
+      ],
+      "failing_criteria": [
+        { "criterion": "Scope discipline", "evidence": "No explicit boundaries documented", "fix_guidance": "Add Role & Boundaries section with explicit scope limits" },
+        { "criterion": "Domain scope properly limited", "evidence": "No directory restrictions", "fix_guidance": "Specify allowed directories/file patterns" },
+        { "criterion": "Schema compliance", "evidence": "No schema reference", "fix_guidance": "Add Schema Reference section extending base-agent.schema.json" },
+        { "criterion": "Base pattern extension", "evidence": "No base pattern reference", "fix_guidance": "Add Base Agent Pattern Extension section" },
+        { "criterion": "Two-state model", "evidence": "No SUCCESS/FAILURE structure", "fix_guidance": "Document two-state output model per base-agent.schema.json" },
+        { "criterion": "Workflow structure (6 phases)", "evidence": "Only 3 vague steps", "fix_guidance": "Expand to Analysis->Research->Todo->Implementation->Validation->Reflection" },
+        { "criterion": "File operation protocol compliance", "evidence": "No protocol reference", "fix_guidance": "Reference file-operation-protocol.md" },
+        { "criterion": "Tool descriptions (new team member standard)", "evidence": "grade-c-agent.md:13-15 - Generic descriptions", "fix_guidance": "Explain when/why to use each tool with examples" },
+        { "criterion": "Explicit context", "evidence": "Relies on implicit assumptions", "fix_guidance": "Document all decision criteria explicitly" },
+        { "criterion": "Parallel execution awareness", "evidence": "No parallelization guidance", "fix_guidance": "Add section on when to parallelize vs serialize" }
+      ]
+    },
+    "prompt_engineering_quality": {
+      "score": 2.8,
+      "grade": "C",
+      "principle_scores": [
+        { "principle": "Role assignment", "score": 2, "evidence": "grade-c-agent.md:9 - Vague role definition" },
+        { "principle": "Clarity & directness", "score": 2, "evidence": "grade-c-agent.md - Ambiguous instructions throughout" },
+        { "principle": "Data-instruction separation", "score": 3, "evidence": "Basic markdown sections but no clear separation" },
+        { "principle": "Output formatting", "score": 2, "evidence": "grade-c-agent.md:26 - Only mentions 'JSON' without structure" },
+        { "principle": "Step-by-step thinking", "score": 2, "evidence": "grade-c-agent.md:17-20 - 3 vague steps" },
+        { "principle": "Example usage", "score": 1, "evidence": "No examples provided" },
+        { "principle": "Hallucination prevention", "score": 2, "evidence": "No confidence scoring or evidence requirements" },
+        { "principle": "XML tag structure", "score": 3, "evidence": "Basic markdown headings only" },
+        { "principle": "Layered complexity", "score": 2, "evidence": "Flat structure, no progressive disclosure" }
+      ],
+      "strengths": [
+        "Valid frontmatter format",
+        "Basic workflow structure present"
+      ],
+      "weaknesses": [
+        "Vague role definition lacking boundaries",
+        "No examples or demonstrations",
+        "Missing confidence scoring requirements",
+        "Flat document structure",
+        "Generic tool descriptions"
+      ]
+    },
+    "token_optimization": {
+      "current_tokens": 280,
+      "optimization_potential": 0,
+      "optimization_percentage": 0,
+      "priority_optimizations": [
+        {
+          "technique": "Content expansion needed (not optimization)",
+          "savings": -500,
+          "effort": "high",
+          "priority_score": 0.9,
+          "implementation": "Agent is too minimal - needs content addition, not reduction"
+        }
+      ]
+    },
+    "testing_strategy": {
+      "current_approach": "None documented",
+      "required_approach": "Quality Matrix + Schema + Spot checks (LOW risk agent)",
+      "gaps": [
+        "No schema reference for validation",
+        "No test cases or validation examples",
+        "No error handling for test scenarios"
+      ],
+      "recommended_actions": [
+        { "action": "Add schema reference", "priority": "major", "framework": "Pydantic" },
+        { "action": "Document SUCCESS/FAILURE states", "priority": "major", "framework": "base-agent.schema.json" },
+        { "action": "Add example input/output pairs", "priority": "minor", "framework": "Quality Matrix" }
+      ]
+    },
+    "issues": {
+      "critical": [],
+      "major": [
+        {
+          "issue": "Missing schema reference",
+          "evidence": "No Schema Reference section in agent definition",
+          "fix_guidance": "Add Schema Reference section extending base-agent.schema.json",
+          "priority_score": 0.85
+        },
+        {
+          "issue": "No base pattern extension",
+          "evidence": "Agent does not reference base-agent-pattern.md",
+          "fix_guidance": "Add Base Agent Pattern Extension section to inherit common patterns",
+          "priority_score": 0.80
+        },
+        {
+          "issue": "Vague workflow with only 3 generic steps",
+          "evidence": "grade-c-agent.md:17-20 - 'Get input, Do analysis, Return results'",
+          "fix_guidance": "Expand to 6-phase workflow: Analysis->Research->Todo->Implementation->Validation->Reflection",
+          "priority_score": 0.75
+        },
+        {
+          "issue": "No error handling documentation",
+          "evidence": "grade-c-agent.md:22 - Only 'If something goes wrong, it will fail'",
+          "fix_guidance": "Add Error Recovery section with specific error types and recovery strategies",
+          "priority_score": 0.70
+        }
+      ],
+      "minor": [
+        {
+          "issue": "Generic tool descriptions",
+          "evidence": "grade-c-agent.md:13-15 - 'reads files', 'searches for patterns'",
+          "fix_guidance": "Explain when/why to use each tool, include examples",
+          "priority_score": 0.45
+        },
+        {
+          "issue": "Description too short",
+          "evidence": "grade-c-agent.md:3 - Only 6 words",
+          "fix_guidance": "Expand description with trigger keywords and NOT-for cases",
+          "priority_score": 0.40
+        }
+      ]
+    },
+    "recommended_improvements": {
+      "immediate_actions": [
+        {
+          "action": "Add Schema Reference section",
+          "rationale": "Required for output validation and two-state model compliance",
+          "impact": "Structural score +2/16, enables proper validation",
+          "priority_score": 0.85
+        },
+        {
+          "action": "Add Base Agent Pattern Extension section",
+          "rationale": "Inherits common patterns, saves token budget for agent-specific content",
+          "impact": "Structural score +1/16, better maintainability",
+          "priority_score": 0.80
+        },
+        {
+          "action": "Expand workflow to 6 phases",
+          "rationale": "Current 3-step workflow is too vague for reliable execution",
+          "impact": "Structural score +1/16, Prompt Engineering score +1.0",
+          "priority_score": 0.75
+        }
+      ],
+      "short_term_actions": [
+        {
+          "action": "Add Error Recovery section",
+          "rationale": "Documents failure modes and recovery strategies",
+          "impact": "Structural score +1/16, improved reliability",
+          "priority_score": 0.70
+        },
+        {
+          "action": "Add Role & Boundaries section",
+          "rationale": "Defines explicit scope and boundaries",
+          "impact": "Structural score +2/16, Prompt Engineering score +0.5",
+          "priority_score": 0.65
+        }
+      ],
+      "long_term_optimizations": [
+        {
+          "action": "Add example input/output pairs",
+          "rationale": "Improves clarity and reduces ambiguity"
+        },
+        {
+          "action": "Add Parallel Execution Awareness section",
+          "rationale": "Documents when to parallelize operations"
+        }
+      ]
+    },
+    "anti_patterns_detected": [
+      {
+        "pattern": "Missing base pattern reference",
+        "severity": "major",
+        "locations": ["grade-c-agent.md - entire file"],
+        "fix": "Add 'This agent EXTENDS: base-agent-pattern.md' section"
+      },
+      {
+        "pattern": "Vague tool descriptions",
+        "severity": "minor",
+        "locations": ["grade-c-agent.md:13-15"],
+        "fix": "Expand tool descriptions to meet 'new team member' standard"
+      }
+    ],
+    "confidence_scores": {
+      "structural_evaluation": 0.90,
+      "prompt_engineering": 0.85,
+      "token_analysis": 0.80,
+      "testing_assessment": 0.75,
+      "overall_confidence": 0.85
+    }
+  }
+}

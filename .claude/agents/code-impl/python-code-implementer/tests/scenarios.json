@@ -1,0 +1,117 @@
+{
+  "schema_path": "../schemas/python-code-implementer.schema.json",
+  "test_cases": [
+    {
+      "name": "valid_success_output",
+      "description": "Complete SUCCESS output with all required fields",
+      "expected": "valid",
+      "input": {
+        "status": "SUCCESS",
+        "agent": "python-code-implementer",
+        "operation_type": "feature_implementation",
+        "agent_specific_output": {
+          "tdd_evidence": {
+            "existing_tests_found": ["tests/unit/test_example.py:10-25"],
+            "tests_created": [],
+            "pre_impl_test_run": null,
+            "post_impl_test_run": "4 passed in 0.2s"
+          },
+          "declared_scope": {
+            "files_to_modify": ["packages/example/module.py"],
+            "files_read_only": [],
+            "rationale": "Single module implementation"
+          },
+          "almanac_check": {
+            "checked": true,
+            "existing_components_found": [],
+            "reuse_decision": "new_required",
+            "justification": "No existing components match requirements"
+          },
+          "files_modified": [{"path": "packages/example/module.py", "change_type": "modified", "lines_changed": 25, "description": "Added feature X"}],
+          "implementation_summary": "Implemented feature X",
+          "pre_flight_checks_passed": true,
+          "standards_compliance": {"coding_guidelines_validated": true},
+          "security_verification": {
+            "path_validation": {"applied": true, "evidence": "N/A: no user paths"},
+            "subprocess_safety": {"applied": true, "evidence": "N/A: no subprocess"},
+            "regex_safety": {"applied": true, "evidence": "N/A: no regex"},
+            "input_validation": {"applied": true, "evidence": "N/A: no external input"},
+            "secret_handling": {"applied": true, "evidence": "Verified: no secrets"}
+          },
+          "self_review_results": {
+            "correctness": {"passed": true, "evidence": "Verified by test"},
+            "readability": {"passed": true, "evidence": "Clean code"},
+            "maintainability": {"passed": true, "evidence": "Single responsibility"},
+            "security": {"passed": true, "evidence": "See security_verification"},
+            "performance": {"passed": true, "evidence": "N/A"},
+            "standards": {"passed": true, "evidence": "Linter clean"}
+          },
+          "next_actions": []
+        }
+      }
+    },
+    {
+      "name": "missing_tdd_evidence",
+      "description": "SUCCESS missing required tdd_evidence field",
+      "expected": "invalid",
+      "expected_error": "tdd_evidence",
+      "input": {
+        "status": "SUCCESS",
+        "agent": "python-code-implementer",
+        "operation_type": "feature_implementation",
+        "agent_specific_output": {
+          "declared_scope": {"files_to_modify": ["packages/example/module.py"]},
+          "almanac_check": {"checked": true},
+          "files_modified": [],
+          "implementation_summary": "Test",
+          "pre_flight_checks_passed": true,
+          "standards_compliance": {},
+          "security_verification": {},
+          "self_review_results": {},
+          "next_actions": []
+        }
+      }
+    },
+    {
+      "name": "invalid_self_review_structure",
+      "description": "self_review_results using booleans instead of objects",
+      "expected": "invalid",
+      "expected_error": "self_review_results",
+      "input": {
+        "status": "SUCCESS",
+        "agent": "python-code-implementer",
+        "operation_type": "feature_implementation",
+        "agent_specific_output": {
+          "tdd_evidence": {"existing_tests_found": [], "post_impl_test_run": "passed"},
+          "declared_scope": {"files_to_modify": []},
+          "almanac_check": {"checked": true},
+          "files_modified": [],
+          "implementation_summary": "Test",
+          "pre_flight_checks_passed": true,
+          "standards_compliance": {},
+          "security_verification": {},
+          "self_review_results": {
+            "correctness": true,
+            "readability": true
+          },
+          "next_actions": []
+        }
+      }
+    },
+    {
+      "name": "valid_failure_output",
+      "description": "FAILURE output with required fields",
+      "expected": "valid",
+      "input": {
+        "status": "FAILURE",
+        "agent": "python-code-implementer",
+        "operation_type": "feature_implementation",
+        "failure_details": {
+          "failure_type": "tdd_gate_violation",
+          "reasons": ["No tests found"],
+          "recovery_suggestions": [{"approach": "Create tests first", "rationale": "TDD workflow"}]
+        }
+      }
+    }
+  ]
+}

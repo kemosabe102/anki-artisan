@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PostgresSchemaSpecialistOutput",
+  "description": "Output schema for postgres-schema-specialist agent responses",
+  "type": "object",
+  "required": ["status", "agent", "confidence", "agent_specific_output"],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["SUCCESS", "FAILURE"],
+      "description": "Overall operation status"
+    },
+    "agent": {
+      "type": "string",
+      "const": "postgres-schema-specialist",
+      "description": "Agent identifier"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence score for the output (0.0-1.0)"
+    },
+    "error_type": {
+      "type": "string",
+      "enum": ["insufficient_context", "normalization_violation", "lock_timeout_risk", "invalid_constraint", "migration_conflict"],
+      "description": "Error classification when status is FAILURE"
+    },
+    "agent_specific_output": {
+      "type": "object",
+      "description": "Mode-specific output data",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["design_schema", "create_migration", "design_indexes", "setup_hypertable", "design_constraints", "design_backup_strategy"],
+          "description": "The mode that was executed"
+        },
+        "ddl_script": {
+          "type": "string",
+          "description": "Generated DDL script (CREATE TABLE, ALTER TABLE, etc.)"
+        },
+        "normalization_level": {
+          "type": "string",
+          "enum": ["1NF", "2NF", "3NF", "BCNF", "denormalized"],
+          "description": "Achieved normalization level for schema design"
+        },
+        "design_decisions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of design decisions with rationale"
+        },
+        "migration": {
+          "type": "object",
+          "properties": {
+            "version": { "type": "string", "description": "Migration version identifier" },
+            "up_script": { "type": "string", "description": "Forward migration SQL" },
+            "down_script": { "type": "string", "description": "Rollback migration SQL" },
+            "lock_analysis": {
+              "type": "object",
+              "properties": {
+                "lock_type": { "type": "string", "enum": ["ACCESS EXCLUSIVE", "SHARE UPDATE EXCLUSIVE", "ROW EXCLUSIVE", "SHARE", "NONE"] },
+                "estimated_duration": { "type": "string" },
+                "recommendation": { "type": "string" }
+              }
+            }
+          },
+          "description": "Migration details for create_migration mode"
+        },
+        "indexes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "index_name": { "type": "string" },
+              "index_type": { "type": "string", "enum": ["btree", "hash", "gin", "gist", "brin"] },
+              "create_statement": { "type": "string" },
+              "design_rationale": { "type": "string" }
+            }
+          },
+          "description": "Designed indexes for design_indexes mode"
+        },
+        "hypertable": {
+          "type": "object",
+          "properties": {
+            "table_name": { "type": "string" },
+            "time_column": { "type": "string" },
+            "chunk_interval": { "type": "string" },
+            "compression_policy": { "type": "string" },
+            "retention_policy": { "type": "string" },
+            "setup_script": { "type": "string" }
+          },
+          "description": "Hypertable configuration for setup_hypertable mode"
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "constraint_name": { "type": "string" },
+              "constraint_type": { "type": "string", "enum": ["CHECK", "UNIQUE", "PRIMARY KEY", "FOREIGN KEY", "EXCLUSION"] },
+              "definition": { "type": "string" },
+              "validation_impact": { "type": "string" }
+            }
+          },
+          "description": "Designed constraints for design_constraints mode"
+        },
+        "backup_strategy": {
+          "type": "object",
+          "properties": {
+            "method": { "type": "string", "enum": ["pg_dump", "pg_basebackup", "wal_archiving", "continuous_archiving"] },
+            "schedule": { "type": "string" },
+            "retention": { "type": "string" },
+            "rto": { "type": "string" },
+            "rpo": { "type": "string" },
+            "recovery_procedure": { "type": "string" }
+          },
+          "description": "Backup strategy for design_backup_strategy mode"
+        }
+      }
+    }
+  }
+}

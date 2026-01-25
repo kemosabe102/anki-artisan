@@ -1,0 +1,609 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "context-readiness-assessor.schema.json",
+  "version": "1.1.0",
+  "versionHistory": {
+    "1.0.0": "Initial schema with intent-analyzer dependency",
+    "1.1.0": "Made intent_analysis optional, added degraded mode support"
+  },
+  "migrationNotes": "v1.0.0 -> v1.1.0: No breaking changes for consumers. intent_analysis now optional.",
+  "title": "Context Readiness Assessor Schema",
+  "description": "Input/output schema for context quality assessment and research coordination (ORIENT phase of OODA loop)",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique identifier for the context assessment task"
+        },
+        "intent_analysis": {
+          "type": "object",
+          "description": "Optional: Output from intent-analyzer agent (OBSERVE phase). If not provided, agent operates in degraded mode extracting intents from task_description.",
+          "properties": {
+            "intents_identified": {
+              "type": "array",
+              "items": { "type": "object" },
+              "description": "User intents from OBSERVE phase (optional - will be extracted from task_description if missing)"
+            },
+            "task_graph": {
+              "type": "object",
+              "description": "Task dependency graph from intent analysis (optional - single-node graph assumed if missing)"
+            },
+            "implicit_requirements": {
+              "type": "array",
+              "items": { "type": "object" },
+              "description": "Inferred requirements from OBSERVE phase"
+            }
+          }
+        },
+        "task_description": {
+          "type": "string",
+          "description": "Detailed description of the task to assess context for"
+        },
+        "domain_scope": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Directories/files involved (e.g., 'packages/core/**', 'docs/01-planning/**')"
+        },
+        "requirements": {
+          "type": "object",
+          "properties": {
+            "explicit": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Explicitly stated requirements"
+            },
+            "implicit": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Inferred requirements from context"
+            },
+            "constraints": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Constraints on the implementation"
+            }
+          },
+          "description": "Requirements and constraints for the task"
+        },
+        "previous_iteration": {
+          "type": "object",
+          "description": "Results from previous ORIENT iteration (if this is iteration 2 or 3)",
+          "properties": {
+            "iteration_number": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2,
+              "description": "Previous iteration number (1 or 2)"
+            },
+            "context_quality_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Context quality from previous iteration"
+            },
+            "information_gaps": {
+              "type": "array",
+              "items": { "type": "object" },
+              "description": "Remaining gaps from previous iteration"
+            }
+          }
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator (mandatory)"
+        }
+      },
+      "required": [
+        "task_id",
+        "task_description",
+        "domain_scope",
+        "execution_timestamp"
+      ],
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Context Assessment Success",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "agent": { "const": "context-readiness-assessor" },
+            "task_id": { "type": "string" },
+            "operation_type": { "const": "assess_context_readiness" },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence summary of context quality assessment and gate status"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in context quality assessment"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "properties": {
+                "context_quality_score": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "Overall context quality score (0.0-1.0)"
+                },
+                "component_scores": {
+                  "type": "object",
+                  "properties": {
+                    "domain_familiarity": {
+                      "type": "object",
+                      "properties": {
+                        "score": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "description": "Understanding of technology domain and business context (40% weight)"
+                        },
+                        "rationale": {
+                          "type": "string",
+                          "description": "Explanation of score based on domain knowledge, documentation, prior work"
+                        },
+                        "evidence": {
+                          "type": "array",
+                          "items": { "type": "string" },
+                          "description": "Evidence supporting this score (files reviewed, docs checked, etc.)"
+                        }
+                      },
+                      "required": ["score", "rationale"],
+                      "description": "Domain familiarity component (40% weight in Context_Quality)"
+                    },
+                    "pattern_clarity": {
+                      "type": "object",
+                      "properties": {
+                        "score": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "description": "Recognition of existing patterns in codebase (30% weight)"
+                        },
+                        "rationale": {
+                          "type": "string",
+                          "description": "Explanation of score based on pattern documentation, examples, consistency"
+                        },
+                        "evidence": {
+                          "type": "array",
+                          "items": { "type": "string" },
+                          "description": "Evidence supporting this score (pattern files found, architectural docs, etc.)"
+                        }
+                      },
+                      "required": ["score", "rationale"],
+                      "description": "Pattern clarity component (30% weight in Context_Quality)"
+                    },
+                    "dependency_understanding": {
+                      "type": "object",
+                      "properties": {
+                        "score": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "description": "Knowledge of component interactions and dependencies (20% weight)"
+                        },
+                        "rationale": {
+                          "type": "string",
+                          "description": "Explanation of score based on dependency mapping, integration points"
+                        },
+                        "evidence": {
+                          "type": "array",
+                          "items": { "type": "string" },
+                          "description": "Evidence supporting this score (dependency files, integration diagrams, etc.)"
+                        }
+                      },
+                      "required": ["score", "rationale"],
+                      "description": "Dependency understanding component (20% weight in Context_Quality)"
+                    },
+                    "risk_awareness": {
+                      "type": "object",
+                      "properties": {
+                        "score": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "description": "Identification of failure modes and security concerns (10% weight)"
+                        },
+                        "rationale": {
+                          "type": "string",
+                          "description": "Explanation of score based on risk identification, failure modes, mitigations"
+                        },
+                        "evidence": {
+                          "type": "array",
+                          "items": { "type": "string" },
+                          "description": "Evidence supporting this score (security docs, error handling analysis, etc.)"
+                        }
+                      },
+                      "required": ["score", "rationale"],
+                      "description": "Risk awareness component (10% weight in Context_Quality)"
+                    }
+                  },
+                  "required": [
+                    "domain_familiarity",
+                    "pattern_clarity",
+                    "dependency_understanding",
+                    "risk_awareness"
+                  ],
+                  "description": "Breakdown of Context_Quality into 4 weighted components"
+                },
+                "gate_status": {
+                  "enum": ["PASS", "GATHER_MORE_CONTEXT", "BLOCKED"],
+                  "description": "Gate decision: PASS (>=0.85), GATHER_MORE_CONTEXT (<0.85, iteration <3), BLOCKED (<0.85, iteration=3)"
+                },
+                "iteration_count": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3,
+                  "description": "Number of ORIENT iterations executed (0 = initial assessment, 1-3 = research iterations)"
+                },
+                "information_gaps": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "gap_id": {
+                        "type": "string",
+                        "description": "Unique identifier for this gap (e.g., 'GAP-DF-001')"
+                      },
+                      "component": {
+                        "enum": [
+                          "domain_familiarity",
+                          "pattern_clarity",
+                          "dependency_understanding",
+                          "risk_awareness"
+                        ],
+                        "description": "Which Context_Quality component this gap affects"
+                      },
+                      "gap_description": {
+                        "type": "string",
+                        "description": "Clear description of missing information"
+                      },
+                      "severity": {
+                        "enum": ["critical", "high", "medium", "low"],
+                        "description": "Impact severity of this gap on implementation success"
+                      },
+                      "recommended_agent": {
+                        "type": "string",
+                        "description": "Agent best suited to address this gap (e.g., 'researcher-codebase')"
+                      },
+                      "resolution_status": {
+                        "enum": ["unresolved", "in_progress", "resolved", "blocked"],
+                        "description": "Current status of gap resolution"
+                      }
+                    },
+                    "required": [
+                      "gap_id",
+                      "component",
+                      "gap_description",
+                      "severity",
+                      "recommended_agent",
+                      "resolution_status"
+                    ]
+                  },
+                  "description": "Identified information gaps with severity and recommended agents (empty if Context_Quality >= 0.85)"
+                },
+                "research_summary": {
+                  "type": "string",
+                  "description": "Compressed summary of research findings (if agents were coordinated). Empty if no research needed."
+                },
+                "ready_for_implementation": {
+                  "type": "boolean",
+                  "description": "Whether implementation can proceed (true if gate_status = PASS, false otherwise)"
+                },
+                "improvement_tracking": {
+                  "type": "object",
+                  "properties": {
+                    "baseline_score": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1,
+                      "description": "Initial Context_Quality before any research (iteration 0)"
+                    },
+                    "iteration_deltas": {
+                      "type": "array",
+                      "items": {
+                        "type": "number",
+                        "description": "Improvement per iteration (e.g., [+0.18, +0.12, +0.04])"
+                      },
+                      "maxItems": 3,
+                      "description": "Array of Context_Quality improvements per iteration"
+                    },
+                    "total_improvement": {
+                      "type": "number",
+                      "description": "Sum of all iteration deltas (final_score - baseline_score)"
+                    },
+                    "diminishing_returns_detected": {
+                      "type": "boolean",
+                      "description": "Whether diminishing returns were detected (delta < 0.1 in any iteration)"
+                    },
+                    "diminishing_returns_iteration": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 3,
+                      "description": "Iteration number where diminishing returns detected (if applicable)"
+                    }
+                  },
+                  "required": [
+                    "baseline_score",
+                    "iteration_deltas",
+                    "total_improvement",
+                    "diminishing_returns_detected"
+                  ],
+                  "description": "Tracking of Context_Quality improvement across iterations"
+                },
+                "research_completed": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "agent": {
+                        "enum": [
+                          "researcher-codebase",
+                          "researcher-external",
+                          "researcher-lead",
+                          "tech-debt-investigator",
+                          "python-code-reviewer",
+                          "spec-reviewer",
+                          "architecture-review",
+                          "technical-pm",
+                          "git-github"
+                        ],
+                        "description": "Agent that performed research"
+                      },
+                      "iteration": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 3,
+                        "description": "Iteration number when this research was performed"
+                      },
+                      "findings_summary": {
+                        "type": "string",
+                        "description": "Compressed summary of agent's findings (key insights only)"
+                      },
+                      "confidence": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1,
+                        "description": "Confidence in research findings"
+                      },
+                      "impact_on_components": {
+                        "type": "object",
+                        "properties": {
+                          "domain_familiarity": {
+                            "type": "number",
+                            "description": "Impact on domain_familiarity score (e.g., +0.2, 0 if no impact)"
+                          },
+                          "pattern_clarity": {
+                            "type": "number",
+                            "description": "Impact on pattern_clarity score (e.g., +0.15, 0 if no impact)"
+                          },
+                          "dependency_understanding": {
+                            "type": "number",
+                            "description": "Impact on dependency_understanding score (e.g., +0.1, 0 if no impact)"
+                          },
+                          "risk_awareness": {
+                            "type": "number",
+                            "description": "Impact on risk_awareness score (e.g., +0.25, 0 if no impact)"
+                          }
+                        },
+                        "description": "How research findings improved each Context_Quality component"
+                      }
+                    },
+                    "required": [
+                      "agent",
+                      "iteration",
+                      "findings_summary",
+                      "confidence",
+                      "impact_on_components"
+                    ]
+                  },
+                  "description": "List of research agents coordinated and their findings (empty if no research needed)"
+                },
+                "coordination_metadata": {
+                  "type": "object",
+                  "properties": {
+                    "total_agents_coordinated": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 10,
+                      "description": "Total number of agents coordinated across all iterations"
+                    },
+                    "parallel_coordination_used": {
+                      "type": "boolean",
+                      "description": "Whether parallel agent coordination was used (max 5 simultaneously)"
+                    },
+                    "time_budget_remaining": {
+                      "type": "number",
+                      "description": "Remaining time budget in seconds (5-minute timeout per iteration)"
+                    },
+                    "compression_ratio": {
+                      "type": "number",
+                      "minimum": 1,
+                      "description": "Compression ratio achieved (input tokens / output tokens, target ≥10:1)"
+                    }
+                  },
+                  "required": ["total_agents_coordinated"],
+                  "description": "Metadata about research coordination process"
+                }
+              },
+              "required": [
+                "context_quality_score",
+                "component_scores",
+                "gate_status",
+                "iteration_count",
+                "information_gaps",
+                "research_summary",
+                "ready_for_implementation",
+                "improvement_tracking",
+                "research_completed"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "task_id",
+            "operation_type",
+            "summary",
+            "confidence",
+            "execution_timestamp",
+            "agent_specific_output"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Context Assessment Failure",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "agent": { "const": "context-readiness-assessor" },
+            "task_id": { "type": "string" },
+            "operation_type": { "const": "assess_context_readiness" },
+            "summary": {
+              "type": "string",
+              "description": "Summary of why context assessment failed"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in failure diagnosis"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "failure_details": {
+              "type": "object",
+              "properties": {
+                "failure_type": {
+                  "enum": [
+                    "context_quality_blocked",
+                    "insufficient_context",
+                    "no_viable_research_agents",
+                    "timeout_exceeded",
+                    "calculation_error",
+                    "invalid_input",
+                    "analysis_error"
+                  ],
+                  "description": "Primary type of failure"
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "minItems": 1,
+                  "description": "Specific reasons why context assessment failed"
+                },
+                "final_context_quality_score": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "Final Context_Quality score achieved (if calculable)"
+                },
+                "iterations_executed": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3,
+                  "description": "Number of iterations completed before failure"
+                },
+                "information_gaps": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "component": {
+                        "enum": [
+                          "domain_familiarity",
+                          "pattern_clarity",
+                          "dependency_understanding",
+                          "risk_awareness"
+                        ],
+                        "description": "Which component has the gap"
+                      },
+                      "gap": {
+                        "type": "string",
+                        "description": "Description of missing information"
+                      },
+                      "severity": {
+                        "enum": ["critical", "high", "medium", "low"],
+                        "description": "Gap severity"
+                      },
+                      "recommended_action": {
+                        "type": "string",
+                        "description": "Suggested action to resolve this gap"
+                      }
+                    },
+                    "required": ["component", "gap", "severity", "recommended_action"]
+                  },
+                  "description": "Remaining information gaps that prevented success"
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "minItems": 1,
+                  "description": "Suggested approaches to resolve the failure"
+                },
+                "escalation_reason": {
+                  "type": "string",
+                  "description": "Why manual escalation is required (if gate_status = BLOCKED)"
+                },
+                "improvement_tracking": {
+                  "type": "object",
+                  "properties": {
+                    "baseline_score": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1,
+                      "description": "Initial Context_Quality"
+                    },
+                    "iteration_deltas": {
+                      "type": "array",
+                      "items": { "type": "number" },
+                      "description": "Improvements per iteration (may show diminishing returns)"
+                    },
+                    "total_improvement": {
+                      "type": "number",
+                      "description": "Total improvement achieved before failure"
+                    },
+                    "diminishing_returns_detected": {
+                      "type": "boolean",
+                      "description": "Whether diminishing returns caused early escalation"
+                    }
+                  },
+                  "required": ["baseline_score", "total_improvement"],
+                  "description": "Tracking of improvement attempts before failure"
+                }
+              },
+              "required": ["failure_type", "reasons", "recovery_suggestions"]
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "task_id",
+            "operation_type",
+            "summary",
+            "confidence",
+            "execution_timestamp",
+            "failure_details"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "required": ["input", "output"]
+}

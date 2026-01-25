@@ -1,0 +1,66 @@
+# Decision Snapshot Examples
+# These examples show the machine-readable decision format with rationale tracking
+
+# Example 1: Authentication Technology Decision
+authentication_decision:
+  id: 'DEC-AUTH-001'
+  area: 'authentication'
+  decision: 'OAuth2 with PKCE'
+  rationale: 'Security policy compliance + mobile app support + industry standard'
+  alternatives: ['JWT-only authentication', 'Basic Auth with sessions']
+  context_used:
+    - 'research-summary.md#auth-comparison@commit:abc123'
+    - 'security-policy.md@commit:def456 §V.2'
+    - 'mobile-requirements.md@commit:ghi789 §3.1'
+  impact_scope: ['services/auth/login.py', 'gateway/middleware.py', 'mobile/auth-client.ts']
+  reversibility: 'Medium'
+  decision_hash: 'sha256:a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456'
+  context_pinned: true
+
+# Example 2: Database Choice Decision
+database_decision:
+  id: 'DEC-DATA-001'
+  area: 'database'
+  decision: 'PostgreSQL with connection pooling'
+  rationale: 'ACID compliance required + JSON support + team expertise'
+  alternatives: ['MongoDB for document storage', 'SQLite for simplicity']
+  context_used:
+    - 'research-summary.md#database-eval@commit:xyz987'
+    - 'performance-requirements.md@commit:uvw654 §2.3'
+    - 'team-skills-matrix.md@commit:rst321'
+  impact_scope: ['config/database.yaml', 'models/', 'migrations/', 'docker-compose.yml']
+  reversibility: 'Low'
+  decision_hash: 'sha256:fedcba0987654321098765432109876543210abcdef0987654321fedcba098765'
+  context_pinned: true
+
+# Example 3: API Framework Decision
+framework_decision:
+  id: 'DEC-API-001'
+  area: 'api-framework'
+  decision: 'FastAPI with Pydantic v2'
+  rationale: 'Type safety + auto-documentation + async support + validation'
+  alternatives: ['Django REST Framework', 'Flask with Marshmallow']
+  context_used:
+    - 'research-summary.md#framework-comparison@commit:lmn456'
+    - 'performance-targets.md@commit:opq789 §1.2'
+    - 'Context7: FastAPI async patterns'
+  impact_scope: ['services/api/', 'models/schemas.py', 'requirements.txt']
+  reversibility: 'High'
+  decision_hash: 'sha256:123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef01'
+  context_pinned: true
+
+# Example 4: Testing Strategy Decision
+testing_decision:
+  id: 'DEC-TEST-001'
+  area: 'testing'
+  decision: 'Pytest with async support + httpx for integration tests'
+  rationale: 'Async compatibility + powerful fixtures + HTTP client integration'
+  alternatives: ['unittest with asyncio', 'pytest + requests library']
+  context_used:
+    - 'research-summary.md#testing-async@commit:bcd890'
+    - 'testing-requirements.md@commit:efg234 §4.1'
+    - 'Context7: pytest async patterns'
+  impact_scope: ['tests/', 'conftest.py', 'pyproject.toml']
+  reversibility: 'Medium'
+  decision_hash: 'sha256:abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789ab'
+  context_pinned: true

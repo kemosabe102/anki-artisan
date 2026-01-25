@@ -1,0 +1,573 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "workflow.schema.json",
+  "version": "2.2.0",
+  "title": "Workflow Unified Schema",
+  "description": "Consolidated input/output schema for Claude Code workflow ecosystem management operations with two-state model",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "type": "string",
+          "description": "Primary instruction field defining what workflow agent should accomplish"
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator (mandatory)"
+        },
+        "operation": {
+          "enum": [
+            "build_workflow",
+            "sync_ecosystem",
+            "optimize_workflow",
+            "create_command",
+            "maintain_registry",
+            "analyze_bottlenecks",
+            "update_documentation",
+            "create_automation",
+            "pre_mortem",
+            "analyze_failures"
+          ],
+          "description": "Type of workflow operation to perform"
+        },
+        "operation_id": {
+          "type": "string",
+          "pattern": "^[0-9A-HJKMNP-TV-Z]{26}$|^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+          "description": "ULID or UUID for operation idempotency and tracing"
+        },
+        "apply_mode": {
+          "enum": ["dry_run", "commit"],
+          "default": "commit",
+          "description": "dry_run for simulation, commit to apply changes to files"
+        },
+        "workflow_details": {
+          "type": "object",
+          "properties": {
+            "workflow_name": { "type": "string" },
+            "workflow_type": {
+              "enum": [
+                "slash_command",
+                "hook_automation",
+                "sub_agent_coordination",
+                "progress_tracking",
+                "documentation_sync"
+              ]
+            },
+            "integration_points": { "type": "array", "items": { "type": "string" } },
+            "command_config": {
+              "type": "object",
+              "properties": {
+                "command_name": { "type": "string" },
+                "description": { "type": "string" },
+                "allowed_tools": { "type": "array", "items": { "type": "string" } },
+                "model": { "type": "string" },
+                "workflow_integration": { "type": "string" }
+              }
+            }
+          }
+        },
+        "optimization_target": {
+          "type": "object",
+          "properties": {
+            "bottlenecks": { "type": "array", "items": { "type": "string" } },
+            "efficiency_metrics": { "type": "object" },
+            "developer_experience": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "sync_requirements": {
+          "type": "object",
+          "properties": {
+            "documents_to_sync": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "path": { "type": "string" },
+                  "sections": { "type": "array", "items": { "type": "string" } },
+                  "priority": { "enum": ["critical", "high", "medium", "low"] }
+                },
+                "required": ["path"]
+              }
+            },
+            "living_sprint_updates": { "type": "boolean" },
+            "roadmap_integration": { "type": "boolean" },
+            "startup_eval_updates": { "type": "boolean" }
+          }
+        },
+        "validation_config": {
+          "type": "object",
+          "properties": {
+            "enable_smoke_testing": { "type": "boolean", "default": true },
+            "auto_fix_paths": { "type": "boolean", "default": true },
+            "claude_code_compliance_check": { "type": "boolean", "default": true },
+            "dry_run_validation": { "type": "boolean", "default": true }
+          }
+        }
+      },
+      "required": ["context", "execution_timestamp", "operation"]
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Workflow Success",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "agent": { "const": "workflow" },
+            "task_id": { "type": "string" },
+            "operation_type": {
+              "enum": [
+                "build_workflow",
+                "sync_ecosystem",
+                "optimize_workflow",
+                "create_command",
+                "maintain_registry",
+                "analyze_bottlenecks",
+                "update_documentation",
+                "create_automation",
+                "pre_mortem",
+                "analyze_failures"
+              ]
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence executive summary of workflow operation completed"
+            },
+            "validation_checklist": {
+              "type": "object",
+              "properties": {
+                "checks_performed": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "List of workflow validation checks performed"
+                },
+                "all_checks_passed": {
+                  "const": true,
+                  "description": "Must be true for SUCCESS status"
+                },
+                "check_details": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "check_name": { "type": "string" },
+                      "status": { "const": "passed" },
+                      "evidence": { "type": "string" },
+                      "validation_method": {
+                        "enum": [
+                          "smoke_testing",
+                          "compliance_check",
+                          "path_validation",
+                          "integration_testing"
+                        ]
+                      }
+                    },
+                    "required": ["check_name", "status", "evidence", "validation_method"]
+                  }
+                }
+              },
+              "required": ["checks_performed", "all_checks_passed", "check_details"]
+            },
+            "success_evidence": {
+              "type": "object",
+              "properties": {
+                "operation_result": {
+                  "type": "object",
+                  "properties": {
+                    "workflow_created": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "type": "string" },
+                        "type": { "type": "string" },
+                        "file_path": { "type": "string" },
+                        "integration_points": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "maturity_level": {
+                          "enum": ["concept", "mvp", "alpha", "beta", "ga"]
+                        }
+                      }
+                    },
+                    "sync_completed": {
+                      "type": "object",
+                      "properties": {
+                        "documents_updated": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "living_sprint_changes": { "type": "string" },
+                        "roadmap_updates": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "startup_eval_changes": { "type": "string" },
+                        "consistency_status": { "type": "string" }
+                      }
+                    },
+                    "optimization_applied": {
+                      "type": "object",
+                      "properties": {
+                        "bottlenecks_addressed": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "efficiency_improvements": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "developer_experience_enhancements": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "performance_metrics": { "type": "object" }
+                      }
+                    },
+                    "command_created": {
+                      "type": "object",
+                      "properties": {
+                        "command_name": { "type": "string" },
+                        "file_path": { "type": "string" },
+                        "description": { "type": "string" },
+                        "workflow_integration": { "type": "string" }
+                      }
+                    },
+                    "registry_updated": {
+                      "type": "object",
+                      "properties": {
+                        "workflows_added": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "workflows_updated": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "registry_validation": { "type": "string" }
+                      }
+                    },
+                    "documentation_updated": {
+                      "type": "object",
+                      "properties": {
+                        "guides_created": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "integration_maps_updated": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "workflow_patterns_documented": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        }
+                      }
+                    },
+                    "automation_created": {
+                      "type": "object",
+                      "properties": {
+                        "hooks_created": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "validation_rules": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "progress_tracking_enabled": { "type": "boolean" }
+                      }
+                    }
+                  }
+                },
+                "provenance": {
+                  "type": "object",
+                  "properties": {
+                    "operation_id": { "type": "string" },
+                    "inputs_hash": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+                    "apply_mode": { "enum": ["dry_run", "commit"] },
+                    "processing_time_ms": { "type": "integer", "minimum": 0 }
+                  },
+                  "required": ["operation_id", "inputs_hash", "apply_mode"]
+                },
+                "validation_results": {
+                  "type": "object",
+                  "properties": {
+                    "smoke_testing_passed": { "type": "boolean" },
+                    "compliance_check_passed": { "type": "boolean" },
+                    "path_validation_passed": { "type": "boolean" },
+                    "files_validated": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  },
+                  "required": [
+                    "smoke_testing_passed",
+                    "compliance_check_passed",
+                    "path_validation_passed"
+                  ]
+                },
+                "changes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "path": { "type": "string" },
+                      "action": { "enum": ["create", "update", "delete"] },
+                      "summary": { "type": "string" }
+                    },
+                    "required": ["path", "action"]
+                  }
+                },
+                "next_actions": { "type": "array", "items": { "type": "string" } }
+              },
+              "required": [
+                "operation_result",
+                "provenance",
+                "validation_results",
+                "changes",
+                "next_actions"
+              ]
+            },
+            "sources": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Documentation sources consulted during workflow operations"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in the workflow operation results"
+            },
+            "severity": {
+              "enum": ["Critical", "Major", "Minor"],
+              "description": "Severity level of any identified issues"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "task_id",
+            "operation_type",
+            "summary",
+            "validation_checklist",
+            "success_evidence",
+            "confidence",
+            "severity",
+            "execution_timestamp"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Workflow Failure",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "agent": { "const": "workflow" },
+            "task_id": { "type": "string" },
+            "operation_type": {
+              "enum": [
+                "build_workflow",
+                "sync_ecosystem",
+                "optimize_workflow",
+                "create_command",
+                "maintain_registry",
+                "analyze_bottlenecks",
+                "update_documentation",
+                "create_automation",
+                "pre_mortem",
+                "analyze_failures"
+              ]
+            },
+            "summary": {
+              "type": "string",
+              "description": "Summary of why workflow operation failed"
+            },
+            "validation_checklist": {
+              "type": "object",
+              "properties": {
+                "checks_performed": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "List of validation checks attempted"
+                },
+                "all_checks_passed": {
+                  "const": false,
+                  "description": "Must be false for FAILURE status"
+                },
+                "failed_checks": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "check_name": { "type": "string" },
+                      "status": { "const": "failed" },
+                      "reason": { "type": "string" },
+                      "evidence": { "type": "string" }
+                    },
+                    "required": ["check_name", "status", "reason"]
+                  },
+                  "minItems": 1
+                },
+                "passed_checks": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "check_name": { "type": "string" },
+                      "status": { "const": "passed" },
+                      "evidence": { "type": "string" }
+                    },
+                    "required": ["check_name", "status", "evidence"]
+                  }
+                }
+              },
+              "required": ["checks_performed", "all_checks_passed", "failed_checks"]
+            },
+            "failure_details": {
+              "type": "object",
+              "properties": {
+                "failure_type": {
+                  "enum": [
+                    "missing_information",
+                    "validation_error",
+                    "execution_error",
+                    "resource_error",
+                    "compliance_failure",
+                    "integration_error"
+                  ],
+                  "description": "Primary type of failure"
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Specific reasons why workflow operation cannot be completed"
+                },
+                "missing": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Missing information, files, or configuration needed"
+                },
+                "errors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "error_code": { "type": "string" },
+                      "message": { "type": "string" },
+                      "hint": { "type": "string" },
+                      "context": {
+                        "type": "object",
+                        "properties": {
+                          "operation_phase": {
+                            "enum": [
+                              "initialization",
+                              "validation",
+                              "workflow_build",
+                              "sync",
+                              "optimization",
+                              "documentation",
+                              "automation"
+                            ]
+                          },
+                          "failed_operation": { "type": "string" },
+                          "path_validation_details": {
+                            "type": "object",
+                            "properties": {
+                              "invalid_paths": {
+                                "type": "array",
+                                "items": { "type": "string" }
+                              },
+                              "missing_files": {
+                                "type": "array",
+                                "items": { "type": "string" }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "required": ["error_code", "message"]
+                  }
+                },
+                "proposed_next_steps": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Actionable next steps to resolve the failure"
+                },
+                "partial_results": {
+                  "type": "object",
+                  "description": "Any workflow work completed before failure",
+                  "properties": {
+                    "files_created": { "type": "array", "items": { "type": "string" } },
+                    "validation_partial": { "type": "object" },
+                    "sync_partial": { "type": "object" }
+                  }
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "strategy": { "type": "string" },
+                      "description": { "type": "string" },
+                      "estimated_effort": { "enum": ["low", "medium", "high"] },
+                      "success_probability": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      }
+                    },
+                    "required": ["strategy", "description"]
+                  }
+                }
+              },
+              "required": ["failure_type", "reasons", "proposed_next_steps"]
+            },
+            "sources": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Sources researched before failure"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in failure analysis"
+            },
+            "severity": {
+              "enum": ["Critical", "Major", "Minor"],
+              "description": "Severity level of the failure"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "task_id",
+            "operation_type",
+            "summary",
+            "validation_checklist",
+            "failure_details",
+            "confidence",
+            "severity",
+            "execution_timestamp"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "required": ["input", "output"]
+}

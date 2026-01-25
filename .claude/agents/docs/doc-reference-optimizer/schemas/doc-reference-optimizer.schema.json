@@ -1,0 +1,385 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Doc Reference Optimizer Agent Schema",
+  "description": "Schema for doc-reference-optimizer agent that analyzes agent prompts for documentation reference optimization opportunities",
+  "version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "type": "string",
+          "description": "Agent optimization task with agent name and optional sections to analyze"
+        },
+        "agent_name": {
+          "type": "string",
+          "description": "Name of agent to analyze (e.g., 'researcher-codebase')"
+        },
+        "sections": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Optional specific sections to analyze (default: all sections)",
+          "examples": [["Knowledge Base Integration", "Pre-Flight Checklist"]]
+        },
+        "optimization_depth": {
+          "type": "string",
+          "enum": ["quick", "standard", "comprehensive"],
+          "default": "standard",
+          "description": "Depth of analysis to perform"
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator (mandatory)"
+        }
+      },
+      "required": ["context", "agent_name", "execution_timestamp"]
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Success Output",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "agent": { "const": "doc-reference-optimizer" },
+            "task_id": { "type": "string" },
+            "operation_type": { "const": "optimize_agent" },
+            "summary": {
+              "type": "string",
+              "description": "Executive summary of optimization analysis",
+              "examples": ["Found 5 optimization opportunities saving 1,300 tokens (37% reduction)"]
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Overall confidence in optimization recommendations"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "properties": {
+                "analysis_summary": {
+                  "type": "object",
+                  "properties": {
+                    "agent_analyzed": {
+                      "type": "string",
+                      "description": "Name of agent analyzed"
+                    },
+                    "current_token_count": {
+                      "type": "number",
+                      "description": "Current token count of agent"
+                    },
+                    "optimized_token_count": {
+                      "type": "number",
+                      "description": "Projected token count after optimization"
+                    },
+                    "potential_savings": {
+                      "type": "number",
+                      "description": "Total token savings potential"
+                    },
+                    "compression_ratio": {
+                      "type": "string",
+                      "description": "Percentage reduction (e.g., '37% reduction')"
+                    },
+                    "sections_analyzed": {
+                      "type": "number",
+                      "description": "Number of sections analyzed"
+                    }
+                  },
+                  "required": [
+                    "agent_analyzed",
+                    "current_token_count",
+                    "optimized_token_count",
+                    "potential_savings",
+                    "compression_ratio",
+                    "sections_analyzed"
+                  ]
+                },
+                "optimization_opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "section": {
+                        "type": "string",
+                        "description": "Section name (e.g., 'Knowledge Base Integration')"
+                      },
+                      "current_location": {
+                        "type": "string",
+                        "description": "File path and line numbers (e.g., '.claude/agents/agent.md:120-150')"
+                      },
+                      "current_tokens": {
+                        "type": "number",
+                        "description": "Current token count for this section"
+                      },
+                      "optimization_strategy": {
+                        "type": "string",
+                        "enum": ["reference_existing", "extend_base", "create_new", "keep_inline"],
+                        "description": "Recommended optimization strategy"
+                      },
+                      "documentation_match": {
+                        "type": "object",
+                        "properties": {
+                          "path": {
+                            "type": "string",
+                            "description": "Path to matching documentation guide"
+                          },
+                          "section": {
+                            "type": "string",
+                            "description": "Matching section in guide"
+                          },
+                          "overlap_percentage": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 100,
+                            "description": "Percentage overlap between agent section and guide"
+                          },
+                          "overlap_description": {
+                            "type": "string",
+                            "description": "Description of content overlap"
+                          }
+                        },
+                        "required": ["path", "overlap_percentage"]
+                      },
+                      "optimized_tokens": {
+                        "type": "number",
+                        "description": "Projected token count after optimization (reference overhead)"
+                      },
+                      "savings": {
+                        "type": "number",
+                        "description": "Token savings for this optimization"
+                      },
+                      "savings_metadata": {
+                        "type": "object",
+                        "description": "Metadata about token savings estimation methodology and accuracy",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": ["estimated", "validated"],
+                            "description": "Whether savings are estimated or validated by implementation"
+                          },
+                          "accuracy": {
+                            "type": "string",
+                            "description": "Expected accuracy range (e.g., '±10%', '±20%')"
+                          },
+                          "methodology": {
+                            "type": "string",
+                            "description": "Calculation methodology used (e.g., 'character_based_div_4')"
+                          },
+                          "conservative": {
+                            "type": "boolean",
+                            "description": "Whether conservative assumptions were used (worst-case overhead)"
+                          },
+                          "validation_recommended": {
+                            "type": "boolean",
+                            "description": "Whether manual validation is recommended before implementation"
+                          }
+                        },
+                        "required": ["type", "accuracy", "methodology", "conservative"]
+                      },
+                      "confidence": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1,
+                        "description": "Confidence in this specific recommendation"
+                      },
+                      "recommendation": {
+                        "type": "string",
+                        "description": "Specific actionable recommendation text"
+                      }
+                    },
+                    "required": [
+                      "section",
+                      "current_location",
+                      "current_tokens",
+                      "optimization_strategy",
+                      "optimized_tokens",
+                      "savings",
+                      "confidence",
+                      "recommendation"
+                    ]
+                  }
+                },
+                "documentation_gaps": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "gap_description": {
+                        "type": "string",
+                        "description": "Description of missing documentation pattern"
+                      },
+                      "content_pattern": {
+                        "type": "string",
+                        "description": "Description of content pattern that should be documented"
+                      },
+                      "affected_agents": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "List of agents sharing this pattern"
+                      },
+                      "total_savings": {
+                        "type": "number",
+                        "description": "Total token savings across all affected agents"
+                      },
+                      "suggested_doc_path": {
+                        "type": "string",
+                        "description": "Suggested path for new documentation guide"
+                      },
+                      "confidence": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1,
+                        "description": "Confidence in gap identification"
+                      }
+                    },
+                    "required": [
+                      "gap_description",
+                      "affected_agents",
+                      "total_savings",
+                      "suggested_doc_path",
+                      "confidence"
+                    ]
+                  }
+                },
+                "agent_specific_content": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "section": {
+                        "type": "string",
+                        "description": "Section name"
+                      },
+                      "tokens": {
+                        "type": "number",
+                        "description": "Token count of section"
+                      },
+                      "keep_reason": {
+                        "type": "string",
+                        "description": "Reason to keep inline (unique to agent, not shared)"
+                      }
+                    },
+                    "required": ["section", "tokens", "keep_reason"]
+                  }
+                }
+              },
+              "required": ["analysis_summary", "optimization_opportunities"]
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "confidence",
+            "execution_timestamp",
+            "agent_specific_output"
+          ]
+        },
+        {
+          "title": "Failure Output",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "agent": { "const": "doc-reference-optimizer" },
+            "task_id": { "type": "string" },
+            "operation_type": { "const": "optimize_agent" },
+            "summary": {
+              "type": "string",
+              "description": "Summary of why optimization analysis failed"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence in failure analysis"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "failure_details": {
+              "type": "object",
+              "properties": {
+                "failure_type": {
+                  "type": "string",
+                  "enum": [
+                    "agent_not_found",
+                    "parse_error",
+                    "no_optimization_opportunities",
+                    "documentation_missing"
+                  ],
+                  "description": "Primary type of failure"
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Specific reasons why analysis failed"
+                },
+                "research_attempted": {
+                  "type": "object",
+                  "properties": {
+                    "agent_file": {
+                      "type": "string",
+                      "description": "Agent file path attempted"
+                    },
+                    "documentation_searched": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "Documentation paths searched"
+                    },
+                    "sections_parsed": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "Sections successfully parsed before failure"
+                    }
+                  },
+                  "required": ["agent_file"]
+                },
+                "partial_results": {
+                  "type": "object",
+                  "properties": {
+                    "sections_analyzed": {
+                      "type": "number",
+                      "description": "Number of sections analyzed before failure"
+                    },
+                    "potential_savings": {
+                      "type": "number",
+                      "description": "Partial savings identified before failure"
+                    }
+                  }
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "approach": {
+                        "type": "string",
+                        "description": "Suggested recovery approach"
+                      },
+                      "rationale": {
+                        "type": "string",
+                        "description": "Why this approach might work"
+                      }
+                    },
+                    "required": ["approach", "rationale"]
+                  }
+                }
+              },
+              "required": ["failure_type", "reasons"]
+            }
+          },
+          "required": ["status", "agent", "confidence", "execution_timestamp", "failure_details"]
+        }
+      ]
+    }
+  },
+  "required": ["input", "output"]
+}

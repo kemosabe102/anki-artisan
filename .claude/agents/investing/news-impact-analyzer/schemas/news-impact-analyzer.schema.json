@@ -1,0 +1,222 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "news-impact-analyzer.schema.json",
+  "title": "News Impact Analyzer Schema",
+  "description": "Input/output contract for news-impact-analyzer agent",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/definitions/SuccessResponse" },
+    { "$ref": "#/definitions/FailureResponse" }
+  ],
+  "definitions": {
+    "SuccessResponse": {
+      "type": "object",
+      "required": ["status", "analysis_date", "regime_context", "events_analyzed", "impact_predictions", "composite_metrics"],
+      "properties": {
+        "status": { "const": "SUCCESS" },
+        "analysis_date": { 
+          "type": "string", 
+          "format": "date",
+          "description": "Analysis date in YYYY-MM-DD format"
+        },
+        "regime_context": { "$ref": "#/definitions/RegimeContext" },
+        "events_analyzed": { 
+          "type": "integer", 
+          "minimum": 0,
+          "description": "Number of risk events analyzed"
+        },
+        "impact_predictions": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/ImpactPrediction" }
+        },
+        "composite_metrics": { "$ref": "#/definitions/CompositeMetrics" },
+        "next_observation_points": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Key observation points for monitoring"
+        }
+      }
+    },
+    "FailureResponse": {
+      "type": "object",
+      "required": ["status", "failure_category", "error_details", "recovery_suggestions"],
+      "properties": {
+        "status": { "const": "FAILURE" },
+        "failure_category": {
+          "type": "string",
+          "enum": ["data_unavailable", "query_error", "insufficient_history", "regime_data_stale", "connection_failure"]
+        },
+        "error_details": { "type": "string" },
+        "recovery_suggestions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "partial_results": {
+          "type": "object",
+          "properties": {
+            "regime_context": { "$ref": "#/definitions/RegimeContext" }
+          }
+        }
+      }
+    },
+    "RegimeContext": {
+      "type": "object",
+      "required": ["classification", "score", "multiplier", "total_multiplier"],
+      "properties": {
+        "classification": {
+          "type": "string",
+          "enum": ["risk_off", "neutral", "risk_on"],
+          "description": "Market regime classification"
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Composite regime score (0-100)"
+        },
+        "multiplier": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 2.0,
+          "description": "Base regime multiplier"
+        },
+        "fragility_amplification": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 2.5,
+          "description": "Dalio structural fragility amplification"
+        },
+        "total_multiplier": {
+          "type": "number",
+          "minimum": 0.25,
+          "maximum": 5.0,
+          "description": "Combined multiplier (regime * fragility)"
+        },
+        "macro_context": {
+          "type": "object",
+          "properties": {
+            "debt_cycle_phase": {
+              "type": "string",
+              "enum": ["EARLY", "MID", "LATE", "DELEVERAGING"]
+            },
+            "policy_bias": {
+              "type": "string",
+              "enum": ["EASING", "NEUTRAL", "TIGHTENING"]
+            },
+            "inflation_regime": {
+              "type": "string",
+              "enum": ["DISINFLATION", "STABLE", "REFLATION", "STAGFLATION"]
+            }
+          }
+        },
+        "data_freshness": {
+          "type": "object",
+          "properties": {
+            "risk_sentiment_age_days": { "type": "integer", "minimum": 0 },
+            "fragility_age_days": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "ImpactPrediction": {
+      "type": "object",
+      "required": ["event_id", "category", "severity", "confidence", "baseline_impact", "adjusted_impact", "scenarios"],
+      "properties": {
+        "event_id": { "type": "string" },
+        "category": {
+          "type": "string",
+          "enum": ["geopolitical", "macro", "health", "regulatory", "tech"]
+        },
+        "severity": { "type": "number", "minimum": 0, "maximum": 100 },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "baseline_impact": { "type": "number", "description": "Historical average impact %" },
+        "adjusted_impact": { "type": "number", "description": "Regime-adjusted impact %" },
+        "escalation_status": {
+          "type": "string",
+          "enum": ["new", "escalating", "de-escalating", "stable"]
+        },
+        "escalation_adjustment": { "type": "number" },
+        "contagion_premium": { "type": "number", "minimum": 0, "maximum": 0.25 },
+        "historical_analogues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": { "type": "string", "format": "date" },
+              "event": { "type": "string" },
+              "impact_1w": { "type": "number" }
+            }
+          }
+        },
+        "scenarios": { "$ref": "#/definitions/Scenarios" },
+        "sectors_affected": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "key_risks": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "Scenarios": {
+      "type": "object",
+      "required": ["bear_case", "base_case", "bull_case"],
+      "properties": {
+        "bear_case": { "$ref": "#/definitions/ScenarioDetail" },
+        "base_case": { "$ref": "#/definitions/ScenarioDetail" },
+        "bull_case": { "$ref": "#/definitions/ScenarioDetail" }
+      }
+    },
+    "ScenarioDetail": {
+      "type": "object",
+      "required": ["1d", "1w", "1m", "probability", "trigger"],
+      "properties": {
+        "1d": { "type": "number", "description": "1-day impact %" },
+        "1w": { "type": "number", "description": "1-week impact %" },
+        "1m": { "type": "number", "description": "1-month impact %" },
+        "probability": { "type": "number", "minimum": 0, "maximum": 1 },
+        "trigger": { "type": "string", "description": "Scenario trigger condition" }
+      }
+    },
+    "CompositeMetrics": {
+      "type": "object",
+      "required": ["msi_macro_shock_index"],
+      "properties": {
+        "msi_macro_shock_index": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Macro Shock Index (0-100)"
+        },
+        "ssi_by_sector": {
+          "type": "object",
+          "additionalProperties": { "type": "number" },
+          "description": "Sector Sensitivity Index by sector"
+        }
+      }
+    },
+    "AnalysisInput": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Analysis date (YYYY-MM-DD), defaults to today"
+        },
+        "category_filter": {
+          "type": "string",
+          "enum": ["all", "geopolitical", "macro", "health", "regulatory", "tech"],
+          "default": "all"
+        },
+        "min_severity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 40,
+          "description": "Minimum severity threshold"
+        }
+      }
+    }
+  }
+}

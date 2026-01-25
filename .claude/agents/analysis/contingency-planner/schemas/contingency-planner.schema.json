@@ -1,0 +1,324 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "contingency-planner.schema.json",
+  "title": "Contingency Planner Agent Schema",
+  "description": "Schema for contingency-planner agent performing failure mode analysis, fallback strategy generation, and adaptive retry planning for OODA DECIDE phase",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "../../../docs/shared/schemas/base-agent.schema.json"
+    }
+  ],
+  "properties": {
+    "input": {
+      "type": "object",
+      "description": "Input schema for contingency planning - receives hypotheses from ORCHESTRATOR ONLY",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task identifier from orchestrator"
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator (mandatory)"
+        },
+        "hypotheses": {
+          "type": "array",
+          "description": "Solution hypotheses provided by orchestrator",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hypothesis_id": {
+                "type": "string",
+                "description": "Unique identifier for hypothesis"
+              },
+              "approach": {
+                "type": "string",
+                "description": "Solution approach description"
+              },
+              "confidence_score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Orchestrator's confidence in this hypothesis (0.0-1.0)"
+              },
+              "agents_required": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Agents needed for execution"
+              },
+              "complexity": {
+                "type": "string",
+                "enum": ["low", "medium", "high"],
+                "description": "Complexity level of approach"
+              },
+              "risk_factors": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Known risk factors identified by orchestrator"
+              }
+            },
+            "required": ["hypothesis_id", "approach", "agents_required"]
+          },
+          "minItems": 1,
+          "maxItems": 5
+        },
+        "context_quality": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Context quality score from orchestrator ORIENT phase"
+        },
+        "task_context": {
+          "type": "object",
+          "description": "Additional task context for failure mode analysis",
+          "properties": {
+            "user_request": {
+              "type": "string",
+              "description": "Original user request"
+            },
+            "domain": {
+              "type": "string",
+              "description": "Domain scope (e.g., .claude/**, packages/**, docs/**)"
+            },
+            "constraints": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Known constraints or limitations"
+            }
+          }
+        }
+      },
+      "required": ["task_id", "execution_timestamp", "hypotheses"]
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Success Output",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "agent": { "const": "contingency-planner" },
+            "task_id": { "type": "string" },
+            "operation_type": { "const": "generate_contingencies" },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence summary of contingency planning results"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence in contingency plan completeness"
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "description": "Contingency-planner specific output structure",
+              "properties": {
+                "failure_modes_identified": {
+                  "type": "array",
+                  "description": "Potential failure scenarios per hypothesis",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "failure_id": { "type": "string" },
+                      "hypothesis_id": { "type": "string" },
+                      "failure_type": {
+                        "type": "string",
+                        "enum": ["agent_timeout", "schema_validation_fail", "resource_exhaustion", "boundary_violation", "dependency_failure", "tool_error", "context_insufficient", "rate_limit_exceeded", "permission_denied", "data_corruption"]
+                      },
+                      "likelihood": { "type": "string", "enum": ["low", "medium", "high"] },
+                      "impact": { "type": "string", "enum": ["low", "medium", "high"] },
+                      "risk_score": { "type": "number", "minimum": 0, "maximum": 1 },
+                      "detection_method": { "type": "string" },
+                      "affected_agents": { "type": "array", "items": { "type": "string" } }
+                    },
+                    "required": ["failure_id", "hypothesis_id", "failure_type", "likelihood", "impact", "risk_score", "detection_method"]
+                  },
+                  "minItems": 1
+                },
+                "fallback_strategies": {
+                  "type": "array",
+                  "description": "Alternative approaches when primary hypothesis fails",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "strategy_id": { "type": "string" },
+                      "trigger_condition": { "type": "string" },
+                      "triggering_failures": { "type": "array", "items": { "type": "string" } },
+                      "fallback_approach": { "type": "string" },
+                      "fallback_hypothesis_id": { "type": "string" },
+                      "fallback_agents": { "type": "array", "items": { "type": "string" } },
+                      "expected_success_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+                      "resource_requirements": {
+                        "type": "object",
+                        "properties": {
+                          "estimated_time": { "type": "string" },
+                          "estimated_tokens": { "type": "string" },
+                          "agent_count": { "type": "integer", "minimum": 0 }
+                        }
+                      }
+                    },
+                    "required": ["strategy_id", "trigger_condition", "triggering_failures", "fallback_approach", "fallback_agents"]
+                  },
+                  "minItems": 1
+                },
+                "retry_plans": {
+                  "type": "array",
+                  "description": "Retry logic with max attempts and backoff strategy",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "plan_id": { "type": "string" },
+                      "applies_to_failures": { "type": "array", "items": { "type": "string" } },
+                      "max_attempts": { "type": "integer", "minimum": 1, "maximum": 5 },
+                      "backoff_strategy": { "type": "string", "enum": ["none", "linear", "exponential", "fibonacci"] },
+                      "backoff_intervals": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "attempt": { "type": "integer", "minimum": 1 },
+                            "delay_seconds": { "type": "number", "minimum": 0 }
+                          }
+                        }
+                      },
+                      "retry_conditions": { "type": "array", "items": { "type": "string" } },
+                      "abort_conditions": { "type": "array", "items": { "type": "string" } },
+                      "escalation_trigger": { "type": "string" },
+                      "escalation_path": { "type": "string" }
+                    },
+                    "required": ["plan_id", "applies_to_failures", "max_attempts", "backoff_strategy", "escalation_path"]
+                  },
+                  "minItems": 1
+                },
+                "circuit_breakers": {
+                  "type": "array",
+                  "description": "Hard limits and emergency stop conditions",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "breaker_id": { "type": "string" },
+                      "condition": { "type": "string" },
+                      "threshold": {
+                        "type": "object",
+                        "properties": {
+                          "metric": { "type": "string", "enum": ["consecutive_failures", "total_time_elapsed", "token_budget_exceeded", "agent_count_exceeded", "iteration_limit_reached"] },
+                          "value": { "type": ["number", "string"] }
+                        },
+                        "required": ["metric", "value"]
+                      },
+                      "action": { "type": "string", "enum": ["abort", "escalate", "simplify", "degrade"] },
+                      "action_details": { "type": "string" },
+                      "reset_condition": { "type": "string" }
+                    },
+                    "required": ["breaker_id", "condition", "threshold", "action"]
+                  }
+                },
+                "risk_assessment": {
+                  "type": "object",
+                  "description": "Overall risk analysis and mitigation summary",
+                  "properties": {
+                    "overall_risk_score": { "type": "number", "minimum": 0, "maximum": 1 },
+                    "risk_distribution": {
+                      "type": "object",
+                      "properties": {
+                        "high_risk_failures": { "type": "integer", "minimum": 0 },
+                        "medium_risk_failures": { "type": "integer", "minimum": 0 },
+                        "low_risk_failures": { "type": "integer", "minimum": 0 }
+                      },
+                      "required": ["high_risk_failures", "medium_risk_failures", "low_risk_failures"]
+                    },
+                    "mitigation_coverage": { "type": "number", "minimum": 0, "maximum": 1 },
+                    "critical_failure_modes": { "type": "array", "items": { "type": "string" } },
+                    "recommended_hypothesis": { "type": "string" }
+                  },
+                  "required": ["overall_risk_score", "risk_distribution", "mitigation_coverage"]
+                },
+                "escalation_triggers": {
+                  "type": "array",
+                  "description": "Conditions requiring human intervention",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "trigger_id": { "type": "string" },
+                      "condition": { "type": "string" },
+                      "severity": { "type": "string", "enum": ["warning", "critical", "blocker"] },
+                      "escalation_message": { "type": "string" },
+                      "recommended_action": { "type": "string" },
+                      "context_to_preserve": { "type": "array", "items": { "type": "string" } }
+                    },
+                    "required": ["trigger_id", "condition", "severity", "escalation_message", "recommended_action"]
+                  }
+                },
+                "execution_plan": {
+                  "type": "object",
+                  "description": "Recommended execution sequence with contingencies",
+                  "properties": {
+                    "primary_path": { "type": "string" },
+                    "checkpoint_strategy": { "type": "string" },
+                    "rollback_enabled": { "type": "boolean" },
+                    "estimated_success_probability": { "type": "number", "minimum": 0, "maximum": 1 }
+                  },
+                  "required": ["primary_path", "estimated_success_probability"]
+                }
+              },
+              "required": ["failure_modes_identified", "fallback_strategies", "retry_plans", "risk_assessment", "escalation_triggers", "execution_plan"]
+            },
+            "sources": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["status", "agent", "task_id", "operation_type", "execution_timestamp", "summary", "confidence", "agent_specific_output", "sources"]
+        },
+        {
+          "title": "Failure Output",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "agent": { "const": "contingency-planner" },
+            "task_id": { "type": "string" },
+            "operation_type": { "const": "generate_contingencies" },
+            "execution_timestamp": { "type": "string", "format": "date-time" },
+            "summary": { "type": "string" },
+            "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+            "failure_details": {
+              "type": "object",
+              "properties": {
+                "failure_type": {
+                  "type": "string",
+                  "enum": ["insufficient_input", "hypothesis_analysis_failed", "risk_assessment_failed", "strategy_generation_failed", "schema_violation", "timeout"]
+                },
+                "reasons": { "type": "array", "items": { "type": "string" } },
+                "partial_results": {
+                  "type": "object",
+                  "properties": {
+                    "failure_modes_analyzed": { "type": "integer" },
+                    "strategies_generated": { "type": "integer" },
+                    "hypotheses_processed": { "type": "array", "items": { "type": "string" } }
+                  }
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "approach": { "type": "string" },
+                      "rationale": { "type": "string" }
+                    },
+                    "required": ["approach", "rationale"]
+                  }
+                }
+              },
+              "required": ["failure_type", "reasons", "recovery_suggestions"]
+            }
+          },
+          "required": ["status", "agent", "task_id", "operation_type", "execution_timestamp", "summary", "confidence", "failure_details"]
+        }
+      ]
+    }
+  },
+  "required": ["input", "output"]
+}

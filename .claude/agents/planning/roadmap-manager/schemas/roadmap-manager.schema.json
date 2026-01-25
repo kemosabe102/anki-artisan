@@ -1,0 +1,1064 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Roadmap Manager Agent Schema",
+  "description": "Schema for roadmap-manager agent operations: status updates, sprint management, AI best practices, sprint transitions, cross-reference validation, health metrics",
+  "version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "description": "Input for roadmap manager operations",
+      "properties": {
+        "context": {
+          "type": "string",
+          "description": "Operation context: update_roadmap_status, manage_sprint_progress, apply_ai_best_practices, automate_sprint_transition, validate_cross_references, generate_health_metrics"
+        },
+        "operation_type": {
+          "type": "string",
+          "enum": [
+            "update_roadmap_status",
+            "manage_sprint_progress",
+            "apply_ai_best_practices",
+            "automate_sprint_transition",
+            "validate_cross_references",
+            "generate_health_metrics",
+            "create_roadmap"
+          ],
+          "description": "Type of roadmap operation to perform"
+        },
+        "target_files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Roadmap files to update (paths relative to docs/00-project/)"
+        },
+        "update_data": {
+          "type": "object",
+          "description": "Operation-specific data (status values, sprint details, optimization focus, validation scope)",
+          "additionalProperties": true
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator (mandatory)"
+        }
+      },
+      "required": [
+        "context",
+        "operation_type",
+        "execution_timestamp"
+      ]
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Success Output",
+          "properties": {
+            "status": {
+              "const": "SUCCESS"
+            },
+            "agent": {
+              "type": "string",
+              "const": "roadmap-manager"
+            },
+            "task_id": {
+              "type": "string",
+              "description": "Unique task identifier"
+            },
+            "operation_type": {
+              "type": "string",
+              "enum": [
+                "update_roadmap_status",
+                "manage_sprint_progress",
+                "apply_ai_best_practices",
+                "automate_sprint_transition",
+                "validate_cross_references",
+                "generate_health_metrics",
+                "create_roadmap"
+              ]
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence summary of roadmap operation completed"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence in operation success and data accuracy"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "description": "Operation-specific results",
+              "oneOf": [
+                {
+                  "title": "Roadmap Status Update Output",
+                  "properties": {
+                    "updated_files": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of roadmap files modified"
+                    },
+                    "status_changes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "file": {
+                            "type": "string"
+                          },
+                          "field": {
+                            "type": "string"
+                          },
+                          "old_value": {
+                            "type": "string"
+                          },
+                          "new_value": {
+                            "type": "string"
+                          },
+                          "line_number": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "file",
+                          "field",
+                          "old_value",
+                          "new_value"
+                        ]
+                      }
+                    },
+                    "cross_references_updated": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Files with synchronized cross-references"
+                    },
+                    "completion_percentage": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100,
+                      "description": "Overall roadmap completion percentage"
+                    },
+                    "validation_passed": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "updated_files",
+                    "status_changes",
+                    "validation_passed"
+                  ]
+                },
+                {
+                  "title": "Sprint Progress Management Output",
+                  "properties": {
+                    "sprint_number": {
+                      "type": "integer"
+                    },
+                    "sprint_focus": {
+                      "type": "string"
+                    },
+                    "capacity_status": {
+                      "type": "object",
+                      "properties": {
+                        "large_streams": {
+                          "type": "object",
+                          "properties": {
+                            "count": {
+                              "type": "integer",
+                              "maximum": 3
+                            },
+                            "max": {
+                              "const": 3
+                            },
+                            "hours": {
+                              "type": "number"
+                            },
+                            "compliance": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "small_streams": {
+                          "type": "object",
+                          "properties": {
+                            "count": {
+                              "type": "integer",
+                              "maximum": 2
+                            },
+                            "max": {
+                              "const": 2
+                            },
+                            "hours": {
+                              "type": "number"
+                            },
+                            "compliance": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "total_hours": {
+                          "type": "number",
+                          "maximum": 50
+                        },
+                        "in_progress_complexity": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "large_streams",
+                        "small_streams",
+                        "total_hours"
+                      ]
+                    },
+                    "stream_updates": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "stream": {
+                            "type": "string"
+                          },
+                          "old_status": {
+                            "type": "string"
+                          },
+                          "new_status": {
+                            "type": "string"
+                          },
+                          "owner": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "sprint_completion_ready": {
+                      "type": "boolean"
+                    },
+                    "estimated_completion": {
+                      "type": "string",
+                      "format": "date"
+                    }
+                  },
+                  "required": [
+                    "sprint_number",
+                    "capacity_status",
+                    "sprint_completion_ready"
+                  ]
+                },
+                {
+                  "title": "AI Best Practices Application Output",
+                  "properties": {
+                    "target_file": {
+                      "type": "string"
+                    },
+                    "optimization_results": {
+                      "type": "object",
+                      "properties": {
+                        "before": {
+                          "type": "object",
+                          "properties": {
+                            "lines": {
+                              "type": "integer"
+                            },
+                            "estimated_tokens": {
+                              "type": "integer"
+                            },
+                            "filler_word_density": {
+                              "type": "number"
+                            },
+                            "active_voice_ratio": {
+                              "type": "number"
+                            },
+                            "structure_compliance": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "after": {
+                          "type": "object",
+                          "properties": {
+                            "lines": {
+                              "type": "integer"
+                            },
+                            "estimated_tokens": {
+                              "type": "integer"
+                            },
+                            "filler_word_density": {
+                              "type": "number"
+                            },
+                            "active_voice_ratio": {
+                              "type": "number"
+                            },
+                            "structure_compliance": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "improvements": {
+                          "type": "object",
+                          "properties": {
+                            "token_reduction": {
+                              "type": "integer"
+                            },
+                            "reduction_percentage": {
+                              "type": "number"
+                            },
+                            "lines_saved": {
+                              "type": "integer"
+                            },
+                            "readability_improvement": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "before",
+                        "after",
+                        "improvements"
+                      ]
+                    },
+                    "techniques_applied": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of optimization techniques used"
+                    },
+                    "semantic_preservation": {
+                      "type": "string"
+                    },
+                    "roi_estimate": {
+                      "type": "object",
+                      "properties": {
+                        "effort_hours": {
+                          "type": "number"
+                        },
+                        "token_savings_per_load": {
+                          "type": "integer"
+                        },
+                        "estimated_loads_per_week": {
+                          "type": "integer"
+                        },
+                        "weekly_token_savings": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "target_file",
+                    "optimization_results",
+                    "techniques_applied"
+                  ]
+                },
+                {
+                  "title": "Sprint Transition Automation Output",
+                  "properties": {
+                    "completed_sprint": {
+                      "type": "object",
+                      "properties": {
+                        "number": {
+                          "type": "integer"
+                        },
+                        "focus": {
+                          "type": "string"
+                        },
+                        "duration_days": {
+                          "type": "integer"
+                        },
+                        "streams_completed": {
+                          "type": "integer"
+                        },
+                        "total_hours": {
+                          "type": "number"
+                        },
+                        "completion_date": {
+                          "type": "string",
+                          "format": "date"
+                        }
+                      },
+                      "required": [
+                        "number",
+                        "focus",
+                        "streams_completed",
+                        "completion_date"
+                      ]
+                    },
+                    "transition_steps": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "step": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "details": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "step",
+                          "status"
+                        ]
+                      },
+                      "minItems": 6
+                    },
+                    "next_sprint": {
+                      "type": "object",
+                      "properties": {
+                        "number": {
+                          "type": "integer"
+                        },
+                        "focus": {
+                          "type": "string"
+                        },
+                        "streams_planned": {
+                          "type": "integer"
+                        },
+                        "estimated_hours": {
+                          "type": "number"
+                        },
+                        "start_date": {
+                          "type": "string",
+                          "format": "date"
+                        }
+                      },
+                      "required": [
+                        "number",
+                        "focus",
+                        "streams_planned"
+                      ]
+                    },
+                    "lessons_learned": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "completed_sprint",
+                    "transition_steps",
+                    "next_sprint"
+                  ]
+                },
+                {
+                  "title": "Cross-Reference Validation Output",
+                  "properties": {
+                    "validation_scope": {
+                      "type": "string"
+                    },
+                    "total_references": {
+                      "type": "integer"
+                    },
+                    "references_validated": {
+                      "type": "integer"
+                    },
+                    "validation_results": {
+                      "type": "object",
+                      "properties": {
+                        "file_existence": {
+                          "type": "object",
+                          "properties": {
+                            "checked": {
+                              "type": "integer"
+                            },
+                            "passed": {
+                              "type": "integer"
+                            },
+                            "failed": {
+                              "type": "integer"
+                            },
+                            "errors": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "source": {
+                                    "type": "string"
+                                  },
+                                  "line": {
+                                    "type": "integer"
+                                  },
+                                  "reference": {
+                                    "type": "string"
+                                  },
+                                  "error": {
+                                    "type": "string"
+                                  },
+                                  "suggested_fix": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "id_consistency": {
+                          "type": "object",
+                          "properties": {
+                            "checked": {
+                              "type": "integer"
+                            },
+                            "passed": {
+                              "type": "integer"
+                            },
+                            "failed": {
+                              "type": "integer"
+                            }
+                          }
+                        },
+                        "date_consistency": {
+                          "type": "object",
+                          "properties": {
+                            "checked": {
+                              "type": "integer"
+                            },
+                            "passed": {
+                              "type": "integer"
+                            },
+                            "failed": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "overall_integrity": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "repair_recommendations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "priority": {
+                            "type": "string",
+                            "enum": [
+                              "HIGH",
+                              "MEDIUM",
+                              "LOW"
+                            ]
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "action": {
+                            "type": "string"
+                          },
+                          "effort": {
+                            "type": "string"
+                          },
+                          "confidence": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "validation_scope",
+                    "total_references",
+                    "validation_results",
+                    "overall_integrity"
+                  ]
+                },
+                {
+                  "title": "Roadmap Creation Output",
+                  "properties": {
+                    "created_file": {
+                      "type": "string",
+                      "description": "Path to created roadmap file relative to project root",
+                      "pattern": "^docs/00-project/roadmaps/.+\\.md$"
+                    },
+                    "roadmap_type": {
+                      "type": "string",
+                      "enum": [
+                        "quarterly",
+                        "sprint-based",
+                        "feature-specific"
+                      ],
+                      "description": "Type of roadmap created"
+                    },
+                    "timeframe": {
+                      "type": "string",
+                      "description": "Timeframe for roadmap (e.g., Q2 2026, Sprint 5, Feature 007)",
+                      "examples": [
+                        "Q2 2026",
+                        "Sprint 3",
+                        "Feature 007"
+                      ]
+                    },
+                    "structure_validation": {
+                      "type": "object",
+                      "required": [
+                        "frontmatter_valid",
+                        "section_structure_valid",
+                        "progressive_disclosure_compliant"
+                      ],
+                      "properties": {
+                        "frontmatter_valid": {
+                          "type": "boolean",
+                          "description": "YAML frontmatter contains all required fields"
+                        },
+                        "section_structure_valid": {
+                          "type": "boolean",
+                          "description": "All required sections present (Vision, Phases, Success Metrics)"
+                        },
+                        "progressive_disclosure_compliant": {
+                          "type": "boolean",
+                          "description": "Document size <500 lines with hierarchical structure"
+                        },
+                        "line_count": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "description": "Total line count of created roadmap"
+                        },
+                        "required_sections_present": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "List of required sections found in roadmap",
+                          "examples": [
+                            [
+                              "Strategic Vision",
+                              "Phase Breakdown",
+                              "Success Metrics",
+                              "Dependencies"
+                            ]
+                          ]
+                        }
+                      }
+                    },
+                    "naming_convention_valid": {
+                      "type": "boolean",
+                      "description": "Filename follows convention (Q1-2026.md, SPRINT-N.md, feature-XXX-roadmap.md)"
+                    },
+                    "template_used": {
+                      "type": "string",
+                      "description": "Template file used for roadmap creation",
+                      "examples": [
+                        "quarterly-roadmap.template.md",
+                        "sprint-roadmap.template.md",
+                        "feature-roadmap.template.md"
+                      ]
+                    },
+                    "integration_points": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Other roadmaps or documents this roadmap references or coordinates with",
+                      "examples": [
+                        [
+                          "SPRINT-ROADMAP.md",
+                          "Q1-2026.md",
+                          "LIVING_SPRINT.md"
+                        ]
+                      ]
+                    },
+                    "next_steps": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "minItems": 1,
+                      "description": "Recommended actions to complete roadmap population",
+                      "examples": [
+                        [
+                          "Populate phases with detailed feature descriptions",
+                          "Coordinate with technical-pm for sprint breakdown"
+                        ]
+                      ]
+                    }
+                  },
+                  "required": [
+                    "created_file",
+                    "roadmap_type",
+                    "structure_validation",
+                    "naming_convention_valid"
+                  ]
+                },
+                {
+                  "title": "Health Metrics Generation Output",
+                  "properties": {
+                    "evaluation_date": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "scope": {
+                      "type": "string"
+                    },
+                    "documents_analyzed": {
+                      "type": "integer"
+                    },
+                    "overall_health": {
+                      "type": "object",
+                      "properties": {
+                        "score": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        "grade": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "score",
+                        "grade",
+                        "status"
+                      ]
+                    },
+                    "dimension_scores": {
+                      "type": "object",
+                      "properties": {
+                        "progressive_disclosure": {
+                          "type": "object",
+                          "properties": {
+                            "score": {
+                              "type": "number"
+                            },
+                            "grade": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string"
+                            },
+                            "details": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "token_density": {
+                          "type": "object",
+                          "properties": {
+                            "score": {
+                              "type": "number"
+                            },
+                            "grade": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string"
+                            },
+                            "details": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "cross_reference_integrity": {
+                          "type": "object",
+                          "properties": {
+                            "score": {
+                              "type": "number"
+                            },
+                            "grade": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string"
+                            },
+                            "details": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "sprint_compliance": {
+                          "type": "object",
+                          "properties": {
+                            "score": {
+                              "type": "number"
+                            },
+                            "grade": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string"
+                            },
+                            "details": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "freshness": {
+                          "type": "object",
+                          "properties": {
+                            "score": {
+                              "type": "number"
+                            },
+                            "grade": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string"
+                            },
+                            "details": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "completeness": {
+                          "type": "object",
+                          "properties": {
+                            "score": {
+                              "type": "number"
+                            },
+                            "grade": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string"
+                            },
+                            "details": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "progressive_disclosure",
+                        "token_density",
+                        "cross_reference_integrity",
+                        "sprint_compliance",
+                        "freshness",
+                        "completeness"
+                      ]
+                    },
+                    "top_improvement_opportunities": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "rank": {
+                            "type": "integer"
+                          },
+                          "dimension": {
+                            "type": "string"
+                          },
+                          "impact": {
+                            "type": "string",
+                            "enum": [
+                              "HIGH",
+                              "MEDIUM",
+                              "LOW"
+                            ]
+                          },
+                          "effort": {
+                            "type": "string",
+                            "enum": [
+                              "HIGH",
+                              "MEDIUM",
+                              "LOW"
+                            ]
+                          },
+                          "confidence": {
+                            "type": "number"
+                          },
+                          "recommendation": {
+                            "type": "string"
+                          },
+                          "projected_improvement": {
+                            "type": "object",
+                            "properties": {
+                              "current_score": {
+                                "type": "number"
+                              },
+                              "projected_score": {
+                                "type": "number"
+                              },
+                              "gain": {
+                                "type": "number"
+                              }
+                            }
+                          }
+                        },
+                        "required": [
+                          "rank",
+                          "dimension",
+                          "impact",
+                          "effort",
+                          "confidence",
+                          "recommendation"
+                        ]
+                      },
+                      "minItems": 3
+                    },
+                    "trend_analysis": {
+                      "type": "object",
+                      "properties": {
+                        "period": {
+                          "type": "string"
+                        },
+                        "overall_trend": {
+                          "type": "string"
+                        },
+                        "dimension_trends": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "evaluation_date",
+                    "overall_health",
+                    "dimension_scores",
+                    "top_improvement_opportunities"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "confidence",
+            "agent_specific_output"
+          ]
+        },
+        {
+          "title": "Failure Output",
+          "properties": {
+            "status": {
+              "const": "FAILURE"
+            },
+            "agent": {
+              "type": "string",
+              "const": "roadmap-manager"
+            },
+            "task_id": {
+              "type": "string",
+              "description": "Unique task identifier"
+            },
+            "operation_type": {
+              "type": "string",
+              "enum": [
+                "update_roadmap_status",
+                "manage_sprint_progress",
+                "apply_ai_best_practices",
+                "automate_sprint_transition",
+                "validate_cross_references",
+                "generate_health_metrics",
+                "create_roadmap"
+              ]
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence summary of why operation failed"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence in failure analysis"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "failure_details": {
+              "type": "object",
+              "properties": {
+                "failure_type": {
+                  "type": "string",
+                  "enum": [
+                    "validation_failure",
+                    "file_operation_error",
+                    "capacity_violation",
+                    "cross_reference_corruption",
+                    "schema_violation",
+                    "boundary_violation",
+                    "data_inconsistency",
+                    "roadmap_already_exists",
+                    "invalid_template_structure",
+                    "template_not_found"
+                  ]
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Specific error messages with context"
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "effort_estimate": {
+                        "type": "string"
+                      },
+                      "confidence": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "description": "Suggested approaches to resolve failure"
+                },
+                "partial_results": {
+                  "type": "object",
+                  "description": "Any work completed before failure",
+                  "additionalProperties": true
+                },
+                "escalation_path": {
+                  "type": "string",
+                  "enum": [
+                    "orchestrator",
+                    "technical-pm",
+                    "doc-librarian",
+                    "user"
+                  ],
+                  "description": "Which agent or person should handle resolution"
+                }
+              },
+              "required": [
+                "failure_type",
+                "reasons",
+                "recovery_suggestions"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "confidence",
+            "failure_details"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "input",
+    "output"
+  ]
+}

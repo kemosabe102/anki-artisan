@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "code-review.schema.json",
+  "title": "Code Review Finding Schema",
+  "description": "Schema for code review findings with severity, confidence, and conflict resolution",
+  "type": "object",
+  "definitions": {
+    "finding": {
+      "type": "object",
+      "required": ["finding_id", "severity", "category", "location", "message", "confidence"],
+      "properties": {
+        "finding_id": {
+          "type": "string",
+          "pattern": "^(CRIT|HIGH|MED|LOW|NIT|OQ)-[0-9]{3}$",
+          "description": "Unique identifier (e.g., CRIT-001, HIGH-003, OQ-001 for open questions)"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["Critical", "High", "Medium", "Low", "Nit"],
+          "description": "Severity level of the finding"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["Security", "Performance", "Quality", "Design", "Maintainability"],
+          "description": "Category of the finding"
+        },
+        "location": {
+          "type": "string",
+          "pattern": "^.+:[0-9]+(-[0-9]+)?$",
+          "description": "File path and line number or range (file.py:10 or file.py:10-15)"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 500,
+          "description": "Clear, concise description of the issue"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Final confidence after investigation (0.0-1.0)"
+        },
+        "source_agent": {
+          "type": "string",
+          "description": "Agent that identified this finding"
+        },
+        "problem": {
+          "type": "string",
+          "description": "Detailed explanation of what is wrong"
+        },
+        "recommendation": {
+          "type": "string",
+          "description": "Specific fix with code example if applicable"
+        },
+        "verification_commands": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Deterministic commands to verify the issue"
+        },
+        "conflict_resolution": {
+          "type": "object",
+          "description": "Resolution data when multiple agents disagree on severity",
+          "properties": {
+            "original_severities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "agent": { "type": "string" },
+                  "severity": { "type": "string", "enum": ["Critical", "High", "Medium", "Low", "Nit"] },
+                  "confidence": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+                  "rationale": { "type": "string" }
+                },
+                "required": ["agent", "severity", "confidence"]
+              },
+              "description": "List of severity assessments from different agents"
+            },
+            "resolution_method": {
+              "type": "string",
+              "enum": ["highest_confidence", "majority_vote", "weighted_average", "manual_override"],
+              "description": "Method used to resolve the conflict"
+            },
+            "final_severity": {
+              "type": "string",
+              "enum": ["Critical", "High", "Medium", "Low", "Nit"]
+            },
+            "resolution_rationale": {
+              "type": "string",
+              "description": "Explanation of why this severity was chosen"
+            }
+          }
+        },
+        "investigation_trail": {
+          "type": "object",
+          "properties": {
+            "initial_confidence": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+            "research_performed": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "final_confidence": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+          }
+        },
+        "impact": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Severity of user/system harm (1-10)"
+        },
+        "effort": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Complexity to fix (1-10)"
+        },
+        "priority_score": {
+          "type": "number",
+          "description": "Calculated priority for remediation ordering"
+        }
+      }
+    }
+  }
+}

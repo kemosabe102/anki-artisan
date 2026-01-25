@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Base Agent Schema Template",
+  "description": "Meta-schema for all agents with two-state model. Agents define agent_specific_output in their definition files.",
+  "version": "3.0.0",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "description": "Input schema template - customize per agent",
+      "properties": {
+        "context": {
+          "type": "string",
+          "description": "Primary task context and instructions"
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator (mandatory)"
+        }
+      },
+      "required": ["context", "execution_timestamp"]
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Success Output",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "agent": {
+              "type": "string",
+              "description": "Agent name"
+            },
+            "task_id": {
+              "type": "string",
+              "description": "Unique task identifier"
+            },
+            "operation_type": {
+              "type": "string",
+              "description": "Type of operation performed (agent-specific)"
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence executive summary"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in operation success (required for orchestrator tracking)"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "description": "Agent-defined output structure. See agent definition file for schema."
+            }
+          },
+          "required": ["status", "agent", "confidence", "agent_specific_output"],
+          "additionalProperties": false
+        },
+        {
+          "title": "Failure Output",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "agent": {
+              "type": "string",
+              "description": "Agent name"
+            },
+            "task_id": {
+              "type": "string",
+              "description": "Unique task identifier"
+            },
+            "operation_type": {
+              "type": "string",
+              "description": "Type of operation attempted (agent-specific)"
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence summary of why task failed"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in failure analysis"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "failure_details": {
+              "type": "object",
+              "description": "Agent-defined failure information. See agent definition file for schema.",
+              "properties": {
+                "failure_type": {
+                  "type": "string",
+                  "description": "Primary type of failure (agent-specific enum)"
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Specific reasons why task failed"
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "description": "Suggested approaches to resolve failure"
+                }
+              },
+              "required": ["failure_type", "reasons"]
+            }
+          },
+          "required": ["status", "agent", "confidence", "failure_details"],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "required": ["input", "output"]
+}

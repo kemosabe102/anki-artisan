@@ -1,0 +1,707 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "promql-query-builder.schema.json",
+  "version": "1.0.0",
+  "title": "PromQL Query Builder Schema",
+  "description": "Input/output schema for PromQL query construction, validation, optimization, and recording rules generation with two-state model",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique identifier for the task"
+        },
+        "operation_type": {
+          "type": "string",
+          "enum": [
+            "construct_query",
+            "validate_query",
+            "optimize_query",
+            "generate_recording_rules",
+            "discover_metrics"
+          ],
+          "description": "Type of PromQL operation to perform"
+        },
+        "intent_description": {
+          "type": "string",
+          "description": "Natural language goal describing what to measure (e.g., 'Find p95 API latency by service', 'Count errors per endpoint')"
+        },
+        "existing_query": {
+          "type": "string",
+          "description": "Existing PromQL query to validate or optimize (required for validate_query and optimize_query operations)"
+        },
+        "metric_pattern": {
+          "type": "string",
+          "description": "Metric name pattern for discovery (optional for discover_metrics, e.g., 'http_*', 'app_*_latency')"
+        },
+        "prometheus_endpoint": {
+          "type": "string",
+          "format": "uri",
+          "default": "http://prometheus-server:9090",
+          "description": "Prometheus API endpoint for query validation and metric discovery"
+        },
+        "grouping_preferences": {
+          "type": "string",
+          "description": "Optional hint for grouping strategy (e.g., 'group by service', 'aggregate by endpoint and method')"
+        },
+        "time_comparison": {
+          "type": "string",
+          "description": "Optional offset duration for time-period comparisons (e.g., '1w', '1d', '1m'). Used in construct_query for week-over-week or day-over-day comparisons."
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator"
+        }
+      },
+      "required": [
+        "task_id",
+        "operation_type",
+        "intent_description",
+        "execution_timestamp"
+      ],
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "PromQL Query Builder Success",
+          "properties": {
+            "status": {
+              "const": "SUCCESS"
+            },
+            "agent": {
+              "const": "promql-query-builder"
+            },
+            "task_id": {
+              "type": "string",
+              "description": "Unique task identifier"
+            },
+            "operation_type": {
+              "enum": [
+                "construct_query",
+                "validate_query",
+                "optimize_query",
+                "generate_recording_rules",
+                "discover_metrics"
+              ]
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence executive summary of operation completed"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in operation success (metric selection, aggregation strategy, recording rules criteria)"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "description": "Agent-specific output structure for PromQL operations",
+              "properties": {
+                "constructed_query": {
+                  "type": "string",
+                  "description": "Complete PromQL query string ready for execution in Grafana or Prometheus"
+                },
+                "query_metadata": {
+                  "type": "object",
+                  "description": "Metadata about the constructed query for dashboard integration",
+                  "properties": {
+                    "grouping_labels": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Labels used for grouping aggregations (e.g., ['service', 'endpoint'])"
+                    },
+                    "rate_interval": {
+                      "type": "string",
+                      "description": "Rate interval used in query (e.g., '5m', '1m'). Recommended based on scrape interval and signal type."
+                    },
+                    "offset_duration": {
+                      "type": "string",
+                      "description": "Offset duration for time comparisons (e.g., '1w', '1d'). Null if no comparison."
+                    },
+                    "estimated_cardinality": {
+                      "type": "string",
+                      "enum": [
+                        "low",
+                        "medium",
+                        "high"
+                      ],
+                      "description": "Estimated cardinality of result set based on metric and label selection"
+                    },
+                    "panel_type_recommendation": {
+                      "type": "string",
+                      "enum": [
+                        "timeseries",
+                        "gauge",
+                        "stat",
+                        "table",
+                        "heatmap"
+                      ],
+                      "description": "Recommended Grafana panel type for visualizing this query"
+                    },
+                    "aggregation_function": {
+                      "type": "string",
+                      "description": "Aggregation function used (e.g., 'sum', 'avg', 'rate', 'histogram_quantile')"
+                    },
+                    "query_type": {
+                      "type": "string",
+                      "enum": [
+                        "counter_rate",
+                        "gauge_current",
+                        "histogram_quantile",
+                        "summary_quantile",
+                        "aggregation",
+                        "time_comparison"
+                      ],
+                      "description": "Classified query type for understanding query purpose"
+                    }
+                  },
+                  "required": [
+                    "grouping_labels",
+                    "rate_interval",
+                    "estimated_cardinality",
+                    "panel_type_recommendation",
+                    "aggregation_function",
+                    "query_type"
+                  ]
+                },
+                "clarifying_questions_asked": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "question": {
+                        "type": "string",
+                        "description": "Question asked to clarify intent"
+                      },
+                      "answer_assumed": {
+                        "type": "string",
+                        "description": "Answer assumed based on context or best practices"
+                      },
+                      "confidence": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1,
+                        "description": "Confidence in the assumed answer"
+                      }
+                    },
+                    "required": [
+                      "question",
+                      "answer_assumed",
+                      "confidence"
+                    ]
+                  },
+                  "description": "OODA-driven clarifying questions asked during query construction to refine user intent"
+                },
+                "validation_report": {
+                  "type": "object",
+                  "description": "Results from query validation against Prometheus API (validate_query operation)",
+                  "properties": {
+                    "syntax_valid": {
+                      "type": "boolean",
+                      "description": "Whether query syntax is valid according to Prometheus"
+                    },
+                    "metrics_exist": {
+                      "type": "boolean",
+                      "description": "Whether referenced metrics exist in Prometheus"
+                    },
+                    "missing_metrics": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of metrics referenced in query but not found in Prometheus"
+                    },
+                    "performance_estimate": {
+                      "type": "string",
+                      "enum": [
+                        "fast",
+                        "moderate",
+                        "slow",
+                        "very_slow"
+                      ],
+                      "description": "Estimated query performance based on cardinality and complexity"
+                    },
+                    "warnings": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "high_cardinality",
+                              "missing_labels",
+                              "inefficient_aggregation",
+                              "deprecated_function"
+                            ],
+                            "description": "Type of warning"
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Warning message description"
+                          },
+                          "recommendation": {
+                            "type": "string",
+                            "description": "Suggested action to address warning"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "message",
+                          "recommendation"
+                        ]
+                      },
+                      "description": "Non-blocking warnings about query quality or performance"
+                    },
+                    "test_query_result": {
+                      "type": "object",
+                      "description": "Sample result from executing query against Prometheus",
+                      "properties": {
+                        "result_type": {
+                          "type": "string",
+                          "enum": [
+                            "vector",
+                            "matrix",
+                            "scalar",
+                            "string"
+                          ],
+                          "description": "Prometheus result type"
+                        },
+                        "result_count": {
+                          "type": "number",
+                          "description": "Number of time series or results returned"
+                        },
+                        "sample_values": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Sample values from query result (truncated to first 3)"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "syntax_valid",
+                    "metrics_exist",
+                    "performance_estimate",
+                    "warnings"
+                  ]
+                },
+                "optimization_recommendations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "issue": {
+                        "type": "string",
+                        "description": "Performance anti-pattern or inefficiency identified"
+                      },
+                      "recommendation": {
+                        "type": "string",
+                        "description": "Optimization suggestion"
+                      },
+                      "optimized_query": {
+                        "type": "string",
+                        "description": "Rewritten query implementing the optimization"
+                      },
+                      "expected_improvement": {
+                        "type": "string",
+                        "description": "Expected performance gain (e.g., '50% faster', 'reduces cardinality by 80%')"
+                      },
+                      "priority": {
+                        "type": "string",
+                        "enum": [
+                          "high",
+                          "medium",
+                          "low"
+                        ],
+                        "description": "Priority based on impact/effort ratio"
+                      }
+                    },
+                    "required": [
+                      "issue",
+                      "recommendation",
+                      "optimized_query",
+                      "expected_improvement",
+                      "priority"
+                    ]
+                  },
+                  "description": "Prioritized query optimization recommendations (optimize_query operation)"
+                },
+                "recording_rules_config": {
+                  "type": "object",
+                  "description": "YAML-ready recording rules configuration (generate_recording_rules operation)",
+                  "properties": {
+                    "should_create_recording_rule": {
+                      "type": "boolean",
+                      "description": "Whether recording rules are recommended based on research-backed criteria (high cardinality, expensive aggregation, frequent execution)"
+                    },
+                    "criteria_met": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of criteria satisfied for recording rule creation (e.g., 'high cardinality >1000 series', 'complex histogram aggregation', 'dashboard refresh <1m')"
+                    },
+                    "recording_rule_yaml": {
+                      "type": "string",
+                      "description": "Complete YAML configuration for Prometheus recording rules, ready to add to prometheus.yml"
+                    },
+                    "rule_name": {
+                      "type": "string",
+                      "description": "Semantic recording rule name following naming conventions (e.g., 'job:http_requests_total:rate5m')"
+                    },
+                    "evaluation_interval": {
+                      "type": "string",
+                      "description": "Recommended evaluation interval for recording rule (e.g., '1m', '30s')"
+                    },
+                    "estimated_savings": {
+                      "type": "object",
+                      "properties": {
+                        "query_time_reduction": {
+                          "type": "string",
+                          "description": "Expected query execution time reduction (e.g., '80% faster')"
+                        },
+                        "cardinality_reduction": {
+                          "type": "string",
+                          "description": "Expected reduction in result cardinality (e.g., 'from 5000 to 50 series')"
+                        }
+                      },
+                      "description": "Estimated performance and resource savings from using recording rule"
+                    }
+                  },
+                  "required": [
+                    "should_create_recording_rule",
+                    "criteria_met"
+                  ]
+                },
+                "discovered_metrics": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "metric_name": {
+                        "type": "string",
+                        "description": "Full metric name"
+                      },
+                      "metric_type": {
+                        "type": "string",
+                        "enum": [
+                          "counter",
+                          "gauge",
+                          "histogram",
+                          "summary"
+                        ],
+                        "description": "Prometheus metric type"
+                      },
+                      "labels": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "Available labels for this metric"
+                      },
+                      "label_cardinality": {
+                        "type": "object",
+                        "description": "Approximate cardinality for each label",
+                        "additionalProperties": {
+                          "type": "number"
+                        }
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "Human-readable description of what this metric measures (inferred from name or metadata)"
+                      },
+                      "relevance_score": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1,
+                        "description": "Relevance score based on metric_pattern match and intent_description similarity"
+                      }
+                    },
+                    "required": [
+                      "metric_name",
+                      "metric_type",
+                      "labels",
+                      "relevance_score"
+                    ]
+                  },
+                  "description": "List of discovered metrics matching pattern and intent (discover_metrics operation)"
+                },
+                "query_explanation": {
+                  "type": "string",
+                  "description": "Human-readable explanation of what the query does and how it achieves the intent"
+                },
+                "alternative_queries": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "query": {
+                        "type": "string",
+                        "description": "Alternative PromQL query"
+                      },
+                      "rationale": {
+                        "type": "string",
+                        "description": "Why this alternative might be preferred"
+                      },
+                      "trade_offs": {
+                        "type": "string",
+                        "description": "Trade-offs compared to primary query"
+                      }
+                    },
+                    "required": [
+                      "query",
+                      "rationale"
+                    ]
+                  },
+                  "description": "Alternative query approaches considered during construction"
+                }
+              }
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "task_id",
+            "operation_type",
+            "summary",
+            "confidence",
+            "execution_timestamp",
+            "agent_specific_output"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "PromQL Query Builder Failure",
+          "properties": {
+            "status": {
+              "const": "FAILURE"
+            },
+            "agent": {
+              "const": "promql-query-builder"
+            },
+            "task_id": {
+              "type": "string",
+              "description": "Unique task identifier"
+            },
+            "operation_type": {
+              "enum": [
+                "construct_query",
+                "validate_query",
+                "optimize_query",
+                "generate_recording_rules",
+                "discover_metrics"
+              ]
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence summary of why operation failed"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in failure analysis"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "failure_details": {
+              "type": "object",
+              "description": "PromQL Query Builder specific failure information",
+              "properties": {
+                "failure_type": {
+                  "type": "string",
+                  "enum": [
+                    "prometheus_connectivity_error",
+                    "invalid_promql_syntax",
+                    "metric_not_found",
+                    "high_cardinality_detected",
+                    "ambiguous_intent"
+                  ],
+                  "description": "Primary type of failure"
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Specific reasons why PromQL operation failed"
+                },
+                "prometheus_connectivity_error": {
+                  "type": "boolean",
+                  "description": "Whether failure is due to Prometheus API connectivity issues"
+                },
+                "endpoint_tested": {
+                  "type": "string",
+                  "description": "Prometheus endpoint URL that was tested (if connectivity error)"
+                },
+                "invalid_promql_syntax": {
+                  "type": "object",
+                  "description": "Details about syntax errors in query",
+                  "properties": {
+                    "syntax_errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of syntax errors identified"
+                    },
+                    "error_location": {
+                      "type": "string",
+                      "description": "Location in query where error occurs"
+                    }
+                  }
+                },
+                "metric_not_found": {
+                  "type": "object",
+                  "description": "Details about missing metrics",
+                  "properties": {
+                    "missing_metrics": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of metrics not found in Prometheus"
+                    },
+                    "similar_metrics": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Similar metric names found that might be relevant"
+                    }
+                  }
+                },
+                "high_cardinality_detected": {
+                  "type": "object",
+                  "description": "Details about cardinality issues",
+                  "properties": {
+                    "estimated_series_count": {
+                      "type": "number",
+                      "description": "Estimated number of time series that query would return"
+                    },
+                    "problematic_labels": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Labels contributing to high cardinality"
+                    },
+                    "cardinality_threshold_exceeded": {
+                      "type": "number",
+                      "description": "Cardinality threshold that was exceeded"
+                    }
+                  }
+                },
+                "ambiguous_intent": {
+                  "type": "object",
+                  "description": "Details about intent ambiguity requiring user clarification",
+                  "properties": {
+                    "ambiguities_detected": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Specific ambiguities in intent_description"
+                    },
+                    "clarifying_questions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Questions user needs to answer to disambiguate"
+                    }
+                  }
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Actionable steps to resolve the failure"
+                },
+                "partial_results": {
+                  "type": "object",
+                  "description": "Any partial query construction or analysis completed before failure",
+                  "properties": {
+                    "metrics_identified": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Metrics identified before failure"
+                    },
+                    "aggregation_strategy": {
+                      "type": "string",
+                      "description": "Aggregation strategy determined before failure (if any)"
+                    },
+                    "partial_query": {
+                      "type": "string",
+                      "description": "Partially constructed query (if any)"
+                    }
+                  }
+                },
+                "error_details": {
+                  "type": "object",
+                  "description": "Detailed error information from Prometheus or validation",
+                  "properties": {
+                    "error_code": {
+                      "type": "string",
+                      "description": "Error code from Prometheus API or validation"
+                    },
+                    "error_message": {
+                      "type": "string",
+                      "description": "Detailed error message"
+                    },
+                    "stack_trace": {
+                      "type": "string",
+                      "description": "Stack trace if applicable"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "failure_type",
+                "reasons",
+                "recovery_suggestions"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "task_id",
+            "operation_type",
+            "summary",
+            "confidence",
+            "execution_timestamp",
+            "failure_details"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "required": [
+    "input",
+    "output"
+  ]
+}

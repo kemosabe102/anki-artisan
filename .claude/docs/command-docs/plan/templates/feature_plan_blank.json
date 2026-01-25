@@ -1,0 +1,84 @@
+{
+  "project": "PROJECT_NAME_HERE",
+  "description": "High-level description of what this project solves and delivers",
+  "total_features": 0,
+  "phases": {
+    "phase_1": {
+      "name": "Phase 1 Name - Goal of Phase",
+      "duration_weeks": 2,
+      "target_completion": "Week 2",
+      "features": [
+        {
+          "id": "FEATURE_001",
+          "category": "functional",
+          "description": "First feature description",
+          "steps": [
+            "Step 1 with concrete action",
+            "Step 2 with concrete action",
+            "Step 3 with verification"
+          ],
+          "acceptance_criteria": [
+            "Measurable criterion 1",
+            "Measurable criterion 2",
+            "Measurable criterion 3"
+          ],
+          "passes": false,
+          "estimated_hours": 1.5
+        },
+        {
+          "id": "FEATURE_002",
+          "category": "testing",
+          "description": "Second feature description",
+          "steps": [
+            "Step 1",
+            "Step 2",
+            "Step 3"
+          ],
+          "acceptance_criteria": [
+            "Criterion 1",
+            "Criterion 2"
+          ],
+          "passes": false,
+          "estimated_hours": 1.0
+        }
+      ]
+    },
+    "phase_2": {
+      "name": "Phase 2 Name - Goal of Phase",
+      "duration_weeks": 2,
+      "target_completion": "Week 4",
+      "features": [
+        {
+          "id": "FEATURE_003",
+          "category": "functional",
+          "description": "Feature description",
+          "steps": [
+            "Step 1",
+            "Step 2"
+          ],
+          "acceptance_criteria": [
+            "Criterion 1",
+            "Criterion 2"
+          ],
+          "passes": false,
+          "estimated_hours": 2.0
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total_features": 3,
+    "total_estimated_hours": 0,
+    "phases_total": 2,
+    "implementation_timeline": "4 weeks",
+    "critical_path": [
+      "FEATURE_001 (foundational, blocks others)",
+      "FEATURE_002 (validation)",
+      "FEATURE_003 (core logic)"
+    ],
+    "launch_readiness_gates": [
+      "Phase 1 Complete: [verification that phase is ship-ready]",
+      "Phase 2 Complete: [verification that phase is ship-ready]"
+    ]
+  }
+}

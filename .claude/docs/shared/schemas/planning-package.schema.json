@@ -1,0 +1,237 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://gauntlet-agents.com/schemas/planning-package/v1.0.0",
+  "title": "Planning Package",
+  "description": "Complete output from planner agent with embedded artifacts and decision signals",
+  "type": "object",
+  "required": [
+    "status",
+    "phase",
+    "mode",
+    "artifacts",
+    "validation",
+    "quality",
+    "execution_timestamp",
+    "timestamp_source"
+  ],
+  "properties": {
+    "status": {
+      "enum": ["ok", "blocked", "conflict"],
+      "description": "Overall planning status"
+    },
+    "phase": {
+      "type": "string",
+      "enum": ["planning"],
+      "description": "Current workflow phase"
+    },
+    "mode": {
+      "enum": ["sdd", "adhoc"],
+      "description": "Planning mode used"
+    },
+    "mode_inferred": {
+      "type": "boolean",
+      "description": "Whether mode was inferred vs explicit"
+    },
+    "mode_confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence in mode detection"
+    },
+    "regenerative_enabled": {
+      "type": "boolean",
+      "description": "Whether regenerative guarantees are active"
+    },
+    "artifacts_created": {
+      "type": "array",
+      "items": {
+        "enum": ["spec", "plan", "tasks"]
+      },
+      "description": "List of artifacts produced"
+    },
+    "provenance": {
+      "$ref": "#/definitions/provenance"
+    },
+    "artifacts": {
+      "type": "object",
+      "properties": {
+        "spec_md": { "type": "string" },
+        "plan_md": { "type": "string" },
+        "tasks_md": { "type": "string" }
+      },
+      "description": "Complete markdown content for each artifact"
+    },
+    "sow_json": {
+      "type": "array",
+      "items": {
+        "$ref": "sow.schema.json#"
+      },
+      "description": "Machine-readable Statement of Work blocks"
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "$ref": "decisions.schema.json#"
+      },
+      "description": "Decision snapshots with rationale"
+    },
+    "dependency_manifest": {
+      "$ref": "dependency-manifest.schema.json#"
+    },
+    "state_transitions": {
+      "type": "array",
+      "items": {
+        "$ref": "state-transitions.schema.json#"
+      }
+    },
+    "research": {
+      "$ref": "#/definitions/research"
+    },
+    "validation": {
+      "$ref": "#/definitions/validation"
+    },
+    "schema_validation": {
+      "$ref": "#/definitions/schema_validation"
+    },
+    "quality": {
+      "$ref": "#/definitions/quality"
+    },
+    "determinism_checks": {
+      "$ref": "#/definitions/determinism_checks"
+    },
+    "doc_update_strategy": {
+      "$ref": "#/definitions/doc_update_strategy"
+    },
+    "open_questions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "next_action": {
+      "enum": ["await_review", "proceed_to_implementation"]
+    },
+    "promotion": {
+      "$ref": "#/definitions/promotion"
+    },
+    "execution_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Orchestrator-provided execution timestamp in ISO 8601 UTC format"
+    },
+    "timestamp_source": {
+      "const": "orchestrator",
+      "description": "Validates that timestamp came from orchestrator, not sub-agent"
+    }
+  },
+  "definitions": {
+    "provenance": {
+      "type": "object",
+      "required": ["schema_version", "timestamp", "tool_versions", "decoding_params"],
+      "properties": {
+        "schema_version": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "spec_commit": { "type": ["string", "null"] },
+        "template_commits": { "type": "object" },
+        "research_commit": { "type": ["string", "null"] },
+        "planner_persona_commit": { "type": "string" },
+        "tool_versions": { "type": "object" },
+        "decoding_params": { "type": "object" },
+        "inputs_hash": { "type": ["string", "null"] },
+        "inputs_manifest": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "research": {
+      "type": "object",
+      "required": ["synthesis"],
+      "properties": {
+        "synthesis": {
+          "type": "object",
+          "required": ["summary", "for", "against", "tradeoffs", "confidence"],
+          "properties": {
+            "summary": { "type": "string" },
+            "for": { "type": "array", "items": { "type": "string" } },
+            "against": { "type": "array", "items": { "type": "string" } },
+            "tradeoffs": { "type": "array", "items": { "type": "string" } },
+            "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "log": { "type": "object" }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "pain_point_score": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "pain_point_decision": { "enum": ["APPROVE", "NEEDS_REFINEMENT", "REJECT"] },
+        "pain_points_addressed": { "type": "array", "items": { "type": "string" } },
+        "maturity_stage": { "enum": ["MVP", "Alpha", "Beta", "GA"] },
+        "maturity_ok": { "type": "boolean" },
+        "complexity_rationale": { "type": "string" }
+      }
+    },
+    "schema_validation": {
+      "type": "object",
+      "required": ["planning_package_valid", "sow_blocks_valid", "decisions_valid"],
+      "properties": {
+        "planning_package_valid": { "type": "boolean" },
+        "sow_blocks_valid": { "type": "boolean" },
+        "decisions_valid": { "type": "boolean" },
+        "schema_versions": { "type": "object" }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "required": ["plan_completeness", "research_confidence", "rationale_coverage"],
+      "properties": {
+        "plan_completeness": { "type": "number", "minimum": 0, "maximum": 1 },
+        "research_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "rationale_coverage": { "type": "number", "minimum": 0, "maximum": 1 },
+        "risk_notes": { "type": "array", "items": { "type": "string" } },
+        "unresolved_ambiguities": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "determinism_checks": {
+      "type": "object",
+      "required": [
+        "temp",
+        "seed",
+        "ordering_ok",
+        "canonicalization_ok",
+        "schema_valid",
+        "inputs_hash"
+      ],
+      "properties": {
+        "temp": { "type": "number" },
+        "seed": { "type": "integer" },
+        "ordering_ok": { "type": "boolean" },
+        "canonicalization_ok": { "type": "boolean" },
+        "schema_valid": { "type": "boolean" },
+        "inputs_hash": { "type": "string" },
+        "inputs_manifest": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "doc_update_strategy": {
+      "type": "object",
+      "required": ["mode", "threshold_basis", "rationale"],
+      "properties": {
+        "mode": { "enum": ["chunked", "batched", "recreate"] },
+        "threshold_basis": { "enum": ["anchor_count", "line_percentage"] },
+        "file_size_lines": { "type": "integer" },
+        "affected_anchors": { "type": "integer" },
+        "affected_percentage": { "type": "number" },
+        "rationale": { "type": "string" }
+      }
+    },
+    "promotion": {
+      "type": "object",
+      "properties": {
+        "from_mode": { "enum": ["adhoc", "sdd"] },
+        "to_mode": { "enum": ["adhoc", "sdd"] },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "reason": { "type": "string" },
+        "research_snapshot_commit": { "type": "string" },
+        "ambiguity_issues_resolved": { "type": "integer" },
+        "regenerative_enabled": { "type": "boolean" }
+      }
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Feature Final Review Output Schema",
+  "description": "Schema for feature-final-review agent outputs with dual-mode support (detect/review)",
+  "version": "1.0.0",
+  "type": "object",
+  "oneOf": [
+    {
+      "title": "Detect Mode Success Output",
+      "type": "object",
+      "properties": {
+        "status": { "const": "SUCCESS" },
+        "agent": { "const": "feature-final-review" },
+        "mode": { "const": "detect" },
+        "task_id": { "type": "string" },
+        "feature": {
+          "type": "string",
+          "description": "Feature directory path or name"
+        },
+        "total_pairs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "integration_pairs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "upstream": { "type": "string" },
+              "downstream": { "type": "string" },
+              "upstream_file": { "type": "string" },
+              "downstream_file": { "type": "string" },
+              "data_flow_type": {
+                "type": "string",
+                "enum": ["direct", "event", "storage", "api"]
+              },
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "evidence": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "required": ["id", "upstream", "downstream", "upstream_file", "downstream_file", "confidence"]
+          }
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["status", "agent", "mode", "feature", "total_pairs", "integration_pairs"]
+    },
+    {
+      "title": "Review Mode Success Output",
+      "type": "object",
+      "properties": {
+        "status": { "const": "SUCCESS" },
+        "agent": { "const": "feature-final-review" },
+        "mode": { "const": "review" },
+        "task_id": { "type": "string" },
+        "pair_id": { "type": "integer" },
+        "upstream": { "type": "string" },
+        "downstream": { "type": "string" },
+        "gate_status": {
+          "type": "string",
+          "enum": ["PASS", "PASS_WITH_CONDITIONS", "FAIL", "SKIPPED"]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "pair_findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^INT-[0-9]{3}$"
+              },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "contract_alignment",
+                  "schema_compatibility",
+                  "null_handling",
+                  "error_propagation",
+                  "edge_cases",
+                  "performance"
+                ]
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
+              },
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "issue": { "type": "string" },
+              "evidence": { "type": "string" },
+              "recommendation": { "type": "string" }
+            },
+            "required": ["id", "category", "severity", "evidence", "recommendation"]
+          }
+        },
+        "checklist_scores": {
+          "type": "object",
+          "properties": {
+            "contract_alignment": { "$ref": "#/definitions/ChecklistStatus" },
+            "schema_compatibility": { "$ref": "#/definitions/ChecklistStatus" },
+            "null_handling": { "$ref": "#/definitions/ChecklistStatus" },
+            "error_propagation": { "$ref": "#/definitions/ChecklistStatus" },
+            "edge_cases": { "$ref": "#/definitions/ChecklistStatus" },
+            "performance": { "$ref": "#/definitions/ChecklistStatus" }
+          }
+        },
+        "test_coverage": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["COVERED", "PARTIAL", "MISSING"]
+            },
+            "test_file": { "type": "string" },
+            "missing_scenarios": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["status", "agent", "mode", "pair_id", "upstream", "downstream", "gate_status", "pair_findings", "checklist_scores"]
+    },
+    {
+      "title": "Failure Output",
+      "type": "object",
+      "properties": {
+        "status": { "const": "FAILURE" },
+        "agent": { "const": "feature-final-review" },
+        "mode": {
+          "type": "string",
+          "enum": ["detect", "review"]
+        },
+        "task_id": { "type": "string" },
+        "failure_details": {
+          "type": "object",
+          "properties": {
+            "failure_type": {
+              "type": "string",
+              "enum": [
+                "empty_input",
+                "missing_fields",
+                "feature_not_found",
+                "pair_not_found",
+                "no_architecture_doc",
+                "skill_load_failure",
+                "malformed_json"
+              ]
+            },
+            "error_message": { "type": "string" },
+            "missing_fields": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "file_path": { "type": "string" },
+            "recovery_suggestions": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "required": ["failure_type", "error_message", "recovery_suggestions"]
+        }
+      },
+      "required": ["status", "agent", "mode", "failure_details"]
+    }
+  ],
+  "definitions": {
+    "ChecklistStatus": {
+      "type": "string",
+      "enum": ["PASS", "PARTIAL", "FAIL", "SKIPPED"]
+    }
+  }
+}

@@ -1,0 +1,322 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "workflow-analyzer.schema.json",
+  "title": "Workflow Analyzer Output",
+  "description": "Schema for workflow-analyzer agent output",
+  "type": "object",
+  "required": ["status", "agent", "command_path", "workflow_score", "grade"],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["SUCCESS", "FAILURE"],
+      "description": "Analysis completion status"
+    },
+    "agent": {
+      "type": "string",
+      "const": "workflow-analyzer",
+      "description": "Agent identifier"
+    },
+    "command_path": {
+      "type": "string",
+      "description": "Path to analyzed command file"
+    },
+    "workflow_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Overall workflow quality score (0-100)"
+    },
+    "grade": {
+      "type": "string",
+      "enum": ["A", "B", "C", "D", "F"],
+      "description": "Letter grade based on workflow_score"
+    },
+    "dimension_scores": {
+      "type": "object",
+      "description": "Scores for each of the 7 quality dimensions",
+      "required": [
+        "workflow_correctness",
+        "parallelization_safety",
+        "gate_coverage",
+        "subagent_validation",
+        "error_recovery",
+        "state_management",
+        "integration_alignment"
+      ],
+      "properties": {
+        "workflow_correctness": {
+          "type": "object",
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "const": 0.20 },
+            "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } }
+          },
+          "required": ["score", "weight"]
+        },
+        "parallelization_safety": {
+          "type": "object",
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "const": 0.15 },
+            "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } }
+          },
+          "required": ["score", "weight"]
+        },
+        "gate_coverage": {
+          "type": "object",
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "const": 0.15 },
+            "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } }
+          },
+          "required": ["score", "weight"]
+        },
+        "subagent_validation": {
+          "type": "object",
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "const": 0.15 },
+            "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } }
+          },
+          "required": ["score", "weight"]
+        },
+        "error_recovery": {
+          "type": "object",
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "const": 0.15 },
+            "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } }
+          },
+          "required": ["score", "weight"]
+        },
+        "state_management": {
+          "type": "object",
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "const": 0.10 },
+            "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } }
+          },
+          "required": ["score", "weight"]
+        },
+        "integration_alignment": {
+          "type": "object",
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "weight": { "type": "number", "const": 0.10 },
+            "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } }
+          },
+          "required": ["score", "weight"]
+        }
+      }
+    },
+    "violations": {
+      "type": "array",
+      "description": "List of workflow violations found",
+      "items": {
+        "type": "object",
+        "required": ["code", "dimension", "severity", "description", "location"],
+        "properties": {
+          "code": {
+            "type": "string",
+            "pattern": "^WF-[A-Z]{4}-[0-9]{3}$",
+            "description": "Violation code (e.g., WF-CORR-001)"
+          },
+          "dimension": {
+            "type": "string",
+            "description": "Quality dimension affected"
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["critical", "high", "medium", "low"],
+            "description": "Violation severity"
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable violation description"
+          },
+          "location": {
+            "type": "string",
+            "description": "Location in command file"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "description": "Prioritized fix recommendations",
+      "items": {
+        "type": "object",
+        "required": ["violation_code", "recommendation", "priority", "effort"],
+        "properties": {
+          "violation_code": {
+            "type": "string",
+            "description": "Related violation code"
+          },
+          "recommendation": {
+            "type": "string",
+            "description": "Actionable fix recommendation"
+          },
+          "impact": {
+            "type": "string",
+            "description": "Expected impact of fix"
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4,
+            "description": "Fix priority (1=highest)"
+          },
+          "effort": {
+            "type": "string",
+            "enum": ["low", "medium", "high"],
+            "description": "Estimated implementation effort"
+          }
+        }
+      }
+    },
+    "scamper_optimizations": {
+      "type": "array",
+      "description": "SCAMPER optimization candidates (OPTIMIZE mode only)",
+      "items": {
+        "type": "object",
+        "required": ["technique", "candidate", "score"],
+        "properties": {
+          "technique": {
+            "type": "string",
+            "enum": ["Substitute", "Combine", "Adapt", "Modify", "Put to other use", "Eliminate", "Reverse"],
+            "description": "SCAMPER technique applied"
+          },
+          "candidate": {
+            "type": "string",
+            "description": "Optimization candidate description"
+          },
+          "minimality": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Change minimality score (1=smallest change)"
+          },
+          "risk": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Risk score (0=lowest risk)"
+          },
+          "maintainability": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Maintainability score (1=most maintainable)"
+          },
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Weighted optimization score"
+          },
+          "implementation": {
+            "type": "string",
+            "description": "Implementation guidance"
+          }
+        }
+      }
+    },
+    "workflow_diagram": {
+      "type": "object",
+      "description": "Abbreviated workflow structure for visual report",
+      "properties": {
+        "command_invocation": {
+          "type": "string",
+          "description": "Command syntax with arguments (e.g., /terminal-bench <ideas-file> [options])"
+        },
+        "phases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "description": "Phase identifier (e.g., PHASE 1, PHASES 3-7)" },
+              "name": { "type": "string", "description": "Phase name (e.g., DISCOVERY, BUILD)" },
+              "operations": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Key operations in this phase"
+              },
+              "delegations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "agent": { "type": "string" },
+                    "output": { "type": "string" }
+                  }
+                },
+                "description": "Task() delegations with expected outputs"
+              },
+              "is_parallel": { "type": "boolean", "description": "Whether operations run in parallel" },
+              "human_interaction": { "type": "string", "description": "Human interaction point if any" }
+            },
+            "required": ["id", "name"]
+          }
+        },
+        "gates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "description": "Gate ID (e.g., G1, G2)" },
+              "after_phase": { "type": "string", "description": "Phase this gate follows" },
+              "criteria": { "type": "string", "description": "Gate exit criteria" },
+              "type": { "type": "string", "enum": ["human", "automated"] }
+            },
+            "required": ["id", "criteria", "type"]
+          }
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "total_gates": { "type": "integer" },
+            "human_gates": { "type": "integer" },
+            "automated_gates": { "type": "integer" },
+            "parallel_phases": { "type": "integer" }
+          }
+        }
+      },
+      "required": ["command_invocation", "phases", "gates"]
+    },
+    "summary": {
+      "type": "string",
+      "description": "Executive summary of analysis"
+    },
+    "analysis_mode": {
+      "type": "string",
+      "enum": ["ANALYZE", "VALIDATE", "OPTIMIZE"],
+      "description": "Analysis mode used"
+    },
+    "complexity": {
+      "type": "string",
+      "enum": ["simple", "moderate", "complex"],
+      "description": "Workflow complexity classification"
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "required": ["location", "finding", "severity"],
+      "properties": {
+        "location": {
+          "type": "string",
+          "description": "Location in command file (phase, step, line)"
+        },
+        "finding": {
+          "type": "string",
+          "description": "What was found"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low"],
+          "description": "Finding severity"
+        }
+      }
+    }
+  }
+}

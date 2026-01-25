@@ -1,0 +1,287 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/kemosabe102/gauntlet-agents/schemas/tech-debt-investigator-input.schema.json",
+  "title": "Technical Debt Investigator Input Schema",
+  "description": "Validates orchestrator input context metadata for tech-debt-investigator delegations",
+  "type": "object",
+  "properties": {
+    "context": {
+      "type": "string",
+      "description": "Primary task context from orchestrator (natural language instructions)"
+    },
+    "execution_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp from orchestrator (mandatory for tracking)"
+    },
+    "scope": {
+      "type": "object",
+      "description": "Analysis scope definition - directories, patterns, and exclusions",
+      "properties": {
+        "directories": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "description": "Target directories for analysis (e.g., ['packages/', 'tests/'])",
+          "examples": [["packages/"], ["packages/", "tests/"], [".claude/agents/"]]
+        },
+        "file_patterns": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["*.py"],
+          "description": "Glob patterns for files to include (e.g., ['*.py', '*.md'])",
+          "examples": [["*.py"], ["*.md"], ["*.py", "*.ts"]]
+        },
+        "exclusions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["**/__pycache__/**", "**/.venv/**"],
+          "description": "Glob patterns to exclude from analysis",
+          "examples": [["**/test_*.py", "**/__pycache__/**"], ["**/*.generated.*"]]
+        },
+        "analysis_type": {
+          "type": "string",
+          "enum": ["code_debt", "agent_debt", "comprehensive", "historical", "iterative"],
+          "description": "Override auto-detection of analysis mode. See agent docs for mode details."
+        }
+      },
+      "required": ["directories"]
+    },
+    "baseline": {
+      "type": "object",
+      "description": "Previous analysis results for trend comparison (enables iterative mode)",
+      "properties": {
+        "previous_debt_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "debt_score from previous analysis run (0=severe, 100=excellent)"
+        },
+        "previous_tdr": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Technical Debt Ratio from previous run (e.g., 0.08 = 8%)"
+        },
+        "previous_coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Test coverage percentage from previous run"
+        },
+        "previous_sqale_grade": {
+          "type": "string",
+          "enum": ["A", "B", "C", "D", "E"],
+          "description": "SQALE grade from previous analysis"
+        },
+        "run_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of baseline analysis for trend delta calculations"
+        },
+        "previous_category_scores": {
+          "type": "object",
+          "description": "Per-category scores from baseline for granular trend analysis",
+          "properties": {
+            "code_quality": { "type": "number", "minimum": 0, "maximum": 5 },
+            "architecture": { "type": "number", "minimum": 0, "maximum": 5 },
+            "testing": { "type": "number", "minimum": 0, "maximum": 5 },
+            "documentation": { "type": "number", "minimum": 0, "maximum": 5 },
+            "infrastructure": { "type": "number", "minimum": 0, "maximum": 5 },
+            "design_ui": { "type": "number", "minimum": 0, "maximum": 5 }
+          }
+        }
+      }
+    },
+    "business_context": {
+      "type": "object",
+      "description": "Business context for prioritization - critical modules and usage patterns",
+      "properties": {
+        "critical_modules": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Paths to business-critical modules (auth, payments, etc.) for weighted prioritization",
+          "examples": [["packages/core/auth/", "packages/api/payments.py"]]
+        },
+        "usage_frequency": {
+          "type": "object",
+          "description": "Module usage frequency classification for impact weighting",
+          "properties": {
+            "high": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "High-traffic modules (daily user interaction)"
+            },
+            "medium": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Medium-traffic modules (weekly user interaction)"
+            },
+            "low": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Low-traffic modules (monthly or less)"
+            }
+          }
+        },
+        "incident_files": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Files involved in recent incidents (for post-mortem hotspot analysis)"
+        },
+        "team_ownership": {
+          "type": "object",
+          "description": "Module-to-team mapping for ownership dispersion analysis",
+          "additionalProperties": {
+            "type": "string",
+            "description": "Team name owning this module path"
+          }
+        }
+      }
+    },
+    "thresholds": {
+      "type": "object",
+      "description": "Custom quality gate thresholds (overrides industry defaults)",
+      "properties": {
+        "max_debt_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 60,
+          "description": "Maximum acceptable debt_score (fail if exceeded). Default: 60"
+        },
+        "max_tdr": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0.1,
+          "description": "Maximum Technical Debt Ratio (fail if exceeded). Default: 0.10 (10%)"
+        },
+        "min_coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 80,
+          "description": "Minimum test coverage percentage. Default: 80%"
+        },
+        "max_complexity": {
+          "type": "number",
+          "minimum": 1,
+          "default": 10,
+          "description": "Maximum acceptable cyclomatic complexity per function. Default: 10"
+        },
+        "max_duplication_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 5,
+          "description": "Maximum acceptable code duplication percentage. Default: 5%"
+        },
+        "min_docstring_coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 70,
+          "description": "Minimum docstring coverage percentage. Default: 70%"
+        },
+        "hotspot_threshold": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "default": 7,
+          "description": "Hotspot score threshold for urgent flagging. Default: 7.0"
+        },
+        "regression_tolerance_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 5,
+          "description": "Tolerance for metric regression before flagging (%). Default: 5%"
+        }
+      }
+    },
+    "analysis_mode": {
+      "type": "string",
+      "enum": ["code_debt", "agent_debt", "comprehensive", "historical", "iterative"],
+      "description": "Override auto-detection of analysis mode. Modes: code_debt (packages/tests quality), agent_debt (.claude/agents consistency), comprehensive (full 6-category), historical (git churn analysis), iterative (trend comparison)"
+    },
+    "output_preferences": {
+      "type": "object",
+      "description": "Customize output format and detail level",
+      "properties": {
+        "include_connection_graph": {
+          "type": "boolean",
+          "default": false,
+          "description": "Include debt item relationship graph (adds processing time)"
+        },
+        "include_stakeholder_summary": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include executive-friendly summary section"
+        },
+        "max_hotspots": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50,
+          "default": 10,
+          "description": "Maximum number of hotspots to report"
+        },
+        "max_remediation_items": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 20,
+          "description": "Maximum remediation plan items to include"
+        },
+        "evidence_detail_level": {
+          "type": "string",
+          "enum": ["minimal", "standard", "verbose"],
+          "default": "standard",
+          "description": "Level of evidence detail: minimal (file only), standard (file:line), verbose (file:line + context)"
+        }
+      }
+    }
+  },
+  "required": ["context", "execution_timestamp", "scope"],
+  "examples": [
+    {
+      "context": "Analyze technical debt in packages/. Calculate debt_score, TDR, identify hotspots.",
+      "execution_timestamp": "2024-01-20T15:30:00Z",
+      "scope": {
+        "directories": ["packages/"],
+        "file_patterns": ["*.py"],
+        "exclusions": ["**/test_*.py", "**/__pycache__/**"]
+      }
+    },
+    {
+      "context": "Pre-release quality gate for packages/ and tests/. Flag regressions vs baseline.",
+      "execution_timestamp": "2024-01-20T15:30:00Z",
+      "scope": {
+        "directories": ["packages/", "tests/"],
+        "file_patterns": ["*.py"]
+      },
+      "baseline": {
+        "previous_debt_score": 42,
+        "previous_tdr": 0.08,
+        "run_timestamp": "2024-01-15T10:00:00Z"
+      },
+      "thresholds": {
+        "max_debt_score": 50,
+        "max_tdr": 0.10,
+        "min_coverage": 80
+      }
+    },
+    {
+      "context": "Hotspot analysis for packages/api/ after production incident.",
+      "execution_timestamp": "2024-01-20T15:30:00Z",
+      "scope": {
+        "directories": ["packages/api/"],
+        "analysis_type": "historical"
+      },
+      "business_context": {
+        "critical_modules": ["packages/api/auth.py", "packages/api/payments.py"],
+        "incident_files": ["packages/api/handlers.py"]
+      }
+    }
+  ]
+}

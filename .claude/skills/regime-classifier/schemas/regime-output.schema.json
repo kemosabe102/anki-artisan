@@ -1,0 +1,212 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "regime-output.schema.json",
+  "title": "RegimeClassifierOutput",
+  "description": "Output schema for the regime-classifier skill",
+  "type": "object",
+  "required": [
+    "regime",
+    "date_range",
+    "factors",
+    "summary",
+    "confidence"
+  ],
+  "properties": {
+    "regime": {
+      "type": "string",
+      "enum": [
+        "HIGH_RISK",
+        "ELEVATED",
+        "NORMAL",
+        "LOW_RISK"
+      ],
+      "description": "Classified market regime based on factor consensus"
+    },
+    "date_range": {
+      "type": "object",
+      "required": [
+        "start",
+        "end"
+      ],
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date",
+          "description": "Start date of classification period (YYYY-MM-DD)"
+        },
+        "end": {
+          "type": "string",
+          "format": "date",
+          "description": "End date of classification period (YYYY-MM-DD)"
+        }
+      }
+    },
+    "factors": {
+      "type": "object",
+      "required": [
+        "volatility",
+        "correlation",
+        "credit",
+        "sentiment",
+        "trend"
+      ],
+      "properties": {
+        "volatility": {
+          "$ref": "#/definitions/percentileFactor"
+        },
+        "correlation": {
+          "$ref": "#/definitions/numericFactor"
+        },
+        "credit": {
+          "$ref": "#/definitions/percentileFactor"
+        },
+        "sentiment": {
+          "$ref": "#/definitions/numericFactor"
+        },
+        "trend": {
+          "$ref": "#/definitions/binaryFactor"
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "red_count",
+        "green_count",
+        "neutral_count"
+      ],
+      "properties": {
+        "red_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5,
+          "description": "Number of factors signaling stress (RED)"
+        },
+        "green_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5,
+          "description": "Number of factors signaling calm (GREEN)"
+        },
+        "neutral_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5,
+          "description": "Number of factors in neutral zone"
+        }
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 0.95,
+      "description": "Classification confidence (capped at 0.95 per Varma principle)"
+    },
+    "data_quality": {
+      "type": "object",
+      "properties": {
+        "factors_with_data": {
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 5,
+          "description": "Number of factors with actual data (minimum 3 required)"
+        },
+        "factors_estimated": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2,
+          "description": "Number of factors using fallback estimation"
+        },
+        "fallbacks_used": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of factors using fallback data sources"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "signal": {
+      "type": "string",
+      "enum": [
+        "RED",
+        "NEUTRAL",
+        "GREEN"
+      ],
+      "description": "Factor signal classification"
+    },
+    "percentileFactor": {
+      "type": "object",
+      "required": [
+        "value",
+        "percentile",
+        "signal",
+        "threshold"
+      ],
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "Percentile value (0-100)"
+        },
+        "percentile": {
+          "type": "boolean",
+          "const": true,
+          "description": "Indicates value is a percentile"
+        },
+        "signal": {
+          "$ref": "#/definitions/signal"
+        },
+        "threshold": {
+          "type": "number",
+          "description": "Threshold percentile for RED signal"
+        }
+      }
+    },
+    "numericFactor": {
+      "type": "object",
+      "required": [
+        "value",
+        "signal"
+      ],
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "Raw numeric value"
+        },
+        "signal": {
+          "$ref": "#/definitions/signal"
+        },
+        "threshold_red": {
+          "type": "number",
+          "description": "Threshold for RED signal"
+        },
+        "threshold_green": {
+          "type": "number",
+          "description": "Threshold for GREEN signal"
+        }
+      }
+    },
+    "binaryFactor": {
+      "type": "object",
+      "required": [
+        "value",
+        "signal"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "ABOVE",
+            "BELOW"
+          ],
+          "description": "Binary classification (above/below 200DMA)"
+        },
+        "signal": {
+          "$ref": "#/definitions/signal"
+        }
+      }
+    }
+  }
+}

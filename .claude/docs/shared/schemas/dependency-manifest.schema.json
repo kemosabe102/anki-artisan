@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://gauntlet-agents.com/schemas/dependency-manifest/v1.0.0",
+  "title": "Dependency Manifest",
+  "description": "Complete tracking of internal and external dependencies",
+  "type": "object",
+  "properties": {
+    "internal_modules": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Internal project modules and packages"
+    },
+    "external_libs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9_-]+==\\d+\\.\\d+\\.\\d+.*$"
+      },
+      "description": "External libraries with pinned versions"
+    },
+    "env_vars": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Required environment variables"
+    },
+    "migrations": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Database or schema migration files"
+    },
+    "licensing_notes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "SPDX license identifiers"
+    },
+    "supply_chain_pin": {
+      "type": "object",
+      "description": "Pinned hashes for supply chain artifacts",
+      "patternProperties": {
+        ".*": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    }
+  }
+}

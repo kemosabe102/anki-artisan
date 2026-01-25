@@ -1,0 +1,157 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sensitivity Tester I/O Contract",
+  "description": "Anti-overfitting validation with noise injection and walk-forward analysis",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["noise_only", "walk_forward_only", "full_test", "stability_check"],
+          "description": "Test mode to execute"
+        },
+        "hypothesis_id": {
+          "type": "string",
+          "pattern": "^HYP-[0-9]{3}$",
+          "description": "Hypothesis identifier from backtester"
+        },
+        "trial_number": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "description": "HDD trial number"
+        },
+        "hypothesis_bundle": {
+          "type": "object",
+          "description": "Full backtest results from backtester agent"
+        },
+        "baseline_metrics": {
+          "type": "object",
+          "properties": {
+            "sharpe": { "type": "number" },
+            "trade_count": { "type": "integer" },
+            "max_drawdown": { "type": "number" }
+          },
+          "description": "Baseline performance from backtester"
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["mode", "hypothesis_id", "hypothesis_bundle"]
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Success Response",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "hypothesis_id": { "type": "string" },
+            "sensitivity_score": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Robustness score (80+=ROBUST, 60-79=MARGINAL, 40-59=FRAGILE, <40=OVERFIT)"
+            },
+            "verdict": {
+              "type": "string",
+              "enum": ["ROBUST", "MARGINAL", "FRAGILE", "OVERFIT"],
+              "description": "Final robustness verdict"
+            },
+            "validation_gates": {
+              "type": "object",
+              "properties": {
+                "NOISE_ROBUST": {
+                  "type": "object",
+                  "properties": {
+                    "passed": { "type": "boolean" },
+                    "value": { "type": "number" },
+                    "threshold": { "type": "number", "const": 30 },
+                    "severity": { "const": "HARD" }
+                  }
+                },
+                "WALK_FORWARD_VALID": {
+                  "type": "object",
+                  "properties": {
+                    "passed": { "type": "boolean" },
+                    "value": { "type": "number" },
+                    "threshold": { "type": "number", "const": 0.50 },
+                    "severity": { "const": "HARD" }
+                  }
+                },
+                "PARAMETER_STABLE": {
+                  "type": "object",
+                  "properties": {
+                    "passed": { "type": "boolean" },
+                    "value": { "type": "integer" },
+                    "threshold": { "type": "integer", "const": 0 },
+                    "severity": { "const": "SOFT" }
+                  }
+                }
+              }
+            },
+            "noise_test_results": {
+              "type": "object",
+              "properties": {
+                "base_sharpe": { "type": "number" },
+                "noise_sharpe_mean": { "type": "number" },
+                "degradation_pct": { "type": "number" },
+                "fragile_parameters": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "walk_forward_results": {
+              "type": "object",
+              "properties": {
+                "efficiency_ratio": { "type": "number" },
+                "num_folds": { "type": "integer" },
+                "in_sample_sharpe": { "type": "number" },
+                "out_sample_sharpe": { "type": "number" }
+              }
+            },
+            "cliff_edge_parameters": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Parameters with >50% Sharpe drop at +/-5%"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "next_action": {
+              "type": "string",
+              "enum": ["holdout_validation", "conditional_proceed", "refinement", "archive"]
+            }
+          },
+          "required": ["status", "hypothesis_id", "sensitivity_score", "verdict", "validation_gates"]
+        },
+        {
+          "title": "Failure Response",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "hypothesis_id": { "type": "string" },
+            "failure_type": {
+              "type": "string",
+              "enum": ["missing_baseline", "backtester_timeout", "insufficient_data", "all_cliff_edge"]
+            },
+            "reasons": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "partial_results": { "type": "object" },
+            "recovery_suggestions": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "required": ["status", "failure_type", "reasons"]
+        }
+      ]
+    }
+  },
+  "required": ["input", "output"]
+}

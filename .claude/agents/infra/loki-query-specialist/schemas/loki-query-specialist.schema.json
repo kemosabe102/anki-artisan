@@ -1,0 +1,635 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "loki-query-specialist.schema.json",
+  "version": "1.0.0",
+  "title": "Loki Query Specialist Schema",
+  "description": "Input/output schema for LogQL query construction and log format analysis operations with two-state model",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique identifier for the task"
+        },
+        "operation_type": {
+          "type": "string",
+          "enum": [
+            "construct_query",
+            "analyze_format",
+            "validate_syntax",
+            "optimize_query",
+            "recommend_format",
+            "assess_log_quality"
+          ],
+          "description": "Type of LogQL operation to perform"
+        },
+        "extraction_goal": {
+          "type": "string",
+          "description": "Description of what data to extract from logs (required for construct_query)"
+        },
+        "log_sample": {
+          "type": "string",
+          "description": "Sample log lines for format analysis (optional for construct_query, required for analyze_format and recommend_format)"
+        },
+        "logql_query": {
+          "type": "string",
+          "description": "LogQL query string to validate or optimize (required for validate_syntax and optimize_query)"
+        },
+        "loki_endpoint": {
+          "type": "string",
+          "format": "uri",
+          "default": "http://loki-service.gauntlet-agents.svc.cluster.local:3100",
+          "description": "Loki API endpoint for query testing and validation"
+        },
+        "performance_context": {
+          "type": "string",
+          "description": "Current performance issues context (optional for optimize_query, e.g., 'slow', 'high cardinality', 'timeout')"
+        },
+        "current_issues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Known queryability issues with current log format (optional for recommend_format)"
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator"
+        }
+      },
+      "required": [
+        "task_id",
+        "operation_type",
+        "execution_timestamp"
+      ],
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Loki Query Specialist Success",
+          "properties": {
+            "status": {
+              "const": "SUCCESS"
+            },
+            "agent": {
+              "const": "loki-query-specialist"
+            },
+            "task_id": {
+              "type": "string",
+              "description": "Unique task identifier"
+            },
+            "operation_type": {
+              "enum": [
+                "construct_query",
+                "analyze_format",
+                "validate_syntax",
+                "optimize_query",
+                "recommend_format",
+                "assess_log_quality"
+              ]
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence executive summary of operation completed"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in operation success (parser selection, query construction, format analysis)"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "description": "Agent-specific output structure for LogQL operations",
+              "properties": {
+                "query_construction_result": {
+                  "type": "object",
+                  "description": "Result of construct_query operation",
+                  "properties": {
+                    "constructed_query": {
+                      "type": "string",
+                      "description": "Complete LogQL query string ready for execution"
+                    },
+                    "parser_used": {
+                      "type": "string",
+                      "enum": [
+                        "json",
+                        "logfmt",
+                        "regex",
+                        "pattern"
+                      ],
+                      "description": "Parser selected based on log format analysis"
+                    },
+                    "extraction_strategy": {
+                      "type": "string",
+                      "description": "Description of how the query extracts requested data"
+                    },
+                    "test_results": {
+                      "type": "object",
+                      "description": "Results from testing query against Loki API",
+                      "properties": {
+                        "query_valid": {
+                          "type": "boolean",
+                          "description": "Whether query syntax is valid and executes successfully"
+                        },
+                        "sample_results": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Sample results returned by query (truncated to first 5)"
+                        },
+                        "result_count": {
+                          "type": "number",
+                          "description": "Total number of results returned"
+                        }
+                      },
+                      "required": [
+                        "query_valid"
+                      ]
+                    },
+                    "parser_selection_rationale": {
+                      "type": "string",
+                      "description": "Explanation for parser choice based on log format"
+                    },
+                    "alternative_strategies": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "parser": {
+                            "type": "string"
+                          },
+                          "rationale": {
+                            "type": "string"
+                          },
+                          "trade_offs": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "description": "Alternative parsing approaches considered"
+                    }
+                  },
+                  "required": [
+                    "constructed_query",
+                    "parser_used",
+                    "extraction_strategy",
+                    "test_results"
+                  ]
+                },
+                "format_analysis": {
+                  "type": "object",
+                  "description": "Result of analyze_format operation",
+                  "properties": {
+                    "current_format": {
+                      "type": "string",
+                      "enum": [
+                        "json",
+                        "logfmt",
+                        "plain_text",
+                        "custom",
+                        "mixed"
+                      ],
+                      "description": "Classified log format type"
+                    },
+                    "parsing_difficulty": {
+                      "type": "string",
+                      "enum": [
+                        "easy",
+                        "medium",
+                        "hard"
+                      ],
+                      "description": "Assessment of parsing complexity"
+                    },
+                    "recommended_parser": {
+                      "type": "string",
+                      "enum": [
+                        "json",
+                        "logfmt",
+                        "regex",
+                        "pattern"
+                      ],
+                      "description": "Optimal parser for this log format"
+                    },
+                    "format_improvements": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "issue": {
+                            "type": "string",
+                            "description": "Current format issue affecting queryability"
+                          },
+                          "recommendation": {
+                            "type": "string",
+                            "description": "Suggested improvement to format"
+                          },
+                          "benefit": {
+                            "type": "string",
+                            "description": "Expected benefit (queryability improvement, performance gain)"
+                          }
+                        },
+                        "required": [
+                          "issue",
+                          "recommendation",
+                          "benefit"
+                        ]
+                      },
+                      "description": "Actionable format improvement suggestions"
+                    },
+                    "parser_recommendation_rationale": {
+                      "type": "string",
+                      "description": "Explanation for parser recommendation"
+                    }
+                  },
+                  "required": [
+                    "current_format",
+                    "parsing_difficulty",
+                    "recommended_parser",
+                    "format_improvements"
+                  ]
+                },
+                "validation_result": {
+                  "type": "object",
+                  "description": "Result of validate_syntax operation",
+                  "properties": {
+                    "syntax_valid": {
+                      "type": "boolean",
+                      "description": "Whether query syntax is valid"
+                    },
+                    "syntax_errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "Type of syntax error (label_selector, parser, filter, format_expression)"
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "Detailed error description"
+                          },
+                          "location": {
+                            "type": "string",
+                            "description": "Location in query where error occurs"
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_message"
+                        ]
+                      },
+                      "description": "List of syntax errors found in query"
+                    },
+                    "suggested_corrections": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error": {
+                            "type": "string",
+                            "description": "Original error or issue"
+                          },
+                          "correction": {
+                            "type": "string",
+                            "description": "Suggested fix"
+                          },
+                          "explanation": {
+                            "type": "string",
+                            "description": "Why this correction resolves the error"
+                          }
+                        },
+                        "required": [
+                          "error",
+                          "correction",
+                          "explanation"
+                        ]
+                      },
+                      "description": "Actionable syntax corrections with explanations"
+                    },
+                    "corrected_query": {
+                      "type": "string",
+                      "description": "Full corrected query (if syntax errors found)"
+                    }
+                  },
+                  "required": [
+                    "syntax_valid",
+                    "syntax_errors",
+                    "suggested_corrections"
+                  ]
+                },
+                "optimization_recommendations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "issue": {
+                        "type": "string",
+                        "description": "Performance anti-pattern or inefficiency identified"
+                      },
+                      "recommendation": {
+                        "type": "string",
+                        "description": "Optimization suggestion"
+                      },
+                      "expected_improvement": {
+                        "type": "string",
+                        "description": "Expected performance gain (e.g., '50% faster', 'reduces stream count by 80%')"
+                      },
+                      "priority": {
+                        "type": "string",
+                        "enum": [
+                          "high",
+                          "medium",
+                          "low"
+                        ],
+                        "description": "Priority based on impact/effort ratio"
+                      },
+                      "implementation_guidance": {
+                        "type": "string",
+                        "description": "How to implement the optimization"
+                      }
+                    },
+                    "required": [
+                      "issue",
+                      "recommendation",
+                      "expected_improvement",
+                      "priority"
+                    ]
+                  },
+                  "description": "Prioritized query optimization recommendations (optimize_query operation)"
+                },
+                "format_recommendations": {
+                  "type": "object",
+                  "description": "Result of recommend_format operation",
+                  "properties": {
+                    "current_issues": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Identified issues with current log format"
+                    },
+                    "recommended_format": {
+                      "type": "object",
+                      "properties": {
+                        "format_type": {
+                          "type": "string",
+                          "enum": [
+                            "json",
+                            "logfmt",
+                            "structured_text"
+                          ],
+                          "description": "Recommended format type"
+                        },
+                        "format_example": {
+                          "type": "string",
+                          "description": "Example of recommended format"
+                        },
+                        "benefits": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Benefits of adopting recommended format"
+                        }
+                      },
+                      "required": [
+                        "format_type",
+                        "format_example",
+                        "benefits"
+                      ]
+                    },
+                    "migration_steps": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "step": {
+                            "type": "string",
+                            "description": "Migration step description"
+                          },
+                          "implementation": {
+                            "type": "string",
+                            "description": "How to implement this step"
+                          },
+                          "effort": {
+                            "type": "string",
+                            "enum": [
+                              "low",
+                              "medium",
+                              "high"
+                            ],
+                            "description": "Estimated implementation effort"
+                          }
+                        },
+                        "required": [
+                          "step",
+                          "implementation",
+                          "effort"
+                        ]
+                      },
+                      "description": "Step-by-step migration guidance"
+                    },
+                    "before_after_comparison": {
+                      "type": "object",
+                      "properties": {
+                        "before": {
+                          "type": "string",
+                          "description": "Current format example"
+                        },
+                        "after": {
+                          "type": "string",
+                          "description": "Recommended format example"
+                        },
+                        "query_simplification": {
+                          "type": "string",
+                          "description": "How queries become simpler with new format"
+                        }
+                      },
+                      "required": [
+                        "before",
+                        "after"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "current_issues",
+                    "recommended_format",
+                    "migration_steps"
+                  ]
+                }
+              }
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "task_id",
+            "operation_type",
+            "summary",
+            "confidence",
+            "execution_timestamp",
+            "agent_specific_output"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Loki Query Specialist Failure",
+          "properties": {
+            "status": {
+              "const": "FAILURE"
+            },
+            "agent": {
+              "const": "loki-query-specialist"
+            },
+            "task_id": {
+              "type": "string",
+              "description": "Unique task identifier"
+            },
+            "operation_type": {
+              "enum": [
+                "construct_query",
+                "analyze_format",
+                "validate_syntax",
+                "optimize_query",
+                "recommend_format",
+                "assess_log_quality"
+              ]
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence summary of why operation failed"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in failure analysis"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "failure_details": {
+              "type": "object",
+              "description": "Loki Query Specialist specific failure information",
+              "properties": {
+                "failure_type": {
+                  "type": "string",
+                  "enum": [
+                    "loki_connectivity_error",
+                    "invalid_input",
+                    "unsupported_log_format",
+                    "query_execution_error",
+                    "parser_selection_error",
+                    "validation_error"
+                  ],
+                  "description": "Primary type of failure"
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Specific reasons why LogQL operation failed"
+                },
+                "loki_connectivity_error": {
+                  "type": "boolean",
+                  "description": "Whether failure is due to Loki API connectivity issues"
+                },
+                "invalid_input": {
+                  "type": "string",
+                  "description": "Description of invalid or missing input fields"
+                },
+                "unsupported_log_format": {
+                  "type": "string",
+                  "description": "Description of why log format cannot be parsed or analyzed"
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Actionable steps to resolve the failure"
+                },
+                "partial_results": {
+                  "type": "object",
+                  "description": "Any partial analysis or results completed before failure",
+                  "properties": {
+                    "format_classified": {
+                      "type": "boolean",
+                      "description": "Whether format classification completed"
+                    },
+                    "parser_identified": {
+                      "type": "string",
+                      "description": "Parser identified before failure (if any)"
+                    },
+                    "query_partially_constructed": {
+                      "type": "string",
+                      "description": "Partially constructed query (if any)"
+                    }
+                  }
+                },
+                "endpoint_tested": {
+                  "type": "string",
+                  "description": "Loki endpoint URL that was tested (if connectivity error)"
+                },
+                "error_details": {
+                  "type": "object",
+                  "description": "Detailed error information from Loki or validation",
+                  "properties": {
+                    "error_code": {
+                      "type": "string",
+                      "description": "Error code from Loki API or validation"
+                    },
+                    "error_message": {
+                      "type": "string",
+                      "description": "Detailed error message"
+                    },
+                    "stack_trace": {
+                      "type": "string",
+                      "description": "Stack trace if applicable"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "failure_type",
+                "reasons",
+                "recovery_suggestions"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "task_id",
+            "operation_type",
+            "summary",
+            "confidence",
+            "execution_timestamp",
+            "failure_details"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "required": [
+    "input",
+    "output"
+  ]
+}

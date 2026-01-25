@@ -1,0 +1,338 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "algo-strategy.schema.json",
+  "title": "Algo-Strategy Command I/O Contract",
+  "description": "Input/Output contract for /algo-strategy command supporting 6-phase (classic) and 17-phase (full) workflows",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "description": "Command input parameters",
+      "properties": {
+        "strategy_description": {
+          "type": "string",
+          "description": "Natural language strategy description"
+        },
+        "document_path": {
+          "type": "string",
+          "description": "Path to strategy document (--from-doc mode)"
+        },
+        "workflow_mode": {
+          "enum": ["classic", "full"],
+          "default": "classic"
+        },
+        "output_mode": {
+          "enum": ["full", "spec_only", "skeleton_only", "hypothesis_only"],
+          "default": "full"
+        },
+        "flags": {
+          "type": "object",
+          "properties": {
+            "from_doc": {
+              "type": "boolean",
+              "default": false
+            },
+            "spec_only": {
+              "type": "boolean",
+              "default": false
+            },
+            "skeleton_only": {
+              "type": "boolean",
+              "default": false
+            },
+            "hypothesis_only": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        }
+      },
+      "required": ["strategy_description"]
+    },
+    "output": {
+      "type": "object",
+      "description": "Command output",
+      "properties": {
+        "status": {
+          "enum": ["SUCCESS", "FAILURE", "PENDING"]
+        },
+        "workflow_mode": {
+          "enum": ["classic", "full"]
+        },
+        "phase_completed": {
+          "type": "string",
+          "description": "Last completed phase (P1-P17)"
+        },
+        "phase_tracking": {
+          "type": "object",
+          "description": "Status of each phase",
+          "properties": {
+            "P1_INVESTMENT_UNIVERSE": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P2_BACKTEST_CONSTRAINTS": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P3_UNIVERSE_SELECTION": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P4_PARSE": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P5_HYPOTHESIS": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P6_POSITION_SIZING": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P7_EXECUTION_MODEL": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P8_RISK_MANAGEMENT": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P9_BACKTEST_METRICS": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P10_PARAMETER_SENSITIVITY": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P11_STRESS_TESTING": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P12_DATA_CHECK": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P13_DELEGATE": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P14_VALIDATE": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P15_PRESENT_REVISE": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P16_AUDIT_TRAIL": {
+              "$ref": "#/definitions/phaseStatus"
+            },
+            "P17_DEPLOYMENT_READY": {
+              "$ref": "#/definitions/phaseStatus"
+            }
+          }
+        },
+        "gate_status": {
+          "type": "object",
+          "description": "Status of all gates",
+          "properties": {
+            "G1_UNIVERSE_DEFINED": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G2_CONSTRAINTS_VALID": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G3_SURVIVOR_BIAS_CHECK": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G4_INPUT": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G5a_PARAM_COUNT": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G5b_PARAM_RANGES": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G5c_HYPOTHESIS": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G5d_HANDOFF_VALID": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G6a_SIZING_METHOD_VALID": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G6b_REGIME_ADJUSTMENT": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G7_SLIPPAGE_SENSITIVITY": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G8a_REGIME_CLASSIFICATION": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G8b_CIRCUIT_BREAKERS": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G9a_SHARPE_MINIMUM": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G9b_TRADE_COUNT": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G10a_NOISE_ROBUST": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G10b_WALK_FORWARD": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G11a_CRISIS_2008": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G11b_CRISIS_2020": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G11c_CRISIS_2022": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G12_DATA": {
+              "$ref": "#/definitions/gateStatus"
+            },
+            "G14_CONSISTENCY": {
+              "$ref": "#/definitions/gateStatus"
+            }
+          }
+        },
+        "layers": {
+          "type": "object",
+          "properties": {
+            "definition_layer": {
+              "type": "object",
+              "description": "P1-P3 outputs (--full mode only)",
+              "properties": {
+                "universe": {
+                  "type": "object"
+                },
+                "backtest_constraints": {
+                  "type": "object"
+                },
+                "universe_quality_score": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              }
+            },
+            "strategy_layer": {
+              "type": "object",
+              "description": "P4-P8 outputs",
+              "properties": {
+                "hypothesis_bundle": {
+                  "$ref": "./hypothesis-bundle.schema.json"
+                },
+                "position_sizing_config": {
+                  "type": "object"
+                },
+                "execution_model": {
+                  "type": "object"
+                },
+                "risk_regime": {
+                  "type": "object"
+                }
+              }
+            },
+            "validation_layer": {
+              "type": "object",
+              "description": "P9-P11 outputs (--full mode only)",
+              "properties": {
+                "backtest_metrics": {
+                  "type": "object"
+                },
+                "sensitivity_results": {
+                  "type": "object"
+                },
+                "stress_test_results": {
+                  "type": "object"
+                }
+              }
+            },
+            "execution_layer": {
+              "type": "object",
+              "description": "P12-P17 outputs",
+              "properties": {
+                "data_confidence_score": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "strategy_spec": {
+                  "type": "object"
+                },
+                "python_skeleton": {
+                  "type": "string"
+                },
+                "audit_trail": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "error": {
+          "type": "object",
+          "description": "Error details (if status=FAILURE)",
+          "properties": {
+            "error_code": {
+              "type": "string",
+              "pattern": "^ALGO_ERR_[0-9]{3}$"
+            },
+            "phase": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "recovery_guidance": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": ["status"]
+    }
+  },
+  "definitions": {
+    "phaseStatus": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": ["NOT_STARTED", "IN_PROGRESS", "COMPLETE", "BLOCKED", "SKIPPED"]
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_ms": {
+          "type": "integer"
+        }
+      }
+    },
+    "gateStatus": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": ["PASS", "FAIL", "PENDING", "SKIPPED"]
+        },
+        "checked_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "value": {
+          "description": "The actual value checked"
+        },
+        "threshold": {
+          "description": "The threshold for this gate"
+        },
+        "feedback": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

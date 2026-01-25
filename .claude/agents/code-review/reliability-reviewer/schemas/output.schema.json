@@ -1,0 +1,160 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Reliability Reviewer Output Schema",
+  "description": "Schema for reliability-reviewer agent outputs with Four Hats methodology findings",
+  "version": "1.0.0",
+  "type": "object",
+  "oneOf": [
+    {
+      "title": "Success Output",
+      "type": "object",
+      "properties": {
+        "status": { "const": "SUCCESS" },
+        "agent": { "const": "reliability-reviewer" },
+        "task_id": { "type": "string" },
+        "integration_pair": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "integer" },
+            "upstream": { "type": "string" },
+            "downstream": { "type": "string" },
+            "upstream_file": { "type": "string" },
+            "downstream_file": { "type": "string" },
+            "data_flow_type": {
+              "type": "string",
+              "enum": ["direct", "event", "storage", "api"]
+            }
+          },
+          "required": ["id", "upstream", "downstream", "upstream_file", "downstream_file"]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "hats_completed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["graph_theorist", "lawyer", "operator", "historian"]
+          },
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "description": "All four hats must be applied in sequence"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[ENOH]-[0-9]{3}$",
+                "description": "Finding ID: E (Edge/Graph Theorist), N (Node/Lawyer), O (Operator), H (Historian)"
+              },
+              "category": {
+                "type": "string",
+                "description": "Check category from hat checklist (e.g., Temporal, Semantic, Invariant)"
+              },
+              "issue": {
+                "type": "string",
+                "description": "Description of the reliability issue"
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
+              },
+              "evidence": {
+                "type": "string",
+                "description": "File path and line number reference (e.g., 'file.py:45')"
+              },
+              "recommendation": {
+                "type": "string",
+                "description": "Actionable remediation guidance"
+              }
+            },
+            "required": ["id", "category", "issue", "severity", "evidence", "recommendation"]
+          }
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "critical_count": { "type": "integer", "minimum": 0 },
+            "high_count": { "type": "integer", "minimum": 0 },
+            "medium_count": { "type": "integer", "minimum": 0 },
+            "low_count": { "type": "integer", "minimum": 0 },
+            "total_findings": { "type": "integer", "minimum": 0 }
+          },
+          "required": ["critical_count", "high_count", "medium_count", "low_count", "total_findings"]
+        },
+        "open_questions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "question": { "type": "string" },
+              "context": { "type": "string" }
+            },
+            "required": ["question"]
+          },
+          "description": "Findings without sufficient code evidence (confidence <0.70)"
+        }
+      },
+      "required": ["status", "agent", "confidence", "hats_completed", "findings", "summary"]
+    },
+    {
+      "title": "Failure Output",
+      "type": "object",
+      "properties": {
+        "status": { "const": "FAILURE" },
+        "agent": { "const": "reliability-reviewer" },
+        "task_id": { "type": "string" },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "failure_details": {
+          "type": "object",
+          "properties": {
+            "failure_type": {
+              "type": "string",
+              "enum": [
+                "empty_input",
+                "missing_fields",
+                "file_not_found",
+                "skill_load_failure",
+                "malformed_json"
+              ]
+            },
+            "error_message": { "type": "string" },
+            "missing_fields": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "List of missing required fields (for missing_fields failure type)"
+            },
+            "file_path": {
+              "type": "string",
+              "description": "Path that could not be found (for file_not_found failure type)"
+            },
+            "raw_input": {
+              "type": "string",
+              "description": "Original input that failed to parse (for malformed_json failure type)"
+            },
+            "recovery_suggestions": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "required": ["failure_type", "error_message", "recovery_suggestions"]
+        }
+      },
+      "required": ["status", "agent", "failure_details"]
+    }
+  ]
+}

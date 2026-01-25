@@ -1,0 +1,155 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Feature Analyzer Schema",
+  "description": "Input/output contract for feature comparison and integration analysis",
+  "version": "1.1.0",
+  "allOf": [
+    { "$ref": "../../../../docs/shared/schemas/base-agent.schema.json" }
+  ],
+  "definitions": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "feature_specs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2,
+          "maxItems": 5,
+          "description": "Paths to feature specification files to compare"
+        },
+        "mode": {
+          "type": "string",
+          "enum": ["full_analysis", "quick_scan", "decision_focus"],
+          "default": "full_analysis"
+        },
+        "output_path": {
+          "type": "string",
+          "description": "Optional path to write analysis output (uses Desktop Commander)"
+        }
+      },
+      "required": ["feature_specs"]
+    },
+    "agent_specific_output": {
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "string",
+          "description": "One-sentence summary: 'Features A and B should [ACTION] with [X]% overlap. [Key finding].'"
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp for orchestrator correlation"
+        },
+        "comparison_matrix": {
+          "type": "object",
+          "properties": {
+            "features_analyzed": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "overlap_percentages": {
+              "type": "object",
+              "properties": {
+                "responsibility": { "type": "number", "minimum": 0, "maximum": 100 },
+                "requirement": { "type": "number", "minimum": 0, "maximum": 100 },
+                "infrastructure": { "type": "number", "minimum": 0, "maximum": 100 },
+                "overall": { "type": "number", "minimum": 0, "maximum": 100 }
+              }
+            },
+            "conflict_indicators": { "type": "array", "items": { "type": "string" }, "maxItems": 3 },
+            "synergy_indicators": { "type": "array", "items": { "type": "string" }, "maxItems": 5 }
+          },
+          "required": ["features_analyzed", "overlap_percentages"]
+        },
+        "separation_report": {
+          "type": "object",
+          "properties": {
+            "overlapping_responsibilities": { "type": "array", "items": { "type": "string" } },
+            "clear_boundaries": { "type": "array", "items": { "type": "string" } },
+            "recommended_structure": { "type": "string" }
+          }
+        },
+        "integration_architecture": {
+          "type": "object",
+          "properties": {
+            "strategy": { "type": "string", "enum": ["merge", "separate", "refactor"] },
+            "phases": { "type": "array", "items": { "type": "string" } },
+            "interfaces": { "type": "array", "items": { "type": "string" } },
+            "shared_infrastructure": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["strategy"]
+        },
+        "alignment_assessment": {
+          "type": "object",
+          "properties": {
+            "overall_alignment_score": { "type": "number", "minimum": 0, "maximum": 1 },
+            "goal_assessments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "goal": { "type": "string" },
+                  "status": { "type": "string", "enum": ["aligned", "partial", "misaligned"] },
+                  "rationale": { "type": "string" }
+                }
+              }
+            },
+            "risks": { "type": "array", "items": { "type": "string" } },
+            "mitigations": { "type": "array", "items": { "type": "string" } }
+          },
+          "required": ["overall_alignment_score"]
+        },
+        "recommended_action": {
+          "type": "object",
+          "properties": {
+            "action": { "type": "string", "enum": ["merge", "separate", "refactor"] },
+            "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+            "confidence_band": { "type": "string", "enum": ["High", "Medium-High", "Medium", "Low"] },
+            "rationale": { "type": "string" },
+            "alternatives_considered": { "type": "array", "items": { "type": "string" } },
+            "pre_mortem_risks": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Top 3 ways this recommendation could fail"
+            }
+          },
+          "required": ["action", "confidence", "rationale"]
+        },
+        "verification_commands": {
+          "type": "array",
+          "items": { "type": "string" },
+          "maxItems": 2
+        }
+      },
+      "required": ["summary", "comparison_matrix", "integration_architecture", "recommended_action"]
+    },
+    "failure_details": {
+      "type": "object",
+      "properties": {
+        "failure_type": {
+          "type": "string",
+          "enum": ["missing_context", "access_error", "validation_failure", "circular_dependency", "rate_limit_exceeded", "external_service_failure"]
+        },
+        "reasons": { "type": "array", "items": { "type": "string" } },
+        "recovery_suggestions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "suggestion": { "type": "string" },
+              "effort_estimate": { "type": "string" },
+              "confidence": { "type": "number" }
+            }
+          }
+        },
+        "partial_results": {
+          "type": "object",
+          "description": "Work completed before failure"
+        },
+        "next_steps": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["failure_type", "reasons"]
+    }
+  }
+}

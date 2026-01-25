@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "analyze-agent-report.schema.json",
+  "title": "Agent Analysis Report",
+  "description": "Schema for /analyze-agent command output",
+  "type": "object",
+  "required": ["agent_name", "analysis_date", "overall_score", "dimensions", "findings"],
+  "properties": {
+    "agent_name": {
+      "type": "string",
+      "description": "Name or path of analyzed agent"
+    },
+    "analysis_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp"
+    },
+    "analysts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": ["claude-code-ecosystem", "claude-code-ecosystem", "documentation", "tech-debt-investigator"]
+    },
+    "overall_confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "executive_summary": {
+      "type": "string",
+      "description": "2-3 sentence summary"
+
+    },
+    "overall_score": {
+      "type": "object",
+      "required": ["score", "grade"],
+      "properties": {
+        "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "grade": { "type": "string", "enum": ["A", "B", "C", "D", "F"] },
+        "assessment": { 
+          "type": "string", 
+          "enum": ["Excellent", "Good", "Acceptable", "Needs Improvement", "Poor"] 
+        }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "required": ["prompt_quality", "schema_design", "documentation", "integration", "methodology"],
+      "properties": {
+        "prompt_quality": { "$ref": "#/$defs/dimension_score" },
+        "schema_design": { "$ref": "#/$defs/dimension_score" },
+        "documentation": { "$ref": "#/$defs/dimension_score" },
+        "integration": { "$ref": "#/$defs/dimension_score" },
+        "methodology": {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "enum": ["PASS", "PARTIAL", "FAIL"] },
+            "recommended": { "type": "string" },
+            "current": { "type": "string" }
+          }
+        }
+      }
+
+    },
+    "findings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/finding" },
+      "description": "All findings, sorted by priority"
+    },
+    "token_savings": {
+      "type": "object",
+      "properties": {
+        "total_potential": { "type": "integer" },
+        "percentage_reduction": { "type": "number" },
+        "opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": { "type": "string" },
+              "tokens_saved": { "type": "integer" },
+              "strategy": { 
+                "type": "string", 
+                "enum": ["reference_existing", "extend_base", "externalize", "compress"] 
+              },
+              "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+              "effort": { "type": "string", "enum": ["Low", "Medium", "High"] },
+              "value_score": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+
+    "maturity": {
+      "type": "object",
+      "properties": {
+        "current": { "type": "string", "enum": ["v0.x MVP", "v1.x Alpha", "v2.x Beta", "v3.x+ GA"] },
+        "target": { "type": "string" },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "status": { "type": "string", "enum": ["Met", "Partial", "Not Met"] }
+            }
+          }
+        }
+      }
+    },
+    "debt_analysis": {
+      "type": "object",
+      "properties": {
+        "debt_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "tdr": { "type": "number" },
+        "sqale_grade": { "type": "string", "enum": ["A", "B", "C", "D", "E"] },
+        "sig_rating": { "type": "integer", "minimum": 1, "maximum": 5 }
+      }
+    },
+    "synthesis": {
+      "type": "object",
+      "properties": {
+        "overlap_percentage": { "type": "number" },
+        "synthesis_applied": { "type": "boolean" },
+
+        "conflicts_detected": { "type": "integer" },
+        "consensus_findings": { "type": "array", "items": { "type": "string" } },
+        "divergent_findings": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "dimension_score": {
+      "type": "object",
+      "required": ["score", "grade"],
+      "properties": {
+        "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "grade": { "type": "string", "enum": ["A", "B", "C", "D", "F"] },
+        "status": { "type": "string", "enum": ["PASS", "NEEDS IMPROVEMENT", "FAIL"] },
+        "findings": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "required": ["title", "source", "priority"],
+      "properties": {
+        "title": { "type": "string" },
+        "source": { 
+          "type": "string", 
+          "enum": ["claude-code-ecosystem", "claude-code-ecosystem", "documentation", "tech-debt-investigator"] 
+        },
+        "impact": { "type": "string", "enum": ["High", "Medium", "Low"] },
+        "effort": { "type": "string", "enum": ["Low", "Medium", "High"] },
+        "priority": { "type": "string", "enum": ["P1", "P2", "P3", "P4"] },
+        "priority_score": { "type": "number", "minimum": 0, "maximum": 1 },
+
+        "description": { "type": "string" },
+        "evidence": { "type": "string" },
+        "recommendation": { "type": "string" },
+        "token_impact": { "type": "integer" }
+      }
+    }
+  }
+}

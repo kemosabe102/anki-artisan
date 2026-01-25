@@ -1,0 +1,77 @@
+{
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_SDK_DISABLED": "false",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:30317",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+    "OTEL_SERVICE_NAME": "anki-artisan",
+    "OTEL_RESOURCE_ATTRIBUTES": "environment=local,developer=lyken",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_TRACES_EXPORTER": "otlp",
+    "OTEL_LOGS_EXPORTER": "otlp",
+    "OTEL_METRIC_EXPORT_INTERVAL": "60000",
+    "OTEL_EXPORTER_OTLP_INSECURE": "true",
+    "HOOK_LOG_FORMAT": "text",
+    "HOOK_LOG_LEVEL": "INFO",
+    "AI_COMMAND_VALIDATION": "strict",
+    "AI_ALLOW_CHAINING": "true",
+    "AI_REQUIRE_CHAIN_APPROVAL": "false",
+    "AI_BLOCK_CD_COMMAND": "true"
+  },
+  "permissions": {
+    "allow": [],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(del /f:*)",
+      "Bash(format:*)",
+      "Bash(dd:*)",
+      "Bash(fdisk:*)",
+      "Bash(sudo:*)",
+      "Bash(su:*)",
+      "Bash(chmod 777:*)",
+      "Bash(chmod +x /usr/*)",
+      "Bash(chown:*)",
+      "Bash(mount:*)",
+      "Bash(umount:*)",
+      "Bash(kill -9:*)",
+      "Bash(killall:*)",
+      "Bash(pkill:*)",
+      "Bash(curl -X POST:*)",
+      "Bash(curl -X PUT:*)",
+      "Bash(curl -X DELETE:*)",
+      "Bash(wget --post-data:*)",
+      "Bash(nc:*)",
+      "Bash(netcat:*)",
+      "Bash(apt:*)",
+      "Bash(yum:*)",
+      "Bash(brew install:*)",
+      "Bash(npm install -g:*)",
+      "Bash(docker run:*)",
+      "Bash(docker exec:*)",
+      "Bash(kubectl delete:*)",
+      "Bash(kubectl apply:*)",
+      "Bash(kubectl port-forward:*)",
+      "Bash(make install:*)",
+      "Bash(./configure --prefix=/usr:*)",
+      "Bash(git checkout:*)",
+      "Bash(git restore:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git clean -fd:*)",
+      "Bash(git clean -f:*)"
+    ],
+    "ask": [],
+    "defaultMode": "bypassPermissions"
+  },
+  "model": "opus",
+  "enabledPlugins": {
+    "dev@salsita-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "salsita-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "kemosabe102/salsita-marketplace"
+      }
+    }
+  }
+}

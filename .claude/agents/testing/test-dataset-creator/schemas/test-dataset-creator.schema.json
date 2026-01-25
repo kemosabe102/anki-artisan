@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "test-dataset-creator.schema.json",
+  "title": "Test Dataset Creator Output Schema",
+  "description": "Schema for test-dataset-creator agent outputs - extends base-agent.schema.json",
+  "oneOf": [
+    {
+      "type": "object",
+      "description": "SUCCESS state - dataset generation completed",
+      "properties": {
+        "status": { "const": "SUCCESS" },
+        "agent": { "const": "test-dataset-creator" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "summary": { "type": "string" },
+        "agent_specific_output": {
+          "type": "object",
+          "properties": {
+            "datasets_created": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "file_path": { "type": "string" },
+                  "record_count": { "type": "integer", "minimum": 1 },
+                  "schema_version": { "type": "string" },
+                  "validation_status": { "enum": ["passed", "failed"] }
+                },
+                "required": ["file_path", "record_count", "validation_status"]
+              }
+            },
+            "diversity_metrics": {
+              "type": "object",
+              "properties": {
+                "change_types_distribution": { "type": "object" },
+                "file_count_distribution": { "type": "object" },
+                "edge_cases_covered": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              },
+              "required": ["change_types_distribution", "file_count_distribution", "edge_cases_covered"]
+            },
+            "quality_validation": {
+              "type": "object",
+              "properties": {
+                "scenarios_with_ground_truth": { "type": "integer" },
+                "edge_case_coverage": { "type": "string" },
+                "diversity_score": { "type": "number", "minimum": 0, "maximum": 1 },
+                "quality_grade": { "enum": ["A", "B", "C", "D", "F"] },
+                "git_commits_analyzed": { "type": "integer" }
+              },
+              "required": ["diversity_score", "quality_grade", "edge_case_coverage"]
+            },
+            "generation_methodology": {
+              "type": "object",
+              "properties": {
+                "git_log_range": { "type": "string" },
+                "diversity_sampling_strategy": { "type": "string" },
+                "heuristic_source": { "type": "string" },
+                "ground_truth_simulation": { "type": "string" }
+              }
+            }
+          },
+          "required": ["datasets_created", "diversity_metrics", "quality_validation"]
+        }
+      },
+      "required": ["status", "agent", "confidence", "summary", "agent_specific_output"]
+    },
+    {
+      "type": "object",
+      "description": "FAILURE state - dataset generation failed or incomplete",
+      "properties": {
+        "status": { "const": "FAILURE" },
+        "agent": { "const": "test-dataset-creator" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "summary": { "type": "string" },
+        "failure_details": {
+          "type": "object",
+          "properties": {
+            "failure_type": {
+              "enum": [
+                "insufficient_diversity",
+                "missing_edge_cases",
+                "schema_validation_error",
+                "heuristic_extraction_failed",
+                "git_history_inaccessible"
+              ]
+            },
+            "reasons": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            },
+            "recovery_suggestions": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            },
+            "partial_results": {
+              "type": "object",
+              "properties": {
+                "scenarios_generated": { "type": "integer" },
+                "scenarios_file": { "type": "string" },
+                "ground_truth_file": { "type": "string" },
+                "missing_edge_cases": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "diversity_score": { "type": "number" }
+              }
+            }
+          },
+          "required": ["failure_type", "reasons", "recovery_suggestions"]
+        }
+      },
+      "required": ["status", "agent", "confidence", "summary", "failure_details"]
+    }
+  ]
+}

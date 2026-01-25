@@ -1,0 +1,437 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "python-code-implementer Agent Schema",
+  "description": "Output schema for python-code-implementer agent extending base-agent.schema.json",
+  "version": "1.0.0",
+  "allOf": [
+    {
+      "$ref": "base-agent.schema.json"
+    }
+  ],
+  "properties": {
+    "output": {
+      "oneOf": [
+        {
+          "title": "Success Output",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "agent": { "const": "python-code-implementer" },
+            "operation_type": {
+              "type": "string",
+              "enum": [
+                "feature_implementation",
+                "bug_fix",
+                "refactor",
+                "test_creation",
+                "integration"
+              ]
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "properties": {
+                "tdd_evidence": {
+                  "type": "object",
+                  "description": "Evidence of TDD-first gate compliance",
+                  "properties": {
+                    "existing_tests_found": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "List of existing test files/functions discovered"
+                    },
+                    "tests_created": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "List of test files created during TDD workflow"
+                    },
+                    "pre_impl_test_run": {
+                      "type": ["string", "null"],
+                      "description": "Result of test run before implementation (null for modification mode)"
+                    },
+                    "post_impl_test_run": {
+                      "type": "string",
+                      "description": "Result of test run after implementation (required)"
+                    }
+                  },
+                  "required": ["existing_tests_found", "post_impl_test_run"]
+                },
+                "declared_scope": {
+                  "type": "object",
+                  "description": "Explicit scope declaration for boundary enforcement",
+                  "properties": {
+                    "files_to_modify": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "Files that will be modified during implementation"
+                    },
+                    "files_read_only": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "Files that will be read but not modified"
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "description": "Explanation of why these files are in scope"
+                    }
+                  },
+                  "required": ["files_to_modify"]
+                },
+                "almanac_check": {
+                  "type": "object",
+                  "description": "COMPONENT_ALMANAC.md verification results",
+                  "properties": {
+                    "checked": {
+                      "type": "boolean",
+                      "description": "Whether COMPONENT_ALMANAC was consulted"
+                    },
+                    "existing_components_found": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "Existing components that match intended functionality"
+                    },
+                    "reuse_decision": {
+                      "type": "string",
+                      "enum": ["extend", "new_required", "not_applicable"],
+                      "description": "Decision on whether to reuse existing components"
+                    },
+                    "justification": {
+                      "type": "string",
+                      "description": "Justification for reuse decision"
+                    }
+                  },
+                  "required": ["checked"]
+                },
+                "files_modified": {
+                  "type": "array",
+                  "description": "List of file paths modified during implementation",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "path": { "type": "string" },
+                      "change_type": {
+                        "type": "string",
+                        "enum": ["created", "modified", "deleted"]
+                      },
+                      "lines_changed": { "type": "number" },
+                      "description": { "type": "string" }
+                    },
+                    "required": ["path", "change_type", "description"]
+                  }
+                },
+                "implementation_summary": {
+                  "type": "string",
+                  "description": "Brief summary of implementation changes and approach"
+                },
+                "pre_flight_checks_passed": {
+                  "type": "boolean",
+                  "description": "Whether all pre-flight validation patterns passed"
+                },
+                "standards_compliance": {
+                  "type": "object",
+                  "description": "Details of standards compliance and validation",
+                  "properties": {
+                    "coding_guidelines_validated": { "type": "boolean" },
+                    "context7_patterns_applied": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "List of Context7 patterns applied (e.g., 'pydantic-validation', 'async-patterns')"
+                    },
+                    "adr_compliance": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "List of ADRs followed (e.g., 'ADR-004', 'ADR-005')"
+                    },
+                    "existing_components_leveraged": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "List of existing components reused or integrated"
+                    }
+                  },
+                  "required": ["coding_guidelines_validated"]
+                },
+                "security_verification": {
+                  "type": "object",
+                  "description": "Security pre-flight verification results with evidence",
+                  "properties": {
+                    "path_validation": {
+                      "type": "object",
+                      "properties": {
+                        "applied": { "type": "boolean" },
+                        "evidence": { "type": "string", "description": "Line numbers OR 'N/A: no user paths'" }
+                      },
+                      "required": ["applied", "evidence"]
+                    },
+                    "subprocess_safety": {
+                      "type": "object",
+                      "properties": {
+                        "applied": { "type": "boolean" },
+                        "evidence": { "type": "string", "description": "Line numbers OR 'N/A: no subprocess'" }
+                      },
+                      "required": ["applied", "evidence"]
+                    },
+                    "regex_safety": {
+                      "type": "object",
+                      "properties": {
+                        "applied": { "type": "boolean" },
+                        "evidence": { "type": "string", "description": "Line numbers OR 'N/A: no regex'" }
+                      },
+                      "required": ["applied", "evidence"]
+                    },
+                    "input_validation": {
+                      "type": "object",
+                      "properties": {
+                        "applied": { "type": "boolean" },
+                        "evidence": { "type": "string", "description": "Line numbers OR 'N/A: no external input'" }
+                      },
+                      "required": ["applied", "evidence"]
+                    },
+                    "secret_handling": {
+                      "type": "object",
+                      "properties": {
+                        "applied": { "type": "boolean" },
+                        "evidence": { "type": "string", "description": "'Verified: no secrets' or specific findings" }
+                      },
+                      "required": ["applied", "evidence"]
+                    }
+                  },
+                  "required": ["path_validation", "subprocess_safety", "regex_safety", "input_validation", "secret_handling"]
+                },
+                "self_review_results": {
+                  "type": "object",
+                  "description": "Results from self-review checklist with mandatory evidence",
+                  "properties": {
+                    "correctness": {
+                      "type": "object",
+                      "properties": {
+                        "passed": { "type": "boolean" },
+                        "evidence": { "type": "string", "description": "Test reference or manual assertion" }
+                      },
+                      "required": ["passed", "evidence"]
+                    },
+                    "readability": {
+                      "type": "object",
+                      "properties": {
+                        "passed": { "type": "boolean" },
+                        "evidence": { "type": "string", "description": "Function size, naming, docstring status" }
+                      },
+                      "required": ["passed", "evidence"]
+                    },
+                    "maintainability": {
+                      "type": "object",
+                      "properties": {
+                        "passed": { "type": "boolean" },
+                        "evidence": { "type": "string", "description": "Constants, SRP adherence" }
+                      },
+                      "required": ["passed", "evidence"]
+                    },
+                    "security": {
+                      "type": "object",
+                      "properties": {
+                        "passed": { "type": "boolean" },
+                        "evidence": { "type": "string", "description": "Reference to security_verification output" }
+                      },
+                      "required": ["passed", "evidence"]
+                    },
+                    "performance": {
+                      "type": "object",
+                      "properties": {
+                        "passed": { "type": "boolean" },
+                        "evidence": { "type": "string", "description": "Regex compiled, generators, N+1 status" }
+                      },
+                      "required": ["passed", "evidence"]
+                    },
+                    "standards": {
+                      "type": "object",
+                      "properties": {
+                        "passed": { "type": "boolean" },
+                        "evidence": { "type": "string", "description": "Linter results, type hint coverage" }
+                      },
+                      "required": ["passed", "evidence"]
+                    },
+                    "failed_checks": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "List of failed self-review checks with explanations"
+                    }
+                  },
+                  "required": ["correctness", "readability", "maintainability", "security", "performance", "standards"]
+                },
+                "tests_created": {
+                  "type": "array",
+                  "description": "List of test files created or modified",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "path": { "type": "string" },
+                      "test_count": { "type": "number" },
+                      "coverage_areas": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      }
+                    },
+                    "required": ["path", "coverage_areas"]
+                  }
+                },
+                "next_actions": {
+                  "type": "array",
+                  "description": "Recommended next actions for orchestrator",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "action": { "type": "string" },
+                      "agent": { "type": "string" },
+                      "rationale": { "type": "string" }
+                    },
+                    "required": ["action", "rationale"]
+                  }
+                },
+                "unclear_items_resolved": {
+                  "type": "array",
+                  "description": "Unclear items from pre-flight that were resolved",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "item_id": { "type": "string" },
+                      "resolution": { "type": "string" }
+                    },
+                    "required": ["item_id", "resolution"]
+                  }
+                },
+                "unclear_items_escalated": {
+                  "type": "array",
+                  "description": "Unclear items that require escalation",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "item_id": { "type": "string" },
+                      "description": { "type": "string" },
+                      "blocker": { "type": "boolean" }
+                    },
+                    "required": ["item_id", "description", "blocker"]
+                  }
+                }
+              },
+              "required": [
+                "files_modified",
+                "implementation_summary",
+                "pre_flight_checks_passed",
+                "standards_compliance",
+                "security_verification",
+                "self_review_results",
+                "tdd_evidence",
+                "declared_scope",
+                "almanac_check"
+              ]
+            }
+          },
+          "required": ["status", "agent", "operation_type", "agent_specific_output"]
+        },
+        {
+          "title": "Failure Output",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "agent": { "const": "python-code-implementer" },
+            "operation_type": {
+              "type": "string",
+              "enum": [
+                "feature_implementation",
+                "bug_fix",
+                "refactor",
+                "test_creation",
+                "integration"
+              ]
+            },
+            "failure_details": {
+              "type": "object",
+              "properties": {
+                "failure_type": {
+                  "type": "string",
+                  "enum": [
+                    "standards_conflict",
+                    "file_operation_failure",
+                    "dependency_missing",
+                    "scope_boundary_violation",
+                    "pre_flight_validation_failed",
+                    "build_failure",
+                    "test_failure",
+                    "schema_validation_failed",
+                    "insufficient_context",
+                    "security_preflight_incomplete",
+                    "self_review_incomplete",
+                    "tdd_gate_violation",
+                    "tests_failing",
+                    "almanac_check_missing",
+                    "ambiguous_requirements",
+                    "mutable_default_violation"
+                  ]
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Specific reasons for implementation failure"
+                },
+                "pre_flight_failures": {
+                  "type": "array",
+                  "description": "Pre-flight validation patterns that failed",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "pattern": { "type": "string" },
+                      "violation": { "type": "string" },
+                      "guideline_reference": { "type": "string" }
+                    },
+                    "required": ["pattern", "violation"]
+                  }
+                },
+                "partial_results": {
+                  "type": "object",
+                  "description": "Partial implementation results before failure",
+                  "properties": {
+                    "files_modified": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "completed_phases": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "analysis",
+                          "research",
+                          "todo_creation",
+                          "implementation",
+                          "validation",
+                          "reflection"
+                        ]
+                      }
+                    },
+                    "checkpoint": { "type": "string" }
+                  }
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "description": "Suggested approaches to resolve failure",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "approach": { "type": "string" },
+                      "rationale": { "type": "string" },
+                      "estimated_effort": { "type": "string" }
+                    },
+                    "required": ["approach", "rationale"]
+                  }
+                },
+                "delegation_needed": {
+                  "type": "string",
+                  "enum": ["debugger", "python-code-implementer", "researcher-codebase", "none"],
+                  "description": "Agent that should be delegated to for recovery"
+                }
+              },
+              "required": ["failure_type", "reasons", "recovery_suggestions"]
+            }
+          },
+          "required": ["status", "agent", "operation_type", "failure_details"]
+        }
+      ]
+    }
+  }
+}

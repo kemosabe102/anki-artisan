@@ -1,0 +1,266 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Universe Selector Agent Schema",
+  "description": "Input/Output contract for universe-selector agent - validates trading universe for backtesting",
+  "type": "object",
+  "definitions": {
+    "gateStatus": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "WARN"],
+      "description": "Gate evaluation result"
+    },
+    "excludedSymbol": {
+      "type": "object",
+      "required": ["symbol", "reason", "gate"],
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "description": "Ticker symbol that was excluded"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Human-readable exclusion reason"
+        },
+        "gate": {
+          "type": "string",
+          "enum": [
+            "UNIVERSE_DEFINED",
+            "SURVIVOR_BIAS_CHECK",
+            "LIQUIDITY_VALID",
+            "DATA_AVAILABLE",
+            "SECTOR_BALANCED"
+          ],
+          "description": "Gate that triggered exclusion"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dateRange": {
+      "type": "object",
+      "required": ["start", "end"],
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date",
+          "description": "Start date (YYYY-MM-DD)"
+        },
+        "end": {
+          "type": "string",
+          "format": "date",
+          "description": "End date (YYYY-MM-DD)"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "input": {
+      "type": "object",
+      "description": "Input contract for universe-selector agent",
+      "required": ["symbols", "date_range"],
+      "properties": {
+        "symbols": {
+          "type": "array",
+          "description": "List of ticker symbols to validate",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]{1,5}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "examples": [["SPY", "QQQ", "IWM"]]
+        },
+        "date_range": {
+          "$ref": "#/definitions/dateRange",
+          "description": "Backtest period for data validation"
+        },
+        "thresholds": {
+          "type": "object",
+          "description": "Optional threshold overrides (uses defaults if omitted)",
+          "properties": {
+            "min_adv": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 1000000,
+              "description": "Minimum average daily volume (USD)"
+            },
+            "min_market_cap": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 100000000,
+              "description": "Minimum market capitalization (USD)"
+            },
+            "min_data_coverage": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "default": 0.95,
+              "description": "Minimum data coverage ratio (0-1)"
+            },
+            "max_sector_concentration": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "default": 0.40,
+              "description": "Maximum single-sector weight (0-1)"
+            }
+          },
+          "additionalProperties": false
+        },
+        "asset_classes": {
+          "type": "array",
+          "description": "Filter by asset class (optional)",
+          "items": {
+            "type": "string",
+            "enum": ["equity", "etf", "index", "futures", "options"]
+          },
+          "uniqueItems": true,
+          "examples": [["equity", "etf"]]
+        }
+      },
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "description": "Output contract for universe-selector agent",
+      "required": [
+        "status",
+        "universe_quality_score",
+        "gates",
+        "validated_symbols",
+        "excluded_symbols",
+        "metadata"
+      ],
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/gateStatus",
+          "description": "Overall validation status"
+        },
+        "universe_quality_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Aggregate quality score (0-100)"
+        },
+        "gates": {
+          "type": "object",
+          "description": "Individual gate evaluation results",
+          "required": [
+            "UNIVERSE_DEFINED",
+            "SURVIVOR_BIAS_CHECK",
+            "LIQUIDITY_VALID",
+            "DATA_AVAILABLE",
+            "SECTOR_BALANCED"
+          ],
+          "properties": {
+            "UNIVERSE_DEFINED": {
+              "$ref": "#/definitions/gateStatus",
+              "description": "Validates universe is properly defined with valid symbols"
+            },
+            "SURVIVOR_BIAS_CHECK": {
+              "$ref": "#/definitions/gateStatus",
+              "description": "Checks for delisted/merged symbols in historical period"
+            },
+            "LIQUIDITY_VALID": {
+              "$ref": "#/definitions/gateStatus",
+              "description": "Validates ADV meets minimum threshold"
+            },
+            "DATA_AVAILABLE": {
+              "$ref": "#/definitions/gateStatus",
+              "description": "Confirms sufficient price/volume data coverage"
+            },
+            "SECTOR_BALANCED": {
+              "$ref": "#/definitions/gateStatus",
+              "description": "Checks sector concentration limits"
+            }
+          },
+          "additionalProperties": false
+        },
+        "validated_symbols": {
+          "type": "array",
+          "description": "Symbols that passed all gates",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]{1,5}$"
+          },
+          "uniqueItems": true
+        },
+        "excluded_symbols": {
+          "type": "array",
+          "description": "Symbols excluded with reasons",
+          "items": {
+            "$ref": "#/definitions/excludedSymbol"
+          }
+        },
+        "sector_breakdown": {
+          "type": "object",
+          "description": "Sector weights for validated universe",
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "examples": [{"Technology": 0.42, "Healthcare": 0.18, "Financials": 0.15}]
+        },
+        "warnings": {
+          "type": "array",
+          "description": "Non-blocking warnings about universe quality",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommendations": {
+          "type": "array",
+          "description": "Actionable suggestions to improve universe",
+          "items": {
+            "type": "string"
+          }
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Execution metadata",
+          "required": [
+            "date_range",
+            "symbols_submitted",
+            "symbols_validated",
+            "execution_time_ms"
+          ],
+          "properties": {
+            "date_range": {
+              "$ref": "#/definitions/dateRange"
+            },
+            "symbols_submitted": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Count of symbols in input"
+            },
+            "symbols_validated": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Count of symbols passing all gates"
+            },
+            "execution_time_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Total execution time in milliseconds"
+            },
+            "data_sources": {
+              "type": "array",
+              "description": "Data providers used for validation",
+              "items": {
+                "type": "string"
+              }
+            },
+            "agent_version": {
+              "type": "string",
+              "description": "Universe-selector agent version"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

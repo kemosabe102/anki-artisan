@@ -1,0 +1,76 @@
+# Statement of Work (SoW) Examples
+# These examples show the machine-readable contract format for different artifact types
+
+# Example 1: Code File Implementation
+code_file_example:
+  schema_version: '1.0.0'
+  schema_id: 'https://gauntlet-agents.com/schemas/sow/v1.0.0'
+  artifact_type: 'code_file'
+  file_path: 'services/auth/login.py'
+  function_signature: 'async def login(credentials: LoginRequest) -> TokenResponse'
+  dependencies: ['AuthService', 'TokenManager', 'pydantic']
+  logic_steps:
+    - 'Validate credentials against user database'
+    - 'Generate JWT token with user claims'
+    - 'Return token response with expiry'
+  touch_points: ['tests/auth/test_login.py', 'services/auth/__init__.py']
+  vv_checks: ['Plan §3.2', 'Spec AC §4.1', 'contracts/auth-api.json']
+  generator: 'development-agent'
+  ordering_key: '0003-auth-login'
+  artifact_hash_after: null
+
+# Example 2: Configuration File
+yaml_config_example:
+  schema_version: '1.0.0'
+  schema_id: 'https://gauntlet-agents.com/schemas/sow/v1.0.0'
+  artifact_type: 'yaml_config'
+  file_path: 'config/database.yaml'
+  function_signature: 'database configuration schema'
+  dependencies: ['postgresql', 'connection-pooling']
+  logic_steps:
+    - 'Define connection parameters'
+    - 'Set pool size and timeout values'
+    - 'Configure SSL settings'
+  touch_points: ['docker-compose.yml', 'config/app.yaml']
+  vv_checks: ['Plan §2.1', 'Spec §1.3', 'schemas/db-config.schema.json']
+  generator: 'development-agent'
+  ordering_key: '0001-db-config'
+  artifact_hash_after: null
+
+# Example 3: Test File
+test_file_example:
+  schema_version: '1.0.0'
+  schema_id: 'https://gauntlet-agents.com/schemas/sow/v1.0.0'
+  artifact_type: 'test_file'
+  file_path: 'tests/integration/test_auth_flow.py'
+  function_signature: 'async def test_complete_auth_flow()'
+  dependencies: ['pytest', 'httpx', 'auth-service']
+  logic_steps:
+    - 'Setup test user and credentials'
+    - 'Test login endpoint with valid credentials'
+    - 'Verify JWT token structure and claims'
+    - 'Test token validation on protected endpoint'
+  touch_points: ['services/auth/login.py', 'tests/conftest.py']
+  vv_checks: ['Plan §4.2', 'Spec AC §5.1', 'Golden Set #3']
+  generator: 'test-runner-agent'
+  ordering_key: '0004-auth-integration-test'
+  artifact_hash_after: null
+
+# Example 4: Documentation Section
+md_section_example:
+  schema_version: '1.0.0'
+  schema_id: 'https://gauntlet-agents.com/schemas/sow/v1.0.0'
+  artifact_type: 'md_section'
+  file_path: 'docs/api/authentication.md'
+  function_signature: '# Authentication API section'
+  dependencies: ['openapi-spec', 'auth-service']
+  logic_steps:
+    - 'Document login endpoint parameters'
+    - 'Provide example request/response'
+    - 'Document error codes and handling'
+    - 'Add security considerations'
+  touch_points: ['docs/api/index.md', 'openapi.yaml']
+  vv_checks: ['Plan §5.1', 'Spec §6.2', 'API consistency check']
+  generator: 'development-agent'
+  ordering_key: '0005-auth-docs'
+  artifact_hash_after: null

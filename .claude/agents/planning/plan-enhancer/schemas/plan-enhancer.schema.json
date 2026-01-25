@@ -1,0 +1,380 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "plan-enhancer.schema.json",
+  "version": "1.0.0",
+  "title": "Plan Enhancer Agent Schema",
+  "description": "Input/output schema for plan enhancement operations with business context population",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "type": "string",
+          "description": "Primary instruction field defining what plan enhancer should accomplish"
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator (mandatory)"
+        },
+        "plan_file_path": {
+          "type": "string",
+          "description": "Path to existing plan file to enhance"
+        },
+        "spec_file_path": {
+          "type": "string",
+          "description": "Path to SPEC.md file for business context extraction"
+        },
+        "plan_metadata": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "requirements": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "focus_areas": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "business_purpose": { "type": "string" }
+          },
+          "required": ["name"]
+        },
+        "component_details": {
+          "type": "object",
+          "properties": {
+            "description": { "type": "string" },
+            "sprint_points": { "type": "number" },
+            "implementation_complexity": {
+              "enum": ["Low", "Medium", "High", "Very High"]
+            }
+          }
+        },
+        "processing_mode": {
+          "enum": ["checklist", "targeted", "full"],
+          "default": "checklist",
+          "description": "Mode of operation for business section population"
+        },
+        "validate_completion": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to self-validate completion before returning"
+        }
+      },
+      "required": ["context", "execution_timestamp", "plan_file_path", "spec_file_path"]
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Plan Enhancement Success",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "agent": { "const": "plan-enhancer" },
+            "task_id": { "type": "string" },
+            "operation_type": {
+              "enum": ["enhance_plan", "populate_business_sections", "requirements_mapping"],
+              "description": "Type of enhancement operation performed"
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence executive summary of enhancement completed"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in enhancement completeness"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "properties": {
+                "enhanced_sections": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "section_name": { "type": "string" },
+                      "placeholders_replaced": { "type": "number" },
+                      "content_source": {
+                        "enum": ["SPEC.md", "plan_metadata", "component_details", "derived"]
+                      },
+                      "enhancement_type": {
+                        "enum": [
+                          "business_context",
+                          "requirements_mapping",
+                          "component_description",
+                          "success_metrics",
+                          "value_proposition"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "section_name",
+                      "placeholders_replaced",
+                      "content_source",
+                      "enhancement_type"
+                    ]
+                  },
+                  "description": "List of sections enhanced with details"
+                },
+                "business_context_added": {
+                  "type": "object",
+                  "properties": {
+                    "business_goals": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "user_value_propositions": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "success_metrics": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "pain_point_alignment": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  },
+                  "required": ["business_goals", "user_value_propositions", "success_metrics"]
+                },
+                "requirements_traceability": {
+                  "type": "object",
+                  "properties": {
+                    "functional_requirements_mapped": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "fr_id": { "type": "string" },
+                          "description": { "type": "string" },
+                          "business_value": { "type": "string" },
+                          "components_affected": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                          }
+                        },
+                        "required": ["fr_id", "description", "business_value"]
+                      }
+                    },
+                    "component_business_purposes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "component_name": { "type": "string" },
+                          "business_purpose": { "type": "string" },
+                          "user_value": { "type": "string" }
+                        },
+                        "required": ["component_name", "business_purpose"]
+                      }
+                    }
+                  }
+                },
+                "reuse_opportunities": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "existing_component": { "type": "string" },
+                      "reuse_strategy": {
+                        "enum": ["reuse_as_is", "extend", "replace", "compose"]
+                      },
+                      "business_value_impact": { "type": "string" },
+                      "time_savings_estimate": { "type": "string" }
+                    },
+                    "required": ["existing_component", "reuse_strategy", "business_value_impact"]
+                  },
+                  "description": "Code reuse opportunities identified from Component Almanac"
+                },
+                "completion_validation": {
+                  "type": "object",
+                  "properties": {
+                    "total_placeholders_identified": { "type": "number" },
+                    "placeholders_replaced": { "type": "number" },
+                    "remaining_business_placeholders": { "type": "number" },
+                    "completion_percentage": { "type": "number" },
+                    "validation_passed": { "type": "boolean" },
+                    "validation_notes": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  },
+                  "required": [
+                    "total_placeholders_identified",
+                    "placeholders_replaced",
+                    "remaining_business_placeholders",
+                    "validation_passed"
+                  ]
+                },
+                "framework_integration": {
+                  "type": "object",
+                  "properties": {
+                    "cost_conscious_planning": {
+                      "type": "boolean",
+                      "description": "Whether cost analysis framework was applied"
+                    },
+                    "risk_aware_context": {
+                      "type": "boolean",
+                      "description": "Whether risk assessment framework was applied"
+                    },
+                    "quality_driven_enhancement": {
+                      "type": "boolean",
+                      "description": "Whether quality scoring algorithms were applied"
+                    },
+                    "framework_notes": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  }
+                },
+                "cleanup_tasks_identified": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "obsolete_component": { "type": "string" },
+                      "replacement_component": { "type": "string" },
+                      "priority": { "enum": ["P1", "P2", "P3"] },
+                      "cleanup_rationale": { "type": "string" }
+                    },
+                    "required": ["obsolete_component", "priority", "cleanup_rationale"]
+                  },
+                  "description": "Cleanup tasks for components being replaced"
+                }
+              },
+              "required": ["enhanced_sections", "business_context_added", "completion_validation"]
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "confidence",
+            "agent_specific_output",
+            "execution_timestamp"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Plan Enhancement Failure",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "agent": { "const": "plan-enhancer" },
+            "task_id": { "type": "string" },
+            "operation_type": {
+              "enum": ["enhance_plan", "populate_business_sections", "requirements_mapping"]
+            },
+            "summary": {
+              "type": "string",
+              "description": "Summary of why plan enhancement failed"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in failure analysis"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "failure_details": {
+              "type": "object",
+              "properties": {
+                "failure_type": {
+                  "enum": [
+                    "plan_file_not_found",
+                    "spec_file_not_found",
+                    "spec_parsing_error",
+                    "business_content_insufficient",
+                    "edit_operation_failed",
+                    "validation_failed",
+                    "placeholders_remain",
+                    "component_almanac_missing"
+                  ],
+                  "description": "Primary type of failure"
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Specific reasons why enhancement cannot be completed"
+                },
+                "missing_spec_sections": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "SPEC.md sections needed but not found"
+                },
+                "incomplete_placeholders": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "placeholder": { "type": "string" },
+                      "section": { "type": "string" },
+                      "reason_not_replaced": { "type": "string" }
+                    },
+                    "required": ["placeholder", "section", "reason_not_replaced"]
+                  },
+                  "description": "Placeholders that could not be replaced"
+                },
+                "research_attempted": {
+                  "type": "object",
+                  "properties": {
+                    "spec_sections_searched": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "component_almanac_searched": { "type": "boolean" },
+                    "framework_guides_consulted": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  }
+                },
+                "partial_results": {
+                  "type": "object",
+                  "properties": {
+                    "sections_enhanced": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "placeholders_replaced": { "type": "number" },
+                    "business_context_partial": { "type": "object" }
+                  }
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "approach": { "type": "string" },
+                      "rationale": { "type": "string" },
+                      "estimated_effort": {
+                        "enum": ["low", "medium", "high"]
+                      }
+                    },
+                    "required": ["approach", "rationale"]
+                  }
+                }
+              },
+              "required": ["failure_type", "reasons"]
+            }
+          },
+          "required": ["status", "agent", "confidence", "failure_details", "execution_timestamp"],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "required": ["input", "output"]
+}

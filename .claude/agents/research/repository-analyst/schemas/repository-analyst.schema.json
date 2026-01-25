@@ -1,0 +1,546 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "repository-analyst.schema.json",
+  "version": "1.0.0",
+  "title": "Repository Analyst Schema",
+  "description": "Input/output schema for repository analysis and component cataloging operations",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique identifier for the analysis task"
+        },
+        "operation_type": {
+          "type": "string",
+          "const": "analyze_repository",
+          "description": "Single operation type for repository analysis"
+        },
+        "target_directory": {
+          "type": "string",
+          "description": "Root directory to analyze (defaults to current repository if not specified)",
+          "default": "."
+        },
+        "output_format": {
+          "type": "string",
+          "enum": ["markdown", "json", "summary"],
+          "default": "markdown",
+          "description": "Format for generated output files"
+        },
+        "output_path": {
+          "type": "string",
+          "description": "File path for output (auto-generates if not specified)"
+        },
+        "component_filter": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["agents", "commands", "hooks", "skills"]
+          },
+          "description": "Limit analysis to specific component types (analyzes all if not specified)"
+        },
+        "detail_level": {
+          "type": "string",
+          "enum": ["minimal", "standard", "detailed"],
+          "default": "standard",
+          "description": "Level of detail for component metadata extraction"
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator (mandatory)"
+        },
+        "component_patterns": {
+          "type": "object",
+          "description": "Custom glob patterns for component discovery (overrides defaults)",
+          "properties": {
+            "agents": {
+              "type": "string",
+              "default": ".claude/agents/*.md",
+              "description": "Glob pattern for agent files"
+            },
+            "commands": {
+              "type": "string",
+              "default": ".claude/commands/*.md",
+              "description": "Glob pattern for command files"
+            },
+            "hooks": {
+              "type": "string",
+              "default": ".claude/hooks/*.py",
+              "description": "Glob pattern for hook files"
+            },
+            "skills": {
+              "type": "string",
+              "default": ".claude/skills/*.md",
+              "description": "Glob pattern for skill files"
+            },
+            "custom": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "User-defined component types with glob patterns (e.g., {\"plugins\": \"src/plugins/**/*.ts\", \"adapters\": \"adapters/**/*.py\"})"
+            }
+          }
+        }
+      },
+      "required": ["task_id", "operation_type", "target_directory", "execution_timestamp"],
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Repository Analysis Success",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "agent": { "const": "repository-analyst" },
+            "task_id": { "type": "string" },
+            "operation_type": { "const": "analyze_repository" },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence executive summary of analysis results"
+            },
+            "confidence": {
+              "type": "number",
+              "const": 1.0,
+              "description": "Always 1.0 - deterministic file system operation"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "description": "Repository analysis results with component inventory",
+              "properties": {
+                "analysis_summary": {
+                  "type": "object",
+                  "description": "High-level statistics and metadata",
+                  "properties": {
+                    "total_components": {
+                      "type": "number",
+                      "description": "Total number of components discovered",
+                      "minimum": 0
+                    },
+                    "component_breakdown": {
+                      "type": "object",
+                      "description": "Count of each component type",
+                      "properties": {
+                        "agents": { "type": "number", "minimum": 0 },
+                        "commands": { "type": "number", "minimum": 0 },
+                        "hooks": { "type": "number", "minimum": 0 },
+                        "skills": { "type": "number", "minimum": 0 }
+                      },
+                      "required": ["agents", "commands", "hooks", "skills"]
+                    },
+                    "analysis_timestamp": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "When analysis was performed"
+                    },
+                    "repository_path": {
+                      "type": "string",
+                      "description": "Absolute path to analyzed repository"
+                    },
+                    "analysis_duration_seconds": {
+                      "type": "number",
+                      "description": "Time taken to complete analysis",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "total_components",
+                    "component_breakdown",
+                    "analysis_timestamp",
+                    "repository_path",
+                    "analysis_duration_seconds"
+                  ]
+                },
+                "components": {
+                  "type": "object",
+                  "description": "Detailed component inventory by type",
+                  "properties": {
+                    "agents": {
+                      "type": "array",
+                      "description": "Discovered agent components",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "file_path": { "type": "string" },
+                          "ooda_phase": {
+                            "type": "string",
+                            "enum": ["OBSERVE", "ORIENT", "DECIDE", "ACT", "Multi-phase"],
+                            "description": "Primary OODA phase for agent"
+                          },
+                          "domain": {
+                            "type": "string",
+                            "description": "Agent's domain scope (e.g., .claude/**, packages/**)"
+                          },
+                          "purpose": {
+                            "type": "string",
+                            "description": "Brief description of agent's purpose"
+                          },
+                          "capabilities": {
+                            "type": "array",
+                            "items": { "type": "string" },
+                            "description": "List of agent capabilities"
+                          },
+                          "dependencies": {
+                            "type": "array",
+                            "items": { "type": "string" },
+                            "description": "Required tools, agents, or resources"
+                          }
+                        },
+                        "required": ["name", "file_path"]
+                      }
+                    },
+                    "commands": {
+                      "type": "array",
+                      "description": "Discovered slash commands",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "file_path": { "type": "string" },
+                          "category": {
+                            "type": "string",
+                            "description": "Command category (e.g., development, git, testing)"
+                          },
+                          "purpose": { "type": "string" },
+                          "dependencies": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                          }
+                        },
+                        "required": ["name", "file_path"]
+                      }
+                    },
+                    "hooks": {
+                      "type": "array",
+                      "description": "Discovered lifecycle hooks",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "file_path": { "type": "string" },
+                          "trigger": {
+                            "type": "string",
+                            "description": "Event that triggers hook execution"
+                          },
+                          "purpose": { "type": "string" }
+                        },
+                        "required": ["name", "file_path"]
+                      }
+                    },
+                    "skills": {
+                      "type": "array",
+                      "description": "Discovered custom skills",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "file_path": { "type": "string" },
+                          "category": { "type": "string" },
+                          "purpose": { "type": "string" }
+                        },
+                        "required": ["name", "file_path"]
+                      }
+                    }
+                  },
+                  "required": ["agents", "commands", "hooks", "skills"]
+                },
+                "categorization": {
+                  "type": "object",
+                  "description": "Components organized by different taxonomies",
+                  "properties": {
+                    "by_ooda_phase": {
+                      "type": "object",
+                      "description": "Agents grouped by OODA phase",
+                      "properties": {
+                        "OBSERVE": {
+                          "type": "array",
+                          "items": { "type": "string" },
+                          "description": "Agent names in OBSERVE phase"
+                        },
+                        "ORIENT": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "DECIDE": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "ACT": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        }
+                      },
+                      "required": ["OBSERVE", "ORIENT", "DECIDE", "ACT"]
+                    },
+                    "by_domain": {
+                      "type": "object",
+                      "description": "Components grouped by domain",
+                      "properties": {
+                        "research": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "planning": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "implementation": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "testing": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "documentation": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "infrastructure": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "other": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        }
+                      },
+                      "required": ["research", "planning", "implementation"]
+                    }
+                  },
+                  "required": ["by_ooda_phase", "by_domain"]
+                },
+                "validation_results": {
+                  "type": "object",
+                  "description": "Validation checks performed during analysis",
+                  "properties": {
+                    "missing_files": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "expected_path": { "type": "string" },
+                          "referenced_by": { "type": "string" },
+                          "severity": {
+                            "type": "string",
+                            "enum": ["error", "warning", "info"]
+                          }
+                        },
+                        "required": ["expected_path", "referenced_by", "severity"]
+                      },
+                      "description": "Files referenced but not found"
+                    },
+                    "broken_references": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "source_file": { "type": "string" },
+                          "broken_reference": { "type": "string" },
+                          "reference_type": {
+                            "type": "string",
+                            "enum": ["agent", "command", "hook", "skill", "doc"]
+                          }
+                        },
+                        "required": ["source_file", "broken_reference", "reference_type"]
+                      },
+                      "description": "Internal references that cannot be resolved"
+                    },
+                    "naming_violations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "file_path": { "type": "string" },
+                          "violation_type": { "type": "string" },
+                          "expected_pattern": { "type": "string" },
+                          "suggestion": { "type": "string" }
+                        },
+                        "required": ["file_path", "violation_type"]
+                      },
+                      "description": "Files that violate naming conventions"
+                    },
+                    "duplicate_components": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "component_name": { "type": "string" },
+                          "file_paths": {
+                            "type": "array",
+                            "items": { "type": "string" },
+                            "minItems": 2
+                          },
+                          "impact": {
+                            "type": "string",
+                            "enum": ["high", "medium", "low"]
+                          }
+                        },
+                        "required": ["component_name", "file_paths", "impact"]
+                      },
+                      "description": "Components with duplicate names"
+                    }
+                  },
+                  "required": [
+                    "missing_files",
+                    "broken_references",
+                    "naming_violations",
+                    "duplicate_components"
+                  ]
+                },
+                "output_artifacts": {
+                  "type": "object",
+                  "description": "Generated output files",
+                  "properties": {
+                    "primary_file": {
+                      "type": "string",
+                      "description": "Absolute path to primary output file"
+                    },
+                    "format": {
+                      "type": "string",
+                      "enum": ["markdown", "json", "summary"]
+                    },
+                    "size_bytes": {
+                      "type": "number",
+                      "description": "Size of primary output file",
+                      "minimum": 0
+                    }
+                  },
+                  "required": ["primary_file", "format", "size_bytes"]
+                }
+              },
+              "required": [
+                "analysis_summary",
+                "components",
+                "categorization",
+                "validation_results",
+                "output_artifacts"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "task_id",
+            "operation_type",
+            "summary",
+            "confidence",
+            "execution_timestamp",
+            "agent_specific_output"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Repository Analysis Failure",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "agent": { "const": "repository-analyst" },
+            "task_id": { "type": "string" },
+            "operation_type": { "const": "analyze_repository" },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence summary of why analysis failed"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence level in failure analysis"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 UTC timestamp from orchestrator"
+            },
+            "failure_details": {
+              "type": "object",
+              "description": "Detailed failure information",
+              "properties": {
+                "failure_type": {
+                  "type": "string",
+                  "enum": [
+                    "malformed_files",
+                    "permission_error",
+                    "invalid_directory",
+                    "timeout",
+                    "parsing_error",
+                    "file_system_error"
+                  ],
+                  "description": "Primary category of failure"
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Specific reasons why analysis failed",
+                  "minItems": 1
+                },
+                "affected_components": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "file_path": { "type": "string" },
+                      "component_type": {
+                        "type": "string",
+                        "enum": ["agent", "command", "hook", "skill"]
+                      },
+                      "error_message": { "type": "string" }
+                    },
+                    "required": ["file_path", "error_message"]
+                  },
+                  "description": "List of files that failed to parse or access"
+                },
+                "partial_results": {
+                  "type": "boolean",
+                  "description": "Whether partial inventory was generated despite failures"
+                },
+                "partial_data": {
+                  "type": "object",
+                  "description": "Partial analysis results if partial_results is true (same structure as agent_specific_output)"
+                },
+                "recovery_suggestion": {
+                  "type": "string",
+                  "description": "Actionable suggestion for user to fix the issue"
+                },
+                "proposed_next_steps": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Step-by-step recovery actions"
+                }
+              },
+              "required": [
+                "failure_type",
+                "reasons",
+                "affected_components",
+                "partial_results",
+                "recovery_suggestion"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "task_id",
+            "operation_type",
+            "summary",
+            "confidence",
+            "execution_timestamp",
+            "failure_details"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "required": ["input", "output"]
+}

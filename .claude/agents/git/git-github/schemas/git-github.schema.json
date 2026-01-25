@@ -1,0 +1,417 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Git/GitHub Agent Schema",
+  "description": "Input/output contract for git-github worker agent with three operations: analyze_changes, execute_commits, monitor_ci",
+  "version": "2.0.0",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "description": "Git/GitHub operation input schema",
+      "properties": {
+        "context": {
+          "type": "string",
+          "description": "Primary task context and instructions"
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator (mandatory)"
+        },
+        "operation_type": {
+          "type": "string",
+          "enum": ["analyze_changes", "execute_commits", "monitor_ci"],
+          "description": "Type of Git/GitHub operation to perform"
+        },
+        "analyze_changes_options": {
+          "type": "object",
+          "properties": {
+            "include_context": {
+              "type": "boolean",
+              "default": false,
+              "description": "Include git blame/log context for better grouping"
+            }
+          }
+        },
+        "execute_commits_options": {
+          "type": "object",
+          "properties": {
+            "groups_to_commit": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "group_id": { "type": "string" },
+                  "files": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "message": {
+                    "type": "string",
+                    "description": "Complete Conventional Commit message"
+                  }
+                },
+                "required": ["group_id", "files", "message"]
+              },
+              "description": "Commit groups to execute (from analyze_changes output)"
+            }
+          },
+          "required": ["groups_to_commit"]
+        },
+        "monitor_ci_options": {
+          "type": "object",
+          "properties": {
+            "commit_sha": {
+              "type": "string",
+              "description": "Specific commit SHA to monitor (optional)"
+            },
+            "run_id": {
+              "type": "string",
+              "description": "Specific workflow run ID to monitor (optional)"
+            },
+            "branch": {
+              "type": "string",
+              "description": "Branch to monitor (defaults to current branch)"
+            },
+            "wait_for_completion": {
+              "type": "boolean",
+              "default": false,
+              "description": "Poll until workflow completes"
+            }
+          }
+        }
+      },
+      "required": ["context", "execution_timestamp", "operation_type"]
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Success Output",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "agent": { "const": "git-github" },
+            "task_id": { "type": "string" },
+            "operation_type": {
+              "type": "string",
+              "enum": ["analyze_changes", "execute_commits", "monitor_ci"]
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence executive summary"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence in operation result (grouping accuracy, commit success, etc.)"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "description": "Operation-specific results",
+              "oneOf": [
+                {
+                  "title": "analyze_changes output",
+                  "properties": {
+                    "current_branch": { "type": "string" },
+                    "modified_files": { "type": "integer", "minimum": 0 },
+                    "new_files": { "type": "integer", "minimum": 0 },
+                    "deleted_files": { "type": "integer", "minimum": 0 },
+                    "commit_groups": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "group_id": { "type": "string" },
+                          "files": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                          },
+                          "change_type": {
+                            "type": "string",
+                            "enum": [
+                              "feat",
+                              "fix",
+                              "refactor",
+                              "docs",
+                              "test",
+                              "build",
+                              "style",
+                              "chore",
+                              "ci",
+                              "perf",
+                              "revert",
+                              "wip"
+                            ]
+                          },
+                          "scope": { "type": "string" },
+                          "message": { "type": "string" },
+                          "grouping_rationale": { "type": "string" },
+                          "grouping_confidence": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "heuristics_applied": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                          },
+                          "needs_review": {
+                            "type": "boolean",
+                            "description": "Flag for medium confidence (0.80-0.89) groupings"
+                          },
+                          "needs_confirmation": {
+                            "type": "boolean",
+                            "description": "Flag for low confidence (0.75-0.79) groupings"
+                          }
+                        },
+                        "required": [
+                          "group_id",
+                          "files",
+                          "change_type",
+                          "scope",
+                          "message",
+                          "grouping_confidence"
+                        ]
+                      }
+                    },
+                    "grouping_summary": {
+                      "type": "object",
+                      "properties": {
+                        "total_files": { "type": "integer", "minimum": 0 },
+                        "total_groups": { "type": "integer", "minimum": 0 },
+                        "average_confidence": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        "high_confidence_groups": { "type": "integer", "minimum": 0 },
+                        "medium_confidence_groups": { "type": "integer", "minimum": 0 },
+                        "low_confidence_groups": { "type": "integer", "minimum": 0 }
+                      }
+                    },
+                    "remote_sync_status": {
+                      "type": "object",
+                      "properties": {
+                        "remote_branch": { "type": "string" },
+                        "branch_diverged": { "type": "boolean" },
+                        "ahead": { "type": "integer", "minimum": 0 },
+                        "behind": { "type": "integer", "minimum": 0 },
+                        "last_fetch": { "type": "string", "format": "date-time" },
+                        "recommendation": { "type": "string" }
+                      }
+                    }
+                  },
+                  "required": ["current_branch", "commit_groups", "grouping_summary"]
+                },
+                {
+                  "title": "execute_commits output",
+                  "properties": {
+                    "committed_groups": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "group_id": { "type": "string" },
+                          "commit_sha": { "type": "string" },
+                          "message": { "type": "string" },
+                          "files_committed": { "type": "integer", "minimum": 0 },
+                          "timestamp": { "type": "string", "format": "date-time" }
+                        },
+                        "required": ["group_id", "commit_sha", "message", "files_committed"]
+                      }
+                    },
+                    "summary": {
+                      "type": "object",
+                      "properties": {
+                        "requested": { "type": "integer", "minimum": 0 },
+                        "committed": { "type": "integer", "minimum": 0 },
+                        "failed": { "type": "integer", "minimum": 0 },
+                        "total_files": { "type": "integer", "minimum": 0 }
+                      },
+                      "required": ["requested", "committed", "failed", "total_files"]
+                    },
+                    "remote_sync_status": {
+                      "type": "object",
+                      "properties": {
+                        "remote_branch": { "type": "string" },
+                        "branch_diverged": { "type": "boolean" },
+                        "ahead": { "type": "integer", "minimum": 0 },
+                        "behind": { "type": "integer", "minimum": 0 },
+                        "last_fetch": { "type": "string", "format": "date-time" },
+                        "recommendation": { "type": "string" }
+                      }
+                    }
+                  },
+                  "required": ["committed_groups", "summary"]
+                },
+                {
+                  "title": "monitor_ci output",
+                  "properties": {
+                    "workflow_status": {
+                      "type": "string",
+                      "enum": ["queued", "in_progress", "completed"]
+                    },
+                    "conclusion": {
+                      "type": "string",
+                      "enum": [
+                        "success",
+                        "failure",
+                        "cancelled",
+                        "skipped",
+                        "neutral",
+                        "timed_out",
+                        "action_required",
+                        null
+                      ]
+                    },
+                    "workflow_runs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "run_id": { "type": "string" },
+                          "workflow_name": { "type": "string" },
+                          "status": { "type": "string" },
+                          "conclusion": { "type": "string" },
+                          "commit_sha": { "type": "string" },
+                          "branch": { "type": "string" },
+                          "duration_minutes": { "type": "number", "minimum": 0 },
+                          "started_at": { "type": "string", "format": "date-time" },
+                          "completed_at": { "type": "string", "format": "date-time" },
+                          "jobs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "name": { "type": "string" },
+                                "conclusion": { "type": "string" },
+                                "duration_seconds": { "type": "number" }
+                              }
+                            }
+                          },
+                          "failed_jobs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "name": { "type": "string" },
+                                "conclusion": { "type": "string" },
+                                "failed_step": { "type": "string" },
+                                "duration_seconds": { "type": "number" },
+                                "error_summary": { "type": "string" },
+                                "error_details": {
+                                  "type": "array",
+                                  "items": { "type": "string" }
+                                },
+                                "affected_files": {
+                                  "type": "array",
+                                  "items": { "type": "string" }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "summary": { "type": "string" },
+                    "recommended_actions": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  },
+                  "required": ["workflow_status", "workflow_runs"]
+                }
+              ]
+            }
+          },
+          "required": ["status", "agent", "confidence", "agent_specific_output"]
+        },
+        {
+          "title": "Failure Output",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "agent": { "const": "git-github" },
+            "task_id": { "type": "string" },
+            "operation_type": {
+              "type": "string",
+              "enum": ["analyze_changes", "execute_commits", "monitor_ci"]
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence summary of why operation failed"
+            },
+            "confidence": {
+              "type": "number",
+              "const": 0.0,
+              "description": "Confidence is 0.0 for failures"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "failure_details": {
+              "type": "object",
+              "properties": {
+                "failure_type": {
+                  "type": "string",
+                  "enum": [
+                    "git_command_error",
+                    "github_cli_error",
+                    "no_modified_files",
+                    "invalid_input",
+                    "merge_conflict",
+                    "permission_denied",
+                    "circuit_breaker_open",
+                    "pre_commit_validation_failed"
+                  ]
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Specific reasons why operation failed"
+                },
+                "git_error": {
+                  "type": "string",
+                  "description": "Raw git error output (if failure_type=git_command_error)"
+                },
+                "github_error": {
+                  "type": "string",
+                  "description": "Raw gh CLI error output (if failure_type=github_cli_error)"
+                },
+                "partial_commits": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "group_id": { "type": "string" },
+                      "commit_sha": { "type": "string" },
+                      "message": { "type": "string" }
+                    }
+                  },
+                  "description": "Commits created before failure (if any)"
+                },
+                "failed_group": {
+                  "type": "string",
+                  "description": "Group ID that caused failure (execute_commits only)"
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Actionable recovery steps"
+                }
+              },
+              "required": ["failure_type", "reasons", "recovery_suggestions"]
+            }
+          },
+          "required": ["status", "agent", "confidence", "failure_details"]
+        }
+      ]
+    }
+  },
+  "required": ["input", "output"]
+}

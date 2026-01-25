@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboard-<name>
+  namespace: observability
+  labels:
+    grafana_dashboard: '1'
+data:
+  <name>.json: |
+    {
+      "dashboard": { ... },
+      "folderId": null,
+      "overwrite": true
+    }

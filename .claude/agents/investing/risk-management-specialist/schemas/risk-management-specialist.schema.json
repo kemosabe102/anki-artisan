@@ -1,0 +1,170 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "risk-management-specialist.schema.json",
+  "title": "Risk Management Specialist Schema",
+  "description": "Input/output contract for risk-management-specialist agent",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/definitions/SuccessResponse" },
+    { "$ref": "#/definitions/FailureResponse" }
+  ],
+  "definitions": {
+    "SuccessResponse": {
+      "type": "object",
+      "required": ["status", "agent", "confidence"],
+      "properties": {
+        "status": { "const": "SUCCESS" },
+        "agent": { "const": "risk-management-specialist" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "position_sizing": { "$ref": "#/definitions/PositionSizingOutput" },
+        "portfolio_heat": { "$ref": "#/definitions/PortfolioHeatOutput" },
+        "circuit_breaker": { "$ref": "#/definitions/CircuitBreakerOutput" },
+        "regime_classification": { "$ref": "#/definitions/RegimeClassificationOutput" }
+      }
+    },
+    "FailureResponse": {
+      "type": "object",
+      "required": ["status", "agent", "failure_details"],
+      "properties": {
+        "status": { "const": "FAILURE" },
+        "agent": { "const": "risk-management-specialist" },
+        "failure_details": { "$ref": "#/definitions/FailureDetails" }
+      }
+    },
+    "PositionSizingOutput": {
+      "type": "object",
+      "required": ["position_size", "stop_price", "risk_dollars"],
+      "properties": {
+        "position_size": { "type": "integer", "minimum": 0 },
+        "stop_price": { "type": "number", "minimum": 0 },
+        "stop_distance": { "type": "number", "minimum": 0 },
+        "risk_dollars": { "type": "number", "minimum": 0 },
+        "risk_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+        "atr_value": { "type": "number", "minimum": 0 },
+        "fallback_used": { "type": "boolean" },
+        "constraint_validation": {
+          "type": "object",
+          "properties": {
+            "buying_power": { "enum": ["PASS", "FAIL"] },
+            "portfolio_heat": { "enum": ["PASS", "FAIL"] },
+            "max_positions": { "enum": ["PASS", "FAIL"] }
+          }
+        },
+        "confidence_adjusted_risk_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.05,
+          "description": "Effective risk = base_risk_pct × pattern_confidence"
+        },
+        "watchlist_routed": {
+          "type": "boolean",
+          "description": "True if pattern_confidence < 0.5 and routed to watchlist instead of execution"
+        }
+      }
+    },
+    "PortfolioHeatOutput": {
+      "type": "object",
+      "required": ["current_heat_pct", "threshold"],
+      "properties": {
+        "current_heat_pct": { "type": "number", "minimum": 0 },
+        "projected_heat_pct": { "type": "number", "minimum": 0 },
+        "margin_to_limit": { "type": "number" },
+        "threshold": { "type": "number", "minimum": 0 },
+        "status": { "enum": ["PASS", "FAIL"] }
+      }
+    },
+    "CircuitBreakerOutput": {
+      "type": "object",
+      "required": ["state", "loss_pct"],
+      "properties": {
+        "state": { "enum": ["NORMAL", "WARNING", "CRITICAL", "BREAKER"] },
+        "loss_pct": { "type": "number" },
+        "position_sizing_multiplier": { "type": "number", "minimum": 0, "maximum": 1 },
+        "restrictions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "buffer_to_next_threshold": { "type": "number" }
+      }
+    },
+    "RegimeClassificationOutput": {
+      "type": "object",
+      "description": "Market regime classification with volatility percentile and trend filter",
+      "required": ["volatility_regime", "trend_filter", "position_multiplier", "stop_multiplier"],
+      "properties": {
+        "volatility_regime": {
+          "type": "string",
+          "enum": ["LOW", "NORMAL", "HIGH"],
+          "description": "Volatility classification based on ATR percentile"
+        },
+        "atr_percentile": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "ATR percentile vs lookback window (default 252 days)"
+        },
+        "trend_filter": {
+          "type": "string",
+          "enum": ["above_200dma", "below_200dma"],
+          "description": "Price position relative to 200-day moving average"
+        },
+        "position_multiplier": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 1.5,
+          "description": "Position size multiplier: LOW=1.2x, NORMAL=1.0x, HIGH=0.7x"
+        },
+        "stop_multiplier": {
+          "type": "number",
+          "minimum": 2.0,
+          "maximum": 5.0,
+          "description": "ATR multiplier for stops: LOW=2.5x, NORMAL=3.0x, HIGH=4.0x"
+        }
+      }
+    },
+    "FailureDetails": {
+      "type": "object",
+      "required": ["error_type", "message"],
+      "properties": {
+        "error_type": {
+          "enum": [
+            "CONSTRAINT_VIOLATION",
+            "INSUFFICIENT_DATA",
+            "ATR_UNAVAILABLE",
+            "CIRCUIT_BREAKER_ACTIVE",
+            "INVALID_INPUT",
+            "WATCHLIST_ROUTED"
+          ]
+        },
+        "message": { "type": "string" },
+        "constraint_violations": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "remediation": { "type": "string" }
+      }
+    },
+    "PositionSizingInput": {
+      "type": "object",
+      "required": ["account_equity", "entry_price"],
+      "properties": {
+        "account_equity": { "type": "number", "minimum": 0 },
+        "entry_price": { "type": "number", "minimum": 0 },
+        "stop_price": { "type": "number", "minimum": 0 },
+        "risk_pct": { "type": "number", "minimum": 0, "maximum": 0.05, "default": 0.01 },
+        "ticker": { "type": "string" },
+        "direction": { "enum": ["long", "short"] },
+        "pattern_confidence": { 
+          "type": "number", 
+          "minimum": 0.4, 
+          "maximum": 0.95,
+          "description": "Pattern confidence from pattern-detector (0.4-0.95). If < 0.5, routes to watchlist instead of execution."
+        },
+        "pattern_type": {
+          "enum": ["breakout", "pullback", "pead", "divergence"],
+          "description": "Pattern type that generated the signal"
+        }
+      }
+    }
+  }
+}

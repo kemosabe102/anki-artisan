@@ -1,0 +1,380 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Code Reviewer Agent Schema",
+  "description": "Schema for python-code-reviewer agent outputs with principle-driven review findings",
+  "version": "1.0.0",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "../../../docs/shared/schemas/base-agent.schema.json"
+    }
+  ],
+  "properties": {
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Success Output",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "agent": { "const": "python-code-reviewer" },
+            "task_id": { "type": "string" },
+            "operation_type": {
+              "type": "string",
+              "enum": ["perform_code_review", "validate_code_quality"]
+            },
+            "summary": { "type": "string" },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "properties": {
+                "review_verdict": {
+                  "type": "string",
+                  "enum": ["OK", "Changes Requested"],
+                  "description": "Overall review verdict"
+                },
+                "review_passed": {
+                  "type": "boolean",
+                  "description": "Whether code passes review criteria"
+                },
+                "artifact_scope": {
+                  "type": "object",
+                  "properties": {
+                    "files_reviewed": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "List of files reviewed from ranking table"
+                    },
+                    "ranking_file": {
+                      "type": "string",
+                      "description": "Path to code review ranking artifact"
+                    },
+                    "summary_file": {
+                      "type": "string",
+                      "description": "Path to code review summary artifact"
+                    },
+                    "surfaces_affected": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "System surfaces impacted (APIs, data, concurrency, I/O)"
+                    }
+                  },
+                  "required": ["files_reviewed"]
+                },
+                "review_findings": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "file_path": { "type": "string" },
+                      "line_number": { "type": "integer" },
+                      "severity": {
+                        "type": "string",
+                        "enum": ["Critical", "Major", "Minor", "Nit"]
+                      },
+                      "confidence": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "priority": {
+                        "type": "string",
+                        "enum": ["Should-Do", "Optional/Later"]
+                      },
+                      "problem_description": { "type": "string" },
+                      "principle_violated": { "type": "string" },
+                      "gate_evidence": {
+                        "type": "object",
+                        "properties": {
+                          "gate_type": {
+                            "type": "string",
+                            "enum": [
+                              "invariant_violation",
+                              "intent_conflict",
+                              "failure_path",
+                              "unsafe_pattern",
+                              "project_stack_conflict"
+                            ]
+                          },
+                          "evidence": { "type": "string" }
+                        },
+                        "required": ["gate_type", "evidence"]
+                      },
+                      "context7_validation": {
+                        "type": "object",
+                        "properties": {
+                          "library": { "type": "string" },
+                          "topic": { "type": "string" },
+                          "validated": { "type": "boolean" },
+                          "source": { "type": "string" }
+                        }
+                      },
+                      "verification_commands": {
+                        "type": "array",
+                        "maxItems": 2,
+                        "items": { "type": "string" },
+                        "description": "Deterministic verification commands (max 2)"
+                      },
+                      "fix_suggestion": { "type": "string" },
+                      "matrix_justification": {
+                        "type": "string",
+                        "description": "VALUE × COMPLEXITY × RISK routing rationale"
+                      }
+                    },
+                    "required": [
+                      "file_path",
+                      "severity",
+                      "confidence",
+                      "priority",
+                      "problem_description",
+                      "principle_violated",
+                      "gate_evidence"
+                    ]
+                  }
+                },
+                "principle_violations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "principle": { "type": "string" },
+                      "occurrences": { "type": "integer" },
+                      "severity": {
+                        "type": "string",
+                        "enum": ["Critical", "Major", "Minor"]
+                      },
+                      "files_affected": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                      }
+                    },
+                    "required": ["principle", "occurrences", "severity"]
+                  }
+                },
+                "recommendations": {
+                  "type": "object",
+                  "properties": {
+                    "should_do": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "High-priority recommendations"
+                    },
+                    "optional_later": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "Lower-priority improvements"
+                    },
+                    "tests_coverage": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "Missing test cases"
+                    },
+                    "security_notes": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "Security concerns identified"
+                    },
+                    "performance_notes": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "Performance improvement suggestions"
+                    }
+                  }
+                },
+                "context7_research_summary": {
+                  "type": "object",
+                  "properties": {
+                    "libraries_researched": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "validation_results": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object",
+                        "properties": {
+                          "validated": { "type": "boolean" },
+                          "findings_count": { "type": "integer" }
+                        }
+                      }
+                    },
+                    "fallback_to_websearch": {
+                      "type": "boolean",
+                      "description": "Whether WebSearch fallback was used"
+                    }
+                  },
+                  "required": ["libraries_researched"]
+                },
+                "open_questions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "question": { "type": "string" },
+                      "file_location": { "type": "string" },
+                      "missing_context": { "type": "string" },
+                      "impact": { "type": "string" }
+                    },
+                    "required": ["question", "missing_context"]
+                  },
+                  "description": "Unresolved items after codebase research"
+                },
+                "rate_limit_compliance": {
+                  "type": "object",
+                  "properties": {
+                    "critical_count": { "type": "integer", "maximum": 3 },
+                    "major_count": { "type": "integer", "maximum": 5 },
+                    "minor_count": { "type": "integer", "maximum": 5 },
+                    "nit_count": { "type": "integer", "maximum": 2 }
+                  },
+                  "required": ["critical_count", "major_count", "minor_count", "nit_count"]
+                },
+                "feedback_log_entry": {
+                  "type": "object",
+                  "properties": {
+                    "timestamp": { "type": "string", "format": "date-time" },
+                    "feature_name": { "type": "string" },
+                    "files_reviewed": { "type": "string" },
+                    "category": {
+                      "type": "string",
+                      "enum": [
+                        "Valid Fix",
+                        "False Positive",
+                        "Clarification",
+                        "Enhancement",
+                        "Mixed"
+                      ]
+                    },
+                    "logged": { "type": "boolean" }
+                  },
+                  "required": ["timestamp", "logged"]
+                }
+              },
+              "required": [
+                "review_verdict",
+                "review_passed",
+                "artifact_scope",
+                "review_findings",
+                "recommendations",
+                "context7_research_summary",
+                "rate_limit_compliance"
+              ]
+            }
+          },
+          "required": ["status", "agent", "confidence", "agent_specific_output"]
+        },
+        {
+          "title": "Failure Output",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "agent": { "const": "python-code-reviewer" },
+            "task_id": { "type": "string" },
+            "operation_type": { "type": "string" },
+            "summary": { "type": "string" },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "failure_details": {
+              "type": "object",
+              "properties": {
+                "failure_type": {
+                  "type": "string",
+                  "enum": [
+                    "artifacts_missing",
+                    "artifacts_malformed",
+                    "files_inaccessible",
+                    "context7_unavailable",
+                    "codebase_research_limit",
+                    "standards_conflict",
+                    "feedback_log_write_failure"
+                  ]
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "research_attempted": {
+                  "type": "object",
+                  "properties": {
+                    "artifact_discovery": {
+                      "type": "object",
+                      "properties": {
+                        "glob_pattern": { "type": "string" },
+                        "files_found": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        }
+                      }
+                    },
+                    "context7_queries": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "library": { "type": "string" },
+                          "topic": { "type": "string" },
+                          "success": { "type": "boolean" }
+                        }
+                      }
+                    },
+                    "websearch_fallback": {
+                      "type": "boolean"
+                    },
+                    "codebase_research_attempts": {
+                      "type": "integer",
+                      "description": "Number of 3-attempt research cycles performed"
+                    }
+                  }
+                },
+                "partial_results": {
+                  "type": "object",
+                  "properties": {
+                    "files_reviewed": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "findings_validated": {
+                      "type": "integer"
+                    },
+                    "findings_confidence_too_low": {
+                      "type": "integer",
+                      "description": "Findings with confidence <0.70 moved to open questions"
+                    }
+                  }
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "approach": { "type": "string" },
+                      "rationale": { "type": "string" },
+                      "effort_estimate": { "type": "string" }
+                    },
+                    "required": ["approach", "rationale"]
+                  }
+                }
+              },
+              "required": ["failure_type", "reasons", "recovery_suggestions"]
+            }
+          },
+          "required": ["status", "agent", "confidence", "failure_details"]
+        }
+      ]
+    }
+  }
+}

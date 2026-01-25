@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "pattern-sustainability.schema.json",
+  "title": "Pattern Sustainability Metrics",
+  "description": "Signal-to-Noise Ratio tracking for pattern confidence sustainability over time",
+  "type": "object",
+  "required": ["pattern_type", "ticker", "evaluation_period", "snr_metrics", "degradation_status"],
+  "properties": {
+    "pattern_type": { 
+      "enum": ["breakout", "pullback", "pead", "divergence"],
+      "description": "Pattern type being tracked"
+    },
+    "ticker": { 
+      "type": "string",
+      "description": "Symbol/ticker for the pattern"
+    },
+    "evaluation_period": {
+      "type": "object",
+      "required": ["start_date", "end_date", "trade_count"],
+      "properties": {
+        "start_date": { "type": "string", "format": "date" },
+        "end_date": { "type": "string", "format": "date" },
+        "trade_count": { 
+          "type": "integer", 
+          "minimum": 10,
+          "description": "Minimum 10 trades for reliable SNR calculation"
+        }
+      }
+    },
+    "snr_metrics": {
+      "type": "object",
+      "required": ["current_snr", "rolling_snr_20"],
+      "properties": {
+        "current_snr": { 
+          "type": "number",
+          "description": "Current SNR = Mean(returns) / StdDev(returns)"
+        },
+        "rolling_snr_20": { 
+          "type": "number",
+          "description": "20-trade rolling window SNR"
+        },
+        "snr_decay_rate_monthly": { 
+          "type": "number",
+          "description": "Monthly rate of SNR change (negative = degrading)"
+        },
+        "snr_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "period_end": { "type": "string", "format": "date" },
+              "snr_value": { "type": "number" },
+              "trade_count": { "type": "integer" }
+            }
+          },
+          "description": "Historical SNR values over time"
+        },
+        "confidence_mean": { 
+          "type": "number", 
+          "minimum": 0.4, 
+          "maximum": 0.95,
+          "description": "Mean pattern confidence over evaluation period"
+        },
+        "confidence_std": { 
+          "type": "number",
+          "description": "Standard deviation of confidence scores"
+        },
+        "confidence_cv": { 
+          "type": "number",
+          "description": "Coefficient of variation: std/mean (lower = more stable)"
+        }
+      }
+    },
+    "degradation_status": {
+      "enum": ["STABLE", "DEGRADING", "CRITICAL", "EXPIRED"],
+      "description": "STABLE=healthy, DEGRADING=declining, CRITICAL=below thresholds, EXPIRED=no longer valid"
+    },
+    "degradation_signals": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of triggered degradation signals (e.g., 'SNR < 1.0 for 3 periods')"
+    },
+    "recommendation": {
+      "enum": ["CONTINUE", "REDUCE_SIZING", "SUSPEND", "RETIRE"],
+      "description": "Recommended action based on sustainability metrics"
+    },
+    "sizing_multiplier": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Position sizing multiplier based on sustainability (STABLE=1.0, DEGRADING=0.75, CRITICAL=0.5, EXPIRED=0)"
+    },
+    "next_review_date": {
+      "type": "string",
+      "format": "date",
+      "description": "When to re-evaluate sustainability (more frequent for degrading patterns)"
+    },
+    "regime_context": {
+      "type": "object",
+      "properties": {
+        "regime_at_evaluation": { "enum": ["HIGH_RISK", "ELEVATED", "NORMAL", "LOW_RISK"] },
+        "snr_by_regime": {
+          "type": "object",
+          "description": "SNR broken down by market regime"
+        }
+      }
+    }
+  }
+}

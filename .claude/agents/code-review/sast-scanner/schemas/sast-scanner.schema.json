@@ -1,0 +1,302 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SAST Scanner Agent Schema",
+  "description": "Schema for sast-scanner agent performing Semgrep-based security scanning with OWASP/CWE classification",
+  "version": "1.0.0",
+  "extends": "base-agent.schema.json",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "description": "Input schema for SAST scanner operations",
+      "properties": {
+        "operation": {
+          "type": "string",
+          "enum": ["scan_files"],
+          "description": "Operation to perform (always scan_files for this agent)"
+        },
+        "files": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of modified files to scan",
+          "minItems": 0
+        },
+        "commit_groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "group_id": { "type": "string" },
+              "files": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "change_type": { "type": "string" },
+              "scope": { "type": "string" }
+            },
+            "required": ["group_id", "files", "change_type"]
+          },
+          "description": "Commit groups from Phase 2 file grouping"
+        },
+        "baseline_commit": {
+          "type": "string",
+          "default": "HEAD",
+          "description": "Git commit for diff-aware scanning"
+        },
+        "severity_threshold": {
+          "type": "string",
+          "enum": ["ERROR", "WARNING", "INFO"],
+          "default": "ERROR",
+          "description": "Minimum severity to report"
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator"
+        }
+      },
+      "required": ["operation", "files", "commit_groups", "execution_timestamp"]
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Success Output",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "agent": { "const": "sast-scanner" },
+            "confidence": {
+              "type": "number",
+              "minimum": 0.85,
+              "maximum": 1.0,
+              "description": "Confidence in scan results (0.92 typical for Semgrep)"
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "summary": {
+              "type": "string",
+              "description": "Executive summary of scan results"
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "properties": {
+                "scan_summary": {
+                  "type": "object",
+                  "properties": {
+                    "total_files_scanned": { "type": "integer", "minimum": 0 },
+                    "scan_duration_seconds": { "type": "number", "minimum": 0 },
+                    "findings_by_severity": {
+                      "type": "object",
+                      "properties": {
+                        "ERROR": { "type": "integer", "minimum": 0 },
+                        "WARNING": { "type": "integer", "minimum": 0 },
+                        "INFO": { "type": "integer", "minimum": 0 }
+                      }
+                    },
+                    "semgrep_version": { "type": "string" },
+                    "rulesets_used": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  },
+                  "required": [
+                    "total_files_scanned",
+                    "scan_duration_seconds",
+                    "findings_by_severity"
+                  ]
+                },
+                "group_results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "group_id": { "type": "string" },
+                      "security_status": {
+                        "type": "string",
+                        "enum": ["APPROVED", "APPROVED_WITH_WARNINGS", "CHANGES_REQUIRED"]
+                      },
+                      "blocking_issues": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "check_id": { "type": "string" },
+                            "path": { "type": "string" },
+                            "line": { "type": "integer", "minimum": 1 },
+                            "column": { "type": "integer", "minimum": 1 },
+                            "severity": { "const": "ERROR" },
+                            "message": { "type": "string" },
+                            "owasp": { "type": "string" },
+                            "cwe": { "type": "string" },
+                            "confidence": {
+                              "type": "string",
+                              "enum": ["HIGH", "MEDIUM", "LOW"]
+                            },
+                            "remediation": { "type": "string" }
+                          },
+                          "required": ["check_id", "path", "line", "severity", "message"]
+                        }
+                      },
+                      "warnings": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "check_id": { "type": "string" },
+                            "path": { "type": "string" },
+                            "line": { "type": "integer", "minimum": 1 },
+                            "column": { "type": "integer", "minimum": 1 },
+                            "severity": {
+                              "type": "string",
+                              "enum": ["WARNING", "INFO"]
+                            },
+                            "message": { "type": "string" },
+                            "owasp": { "type": "string" },
+                            "cwe": { "type": "string" },
+                            "confidence": {
+                              "type": "string",
+                              "enum": ["HIGH", "MEDIUM", "LOW"]
+                            },
+                            "remediation": { "type": "string" }
+                          },
+                          "required": ["check_id", "path", "line", "severity", "message"]
+                        }
+                      }
+                    },
+                    "required": ["group_id", "security_status", "blocking_issues", "warnings"]
+                  }
+                }
+              },
+              "required": ["scan_summary", "group_results"]
+            },
+            "recommendations": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Actionable recommendations for orchestrator"
+            },
+            "iteration_support": {
+              "type": "object",
+              "properties": {
+                "open_questions": {
+                  "type": "array",
+                  "items": { "type": "object" },
+                  "description": "Usually empty for deterministic security scanning"
+                },
+                "confidence_breakdown": {
+                  "type": "object",
+                  "properties": {
+                    "scan_execution": {
+                      "type": "number",
+                      "const": 1.0,
+                      "description": "Semgrep execution is deterministic"
+                    },
+                    "finding_accuracy": {
+                      "type": "number",
+                      "minimum": 0.9,
+                      "maximum": 0.95,
+                      "description": "Semgrep finding accuracy (0.92 typical)"
+                    },
+                    "owasp_mapping": {
+                      "type": "number",
+                      "minimum": 0.9,
+                      "maximum": 1.0,
+                      "description": "OWASP category mapping accuracy (0.95 typical)"
+                    }
+                  },
+                  "required": ["scan_execution", "finding_accuracy", "owasp_mapping"]
+                }
+              }
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "confidence",
+            "execution_timestamp",
+            "summary",
+            "agent_specific_output"
+          ]
+        },
+        {
+          "title": "Failure Output",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "agent": { "const": "sast-scanner" },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "summary": {
+              "type": "string",
+              "description": "Summary of why scan failed"
+            },
+            "failure_details": {
+              "type": "object",
+              "properties": {
+                "failure_type": {
+                  "type": "string",
+                  "enum": [
+                    "missing_dependency",
+                    "scan_error",
+                    "parse_error",
+                    "invalid_config",
+                    "timeout"
+                  ],
+                  "description": "Primary type of failure"
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Specific reasons why scan failed"
+                },
+                "scan_attempted": {
+                  "type": "object",
+                  "properties": {
+                    "files": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "rulesets": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "exit_code": { "type": "integer" },
+                    "stderr": { "type": "string" }
+                  }
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "approach": { "type": "string" },
+                      "rationale": { "type": "string" }
+                    }
+                  },
+                  "description": "Suggested approaches to resolve failure"
+                }
+              },
+              "required": ["failure_type", "reasons"]
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "confidence",
+            "execution_timestamp",
+            "summary",
+            "failure_details"
+          ]
+        }
+      ]
+    }
+  },
+  "required": ["input", "output"]
+}

@@ -1,0 +1,167 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "pattern-detector.schema.json",
+  "title": "Pattern Detector Agent Schema",
+  "description": "Input/Output contract for pattern-detector agent",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/definitions/SuccessResponse" },
+    { "$ref": "#/definitions/FailureResponse" }
+  ],
+  "definitions": {
+    "SuccessResponse": {
+      "type": "object",
+      "required": ["status", "agent", "task_id", "summary", "confidence", "execution_timestamp", "agent_specific_output"],
+      "properties": {
+        "status": { "const": "SUCCESS" },
+        "agent": { "const": "pattern-detector" },
+        "task_id": { "type": "string" },
+        "summary": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "execution_timestamp": { "type": "string", "format": "date-time" },
+        "agent_specific_output": { "$ref": "#/definitions/PatternDetectionOutput" }
+      }
+    },
+    "FailureResponse": {
+      "type": "object",
+      "required": ["status", "agent", "task_id", "summary", "confidence", "execution_timestamp", "failure_details"],
+      "properties": {
+        "status": { "const": "FAILURE" },
+        "agent": { "const": "pattern-detector" },
+        "task_id": { "type": "string" },
+        "summary": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "execution_timestamp": { "type": "string", "format": "date-time" },
+        "failure_details": { "$ref": "#/definitions/FailureDetails" }
+      }
+    },
+    "PatternDetectionOutput": {
+      "type": "object",
+      "required": ["patterns_detected", "metadata"],
+      "properties": {
+        "patterns_detected": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PatternDetection" }
+        },
+        "facts": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/FactObject" }
+        },
+        "multi_pattern_conflicts": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/ConflictResolution" }
+        },
+        "metadata": { "$ref": "#/definitions/DetectionMetadata" }
+      }
+    },
+    "PatternDetection": {
+      "type": "object",
+      "required": ["pattern", "timestamp", "confidence"],
+      "properties": {
+        "pattern": { "enum": ["breakout", "pullback", "pead", "divergence"] },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "confidence": { "type": "number", "minimum": 0.4, "maximum": 0.95 },
+        "direction": { "enum": ["up", "down", "neutral"] },
+        "evidence_bundle": { "$ref": "#/definitions/EvidenceBundle" },
+        "sustainability_metrics": {
+          "type": "object",
+          "description": "Pattern sustainability tracking (optional, populated when historical trade data available)",
+          "properties": {
+            "historical_snr": {
+              "type": "number",
+              "description": "Historical Signal-to-Noise Ratio for this pattern+ticker combination"
+            },
+            "snr_trend": {
+              "enum": ["IMPROVING", "STABLE", "DECLINING"],
+              "description": "Direction of SNR change over recent periods"
+            },
+            "degradation_risk": {
+              "enum": ["LOW", "MEDIUM", "HIGH"],
+              "description": "Risk that pattern is degrading (LOW=SNR stable, HIGH=SNR declining)"
+            },
+            "trade_count_historical": {
+              "type": "integer",
+              "description": "Number of historical trades used for sustainability calculation"
+            },
+            "sizing_adjustment": {
+              "type": "number",
+              "minimum": 0.5,
+              "maximum": 1.0,
+              "description": "Recommended position sizing adjustment based on sustainability (1.0=full, 0.5=half)"
+            }
+          }
+        }
+      }
+    },
+    "EvidenceBundle": {
+      "type": "object",
+      "properties": {
+        "indicator_values": { "type": "object" },
+        "threshold_comparisons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "metric": { "type": "string" },
+              "actual": { "type": "number" },
+              "threshold": { "type": "number" },
+              "passed": { "type": "boolean" }
+            }
+          }
+        },
+        "signal_convergence": {
+          "type": "object",
+          "properties": {
+            "total_signals": { "type": "integer" },
+            "aligned_signals": { "type": "integer" },
+            "alignment_ratio": { "type": "number" }
+          }
+        }
+      }
+    },
+    "FactObject": {
+      "type": "object",
+      "required": ["category", "confidence", "timestamp", "symbol"],
+      "properties": {
+        "category": { "type": "string" },
+        "confidence": { "type": "number" },
+        "timestamp": { "type": "string" },
+        "symbol": { "type": "string" },
+        "timeframe": { "type": "string" },
+        "metadata": { "type": "object" },
+        "source_agent": { "const": "pattern-detector" }
+      }
+    },
+    "ConflictResolution": {
+      "type": "object",
+      "properties": {
+        "timestamp": { "type": "string" },
+        "conflicting_patterns": { "type": "array", "items": { "type": "string" } },
+        "resolution_strategy": { "type": "string" },
+        "selected_pattern": { "type": "string" },
+        "resolution_confidence": { "type": "number" }
+      }
+    },
+    "DetectionMetadata": {
+      "type": "object",
+      "properties": {
+        "regime": { "enum": ["trending", "ranging", "volatile", "transitional"] },
+        "context_quality": { "type": "number", "minimum": 0, "maximum": 1 },
+        "patterns_evaluated": { "type": "array", "items": { "type": "string" } },
+        "computation_time_ms": { "type": "number" },
+        "data_rows_processed": { "type": "integer" }
+      }
+    },
+    "FailureDetails": {
+      "type": "object",
+      "required": ["failure_type", "reasons", "recovery_suggestions"],
+      "properties": {
+        "failure_type": { "enum": ["insufficient_data", "connection_error", "validation_error", "computation_error"] },
+        "reasons": { "type": "array", "items": { "type": "string" } },
+        "partial_results": { "$ref": "#/definitions/PatternDetectionOutput" },
+        "recovery_suggestions": { "type": "array", "items": { "type": "string" } },
+        "next_steps": { "type": "string" }
+      }
+    }
+  }
+}

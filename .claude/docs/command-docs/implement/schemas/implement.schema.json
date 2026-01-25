@@ -1,0 +1,271 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "implement.schema.json",
+  "title": "TASKS.json Schema",
+  "description": "Schema for TASKS.json files parsed by /implement command",
+  "type": "object",
+  "required": ["meta", "tasks_generated", "review_groups", "dependency_graph"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["component_name", "feature_name", "plan_file", "spec_file"],
+      "properties": {
+        "component_name": {
+          "type": "string",
+          "description": "Plan identifier (e.g., '001-infrastructure-foundation')"
+        },
+        "feature_name": {
+          "type": "string",
+          "description": "Parent feature name"
+        },
+        "feature_number": {
+          "type": "string",
+          "description": "Feature number (e.g., '006')"
+        },
+        "plan_file": {
+          "type": "string",
+          "description": "Path to PLAN.md (reference only, DO NOT LOAD)"
+        },
+        "spec_file": {
+          "type": "string",
+          "description": "Path to SPEC.md (reference only, DO NOT LOAD)"
+        }
+      }
+    },
+    "tasks_generated": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["task_id", "agent", "description", "file_path"],
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "pattern": "^T[0-9]{3}$",
+            "description": "Unique task identifier (e.g., 'T001')"
+          },
+          "agent": {
+            "type": "string",
+            "enum": [
+              "development",
+              "code-quality",
+              "debugger",
+              "claude-code-ecosystem",
+              "deployment-release"
+            ],
+            "description": "Agent to delegate task to"
+          },
+          "description": {
+            "type": "string",
+            "description": "Task description"
+          },
+          "file_path": {
+            "type": "string",
+            "description": "Target file path"
+          },
+          "phase": {
+            "type": "string",
+            "description": "Grouping phase name"
+          },
+          "review_group": {
+            "type": "string",
+            "pattern": "^RG[0-9]{3}$",
+            "description": "Associated review group ID"
+          },
+          "parallel": {
+            "type": "boolean",
+            "default": false,
+            "description": "Can run in parallel with other tasks"
+          },
+          "blocking": {
+            "type": "boolean",
+            "default": false,
+            "description": "Blocks subsequent phases if failed"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^T[0-9]{3}$"
+            },
+            "description": "Task IDs this task depends on"
+          },
+          "estimated_hours": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Estimated hours to complete"
+          }
+        }
+      }
+    },
+    "review_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["group_id", "component_name", "task_range", "review_task", "files_in_scope"],
+        "properties": {
+          "group_id": {
+            "type": "string",
+            "pattern": "^RG[0-9]{3}$",
+            "description": "Unique review group identifier"
+          },
+          "review_type": {
+            "type": "string",
+            "enum": ["code_review", "integration_review", "final_review"],
+            "description": "Type of review checkpoint from task-creator"
+          },
+          "component_name": {
+            "type": "string",
+            "description": "Name of component being reviewed"
+          },
+          "task_range": {
+            "type": "string",
+            "pattern": "^T[0-9]{3}-T[0-9]{3}$",
+            "description": "Task range (e.g., 'T001-T006')"
+          },
+          "review_task": {
+            "type": "string",
+            "pattern": "^T[0-9]{3}$",
+            "description": "Task ID for review checkpoint"
+          },
+          "files_in_scope": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Files to review"
+          },
+          "review_focus": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Focus areas for review"
+          },
+          "retry_enabled": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable retry loop for this review"
+          },
+          "max_iterations": {
+            "type": "integer",
+            "default": 3,
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Maximum retry iterations"
+          },
+          "fix_agent": {
+            "type": "string",
+            "description": "Default agent for fixes (may be overridden by fix_agents mapping)"
+          },
+          "fix_agents": {
+            "type": "object",
+            "description": "Issue type to fix agent mapping from task-creator",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "examples": [
+              {
+                "type_error": "python-code-implementer",
+                "logic_error": "debugger",
+                "test_failure": "test-creator"
+              }
+            ]
+          },
+          "success_criteria": {
+            "type": "object",
+            "description": "Criteria for review checkpoint to pass",
+            "properties": {
+              "zero_critical": {
+                "type": "boolean",
+                "default": true,
+                "description": "No critical issues allowed"
+              },
+              "max_high": {
+                "type": "integer",
+                "default": 3,
+                "description": "Maximum high-severity issues allowed"
+              },
+              "test_coverage": {
+                "type": "string",
+                "description": "Minimum coverage threshold (e.g., '>= 80%')"
+              },
+              "all_checks_pass": {
+                "type": "boolean",
+                "description": "All code review checks must pass (from task-creator)"
+              },
+              "no_critical_issues": {
+                "type": "boolean",
+                "description": "No critical issues found (from task-creator)"
+              }
+            }
+          },
+          "blocks_tasks": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^T[0-9]{3}$"
+            },
+            "description": "Tasks blocked until review passes"
+          }
+        }
+      }
+    },
+    "deferred_findings": {
+      "type": "array",
+      "description": "MEDIUM/LOW/NIT findings accumulated for final review",
+      "items": {
+        "type": "object",
+        "properties": {
+          "from_checkpoint": {
+            "type": "string",
+            "description": "Review group ID where finding originated (e.g., 'RG001')"
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["MEDIUM", "LOW", "NIT"],
+            "description": "Severity level of deferred finding"
+          },
+          "finding_id": {
+            "type": "string",
+            "description": "Unique identifier for the finding"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the issue"
+          },
+          "file_path": {
+            "type": "string",
+            "description": "File where issue was found"
+          },
+          "deferred_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 timestamp when finding was deferred"
+          },
+          "line_number": {
+            "type": "integer",
+            "description": "Line number where issue occurs (optional)"
+          },
+          "suggested_fix": {
+            "type": "string",
+            "description": "Suggested resolution for the issue (optional)"
+          }
+        },
+        "required": ["from_checkpoint", "severity", "finding_id", "description"]
+      }
+    },
+    "dependency_graph": {
+      "type": "object",
+      "description": "Phase-to-task mappings and blocking relationships",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "tasks": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "blocks": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

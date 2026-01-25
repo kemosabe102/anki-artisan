@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Backtest Dashboard Metrics",
+  "description": "Comprehensive 35-metric dashboard output for backtest results across 6 performance dimensions",
+  "type": "object",
+  "required": ["run_id", "algorithm", "tier", "hypothesis_id", "generated_at", "dimensions", "verdict"],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "pattern": "^\\d{8}_\\d{3}$",
+      "description": "Unique run identifier (YYYYMMDD_NNN format)"
+    },
+    "algorithm": {
+      "type": "string",
+      "description": "Algorithm name"
+    },
+    "tier": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "Backtest tier (1-4)"
+    },
+    "hypothesis_id": {
+      "type": "string",
+      "pattern": "^HYP-",
+      "description": "Associated hypothesis ID"
+    },
+    "trial_number": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Trial number within hypothesis (1-5)"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Dashboard generation timestamp"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "NEEDS_REVIEW"],
+      "description": "Overall backtest verdict"
+    },
+    "dimensions": {
+      "type": "object",
+      "description": "Six performance dimensions with metrics",
+      "required": ["profitability", "risk_adjusted", "downside_protection", "trade_quality", "consistency", "recovery"],
+      "properties": {
+        "profitability": {
+          "type": "object",
+          "description": "Dimension 1: How much money?",
+          "properties": {
+            "total_return_pct": { "type": "number", "description": "Total return as percentage" },
+            "cagr_pct": { "type": "number", "description": "Compound Annual Growth Rate" },
+            "monthly_avg_pct": { "type": "number", "description": "Average monthly return" },
+            "monthly_best_pct": { "type": "number", "description": "Best single month return" },
+            "monthly_worst_pct": { "type": "number", "description": "Worst single month return" },
+            "profit_factor": { "type": "number", "description": "Gross profit / Gross loss" }
+          }
+        },
+        "risk_adjusted": {
+          "type": "object",
+          "description": "Dimension 2: Return per unit of risk",
+          "properties": {
+            "sharpe_ratio": { "type": "number", "description": "Return per unit of total volatility" },
+            "sortino_ratio": { "type": "number", "description": "Return per unit of downside volatility" },
+            "calmar_ratio": { "type": "number", "description": "CAGR / Max Drawdown" },
+            "volatility_pct": { "type": "number", "description": "Annualized return volatility" }
+          }
+        },
+        "downside_protection": {
+          "type": "object",
+          "description": "Dimension 3: How bad does it get?",
+          "properties": {
+            "max_drawdown_pct": { "type": "number", "description": "Largest peak-to-trough decline" },
+            "avg_drawdown_pct": { "type": "number", "description": "Mean of all drawdown periods" },
+            "drawdown_duration_days": { "type": "integer", "description": "Longest time to recover from max DD" },
+            "var_95_pct": { "type": "number", "description": "Value at Risk (95% confidence)" },
+            "max_consecutive_loss_days": { "type": "integer", "description": "Longest streak of daily losses" }
+          }
+        },
+        "trade_quality": {
+          "type": "object",
+          "description": "Dimension 4: What's your trading edge?",
+          "properties": {
+            "total_trades": { "type": "integer", "description": "Number of complete entry-exit cycles" },
+            "win_rate_pct": { "type": "number", "description": "Percentage of winning trades" },
+            "profit_factor": { "type": "number", "description": "Gross profit / Gross loss" },
+            "avg_win_pct": { "type": "number", "description": "Average winning trade return" },
+            "avg_loss_pct": { "type": "number", "description": "Average losing trade return (negative)" },
+            "win_loss_ratio": { "type": "number", "description": "Avg win / Avg loss" },
+            "expectancy": { "type": "number", "description": "Expected profit per trade" }
+          }
+        },
+        "consistency": {
+          "type": "object",
+          "description": "Dimension 5: Does it hold up over time?",
+          "properties": {
+            "max_consecutive_wins": { "type": "integer", "description": "Longest winning streak" },
+            "max_consecutive_losses": { "type": "integer", "description": "Longest losing streak" },
+            "months_profitable_pct": { "type": "number", "description": "Percentage of profitable months" },
+            "best_worst_month_ratio": { "type": "number", "description": "Best month / Worst month" },
+            "avg_trade_duration_days": { "type": "number", "description": "Mean days from entry to exit" },
+            "win_loss_duration_ratio": { "type": "number", "description": "Avg days in winners / losers" },
+            "regime_cv": { "type": "number", "description": "Coefficient of variation across regimes" }
+          }
+        },
+        "recovery": {
+          "type": "object",
+          "description": "Dimension 6: How fast do you bounce back?",
+          "properties": {
+            "recovery_factor": { "type": "number", "description": "Net profit / Max drawdown amount" },
+            "time_to_new_high_days": { "type": "integer", "description": "Days from max DD to new peak" },
+            "drawdown_depth_days": { "type": "integer", "description": "Longest continuous drawdown period" }
+          }
+        }
+      }
+    },
+    "gate_results": {
+      "type": "array",
+      "description": "Individual gate validation results",
+      "items": {
+        "type": "object",
+        "properties": {
+          "gate": { "type": "string", "description": "Gate name" },
+          "required": { "type": "number", "description": "Threshold value" },
+          "actual": { "type": "number", "description": "Actual value" },
+          "passed": { "type": "boolean", "description": "Whether gate passed" },
+          "severity": { "type": "string", "enum": ["HARD", "SOFT"], "description": "Gate severity" }
+        }
+      }
+    },
+    "historical_comparison": {
+      "type": "object",
+      "description": "Optional comparison with previous runs (when --history flag used)",
+      "properties": {
+        "compared_count": { "type": "integer", "description": "Number of runs compared" },
+        "runs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "run_id": { "type": "string" },
+              "date": { "type": "string", "format": "date-time" },
+              "sharpe_ratio": { "type": "number" },
+              "max_drawdown_pct": { "type": "number" },
+              "verdict": { "type": "string", "enum": ["PASS", "FAIL"] }
+            }
+          }
+        },
+        "trend_analysis": {
+          "type": "object",
+          "properties": {
+            "sharpe_trend": { "type": "string", "enum": ["improving", "stable", "declining"] },
+            "drawdown_trend": { "type": "string", "enum": ["improving", "stable", "declining"] },
+            "consistency_score": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        }
+      }
+    }
+  }
+}

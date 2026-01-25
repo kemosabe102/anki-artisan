@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent Frontmatter Schema",
+  "description": "Valid frontmatter fields for Claude Code agent definitions",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Agent identifier in kebab-case. Must match filename.",
+      "pattern": "^[a-z][a-z0-9-]*[a-z0-9]$"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description with trigger keywords and NOT-for cases.",
+      "maxLength": 200
+    },
+    "model": {
+      "type": "string",
+      "description": "Model to use for agent execution.",
+      "enum": ["opus", "sonnet"]
+    },
+    "color": {
+      "type": "string",
+      "description": "Color for agent identification. See agent-color-taxonomy.md.",
+      "enum": [
+        "red", "orange", "yellow", "green", "blue", "purple", "pink",
+        "cyan", "magenta", "lime", "teal", "indigo", "violet", "amber",
+        "emerald", "rose", "sky", "slate", "zinc", "neutral", "stone"
+      ]
+    },
+    "tools": {
+      "type": "string",
+      "description": "Comma-separated list of allowed tools.",
+      "examples": ["Read, Grep, Glob", "Read, Write, Edit, Bash"]
+    },
+    "permissionMode": {
+      "type": "string",
+      "description": "Permission mode for tool access.",
+      "enum": ["default", "permissive"],
+      "default": "default"
+    },
+    "skills": {
+      "type": "array",
+      "description": "Array of skill names this agent can use.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*[a-z0-9]$"
+      }
+    }
+  },
+  "required": ["name", "description"],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "name": "development",
+      "description": "Implements Python modules with testing. Use for: write python, implement feature. NOT for: review code (code-quality), debug (debugger).",
+      "model": "opus",
+      "color": "blue",
+      "tools": "Read, Write, Edit, Grep, Glob, Bash"
+    },
+    {
+      "name": "researcher-codebase",
+      "description": "Searches and analyzes local codebase. Use for: find code, understand patterns. NOT for: modify files, run tests.",
+      "model": "sonnet",
+      "color": "green",
+      "tools": "Read, Grep, Glob"
+    }
+  ],
+  "_meta": {
+    "invalidFields": [
+      "version",
+      "maturity", 
+      "temperature",
+      "context",
+      "date",
+      "status",
+      "tags",
+      "title",
+      "author",
+      "created",
+      "updated"
+    ],
+    "note": "Any field not in properties is invalid. additionalProperties: false enforces this."
+  }
+}

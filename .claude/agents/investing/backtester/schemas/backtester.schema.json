@@ -1,0 +1,688 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Backtester I/O Contract",
+  "description": "HDD-compliant backtesting coordinator with statistical validation gates and regime stratification",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": ["single_run", "regime_test", "walk_forward", "final_validation", "tier_test", "aggregate", "validate", "capacity_test", "dashboard"],
+          "description": "Backtesting mode"
+        },
+        "hypothesis_id": {
+          "type": "string",
+          "pattern": "^HYP-[0-9]{3}$",
+          "description": "REQUIRED: Unique hypothesis identifier (e.g., HYP-001)"
+        },
+        "trial_number": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "description": "Current trial number for this hypothesis (max 5)"
+        },
+        "trials_on_dataset": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Cumulative trials run on this dataset"
+        },
+        "strategy_spec": {
+          "type": "object",
+          "description": "Strategy specification from strategy-builder",
+          "properties": {
+            "strategy_name": {"type": "string"},
+            "strategy_type": {"enum": ["momentum", "mean_reversion", "event_driven", "multi_factor"]},
+            "universe": {"type": "object"},
+            "entry": {"type": "object"},
+            "exit": {"type": "object"},
+            "position_sizing": {"type": "object"},
+            "risk_management": {"type": "object"},
+            "timeframe": {"type": "string"}
+          },
+          "required": ["strategy_name", "strategy_type", "universe", "entry", "exit"]
+        },
+        "backtest_params": {
+          "type": "object",
+          "properties": {
+            "start_date": {"type": "string", "format": "date"},
+            "end_date": {"type": "string", "format": "date"},
+            "initial_capital": {"type": "number", "minimum": 1000},
+            "benchmark": {"type": "string", "default": "SPY"}
+          },
+          "required": ["start_date", "end_date", "initial_capital"]
+        },
+        "locked_parameters": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Parameters that cannot be changed this trial"
+        },
+        "regime_config": {
+          "type": "object",
+          "description": "Configuration for regime stratification analysis",
+          "properties": {
+            "enabled": { 
+              "type": "boolean", 
+              "default": false,
+              "description": "Enable regime stratification analysis"
+            },
+            "factors": {
+              "type": "array",
+              "items": { 
+                "enum": ["volatility", "trend", "correlation", "credit", "sentiment"] 
+              },
+              "description": "Regime factors to stratify results by"
+            },
+            "stratify_results": { 
+              "type": "boolean", 
+              "default": true,
+              "description": "Generate stratified performance metrics per regime"
+            },
+            "dma_stratification": { 
+              "type": "boolean", 
+              "default": true,
+              "description": "Enable 200-day moving average stratification"
+            }
+          }
+        },
+        "regime_classification": {
+          "type": "object",
+          "description": "Pre-specified regime classification for targeted testing",
+          "properties": {
+            "volatility": { 
+              "enum": ["LOW", "NORMAL", "HIGH"],
+              "description": "Volatility regime classification"
+            },
+            "trend": { 
+              "enum": ["BULL", "NEUTRAL", "BEAR"],
+              "description": "Market trend classification"
+            },
+            "correlation": { 
+              "enum": ["LOW", "HIGH"],
+              "description": "Cross-asset correlation classification"
+            },
+            "credit": { 
+              "enum": ["TIGHT", "NORMAL", "WIDE"],
+              "description": "Credit spread classification"
+            },
+            "sentiment": { 
+              "enum": ["FEAR", "NEUTRAL", "GREED"],
+              "description": "Market sentiment classification"
+            }
+          }
+        },
+        "regime_context": {
+          "type": "object",
+          "description": "Volatility regime context for regime_test mode",
+          "properties": {
+            "target_regime": {"enum": ["HIGH_RISK", "ELEVATED", "NORMAL", "LOW_RISK", "ALL"]},
+            "regime_adjusted_thresholds": {
+              "type": "object",
+              "description": "Override default thresholds per regime",
+              "properties": {
+                "HIGH_RISK": {
+                  "type": "object",
+                  "properties": {
+                    "sharpe_deflated_min": {"type": "number", "default": 0.20},
+                    "max_drawdown_max": {"type": "number", "default": 0.35},
+                    "trade_count_min": {"type": "integer", "default": 60}
+                  }
+                },
+                "ELEVATED": {
+                  "type": "object",
+                  "properties": {
+                    "sharpe_deflated_min": {"type": "number", "default": 0.25},
+                    "max_drawdown_max": {"type": "number", "default": 0.30},
+                    "trade_count_min": {"type": "integer", "default": 80}
+                  }
+                },
+                "NORMAL": {
+                  "type": "object",
+                  "properties": {
+                    "sharpe_deflated_min": {"type": "number", "default": 0.30},
+                    "max_drawdown_max": {"type": "number", "default": 0.25},
+                    "trade_count_min": {"type": "integer", "default": 100}
+                  }
+                },
+                "LOW_RISK": {
+                  "type": "object",
+                  "properties": {
+                    "sharpe_deflated_min": {"type": "number", "default": 0.35},
+                    "max_drawdown_max": {"type": "number", "default": 0.20},
+                    "trade_count_min": {"type": "integer", "default": 100}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "walk_forward_params": {
+          "type": "object",
+          "description": "Parameters for walk_forward mode",
+          "properties": {
+            "num_windows": {"type": "integer", "minimum": 3, "default": 5},
+            "is_oos_ratio": {"type": "number", "default": 3.0},
+            "step_size_days": {"type": "integer", "default": 30}
+          }
+        },
+        "capacity_test_params": {
+          "type": "object",
+          "description": "Parameters for capacity_test mode - tests strategy scalability",
+          "properties": {
+            "baseline_capital": { 
+              "type": "number", 
+              "default": 100000,
+              "description": "Starting capital for baseline test"
+            },
+            "scale_factors": { 
+              "type": "array", 
+              "items": { "type": "number" },
+              "default": [2, 5, 10],
+              "description": "Capital multipliers to test"
+            },
+            "slippage_model": { 
+              "enum": ["fixed", "volume_proportional", "square_root"],
+              "default": "volume_proportional",
+              "description": "How to model market impact at scale"
+            },
+            "participation_rate": {
+              "type": "number",
+              "default": 0.02,
+              "minimum": 0.01,
+              "maximum": 0.10,
+              "description": "Max % of ADV to assume for position execution"
+            }
+          }
+        }
+      },
+      "required": ["mode", "hypothesis_id", "trial_number", "strategy_spec"]
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": ["SUCCESS", "FAILURE"],
+          "description": "Operation status"
+        },
+        "hypothesis_id": {
+          "type": "string",
+          "description": "Echo of input hypothesis_id"
+        },
+        "trial_number": {
+          "type": "integer",
+          "description": "Trial number executed"
+        },
+        "trials_on_dataset": {
+          "type": "integer",
+          "description": "Cumulative trials on this dataset"
+        },
+        "metrics": {
+          "type": "object",
+          "properties": {
+            "sharpe_raw": {
+              "type": "number",
+              "description": "Raw Sharpe Ratio from backtest"
+            },
+            "sharpe_deflated": {
+              "type": "number",
+              "description": "Deflated Sharpe Ratio: SR * sqrt(1 - 0.08 * T). NOTE: gamma=0.08 must match tier-config.json"
+            },
+            "deflation_factor": {
+              "type": "number",
+              "description": "sqrt(1 - gamma * T) where gamma=0.08. NOTE: Must match tier-config.json"
+            },
+            "trade_count": {
+              "type": "integer",
+              "description": "Total number of trades"
+            },
+            "max_drawdown": {
+              "type": "number",
+              "description": "Maximum drawdown as decimal (e.g., 0.18 = 18%)"
+            },
+            "win_rate": {
+              "type": "number",
+              "description": "Percentage of winning trades"
+            },
+            "profit_factor": {
+              "type": "number",
+              "description": "Gross profit / Gross loss"
+            },
+            "oos_is_ratio": {
+              "type": "number",
+              "description": "Out-of-sample / In-sample performance ratio"
+            },
+            "cagr": {
+              "type": "number",
+              "description": "Compound Annual Growth Rate"
+            },
+            "sortino_ratio": {
+              "type": "number",
+              "description": "Sortino Ratio (downside deviation)"
+            }
+          },
+          "required": ["sharpe_raw", "sharpe_deflated", "deflation_factor", "trade_count"]
+        },
+        "validation_gates": {
+          "type": "object",
+          "description": "Results of each validation gate",
+          "properties": {
+            "trade_count": {
+              "type": "object",
+              "properties": {
+                "passed": {"type": "boolean"},
+                "value": {"type": "integer"},
+                "threshold": {"type": "integer", "const": 100},
+                "severity": {"type": "string", "const": "HARD"}
+              }
+            },
+            "sharpe_raw": {
+              "type": "object",
+              "properties": {
+                "passed": {"type": "boolean"},
+                "value": {"type": "number"},
+                "threshold": {"type": "number", "const": 0.5},
+                "severity": {"type": "string", "const": "SOFT"}
+              }
+            },
+            "sharpe_deflated": {
+              "type": "object",
+              "properties": {
+                "passed": {"type": "boolean"},
+                "value": {"type": "number"},
+                "threshold": {"type": "number", "const": 0.3},
+                "severity": {"type": "string", "const": "HARD"}
+              }
+            },
+            "max_drawdown": {
+              "type": "object",
+              "properties": {
+                "passed": {"type": "boolean"},
+                "value": {"type": "number"},
+                "threshold": {"type": "number", "const": 0.25},
+                "severity": {"type": "string", "const": "SOFT"}
+              }
+            },
+            "oos_is_ratio": {
+              "type": "object",
+              "properties": {
+                "passed": {"type": "boolean"},
+                "value": {"type": "number"},
+                "threshold": {"type": "number", "const": 0.5},
+                "severity": {"type": "string", "const": "HARD"}
+              }
+            },
+            "monte_carlo_pvalue": {
+              "type": "object",
+              "description": "Monte Carlo validation gate - MANDATORY at Tier 4",
+              "properties": {
+                "passed": { 
+                  "type": "boolean",
+                  "description": "True if p-value < threshold"
+                },
+                "value": { 
+                  "type": "number", 
+                  "minimum": 0, 
+                  "maximum": 1,
+                  "description": "Actual p-value from Monte Carlo simulation"
+                },
+                "threshold": { 
+                  "type": "number", 
+                  "default": 0.05,
+                  "description": "p-value must be below this (default 0.05)"
+                },
+                "severity": { 
+                  "enum": ["SOFT", "HARD"],
+                  "default": "HARD",
+                  "description": "HARD at Tier 4 (mandatory), SOFT at Tier 3"
+                },
+                "simulations": { 
+                  "type": "integer", 
+                  "default": 1000,
+                  "description": "Number of Monte Carlo iterations run"
+                },
+                "percentile": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "description": "Percentile of actual DSR vs simulated distribution"
+                }
+              }
+            },
+            "capacity_score": {
+              "type": "object",
+              "description": "Capacity scaling test gate - MANDATORY at Tier 3+",
+              "properties": {
+                "passed": { 
+                  "type": "boolean",
+                  "description": "True if score >= threshold"
+                },
+                "value": { 
+                  "type": "number", 
+                  "minimum": 0, 
+                  "maximum": 100,
+                  "description": "(Sharpe_10x / Sharpe_baseline) x 100"
+                },
+                "threshold": { 
+                  "type": "number",
+                  "description": "Tier 3: 70, Tier 4: 75"
+                },
+                "severity": { 
+                  "enum": ["SOFT", "HARD"],
+                  "description": "SOFT at Tier 3 (warning), HARD at Tier 4 (mandatory)"
+                }
+              }
+            }
+          }
+        },
+        "verdict": {
+          "enum": ["DEPLOYABLE", "NOT_DEPLOYABLE", "NEEDS_REVIEW", "BLOCKED"],
+          "description": "Final verdict based on validation gates"
+        },
+        "verdict_reasons": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Reasons for the verdict"
+        },
+        "next_action": {
+          "enum": ["deploy", "walk_forward", "holdout", "failure_analyzer", "archive"],
+          "description": "Recommended next step based on verdict"
+        },
+        "failure_mode": {
+          "enum": ["curve_fit", "regime_mismatch", "insufficient_trades", "sharpe_too_low", "drawdown_excessive", null],
+          "description": "Classification of failure if NOT_DEPLOYABLE"
+        },
+        "regime_context": {
+          "type": "object",
+          "description": "Regime classification context for this backtest",
+          "properties": {
+            "detected_regime": {
+              "enum": ["HIGH_RISK", "ELEVATED", "NORMAL", "LOW_RISK"],
+              "description": "Regime classification from regime-classifier skill"
+            },
+            "regime_factors": {
+              "type": "object",
+              "description": "Factor values from regime-classifier",
+              "properties": {
+                "volatility": {"type": "number"},
+                "correlation": {"type": "number"},
+                "credit": {"type": "number"},
+                "sentiment": {"type": "number"},
+                "trend": {"type": "string", "enum": ["ABOVE", "BELOW"]}
+              }
+            },
+            "threshold_adjustment": {
+              "type": "object",
+              "description": "Applied threshold multipliers",
+              "properties": {
+                "sharpe_multiplier": {"type": "number"},
+                "drawdown_multiplier": {"type": "number"},
+                "trade_count_multiplier": {"type": "number"}
+              }
+            },
+            "classification_confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Confidence score from regime-classifier"
+            }
+          }
+        },
+        "regime_results": {
+          "type": "object",
+          "description": "Results per regime for regime_test mode",
+          "properties": {
+            "HIGH_RISK": {"$ref": "#/definitions/regime_metrics"},
+            "ELEVATED": {"$ref": "#/definitions/regime_metrics"},
+            "NORMAL": {"$ref": "#/definitions/regime_metrics"},
+            "LOW_RISK": {"$ref": "#/definitions/regime_metrics"}
+          }
+        },
+        "regime_stratified_results": {
+          "type": "object",
+          "description": "Performance metrics stratified by regime factor",
+          "properties": {
+            "by_volatility": {
+              "type": "object",
+              "description": "Performance by volatility regime",
+              "additionalProperties": {
+                "$ref": "#/definitions/stratified_regime_metrics"
+              }
+            },
+            "by_trend": {
+              "type": "object",
+              "description": "Performance by market trend",
+              "additionalProperties": {
+                "$ref": "#/definitions/stratified_regime_metrics"
+              }
+            },
+            "by_correlation": {
+              "type": "object",
+              "description": "Performance by correlation regime",
+              "additionalProperties": {
+                "$ref": "#/definitions/stratified_regime_metrics"
+              }
+            },
+            "by_credit": {
+              "type": "object",
+              "description": "Performance by credit regime",
+              "additionalProperties": {
+                "$ref": "#/definitions/stratified_regime_metrics"
+              }
+            },
+            "by_sentiment": {
+              "type": "object",
+              "description": "Performance by sentiment regime",
+              "additionalProperties": {
+                "$ref": "#/definitions/stratified_regime_metrics"
+              }
+            }
+          }
+        },
+        "cdap_metrics": {
+          "type": "object",
+          "description": "Crash-Drawdown Adjusted Performance metrics",
+          "properties": {
+            "cdap_ratio": { 
+              "type": "number",
+              "description": "Crash-Drawdown Adjusted Performance ratio"
+            },
+            "drawdown_adjusted_sharpe": { 
+              "type": "number",
+              "description": "Sharpe ratio adjusted for drawdown severity"
+            },
+            "regime_weighted_sharpe": { 
+              "type": "number",
+              "description": "Sharpe ratio weighted by regime exposure"
+            },
+            "max_regime_drawdown": { 
+              "type": "number",
+              "description": "Maximum drawdown experienced in any single regime"
+            },
+            "recovery_factor": { 
+              "type": "number",
+              "description": "Total return / max drawdown ratio"
+            }
+          }
+        },
+        "dma_stratification": {
+          "type": "object",
+          "description": "Performance stratified by 200-day moving average position",
+          "properties": {
+            "above_200dma": {
+              "$ref": "#/definitions/dma_metrics"
+            },
+            "below_200dma": {
+              "$ref": "#/definitions/dma_metrics"
+            }
+          }
+        },
+        "regime_consistency_score": { 
+          "type": "integer", 
+          "minimum": 0, 
+          "maximum": 100,
+          "description": "Score indicating consistency of performance across regimes (0-100)"
+        },
+        "worst_regime": { 
+          "type": "string",
+          "description": "Regime with worst performance (e.g., 'HIGH_VOLATILITY', 'BEAR')"
+        },
+        "best_regime": { 
+          "type": "string",
+          "description": "Regime with best performance"
+        },
+        "walk_forward_results": {
+          "type": "object",
+          "description": "Results for walk_forward mode",
+          "properties": {
+            "windows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "window_id": {"type": "integer"},
+                  "is_start": {"type": "string", "format": "date"},
+                  "is_end": {"type": "string", "format": "date"},
+                  "oos_start": {"type": "string", "format": "date"},
+                  "oos_end": {"type": "string", "format": "date"},
+                  "is_sharpe": {"type": "number"},
+                  "oos_sharpe": {"type": "number"},
+                  "oos_is_ratio": {"type": "number"},
+                  "oos_regime": {"enum": ["HIGH_RISK", "ELEVATED", "NORMAL", "LOW_RISK"]}
+                }
+              }
+            },
+            "aggregate_oos_is_ratio": {"type": "number"},
+            "consistency_score": {"type": "number"},
+            "regime_consistency": {
+              "type": "object",
+              "description": "Regime tracking across walk-forward windows",
+              "properties": {
+                "window_regimes": {
+                  "type": "array",
+                  "items": {"enum": ["HIGH_RISK", "ELEVATED", "NORMAL", "LOW_RISK"]}
+                },
+                "consistency_cv": {
+                  "type": "number",
+                  "description": "Coefficient of variation of Sharpe by regime"
+                },
+                "regime_transitions": {
+                  "type": "integer",
+                  "description": "Number of regime changes across windows"
+                },
+                "dominant_regime": {
+                  "enum": ["HIGH_RISK", "ELEVATED", "NORMAL", "LOW_RISK"],
+                  "description": "Most frequent regime in windows"
+                }
+              }
+            }
+          }
+        },
+        "capacity_test_results": {
+          "type": "object",
+          "description": "Results from capacity_test mode",
+          "properties": {
+            "baseline_sharpe": { 
+              "type": "number",
+              "description": "Sharpe ratio at baseline capital"
+            },
+            "scaled_results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "scale": { "type": "number" },
+                  "capital": { "type": "number" },
+                  "sharpe": { "type": "number" },
+                  "degradation_pct": { "type": "number" },
+                  "avg_slippage_bps": { "type": "number" }
+                }
+              },
+              "description": "Results at each scale factor"
+            },
+            "capacity_score": { 
+              "type": "number", 
+              "minimum": 0, 
+              "maximum": 100,
+              "description": "(Sharpe_max_scale / Sharpe_baseline) x 100"
+            },
+            "estimated_capacity_ceiling_usd": { 
+              "type": "number",
+              "description": "Estimated max capital before 30% Sharpe degradation"
+            },
+            "verdict": { 
+              "enum": ["PASS", "WARN", "FAIL"],
+              "description": "PASS if capacity_score >= tier threshold"
+            }
+          }
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator"
+        }
+      },
+      "required": ["status", "hypothesis_id", "trial_number", "metrics", "verdict", "next_action"]
+    }
+  },
+  "definitions": {
+    "regime_metrics": {
+      "type": "object",
+      "description": "Basic regime metrics (legacy format)",
+      "properties": {
+        "sharpe_raw": {"type": "number"},
+        "trade_count": {"type": "integer"},
+        "max_drawdown": {"type": "number"},
+        "period_start": {"type": "string", "format": "date"},
+        "period_end": {"type": "string", "format": "date"}
+      }
+    },
+    "stratified_regime_metrics": {
+      "type": "object",
+      "description": "Enhanced regime metrics for stratification",
+      "properties": {
+        "sharpe": { 
+          "type": "number",
+          "description": "Sharpe ratio for this regime"
+        },
+        "trades": { 
+          "type": "integer",
+          "description": "Number of trades in this regime"
+        },
+        "win_rate": { 
+          "type": "number",
+          "description": "Win rate in this regime (0-1)"
+        },
+        "max_dd": { 
+          "type": "number",
+          "description": "Maximum drawdown in this regime"
+        },
+        "profit_factor": { 
+          "type": "number",
+          "description": "Profit factor in this regime"
+        }
+      }
+    },
+    "dma_metrics": {
+      "type": "object",
+      "description": "Metrics for 200-day moving average stratification",
+      "properties": {
+        "return_pct": { 
+          "type": "number",
+          "description": "Return percentage when in this DMA state"
+        },
+        "risk_pct": { 
+          "type": "number",
+          "description": "Risk (volatility) percentage when in this DMA state"
+        },
+        "sharpe": { 
+          "type": "number",
+          "description": "Sharpe ratio when in this DMA state"
+        },
+        "trades": { 
+          "type": "integer",
+          "description": "Number of trades when in this DMA state"
+        }
+      }
+    }
+  }
+}

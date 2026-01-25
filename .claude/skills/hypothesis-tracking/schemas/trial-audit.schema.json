@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "trial-audit.schema.json",
+  "title": "TrialAuditManifest",
+  "description": "Append-only audit log distinguishing bad luck from bad process in hypothesis testing",
+  "type": "object",
+  "required": ["hypothesis_id", "trials"],
+  "properties": {
+    "hypothesis_id": {
+      "type": "string",
+      "pattern": "^HYP-[0-9]{3,}$",
+      "description": "Unique hypothesis identifier"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when hypothesis was created"
+    },
+    "strategy_name": {
+      "type": "string",
+      "description": "Name of the strategy being tested"
+    },
+    "trials": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 5,
+      "description": "Ordered list of trial records (append-only)",
+      "items": {
+        "$ref": "#/definitions/trialRecord"
+      }
+    },
+    "total_trials": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "Current trial count"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ACTIVE", "PASSED", "EXHAUSTED", "ARCHIVED"],
+      "description": "Current hypothesis status"
+    }
+  },
+  "definitions": {
+    "trialRecord": {
+      "type": "object",
+      "required": ["trial_number", "timestamp", "raw_sharpe", "deflated_sharpe", "verdict"],
+      "properties": {
+        "trial_number": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "description": "Sequential trial number"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When this trial was executed"
+        },
+        "tier": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4,
+          "description": "Backtest tier (1-4)"
+        },
+        "parameter_changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "parameter": {"type": "string"},
+              "old_value": {},
+              "new_value": {},
+              "rationale": {"type": "string"}
+            }
+          },
+          "description": "Parameters changed from previous trial"
+        },
+        "parameter_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "SHA256 hash of all parameter values for verification"
+        },
+        "raw_sharpe": {
+          "type": "number",
+          "description": "Sharpe ratio before deflation"
+        },
+        "deflated_sharpe": {
+          "type": "number",
+          "description": "Sharpe ratio after trial penalty (DSR)"
+        },
+        "deflation_factor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "sqrt(1 - 0.08 * trial_number)"
+        },
+        "verdict": {
+          "type": "string",
+          "enum": ["PASS", "FAIL"],
+          "description": "Gate verdict for this trial"
+        },
+        "failure_classification": {
+          "$ref": "#/definitions/failureClassification"
+        },
+        "regime_context": {
+          "type": "string",
+          "enum": ["HIGH_RISK", "ELEVATED", "NORMAL", "LOW_RISK"],
+          "description": "Market regime during test period"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes or observations"
+        }
+      }
+    },
+    "failureClassification": {
+      "type": "object",
+      "description": "Distinguishes bad luck from bad process",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["BAD_LUCK", "BAD_PROCESS", "UNDETERMINED"],
+          "description": "Classification type"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Classification confidence (0-1)"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Supporting evidence for classification"
+        },
+        "monte_carlo_pvalue": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "p-value from Monte Carlo simulation"
+        },
+        "sigma_from_mean": {
+          "type": "number",
+          "description": "Standard deviations from regime mean performance"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "hypothesis-bundle.schema.json",
+  "title": "Hypothesis Bundle",
+  "description": "Schema for HDD hypothesis bundles in /algo-strategy workflow",
+  "type": "object",
+  "required": ["hypothesis_id", "cause", "effect", "when", "why", "testability_score", "params_locked", "trial_number"],
+  "properties": {
+    "hypothesis_id": {
+      "type": "string",
+      "pattern": "^HYP-[0-9]{3}$",
+      "description": "Unique hypothesis identifier (HYP-001 format)"
+    },
+    "cause": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Market condition or signal that triggers action"
+    },
+    "effect": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Expected price behavior following the cause"
+    },
+    "why": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Economic/behavioral rationale connecting cause to effect"
+    },
+    "when": {
+      "type": "object",
+      "description": "Regime condition under which hypothesis is valid",
+      "properties": {
+        "trend_filter": {
+          "type": "string",
+          "enum": ["above_200dma", "below_200dma", "any"],
+          "default": "any",
+          "description": "Price position relative to 200-day moving average"
+        },
+        "volatility_regime": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["LOW", "NORMAL", "HIGH"]
+          },
+          "default": ["LOW", "NORMAL", "HIGH"],
+          "description": "Allowed volatility regimes for this hypothesis"
+        },
+        "atr_percentile_max": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 100,
+          "description": "Maximum ATR percentile (e.g., 75 = exclude HIGH regime)"
+        }
+      },
+      "required": ["volatility_regime"]
+    },
+    "testability_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "How testable is this hypothesis (0.7 minimum required)"
+    },
+    "params_locked": {
+      "type": "object",
+      "description": "Locked parameter values that cannot change under this hypothesis",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "value": {},
+          "rationale": { "type": "string" }
+        },
+        "required": ["value"]
+      }
+    },
+    "trial_number": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "Current trial count (resets on new hypothesis)"
+    },
+    "timeframe": {
+      "type": "string",
+      "enum": ["1min", "5min", "15min", "30min", "1hour", "4hour", "daily", "weekly"],
+      "description": "Trading timeframe"
+    },
+    "mentioned_indicators": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Indicators mentioned in hypothesis for consistency checking"
+    },
+    "mechanism_type": {
+      "type": "string",
+      "enum": ["momentum", "mean_reversion", "event_driven", "multi_factor"],
+      "description": "Strategy mechanism type"
+    }
+  }
+}

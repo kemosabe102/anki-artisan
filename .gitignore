@@ -213,3 +213,6 @@ cache/*
 
 # API keys
 *.key
+
+# Claude Code settings with secrets
+.claude/settings.local.json

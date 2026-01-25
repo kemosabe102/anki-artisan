@@ -1,0 +1,207 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Integration Review Output",
+  "description": "Machine-readable output from integration-boundary-reviewer",
+  "type": "object",
+  "required": ["feature", "date", "gate_status", "findings", "pairs"],
+  "properties": {
+    "feature": {
+      "type": "string",
+      "description": "Feature directory path or name"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Review completion timestamp"
+    },
+    "gate_status": {
+      "type": "string",
+      "enum": ["PASS", "PASS_WITH_CONDITIONS", "FAIL", "SKIPPED"],
+      "description": "Overall gate result"
+    },
+    "total_pairs": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of integration pairs reviewed"
+    },
+    "findings": {
+      "type": "object",
+      "properties": {
+        "total": { "type": "integer" },
+        "critical": { "type": "integer" },
+        "high": { "type": "integer" },
+        "medium": { "type": "integer" },
+        "low": { "type": "integer" }
+      },
+      "required": ["total", "critical", "high", "medium", "low"]
+    },
+    "pairs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/IntegrationPair"
+      }
+    },
+    "blocking_issues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Finding"
+      },
+      "description": "Findings that caused FAIL status"
+    },
+    "test_coverage": {
+      "type": "object",
+      "properties": {
+        "covered_pairs": { "type": "integer" },
+        "total_pairs": { "type": "integer" },
+        "percentage": { "type": "number" },
+        "tests_passed": { "type": "boolean" }
+      }
+    },
+    "execution_time_seconds": {
+      "type": "number",
+      "description": "Total review duration"
+    },
+    "checkpoint_used": {
+      "type": "boolean",
+      "description": "Whether --resume was used"
+    },
+    "blocked_commands": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Commands blocked when gate_status is FAIL (e.g., ['git'])",
+      "default": []
+    },
+    "blocking_reason": {
+      "type": "string",
+      "description": "Summary of blocking issues when gate_status is FAIL"
+    }
+  },
+  "definitions": {
+    "IntegrationPair": {
+      "type": "object",
+      "required": ["id", "upstream", "downstream", "status"],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Pair identifier"
+        },
+        "upstream": {
+          "type": "string",
+          "description": "Upstream component name"
+        },
+        "downstream": {
+          "type": "string",
+          "description": "Downstream component name"
+        },
+        "upstream_file": {
+          "type": "string",
+          "description": "Path to upstream source file"
+        },
+        "downstream_file": {
+          "type": "string",
+          "description": "Path to downstream source file"
+        },
+        "data_flow_type": {
+          "type": "string",
+          "enum": ["direct", "event", "storage", "api"],
+          "description": "How data flows between components"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Confidence in pair identification"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["PASS", "PASS_WITH_CONDITIONS", "FAIL", "INCOMPLETE"],
+          "description": "Review status for this pair"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Finding"
+          }
+        },
+        "checklist_scores": {
+          "type": "object",
+          "properties": {
+            "contract_alignment": { "$ref": "#/definitions/ChecklistStatus" },
+            "schema_compatibility": { "$ref": "#/definitions/ChecklistStatus" },
+            "null_handling": { "$ref": "#/definitions/ChecklistStatus" },
+            "error_propagation": { "$ref": "#/definitions/ChecklistStatus" },
+            "edge_cases": { "$ref": "#/definitions/ChecklistStatus" },
+            "performance": { "$ref": "#/definitions/ChecklistStatus" }
+          }
+        },
+        "test_coverage": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["COVERED", "PARTIAL", "MISSING"]
+            },
+            "test_file": { "type": "string" },
+            "missing_scenarios": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "Finding": {
+      "type": "object",
+      "required": ["id", "category", "severity", "evidence"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^INT-[0-9]{3}$",
+          "description": "Finding identifier (e.g., INT-001)"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "contract_alignment",
+            "schema_compatibility", 
+            "null_handling",
+            "error_propagation",
+            "edge_cases",
+            "performance"
+          ]
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "pair_id": {
+          "type": "integer",
+          "description": "Which integration pair this finding belongs to"
+        },
+        "upstream": { "type": "string" },
+        "downstream": { "type": "string" },
+        "issue": {
+          "type": "string",
+          "description": "Brief description of the issue"
+        },
+        "evidence": {
+          "type": "string",
+          "description": "Code location and snippet showing issue"
+        },
+        "recommendation": {
+          "type": "string",
+          "description": "Suggested fix"
+        }
+      }
+    },
+    "ChecklistStatus": {
+      "type": "string",
+      "enum": ["PASS", "PARTIAL", "FAIL", "SKIPPED"]
+    }
+  }
+}

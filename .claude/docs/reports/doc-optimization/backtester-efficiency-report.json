@@ -1,0 +1,43 @@
+{
+  "report_metadata": {
+    "agent_analyzed": ".claude/agents/investing/backtester/backtester.md",
+    "analysis_timestamp": "2026-01-16T00:00:00Z",
+    "analyzer": "doc-reference-optimizer",
+    "methodology": "chars/4 token estimation with +/-5% accuracy"
+  },
+  "efficiency_score": 72,
+  "token_analysis": {
+    "total_ecosystem_tokens": 23400,
+    "main_agent_tokens": 2875,
+    "phase_files_tokens": 8100,
+    "supporting_docs_tokens": 6175,
+    "schema_tokens": 6250,
+    "accuracy_range": "+/- 5%"
+  },
+  "anti_patterns_detected": [
+    {
+      "type": "redundancy",
+      "severity": "medium",
+      "confidence": 0.85,
+      "location": "backtester.md + phase-4-act.md",
+      "description": "Deflated Sharpe formula and table duplicated in main agent AND phase-4-act.md",
+      "token_cost": 150,
+      "recommendation": "Keep ONLY in phase-4-act.md, add cross-reference"
+    },
+    {
+      "type": "redundancy",
+      "severity": "medium",
+      "confidence": 0.82,
+      "location": "backtester.md + phase-3-decide.md + schemas/README.md",
+      "description": "Gate thresholds repeated in 3 locations with slight variations",
+      "token_cost": 280,
+      "recommendation": "Single source in docs/gate-thresholds.md (MISSING)"
+    }
+  ],
+  "token_savings": {
+    "potential_savings": 750,
+    "savings_percentage": 3.2,
+    "confidence": 0.80,
+    "effort_level": "low"
+  }
+}

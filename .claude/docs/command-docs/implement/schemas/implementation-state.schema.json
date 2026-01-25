@@ -1,0 +1,297 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "implementation-state.schema.json",
+  "title": "IMPLEMENTATION_STATE",
+  "description": "Machine-parseable execution state for /implement resume. Written after each task completion. Used for reliable mid-execution resume.",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["meta", "tasks", "review_groups"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "description": "Execution metadata for resume logic",
+      "required": ["schema_version", "feature_dir", "started_at", "current_phase", "status"],
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "const": "1.0.0",
+          "description": "Schema version for forward compatibility"
+        },
+        "feature_dir": {
+          "type": "string",
+          "description": "Feature directory path (e.g., 'docs/01-planning/features/006-opentelemetry/')"
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp when execution started"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of last state write"
+        },
+        "current_phase": {
+          "type": "integer",
+          "enum": [1, 2, 3, 4],
+          "description": "Current workflow phase (1=Discovery, 2=Validation, 3=Execution, 4=Completion)"
+        },
+        "current_plan": {
+          "type": "string",
+          "description": "Plan currently being executed (e.g., '001-infrastructure-foundation')"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["in_progress", "paused", "completed", "failed", "escalated"],
+          "description": "Overall execution status"
+        },
+        "elapsed_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total elapsed execution time in seconds"
+        },
+        "resume_count": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0,
+          "description": "Number of times execution has been resumed"
+        },
+        "last_checkpoint": {
+          "type": "string",
+          "description": "Last completed checkpoint (task_id or review_group_id)"
+        }
+      }
+    },
+    "tasks": {
+      "type": "object",
+      "description": "Task-level state map. Key = task_id (e.g., 'T001')",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["status"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["pending", "in_progress", "completed", "failed", "blocked", "skipped"],
+            "description": "Current task status"
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When task execution started"
+          },
+          "completed_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When task completed (success or failure)"
+          },
+          "agent": {
+            "type": "string",
+            "description": "Agent that executed the task"
+          },
+          "retry_count": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "description": "Number of retries attempted"
+          },
+          "files_modified": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["path", "checksum_before", "checksum_after"],
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "description": "File path relative to repo root"
+                },
+                "checksum_before": {
+                  "type": "string",
+                  "description": "SHA-256 checksum before modification (null if new file)"
+                },
+                "checksum_after": {
+                  "type": "string",
+                  "description": "SHA-256 checksum after modification"
+                }
+              }
+            },
+            "description": "Files modified by this task with checksums for conflict detection"
+          },
+          "error_details": {
+            "type": "object",
+            "properties": {
+              "error_type": {
+                "type": "string",
+                "description": "Error classification (e.g., 'test_failure', 'syntax_error', 'timeout')"
+              },
+              "message": {
+                "type": "string",
+                "description": "Error message"
+              },
+              "recoverable": {
+                "type": "boolean",
+                "description": "Whether error is recoverable via retry"
+              }
+            },
+            "description": "Error details if task failed"
+          },
+          "blocked_by": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Task IDs or review group IDs blocking this task"
+          }
+        }
+      }
+    },
+    "review_groups": {
+      "type": "object",
+      "description": "Review group state map. Key = group_id (e.g., 'RG001')",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["status", "iteration"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["pending", "in_progress", "passed", "failed", "escalated"],
+            "description": "Review group status"
+          },
+          "iteration": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "description": "Current iteration (0 = not started, 1-3 = retry attempts)"
+          },
+          "max_iterations": {
+            "type": "integer",
+            "default": 3,
+            "description": "Maximum allowed iterations"
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When review group started"
+          },
+          "completed_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When review group completed (passed or escalated)"
+          },
+          "fix_history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["iteration", "fix_agent", "issues_addressed"],
+              "properties": {
+                "iteration": {
+                  "type": "integer",
+                  "description": "Which iteration this fix was for"
+                },
+                "fix_agent": {
+                  "type": "string",
+                  "description": "Agent that performed the fix"
+                },
+                "issues_addressed": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Issue IDs or descriptions addressed"
+                },
+                "files_modified": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Files modified during fix"
+                },
+                "timestamp": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            },
+            "description": "History of fix attempts (for oscillation detection)"
+          },
+          "unresolved_issues": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "issue_id": { "type": "string" },
+                "severity": {
+                  "type": "string",
+                  "enum": ["critical", "high", "medium", "low"]
+                },
+                "description": { "type": "string" },
+                "file_path": { "type": "string" },
+                "line_range": { "type": "string" }
+              }
+            },
+            "description": "Issues remaining after max iterations (for escalation context)"
+          }
+        }
+      }
+    },
+    "blocked_cascade": {
+      "type": "object",
+      "description": "Dependency blocking state for cascade failure tracking",
+      "properties": {
+        "root_blockers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "type", "reason"],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Task ID or review group ID that is the root blocker"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["task", "review_group"],
+                "description": "Type of blocker"
+              },
+              "reason": {
+                "type": "string",
+                "description": "Why this item is blocked"
+              },
+              "blocked_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "description": "Root cause blockers (not blocked by anything else)"
+        },
+        "cascade_map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "description": "Map of blocker_id -> [blocked_ids]. Shows which items are blocked by each root blocker."
+        }
+      }
+    },
+    "file_checksums": {
+      "type": "object",
+      "description": "Current checksums of all modified files (for conflict detection on resume)",
+      "additionalProperties": {
+        "type": "string",
+        "description": "SHA-256 checksum of file"
+      }
+    },
+    "statistics": {
+      "type": "object",
+      "description": "Execution statistics for completion report",
+      "properties": {
+        "tasks_total": { "type": "integer" },
+        "tasks_completed": { "type": "integer" },
+        "tasks_failed": { "type": "integer" },
+        "tasks_blocked": { "type": "integer" },
+        "tasks_skipped": { "type": "integer" },
+        "review_groups_total": { "type": "integer" },
+        "review_groups_passed": { "type": "integer" },
+        "review_groups_failed": { "type": "integer" },
+        "review_iterations_total": { "type": "integer" },
+        "first_attempt_success_rate": { "type": "number" },
+        "files_modified_count": { "type": "integer" }
+      }
+    }
+  }
+}

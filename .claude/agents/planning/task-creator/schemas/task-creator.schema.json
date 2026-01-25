@@ -1,0 +1,596 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Task Creator Agent Schema",
+  "description": "Schema for task-creator agent that generates executable task lists from implementation plan files",
+  "version": "3.0.0",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "./base-agent.schema.json"
+    }
+  ],
+  "properties": {
+    "input": {
+      "type": "object",
+      "description": "Input schema for task generation operations",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task identifier from orchestrator"
+        },
+        "execution_timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp from orchestrator (mandatory)"
+        },
+        "plan_file_path": {
+          "type": "string",
+          "description": "Absolute path to component-PLAN.json file"
+        },
+        "spec_file_path": {
+          "type": "string",
+          "description": "Absolute path to parent SPEC.md file"
+        },
+        "task_id_offset": {
+          "type": "integer",
+          "description": "Starting offset for task numbering (default: 0)",
+          "default": 0
+        },
+        "component_context": {
+          "type": "object",
+          "description": "Component-specific context information",
+          "properties": {
+            "component_name": {
+              "type": "string",
+              "description": "Name of component being planned"
+            },
+            "sprint_points": {
+              "type": "integer",
+              "description": "Estimated sprint points for component",
+              "minimum": 1
+            },
+            "requirements_covered": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Functional requirements covered by this component (e.g., FR-001)"
+            }
+          },
+          "required": ["component_name"]
+        }
+      },
+      "required": ["task_id", "execution_timestamp", "plan_file_path", "spec_file_path"]
+    },
+    "output": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "Success Output",
+          "properties": {
+            "status": { "const": "SUCCESS" },
+            "agent": { "const": "task-creator" },
+            "task_id": { "type": "string" },
+            "operation_type": { "const": "generate_tasks" },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence summary of task generation results"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "agent_specific_output": {
+              "type": "object",
+              "description": "Task-creator specific output structure",
+              "properties": {
+                "tasks_file": {
+                  "type": "string",
+                  "description": "Relative path to generated tasks.md file"
+                },
+                "json_file": {
+                  "type": "string",
+                  "description": "Relative path to generated TASKS.json file"
+                },
+                "task_count": {
+                  "type": "integer",
+                  "description": "Total number of tasks generated",
+                  "minimum": 0
+                },
+                "parallel_task_count": {
+                  "type": "integer",
+                  "description": "Number of tasks marked with [P] flag",
+                  "minimum": 0
+                },
+                "sequential_task_count": {
+                  "type": "integer",
+                  "description": "Number of sequential (non-parallel) tasks",
+                  "minimum": 0
+                },
+                "tasks_generated": {
+                  "type": "array",
+                  "description": "List of all generated tasks with metadata",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "task_id": {
+                        "type": "string",
+                        "description": "Task identifier (T001, T902, T801, etc.)"
+                      },
+                      "agent": {
+                        "type": "string",
+                        "description": "Assigned agent for this task"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "Task description with file path"
+                      },
+                      "parallel": {
+                        "type": "boolean",
+                        "description": "Whether task can execute in parallel"
+                      },
+                      "task_type": {
+                        "type": "string",
+                        "enum": ["cleanup", "investigation", "implementation", "review"],
+                        "description": "Category of task"
+                      },
+                      "dependencies": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "Task IDs this task depends on"
+                      }
+                    },
+                    "required": ["task_id", "agent", "description", "parallel", "task_type"]
+                  }
+                },
+                "review_groups": {
+                  "type": "array",
+                  "description": "Review checkpoint groups for self-correcting code review",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "group_id": {
+                        "type": "string",
+                        "description": "Review group identifier (RG001, RG002, etc.)"
+                      },
+                      "review_type": {
+                        "type": "string",
+                        "enum": ["code_review", "integration_review", "final_review"],
+                        "description": "Type of review checkpoint"
+                      },
+                      "component_name": {
+                        "type": "string",
+                        "description": "Name of component being reviewed"
+                      },
+                      "task_range": {
+                        "type": "string",
+                        "description": "Range of tasks in this review group (e.g., T001-T005)"
+                      },
+                      "review_task": {
+                        "type": "string",
+                        "description": "Task ID of the review checkpoint (e.g., T006)"
+                      },
+                      "files_in_scope": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "Files covered by this review group"
+                      },
+                      "review_focus": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "Focus areas for review (security, patterns, etc.)"
+                      },
+                      "retry_enabled": {
+                        "type": "boolean",
+                        "description": "Whether retry logic is enabled for this review",
+                        "default": true
+                      },
+                      "max_iterations": {
+                        "type": "integer",
+                        "description": "Maximum retry iterations before escalation",
+                        "default": 3,
+                        "minimum": 1
+                      },
+                      "fix_agent": {
+                        "type": "string",
+                        "enum": ["python-code-implementer", "debugger"],
+                        "description": "DEPRECATED: Use fix_agents instead. Agent to use for applying fixes if review fails"
+                      },
+                      "fix_agents": {
+                        "type": "object",
+                        "description": "Issue type to fix agent mapping",
+                        "properties": {
+                          "test_failures": {
+                            "type": "string",
+                            "enum": ["debugger"],
+                            "default": "debugger"
+                          },
+                          "pattern_violations": {
+                            "type": "string",
+                            "enum": ["python-code-implementer"],
+                            "default": "python-code-implementer"
+                          },
+                          "security_vulnerabilities": {
+                            "type": "string",
+                            "enum": ["python-code-implementer"],
+                            "default": "python-code-implementer"
+                          },
+                          "performance_issues": {
+                            "type": "string",
+                            "enum": ["python-code-implementer"],
+                            "default": "python-code-implementer"
+                          },
+                          "integration_breakage": {
+                            "type": "string",
+                            "enum": ["debugger"],
+                            "default": "debugger"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "success_criteria": {
+                        "type": "object",
+                        "description": "Criteria for review to pass",
+                        "properties": {
+                          "all_checks_pass": {
+                            "type": "boolean",
+                            "description": "All code review checks must pass"
+                          },
+                          "test_coverage": {
+                            "type": "string",
+                            "description": "Minimum test coverage requirement (e.g., '>= 80%')"
+                          },
+                          "no_critical_issues": {
+                            "type": "boolean",
+                            "description": "No critical issues found"
+                          }
+                        }
+                      },
+                      "blocks_tasks": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "Task IDs that are blocked until this review passes"
+                      }
+                    },
+                    "required": [
+                      "group_id",
+                      "review_type",
+                      "component_name",
+                      "task_range",
+                      "review_task",
+                      "files_in_scope",
+                      "review_focus",
+                      "fix_agents",
+                      "blocks_tasks"
+                    ]
+                  }
+                },
+                "dependency_graph": {
+                  "type": "object",
+                  "description": "Task dependency relationships",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "description": "List of task IDs that depend on this task"
+                  }
+                },
+                "parallel_execution_groups": {
+                  "type": "array",
+                  "description": "Groups of tasks that can execute in parallel",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "group_id": {
+                        "type": "string",
+                        "description": "Parallel group identifier"
+                      },
+                      "task_ids": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "Task IDs that can execute together"
+                      },
+                      "estimated_duration": {
+                        "type": "string",
+                        "description": "Estimated time for parallel group"
+                      }
+                    },
+                    "required": ["group_id", "task_ids"]
+                  }
+                },
+                "sprint_metadata": {
+                  "type": "object",
+                  "description": "Sprint planning metadata",
+                  "properties": {
+                    "component_name": {
+                      "type": "string",
+                      "description": "Component name"
+                    },
+                    "estimated_points": {
+                      "type": "integer",
+                      "description": "Estimated sprint points",
+                      "minimum": 0
+                    },
+                    "task_breakdown": {
+                      "type": "object",
+                      "properties": {
+                        "cleanup_tasks": {
+                          "type": "integer",
+                          "description": "Number of cleanup tasks (T9XX)",
+                          "minimum": 0
+                        },
+                        "tech_debt_tasks": {
+                          "type": "integer",
+                          "description": "Number of tech debt investigation tasks (T8XX)",
+                          "minimum": 0
+                        },
+                        "implementation_tasks": {
+                          "type": "integer",
+                          "description": "Number of implementation tasks (T001+)",
+                          "minimum": 0
+                        },
+                        "review_tasks": {
+                          "type": "integer",
+                          "description": "Number of code review tasks",
+                          "minimum": 0
+                        }
+                      },
+                      "required": [
+                        "cleanup_tasks",
+                        "tech_debt_tasks",
+                        "implementation_tasks",
+                        "review_tasks"
+                      ]
+                    }
+                  },
+                  "required": ["component_name", "estimated_points", "task_breakdown"]
+                },
+                "agent_assignments": {
+                  "type": "object",
+                  "description": "Count of tasks assigned to each agent",
+                  "properties": {
+                    "python-code-implementer": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "test-runner": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "python-code-reviewer": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "debugger": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "validation_checklist": {
+                  "type": "object",
+                  "description": "Validation results for generated tasks",
+                  "properties": {
+                    "checks_performed": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "List of validation checks performed"
+                    },
+                    "all_checks_passed": {
+                      "type": "boolean",
+                      "description": "Whether all validation checks passed"
+                    },
+                    "check_details": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "check_name": { "type": "string" },
+                          "passed": { "type": "boolean" },
+                          "details": { "type": "string" }
+                        }
+                      }
+                    }
+                  },
+                  "required": ["checks_performed", "all_checks_passed"]
+                },
+                "unclear_items": {
+                  "type": "array",
+                  "description": "Ambiguous plan elements requiring clarification or manual review",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "item": {
+                        "type": "string",
+                        "description": "The unclear plan element or task description"
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "Why this item is unclear (missing context, ambiguous language, etc.)"
+                      },
+                      "resolution_attempted": {
+                        "type": "boolean",
+                        "description": "Whether agent attempted to resolve the ambiguity",
+                        "default": false
+                      },
+                      "resolution_notes": {
+                        "type": "string",
+                        "description": "Notes on resolution attempts or suggested clarifications"
+                      }
+                    },
+                    "required": ["item", "reason"]
+                  }
+                }
+              },
+              "required": [
+                "tasks_file",
+                "json_file",
+                "task_count",
+                "parallel_task_count",
+                "sequential_task_count",
+                "tasks_generated",
+                "review_groups",
+                "sprint_metadata",
+                "agent_assignments",
+                "validation_checklist"
+              ]
+            },
+            "sources": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Source files consulted during task generation"
+            },
+            "deferred_findings": {
+              "type": "array",
+              "description": "MEDIUM/LOW/NIT findings deferred for final review",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from_checkpoint": {
+                    "type": "string",
+                    "description": "Review checkpoint ID that generated this finding"
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": ["MEDIUM", "LOW", "NIT"]
+                  },
+                  "finding_id": {
+                    "type": "string",
+                    "description": "Unique finding identifier"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "file_path": {
+                    "type": "string"
+                  },
+                  "deferred_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": ["from_checkpoint", "severity", "finding_id", "description"]
+              }
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "task_id",
+            "operation_type",
+            "execution_timestamp",
+            "summary",
+            "confidence",
+            "agent_specific_output",
+            "sources"
+          ]
+        },
+        {
+          "title": "Failure Output",
+          "properties": {
+            "status": { "const": "FAILURE" },
+            "agent": { "const": "task-creator" },
+            "task_id": { "type": "string" },
+            "operation_type": { "const": "generate_tasks" },
+            "execution_timestamp": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "summary": {
+              "type": "string",
+              "description": "1-3 sentence summary of failure"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "failure_details": {
+              "type": "object",
+              "description": "Task-creator specific failure information",
+              "properties": {
+                "failure_type": {
+                  "type": "string",
+                  "enum": [
+                    "plan_not_found",
+                    "spec_not_found",
+                    "parse_error",
+                    "missing_plan_sections",
+                    "file_operation_failed",
+                    "schema_violation",
+                    "boundary_violation",
+                    "agent_assignment_failed",
+                    "circular_dependency",
+                    "tdd_violation",
+                    "task_specificity_failed"
+                  ],
+                  "description": "Primary type of failure"
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Specific reasons why task generation failed"
+                },
+                "missing_sections": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Plan sections that were missing or incomplete"
+                },
+                "partial_results": {
+                  "type": "object",
+                  "description": "Partial task generation results if available",
+                  "properties": {
+                    "tasks_generated": {
+                      "type": "integer",
+                      "description": "Number of tasks successfully generated before failure"
+                    },
+                    "sections_processed": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "description": "Plan sections successfully processed"
+                    }
+                  }
+                },
+                "recovery_suggestions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "approach": {
+                        "type": "string",
+                        "description": "Suggested recovery approach"
+                      },
+                      "rationale": {
+                        "type": "string",
+                        "description": "Why this approach would resolve the failure"
+                      },
+                      "effort_estimate": {
+                        "type": "string",
+                        "description": "Estimated effort to implement recovery"
+                      }
+                    },
+                    "required": ["approach", "rationale"]
+                  },
+                  "description": "Suggested approaches to resolve failure"
+                }
+              },
+              "required": ["failure_type", "reasons", "recovery_suggestions"]
+            }
+          },
+          "required": [
+            "status",
+            "agent",
+            "task_id",
+            "operation_type",
+            "execution_timestamp",
+            "summary",
+            "confidence",
+            "failure_details"
+          ]
+        }
+      ]
+    }
+  }
+}

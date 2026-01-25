@@ -1,0 +1,21 @@
+Strategy,Cycle_Stage,Timeframe,Expected_Sharpe,Impact,Effort
+1. Quality Factor Long-Bias with Deleveraging Screen,Stage 3-4,1-3 years,1.0-1.5,High,Medium
+2. Infrastructure & Utilities Late-Cycle Rotation,Stage 3-4,1-3 years,0.8-1.2,High,Low
+3. Merger Arbitrage as Credit-Insensitive Alpha,Stage 3-4-5,1-2 years,1.2-1.8,High,Medium
+4. Defensive Sector Momentum with Regime Overlay,Stage 3-4,1-3 years,1.0-1.4,High,Medium
+5. Short Volatility / Long Credit Spread Normalization,Stage 3-4,1-2 years,0.6-1.2,Medium,Medium
+6. Distressed Debt Long with Control Positioning,Stage 4-5,2-3 years,1.5-2.2,High,High
+7. Gold & Precious Metals Supply Deficit Play,Stage 3-4-5,2-3 years,1.0-1.6,High,Low
+8. Capital Structure Arbitrage (Equity vs Credit Mispricing),Stage 3-4,1-2 years,1.3-2.0,High,High
+"9. Hard Asset Real Return Strategies (Commodities, TIPS)",Stage 3-4-5,1-3 years,0.8-1.4,High,Low
+10. Short Duration High-Yield with Selective CDS Hedges,Stage 3-4,1-2 years,0.9-1.5,Medium,Medium
+11. Multi-Factor Long-Short with Deleveraging Beta,Stage 3-4-5,1-3 years,1.2-1.8,High,High
+12. Convertible Bond Arbitrage in Rate/Credit Volatility,Stage 3-4,1-2 years,1.4-2.0,High,High
+13. Equity Put Spread Collars + Cash Redeployment,Stage 3-4,1-3 years,0.8-1.3,Medium,Medium
+14. Dividend Aristocrats + Low Leverage Filter,Stage 3-4,2-3 years,0.9-1.3,High,Low
+"15. Event-Driven Special Situations (Spin-offs, Recaps)",Stage 3-4,1-2 years,1.1-1.7,Medium,Medium
+16. Trend-Following CTA with Crisis Alpha,Stage 3-4-5,1-3 years,0.9-1.5,High,Medium
+"17. Energy Transition Infrastructure (Solar, Wind, Storage)",Stage 3-4-5,2-3 years,1.0-1.6,High,Low
+18. Healthcare & Consumer Staples Quality/Value Hybrid,Stage 3-4,1-3 years,0.9-1.4,High,Low
+19. Short High-Leverage Zombie Companies (via CDS or Put Options),Stage 4-5,1-2 years,1.0-2.0,Medium,Medium
+20. Tail-Risk Hedging via VIX Calls + Systematic Rebalancing,Stage 3-4-5,1-3 years,0.5-1.5,Medium,Medium
