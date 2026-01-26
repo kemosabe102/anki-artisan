@@ -5,10 +5,10 @@ language_name: "Spanish"
 native_name: "Español"
 
 elevenlabs:
-  # Gabriel Reyes - 40-year-old male, clear Madrid accent
-  # Castilian Spanish with distinción (c/z pronounced as "th")
-  voice_id: "gGr0c5znjcZfTNIRdJZ1"
-  voice_name: "Gabriel Reyes"
+  # Sara - Standard female voice with multilingual v2 model
+  # Handles Spanish pronunciation well
+  voice_id: "uV2Bhcm1HwmAqPqkbjfl"
+  voice_name: "Sara"
   model_id: "eleven_multilingual_v2"
   
   # Settings optimized for flashcard consistency and beginner clarity

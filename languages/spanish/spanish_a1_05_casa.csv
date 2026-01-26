@@ -1,0 +1,50 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+la casa,the house,Mi casa es pequeña.,My house is small.,noun,f,housing
+el apartamento,the apartment,Vivo en un apartamento.,I live in an apartment.,noun,m,housing
+el piso,the apartment (Spain)/floor,Vivo en el tercer piso.,I live on the third floor.,noun,m,housing
+la habitación,the room/bedroom,La habitación es grande.,The room is big.,noun,f,rooms
+el dormitorio,the bedroom,El dormitorio tiene una cama.,The bedroom has a bed.,noun,m,rooms
+la sala,the living room,La sala es cómoda.,The living room is comfortable.,noun,f,rooms
+el comedor,the dining room,Comemos en el comedor.,We eat in the dining room.,noun,m,rooms
+la cocina,the kitchen,La cocina está limpia.,The kitchen is clean.,noun,f,rooms
+el baño,the bathroom,El baño está ocupado.,The bathroom is occupied.,noun,m,rooms
+el jardín,the garden,Tenemos un jardín pequeño.,We have a small garden.,noun,m,housing
+el balcón,the balcony,El balcón tiene plantas.,The balcony has plants.,noun,m,housing
+la puerta,the door,La puerta está abierta.,The door is open.,noun,f,furniture
+la ventana,the window,Abre la ventana por favor.,Open the window please.,noun,f,furniture
+la pared,the wall,La pared es blanca.,The wall is white.,noun,f,housing
+el suelo,the floor,El suelo está mojado.,The floor is wet.,noun,m,housing
+el techo,the ceiling/roof,El techo es alto.,The ceiling is high.,noun,m,housing
+la cama,the bed,La cama es muy cómoda.,The bed is very comfortable.,noun,f,furniture
+el armario,the closet/wardrobe,La ropa está en el armario.,The clothes are in the closet.,noun,m,furniture
+la mesa,the table,La mesa está en la cocina.,The table is in the kitchen.,noun,f,furniture
+la silla,the chair,Hay cuatro sillas.,There are four chairs.,noun,f,furniture
+el sofá,the sofa,El sofá es nuevo.,The sofa is new.,noun,m,furniture
+el sillón,the armchair,Me siento en el sillón.,I sit in the armchair.,noun,m,furniture
+la lámpara,the lamp,La lámpara está encendida.,The lamp is on.,noun,f,furniture
+el espejo,the mirror,El espejo está en el baño.,The mirror is in the bathroom.,noun,m,furniture
+la estantería,the bookshelf,Los libros están en la estantería.,The books are on the bookshelf.,noun,f,furniture
+el escritorio,the desk,Trabajo en mi escritorio.,I work at my desk.,noun,m,furniture
+la nevera,the refrigerator,La nevera está llena.,The refrigerator is full.,noun,f,appliances
+la estufa,the stove,Cocino en la estufa.,I cook on the stove.,noun,f,appliances
+el horno,the oven,El horno está caliente.,The oven is hot.,noun,m,appliances
+el televisor,the television,El televisor es grande.,The television is big.,noun,m,appliances
+vivir,to live,Vivo en el centro.,I live downtown.,verb,n/a,verbs
+habitar,to inhabit/reside,Habitamos en esta casa.,We reside in this house.,verb,n/a,verbs
+en,in/on,El libro está en la mesa.,The book is on the table.,preposition,n/a,prepositions
+sobre,on/above,La lámpara está sobre la mesa.,The lamp is on the table.,preposition,n/a,prepositions
+debajo de,under,El gato está debajo de la cama.,The cat is under the bed.,phrase,n/a,prepositions
+encima de,on top of,Las llaves están encima de la mesa.,The keys are on top of the table.,phrase,n/a,prepositions
+al lado de,next to,El sofá está al lado de la ventana.,The sofa is next to the window.,phrase,n/a,prepositions
+cerca de,near,Vivo cerca del centro.,I live near downtown.,phrase,n/a,prepositions
+lejos de,far from,Mi casa está lejos del trabajo.,My house is far from work.,phrase,n/a,prepositions
+delante de,in front of,El carro está delante de la casa.,The car is in front of the house.,phrase,n/a,prepositions
+detrás de,behind,El jardín está detrás de la casa.,The garden is behind the house.,phrase,n/a,prepositions
+entre,between,La mesa está entre las sillas.,The table is between the chairs.,preposition,n/a,prepositions
+dentro de,inside,Las llaves están dentro del cajón.,The keys are inside the drawer.,phrase,n/a,prepositions
+fuera de,outside,El perro está fuera de la casa.,The dog is outside the house.,phrase,n/a,prepositions
+grande,big,La casa es muy grande.,The house is very big.,adjective,n/a,adjectives
+pequeño,small,El baño es pequeño.,The bathroom is small.,adjective,m,adjectives
+cómodo,comfortable,El sofá es muy cómodo.,The sofa is very comfortable.,adjective,m,adjectives
+limpio,clean,La cocina está limpia.,The kitchen is clean.,adjective,m,adjectives
+sucio,dirty,El piso está sucio.,The floor is dirty.,adjective,m,adjectives

@@ -37,6 +37,16 @@ def load_vocabulary(language: str, level: str) -> list[VocabItem]:
     return _parse_csv_file(csv_path)
 
 
+class CSVValidationError(Exception):
+    """Raised when CSV validation fails."""
+
+    def __init__(self, errors: list[str], csv_path: Path):
+        self.errors = errors
+        self.csv_path = csv_path
+        error_list = "\n  ".join(errors)
+        super().__init__(f"Validation failed for {csv_path.name}:\n  {error_list}")
+
+
 def _parse_csv_file(csv_path: Path) -> list[VocabItem]:
     """Parse and validate a CSV vocabulary file.
 
@@ -45,8 +55,12 @@ def _parse_csv_file(csv_path: Path) -> list[VocabItem]:
 
     Returns:
         List of validated VocabItem instances
+
+    Raises:
+        CSVValidationError: If any rows fail validation
     """
     items: list[VocabItem] = []
+    errors: list[str] = []
 
     with open(csv_path, encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
@@ -57,9 +71,12 @@ def _parse_csv_file(csv_path: Path) -> list[VocabItem]:
                 if item:
                     items.append(item)
             except ValidationError as e:
-                logger.warning(f"Line {line_num}: Validation error - {e}")
+                errors.append(f"Line {line_num}: {e}")
             except ValueError as e:
-                logger.warning(f"Line {line_num}: {e}")
+                errors.append(f"Line {line_num}: {e}")
+
+    if errors:
+        raise CSVValidationError(errors, csv_path)
 
     logger.info(f"Loaded {len(items)} vocabulary items from {csv_path.name}")
     return items

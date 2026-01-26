@@ -1,0 +1,46 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+la fiesta,the party,La fiesta es el sábado.,The party is on Saturday.,noun,f,celebrations
+el cumpleaños,the birthday,Hoy es mi cumpleaños.,Today is my birthday.,noun,m,celebrations
+el aniversario,the anniversary,Feliz aniversario de bodas.,Happy wedding anniversary.,noun,m,celebrations
+la boda,the wedding,La boda es en junio.,The wedding is in June.,noun,f,celebrations
+la Navidad,Christmas,La Navidad es muy especial.,Christmas is very special.,noun,f,holidays
+el Año Nuevo,New Year,Feliz Año Nuevo a todos.,Happy New Year to everyone.,noun,m,holidays
+la Nochebuena,Christmas Eve,Cenamos juntos en Nochebuena.,We have dinner together on Christmas Eve.,noun,f,holidays
+la Nochevieja,New Year's Eve,La fiesta de Nochevieja.,The New Year's Eve party.,noun,f,holidays
+la Semana Santa,Easter/Holy Week,Viajamos durante Semana Santa.,We travel during Easter.,noun,f,holidays
+el Día de los Muertos,Day of the Dead,El Día de los Muertos es importante.,Day of the Dead is important.,noun,m,holidays
+el regalo,the gift,Te tengo un regalo.,I have a gift for you.,noun,m,celebrations
+el pastel,the cake,El pastel de cumpleaños.,The birthday cake.,noun,m,celebrations
+la torta,the cake (Latin America),La torta tiene chocolate.,The cake has chocolate.,noun,f,celebrations
+las velas,the candles,Sopla las velas.,Blow out the candles.,noun,f,celebrations
+el invitado,the guest,Los invitados llegan a las ocho.,The guests arrive at eight.,noun,m,celebrations
+la invitación,the invitation,Mandé las invitaciones ayer.,I sent the invitations yesterday.,noun,f,celebrations
+las vacaciones,vacation,¿Adónde vas de vacaciones?,Where are you going on vacation?,noun,f,vacation
+la playa,the beach,Vamos a la playa este verano.,We're going to the beach this summer.,noun,f,vacation
+el mar,the sea,Me encanta el mar.,I love the sea.,noun,m,vacation
+la montaña,the mountain,Vamos a la montaña a esquiar.,We're going to the mountain to ski.,noun,f,vacation
+el lago,the lake,El lago es muy bonito.,The lake is very pretty.,noun,m,vacation
+el hotel,the hotel,El hotel tiene piscina.,The hotel has a pool.,noun,m,vacation
+la piscina,the swimming pool,Nado en la piscina todos los días.,I swim in the pool every day.,noun,f,vacation
+el viaje,the trip,El viaje fue increíble.,The trip was incredible.,noun,m,vacation
+la reservación,the reservation,Hice una reservación para dos.,I made a reservation for two.,noun,f,travel
+el turista,the tourist,Hay muchos turistas en verano.,There are many tourists in summer.,noun,m,travel
+celebrar,to celebrate,Celebramos su cumpleaños.,We celebrate his birthday.,verb,n/a,verbs
+festejar,to celebrate,Festejamos con toda la familia.,We celebrate with the whole family.,verb,n/a,verbs
+invitar,to invite,Te invito a mi fiesta.,I invite you to my party.,verb,n/a,verbs
+regalar,to give (as a gift),Le regalé un libro.,I gave him a book as a gift.,verb,n/a,verbs
+felicitar,to congratulate,Te felicito por tu graduación.,I congratulate you on your graduation.,verb,n/a,verbs
+brindar,to toast,Brindamos por el nuevo año.,We toast to the new year.,verb,n/a,verbs
+viajar,to travel,Viajamos a España el verano pasado.,We traveled to Spain last summer.,verb,n/a,verbs
+descansar,to rest,Necesito descansar en vacaciones.,I need to rest on vacation.,verb,n/a,verbs
+visitar,to visit,Visitamos muchos museos.,We visited many museums.,verb,n/a,verbs
+conocer,to get to know/visit,Quiero conocer París.,I want to visit Paris.,verb,n/a,verbs
+¡feliz cumpleaños!,happy birthday!,¡Feliz cumpleaños amigo!,Happy birthday friend!,phrase,n/a,phrases
+¡felicidades!,congratulations!,¡Felicidades por tu nuevo trabajo!,Congratulations on your new job!,phrase,n/a,phrases
+¡feliz Navidad!,Merry Christmas!,¡Feliz Navidad y próspero año!,Merry Christmas and prosperous year!,phrase,n/a,phrases
+¡salud!,cheers!,¡Salud! Por nosotros.,Cheers! To us.,interjection,n/a,phrases
+¡que lo pases bien!,have a good time!,¡Que lo pases bien en tu viaje!,Have a good time on your trip!,phrase,n/a,phrases
+¡buen viaje!,have a good trip!,¡Buen viaje! Cuídate mucho.,Have a good trip! Take care.,phrase,n/a,phrases
+pasarlo bien,to have a good time,Lo pasamos muy bien ayer.,We had a great time yesterday.,phrase,n/a,phrases
+divertirse,to have fun,Nos divertimos mucho.,We had a lot of fun.,verb,n/a,verbs
+ir de vacaciones,to go on vacation,Vamos de vacaciones en agosto.,We're going on vacation in August.,phrase,n/a,phrases

@@ -1,0 +1,51 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+hola,hello,¡Hola! ¿Qué tal?,Hello! How's it going?,interjection,n/a,greetings
+buenos días,good morning,Buenos días señora.,Good morning ma'am.,phrase,n/a,greetings
+buenas tardes,good afternoon,Buenas tardes a todos.,Good afternoon everyone.,phrase,n/a,greetings
+buenas noches,good evening/night,Buenas noches. Hasta mañana.,Good night. See you tomorrow.,phrase,n/a,greetings
+¿qué tal?,how's it going?,¿Qué tal? ¿Todo bien?,How's it going? Everything good?,phrase,n/a,greetings
+¿cómo estás?,how are you? (informal),¿Cómo estás hoy?,How are you today?,phrase,n/a,informal
+¿cómo está usted?,how are you? (formal),¿Cómo está usted señor?,How are you sir?,phrase,n/a,formal
+muy bien,very well,Muy bien gracias. ¿Y tú?,Very well thanks. And you?,phrase,n/a,responses
+bien,well/fine,Estoy bien gracias.,I'm fine thanks.,adverb,n/a,responses
+más o menos,so-so,Estoy más o menos.,I'm so-so.,phrase,n/a,responses
+mal,bad/badly,Me siento un poco mal.,I feel a little bad.,adverb,n/a,responses
+adiós,goodbye,Adiós. ¡Cuídate!,Goodbye. Take care!,interjection,n/a,greetings
+hasta luego,see you later,Hasta luego. Nos vemos.,See you later. See you around.,phrase,n/a,greetings
+hasta mañana,see you tomorrow,Hasta mañana en clase.,See you tomorrow in class.,phrase,n/a,greetings
+hasta pronto,see you soon,Hasta pronto amigo.,See you soon friend.,phrase,n/a,greetings
+chao,bye (informal),¡Chao! Te llamo luego.,Bye! I'll call you later.,interjection,n/a,informal
+me llamo,my name is,Me llamo Carlos. ¿Y tú?,My name is Carlos. And you?,phrase,n/a,introductions
+¿cómo te llamas?,what's your name? (informal),¿Cómo te llamas?,What's your name?,phrase,n/a,informal
+¿cómo se llama?,what's your name? (formal),¿Cómo se llama usted?,What's your name?,phrase,n/a,formal
+soy,I am,Soy de México.,I'm from Mexico.,verb,n/a,introductions
+¿de dónde eres?,where are you from? (informal),¿De dónde eres?,Where are you from?,phrase,n/a,informal
+¿de dónde es?,where are you from? (formal),¿De dónde es usted?,Where are you from?,phrase,n/a,formal
+mucho gusto,nice to meet you,Mucho gusto en conocerte.,Nice to meet you.,phrase,n/a,introductions
+encantado,pleased to meet you (male),Encantado de conocerla.,Pleased to meet you.,adjective,m,introductions
+encantada,pleased to meet you (female),Encantada. Soy María.,Pleased to meet you. I'm María.,adjective,f,introductions
+igualmente,likewise,Mucho gusto. —Igualmente.,Nice to meet you. —Likewise.,adverb,n/a,responses
+por favor,please,Un café por favor.,A coffee please.,phrase,n/a,courtesy
+gracias,thank you,Muchas gracias por todo.,Thank you very much for everything.,noun,f,courtesy
+muchas gracias,thank you very much,Muchas gracias por su ayuda.,Thank you very much for your help.,phrase,n/a,courtesy
+de nada,you're welcome,De nada. Con gusto.,You're welcome. My pleasure.,phrase,n/a,courtesy
+no hay de qué,don't mention it,No hay de qué.,Don't mention it.,phrase,n/a,courtesy
+con permiso,excuse me (to pass),Con permiso. Necesito pasar.,Excuse me. I need to pass.,phrase,n/a,courtesy
+perdón,sorry/excuse me,Perdón. ¿Puede repetir?,Sorry. Can you repeat?,interjection,n/a,courtesy
+disculpe,excuse me (formal),Disculpe la molestia.,Excuse the bother.,verb,n/a,formal
+lo siento,I'm sorry,Lo siento mucho.,I'm very sorry.,phrase,n/a,courtesy
+sí,yes,Sí claro. Sin problema.,Yes of course. No problem.,adverb,n/a,basics
+no,no,No gracias. Estoy bien.,No thanks. I'm fine.,adverb,n/a,basics
+no sé,I don't know,No sé la respuesta.,I don't know the answer.,phrase,n/a,basics
+no entiendo,I don't understand,Perdón no entiendo.,Sorry I don't understand.,phrase,n/a,basics
+¿puede repetir?,can you repeat? (formal),¿Puede repetir por favor?,Can you repeat please?,phrase,n/a,formal
+más despacio,more slowly,Más despacio por favor.,More slowly please.,phrase,n/a,basics
+¿qué significa?,what does it mean?,¿Qué significa esta palabra?,What does this word mean?,phrase,n/a,basics
+¿cómo se dice?,how do you say?,¿Cómo se dice en español?,How do you say it in Spanish?,phrase,n/a,basics
+señor,sir/Mr.,Buenos días señor García.,Good morning Mr. García.,noun,m,titles
+señora,ma'am/Mrs.,Señora ¿necesita ayuda?,Ma'am do you need help?,noun,f,titles
+señorita,miss,Señorita su mesa está lista.,Miss your table is ready.,noun,f,titles
+el nombre,the name,¿Cuál es tu nombre?,What is your name?,noun,m,introductions
+el apellido,the surname,Mi apellido es Rodríguez.,My surname is Rodríguez.,noun,m,introductions
+la dirección,the address,¿Cuál es su dirección?,What is your address?,noun,f,introductions
+el teléfono,the phone number,Mi teléfono es el cinco-cinco-cinco.,My phone number is five-five-five.,noun,m,introductions

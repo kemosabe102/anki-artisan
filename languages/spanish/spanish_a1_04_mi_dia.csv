@@ -1,0 +1,50 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+despertarse,to wake up,Me despierto a las seis.,I wake up at six.,verb,n/a,reflexive
+levantarse,to get up,Me levanto temprano.,I get up early.,verb,n/a,reflexive
+ducharse,to shower,Me ducho por la mañana.,I shower in the morning.,verb,n/a,reflexive
+bañarse,to bathe,Me baño por la noche.,I bathe at night.,verb,n/a,reflexive
+lavarse,to wash oneself,Me lavo las manos.,I wash my hands.,verb,n/a,reflexive
+cepillarse,to brush,Me cepillo los dientes.,I brush my teeth.,verb,n/a,reflexive
+peinarse,to comb one's hair,Me peino antes de salir.,I comb my hair before leaving.,verb,n/a,reflexive
+vestirse,to get dressed,Me visto rápido.,I get dressed quickly.,verb,n/a,reflexive
+afeitarse,to shave,Me afeito cada mañana.,I shave every morning.,verb,n/a,reflexive
+maquillarse,to put on makeup,Me maquillo en cinco minutos.,I put on makeup in five minutes.,verb,n/a,reflexive
+acostarse,to go to bed,Me acuesto a las once.,I go to bed at eleven.,verb,n/a,reflexive
+dormirse,to fall asleep,Me duermo rápido.,I fall asleep quickly.,verb,n/a,reflexive
+desayunar,to have breakfast,Desayuno a las siete.,I have breakfast at seven.,verb,n/a,verbs
+almorzar,to have lunch,Almuerzo en la oficina.,I have lunch at the office.,verb,n/a,verbs
+cenar,to have dinner,Cenamos a las ocho.,We have dinner at eight.,verb,n/a,verbs
+trabajar,to work,Trabajo de nueve a cinco.,I work from nine to five.,verb,n/a,verbs
+estudiar,to study,Estudio español cada día.,I study Spanish every day.,verb,n/a,verbs
+leer,to read,Leo el periódico.,I read the newspaper.,verb,n/a,verbs
+escribir,to write,Escribo un email.,I write an email.,verb,n/a,verbs
+escuchar,to listen,Escucho música.,I listen to music.,verb,n/a,verbs
+ver,to watch/see,Veo la televisión.,I watch television.,verb,n/a,verbs
+cocinar,to cook,Cocino la cena.,I cook dinner.,verb,n/a,verbs
+limpiar,to clean,Limpio la casa.,I clean the house.,verb,n/a,verbs
+descansar,to rest,Descanso los domingos.,I rest on Sundays.,verb,n/a,verbs
+salir,to go out/leave,Salgo de casa a las ocho.,I leave home at eight.,verb,n/a,verbs
+llegar,to arrive,Llego al trabajo a las nueve.,I arrive at work at nine.,verb,n/a,verbs
+volver,to return,Vuelvo a casa a las seis.,I return home at six.,verb,n/a,verbs
+empezar,to start/begin,Empiezo a trabajar temprano.,I start working early.,verb,n/a,verbs
+terminar,to finish,Termino a las cinco.,I finish at five.,verb,n/a,verbs
+temprano,early,Me levanto muy temprano.,I get up very early.,adverb,n/a,time
+tarde,late,Llegué tarde al trabajo.,I arrived late to work.,adverb,n/a,time
+siempre,always,Siempre desayuno en casa.,I always have breakfast at home.,adverb,n/a,frequency
+nunca,never,Nunca llego tarde.,I never arrive late.,adverb,n/a,frequency
+a veces,sometimes,A veces cocino en casa.,Sometimes I cook at home.,phrase,n/a,frequency
+todos los días,every day,Trabajo todos los días.,I work every day.,phrase,n/a,frequency
+cada día,each day,Cada día aprendo algo nuevo.,Each day I learn something new.,phrase,n/a,frequency
+normalmente,normally,Normalmente ceno a las ocho.,I normally have dinner at eight.,adverb,n/a,frequency
+generalmente,generally,Generalmente duermo bien.,I generally sleep well.,adverb,n/a,frequency
+primero,first,Primero me ducho.,First I shower.,adverb,m,sequence
+luego,then/later,Luego desayuno.,Then I have breakfast.,adverb,n/a,sequence
+después,after/afterwards,Después voy al trabajo.,Afterwards I go to work.,adverb,n/a,sequence
+antes de,before,Antes de salir me peino.,Before leaving I comb my hair.,phrase,n/a,sequence
+después de,after,Después de cenar leo.,After dinner I read.,phrase,n/a,sequence
+por la mañana,in the morning,Por la mañana hago ejercicio.,In the morning I exercise.,phrase,n/a,time
+por la tarde,in the afternoon,Por la tarde estudio.,In the afternoon I study.,phrase,n/a,time
+por la noche,at night,Por la noche veo televisión.,At night I watch television.,phrase,n/a,time
+el fin de semana,the weekend,El fin de semana descanso.,On the weekend I rest.,noun,m,time
+entre semana,during the week,Entre semana trabajo mucho.,During the week I work a lot.,phrase,n/a,time
+la rutina,the routine,Mi rutina es muy simple.,My routine is very simple.,noun,f,nouns

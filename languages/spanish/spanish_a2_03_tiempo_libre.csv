@@ -1,0 +1,48 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+el tiempo libre,free time,¿Qué haces en tu tiempo libre?,What do you do in your free time?,noun,m,leisure
+el pasatiempo,the hobby,La lectura es mi pasatiempo favorito.,Reading is my favorite hobby.,noun,m,leisure
+el deporte,the sport,Practico varios deportes.,I practice various sports.,noun,m,sports
+el fútbol,soccer,El fútbol es muy popular.,Soccer is very popular.,noun,m,sports
+el baloncesto,basketball,Juego baloncesto los sábados.,I play basketball on Saturdays.,noun,m,sports
+el tenis,tennis,Tomo clases de tenis.,I take tennis classes.,noun,m,sports
+la natación,swimming,La natación es muy buena.,Swimming is very good.,noun,f,sports
+correr,to run,Corro todas las mañanas.,I run every morning.,verb,n/a,sports
+nadar,to swim,Me gusta nadar en el mar.,I like to swim in the sea.,verb,n/a,sports
+caminar,to walk,Camino por el parque.,I walk through the park.,verb,n/a,sports
+el gimnasio,the gym,Voy al gimnasio tres veces.,I go to the gym three times.,noun,m,places
+el yoga,yoga,El yoga me relaja mucho.,Yoga relaxes me a lot.,noun,m,sports
+el cine,the cinema,Vamos al cine esta noche.,Let's go to the cinema tonight.,noun,m,entertainment
+la película,the movie,La película es muy buena.,The movie is very good.,noun,f,entertainment
+el teatro,the theater,Me encanta ir al teatro.,I love going to the theater.,noun,m,entertainment
+el concierto,the concert,El concierto es el sábado.,The concert is on Saturday.,noun,m,entertainment
+el museo,the museum,El museo está cerrado hoy.,The museum is closed today.,noun,m,places
+la música,music,Escucho música todo el día.,I listen to music all day.,noun,f,entertainment
+bailar,to dance,Me gusta bailar salsa.,I like to dance salsa.,verb,n/a,activities
+cantar,to sing,Canto en la ducha.,I sing in the shower.,verb,n/a,activities
+tocar,to play (instrument),Toco la guitarra.,I play the guitar.,verb,n/a,activities
+la guitarra,the guitar,Aprendo a tocar guitarra.,I'm learning to play guitar.,noun,f,instruments
+el piano,the piano,Mi hija toca el piano.,My daughter plays the piano.,noun,m,instruments
+la lectura,reading,La lectura es mi pasatiempo.,Reading is my hobby.,noun,f,activities
+leer,to read,Leo un libro cada mes.,I read a book every month.,verb,n/a,activities
+escribir,to write,Me gusta escribir poesía.,I like to write poetry.,verb,n/a,activities
+dibujar,to draw,Mi hijo dibuja muy bien.,My son draws very well.,verb,n/a,activities
+pintar,to paint,Pinto en mis ratos libres.,I paint in my free time.,verb,n/a,activities
+la fotografía,photography,La fotografía es mi pasión.,Photography is my passion.,noun,f,activities
+cocinar,to cook,Me encanta cocinar italiano.,I love to cook Italian.,verb,n/a,activities
+viajar,to travel,Viajo siempre que puedo.,I travel whenever I can.,verb,n/a,activities
+los videojuegos,video games,Juego videojuegos a veces.,I play video games sometimes.,noun,m,entertainment
+jugar,to play,Juego al fútbol con amigos.,I play soccer with friends.,verb,n/a,activities
+practicar,to practice,Practico español todos los días.,I practice Spanish every day.,verb,n/a,activities
+hacer ejercicio,to exercise,Hago ejercicio por la mañana.,I exercise in the morning.,phrase,n/a,activities
+montar en bicicleta,to ride a bike,Monto en bicicleta los domingos.,I ride a bike on Sundays.,phrase,n/a,activities
+ir de excursión,to go hiking,Vamos de excursión a la montaña.,We go hiking in the mountains.,phrase,n/a,activities
+interesante,interesting,La película es muy interesante.,The movie is very interesting.,adjective,n/a,opinions
+aburrido,boring,El libro es un poco aburrido.,The book is a little boring.,adjective,m,opinions
+divertido,fun,El juego es muy divertido.,The game is very fun.,adjective,m,opinions
+emocionante,exciting,El concierto fue emocionante.,The concert was exciting.,adjective,n/a,opinions
+relajante,relaxing,El yoga es muy relajante.,Yoga is very relaxing.,adjective,n/a,opinions
+me gusta,I like,Me gusta mucho el cine.,I really like cinema.,phrase,n/a,opinions
+me encanta,I love,Me encanta bailar salsa.,I love dancing salsa.,phrase,n/a,opinions
+prefiero,I prefer,Prefiero leer en casa.,I prefer to read at home.,verb,n/a,opinions
+odio,I hate,Odio levantarme temprano.,I hate getting up early.,verb,n/a,opinions
+el aficionado,the fan,Soy aficionado del fútbol.,I'm a soccer fan.,noun,m,leisure

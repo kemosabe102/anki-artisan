@@ -1,0 +1,46 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+feliz,happy,Estoy muy feliz hoy.,I'm very happy today.,adjective,n/a,emotions
+contento,content/happy,Estoy contento con el resultado.,I'm happy with the result.,adjective,m,emotions
+alegre,cheerful,Es una persona muy alegre.,She's a very cheerful person.,adjective,n/a,emotions
+triste,sad,Estoy triste por la noticia.,I'm sad about the news.,adjective,n/a,emotions
+enojado,angry,Está enojado conmigo.,He's angry with me.,adjective,m,emotions
+enfadado,angry (Spain),No estés enfadado.,Don't be angry.,adjective,m,emotions
+nervioso,nervous,Estoy nervioso por el examen.,I'm nervous about the exam.,adjective,m,emotions
+preocupado,worried,Estoy preocupado por mi familia.,I'm worried about my family.,adjective,m,emotions
+estresado,stressed,Estoy muy estresado con el trabajo.,I'm very stressed with work.,adjective,m,emotions
+relajado,relaxed,Me siento relajado después del yoga.,I feel relaxed after yoga.,adjective,m,emotions
+sorprendido,surprised,Estoy sorprendido por la noticia.,I'm surprised by the news.,adjective,m,emotions
+emocionado,excited,Estoy emocionado por el viaje.,I'm excited about the trip.,adjective,m,emotions
+aburrido,bored,Estoy aburrido en casa.,I'm bored at home.,adjective,m,emotions
+cansado,tired,Estoy muy cansado hoy.,I'm very tired today.,adjective,m,emotions
+asustado,scared,El niño está asustado.,The child is scared.,adjective,m,emotions
+confundido,confused,Estoy un poco confundido.,I'm a little confused.,adjective,m,emotions
+decepcionado,disappointed,Estoy decepcionado con el resultado.,I'm disappointed with the result.,adjective,m,emotions
+orgulloso,proud,Estoy orgulloso de ti.,I'm proud of you.,adjective,m,emotions
+avergonzado,embarrassed,Estoy avergonzado por lo que pasó.,I'm embarrassed about what happened.,adjective,m,emotions
+enamorado,in love,Estoy enamorado de ella.,I'm in love with her.,adjective,m,emotions
+la felicidad,happiness,La felicidad es importante.,Happiness is important.,noun,f,nouns
+la tristeza,sadness,Siente mucha tristeza.,He feels a lot of sadness.,noun,f,nouns
+el miedo,fear,Tengo miedo a la oscuridad.,I'm afraid of the dark.,noun,m,nouns
+la alegría,joy,Qué alegría verte.,What joy to see you.,noun,f,nouns
+sentirse,to feel,Me siento muy bien hoy.,I feel very good today.,verb,n/a,verbs
+llorar,to cry,El bebé está llorando.,The baby is crying.,verb,n/a,verbs
+reír,to laugh,Nos reímos mucho.,We laughed a lot.,verb,n/a,verbs
+pensar,I think,Pienso que tienes razón.,I think you're right.,verb,n/a,opinions
+creer,I believe,Creo que es una buena idea.,I believe it's a good idea.,verb,n/a,opinions
+opinar,to think/opine,¿Qué opinas de esto?,What do you think about this?,verb,n/a,opinions
+parecer,to seem,Me parece bien.,It seems fine to me.,verb,n/a,opinions
+en mi opinión,in my opinion,En mi opinión es demasiado caro.,In my opinion it's too expensive.,phrase,n/a,opinions
+creo que,I believe that,Creo que deberías ir.,I believe you should go.,phrase,n/a,opinions
+pienso que,I think that,Pienso que es importante.,I think it's important.,phrase,n/a,opinions
+me parece que,it seems to me that,Me parece que va a llover.,It seems to me it's going to rain.,phrase,n/a,opinions
+estar de acuerdo,to agree,Estoy de acuerdo contigo.,I agree with you.,phrase,n/a,opinions
+no estar de acuerdo,to disagree,No estoy de acuerdo con eso.,I don't agree with that.,phrase,n/a,opinions
+tener razón,to be right,Tienes razón completamente.,You're completely right.,phrase,n/a,opinions
+estar equivocado,to be wrong,Creo que estás equivocado.,I think you're wrong.,phrase,n/a,opinions
+quizás,maybe,Quizás voy mañana.,Maybe I'll go tomorrow.,adverb,n/a,hedging
+tal vez,perhaps,Tal vez tenga razón.,Perhaps he's right.,adverb,n/a,hedging
+probablemente,probably,Probablemente llegue tarde.,I'll probably arrive late.,adverb,n/a,hedging
+seguramente,surely,Seguramente viene hoy.,He surely comes today.,adverb,n/a,hedging
+por suerte,luckily,Por suerte no pasó nada.,Luckily nothing happened.,phrase,n/a,hedging
+lamentablemente,unfortunately,Lamentablemente no puedo ir.,Unfortunately I can't go.,adverb,n/a,hedging
