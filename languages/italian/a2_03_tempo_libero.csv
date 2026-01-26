@@ -1,0 +1,52 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+il tempo libero,free time,Cosa fai nel tempo libero?,What do you do in your free time?,noun,m,leisure
+l'hobby,the hobby,Ho molti hobby.,I have many hobbies.,noun,m,leisure
+lo sport,the sport,Faccio sport ogni giorno.,I do sports every day.,noun,m,activities
+il calcio,soccer/football,Gioco a calcio la domenica.,I play soccer on Sundays.,noun,m,sports
+il tennis,tennis,Mi piace giocare a tennis.,I like playing tennis.,noun,m,sports
+il nuoto,swimming,Il nuoto è rilassante.,Swimming is relaxing.,noun,m,sports
+la palestra,the gym,Vado in palestra tre volte.,I go to the gym three times.,noun,f,places
+la corsa,running,La corsa mi fa bene.,Running is good for me.,noun,f,sports
+il ciclismo,cycling,Il ciclismo è faticoso.,Cycling is tiring.,noun,m,sports
+lo yoga,yoga,Faccio yoga per rilassarmi.,I do yoga to relax.,noun,m,sports
+la musica,music,Ascolto musica ogni giorno.,I listen to music every day.,noun,f,activities
+il concerto,the concert,Andiamo al concerto stasera?,Shall we go to the concert tonight?,noun,m,entertainment
+il cinema,the cinema,Vado al cinema il venerdì.,I go to the cinema on Fridays.,noun,m,entertainment
+il film,the movie,Il film era molto bello.,The movie was very good.,noun,m,entertainment
+il teatro,the theater,Preferisco il teatro al cinema.,I prefer theater to cinema.,noun,m,entertainment
+lo spettacolo,the show,Lo spettacolo inizia alle otto.,The show starts at eight.,noun,m,entertainment
+la mostra,the exhibition,C'è una mostra interessante.,There's an interesting exhibition.,noun,f,entertainment
+il museo,the museum,Il museo è chiuso il lunedì.,The museum is closed on Mondays.,noun,m,entertainment
+la lettura,reading,La lettura è il mio hobby.,Reading is my hobby.,noun,f,activities
+il libro,the book,Sto leggendo un libro italiano.,I'm reading an Italian book.,noun,m,activities
+la fotografia,photography,Mi appassiona la fotografia.,I'm passionate about photography.,noun,f,activities
+il viaggio,the trip/travel,Adoro fare viaggi.,I love taking trips.,noun,m,activities
+la passeggiata,the walk,Facciamo una passeggiata?,Shall we take a walk?,noun,f,activities
+il gioco,the game,È solo un gioco.,It's just a game.,noun,m,activities
+i videogiochi,video games,Gioco ai videogiochi la sera.,I play video games in the evening.,noun,m,activities
+la cucina,cooking,La cucina è la mia passione.,Cooking is my passion.,noun,f,activities
+il giardinaggio,gardening,Il giardinaggio mi rilassa.,Gardening relaxes me.,noun,m,activities
+giocare,to play,Gioco a tennis con gli amici.,I play tennis with friends.,verb,n/a,verbs
+fare sport,to do sports,Faccio sport per stare bene.,I do sports to stay healthy.,phrase,n/a,verbs
+allenarsi,to train/work out,Mi alleno tre volte a settimana.,I work out three times a week.,verb,n/a,verbs
+nuotare,to swim,Nuoto in piscina.,I swim in the pool.,verb,n/a,verbs
+correre,to run,Corro nel parco ogni mattina.,I run in the park every morning.,verb,n/a,verbs
+ballare,to dance,Mi piace ballare la salsa.,I like dancing salsa.,verb,n/a,verbs
+cantare,to sing,Canto sotto la doccia.,I sing in the shower.,verb,n/a,verbs
+disegnare,to draw,Disegno nel tempo libero.,I draw in my free time.,verb,n/a,verbs
+dipingere,to paint,Dipingo paesaggi.,I paint landscapes.,verb,n/a,verbs
+suonare,to play (instrument),Suono la chitarra.,I play the guitar.,verb,n/a,verbs
+rilassarsi,to relax,Mi rilasso leggendo.,I relax by reading.,verb,n/a,verbs
+divertirsi,to have fun,Mi diverto con gli amici.,I have fun with friends.,verb,n/a,verbs
+annoiarsi,to get bored,Mi annoio facilmente.,I get bored easily.,verb,n/a,verbs
+interessante,interesting,Il libro è molto interessante.,The book is very interesting.,adjective,n/a,opinions
+noioso,boring,Il film era noioso.,The movie was boring.,adjective,n/a,opinions
+divertente,fun/entertaining,La festa era divertente.,The party was fun.,adjective,n/a,opinions
+rilassante,relaxing,Lo yoga è rilassante.,Yoga is relaxing.,adjective,n/a,opinions
+faticoso,tiring,Lo sport è faticoso.,Sports are tiring.,adjective,n/a,opinions
+emozionante,exciting,La partita era emozionante.,The match was exciting.,adjective,n/a,opinions
+mi piace,I like,Mi piace molto nuotare.,I really like swimming.,phrase,n/a,opinions
+mi piacciono,I like (plural),Mi piacciono i film italiani.,I like Italian movies.,phrase,n/a,opinions
+preferire,to prefer,Preferisco leggere che guardare la TV.,I prefer reading to watching TV.,verb,n/a,opinions
+adorare,to love/adore,Adoro la musica classica.,I adore classical music.,verb,n/a,opinions
+odiare,to hate,Odio alzarmi presto.,I hate getting up early.,verb,n/a,opinions

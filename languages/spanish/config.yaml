@@ -1,0 +1,83 @@
+# Spanish Language Configuration for Anki Artisan
+
+language_code: "es"
+language_name: "Spanish"
+native_name: "Español"
+
+elevenlabs:
+  # Gabriel Reyes - 40-year-old male, clear Madrid accent
+  # Castilian Spanish with distinción (c/z pronounced as "th")
+  voice_id: "gGr0c5znjcZfTNIRdJZ1"
+  voice_name: "Gabriel Reyes"
+  model_id: "eleven_multilingual_v2"
+  
+  # Settings optimized for flashcard consistency and beginner clarity
+  voice_settings:
+    stability: 0.7        # Higher = consistent pronunciation across cards
+    similarity_boost: 0.8 # Strong voice adherence
+    style: 0.0            # No expressive variation (predictable output)
+    use_speaker_boost: true
+    speed: 0.9            # Slightly slower for beginners to distinguish sounds
+    leading_pause_seconds: 0.3  # Prevents first-syllable truncation
+
+  # Alternative voices (various Spanish accents)
+  alternative_voices:
+    # Latin American Spanish voices
+    - voice_id: "CcdlbriUyto64GgLEqRP"
+      name: "Leonardo"
+      gender: "male"
+      accent: "Argentine"
+      notes: "Young male, sweet bass, good for audiobooks and classes"
+    - voice_id: "BXtvkfRgOYGPQKVRgufE"
+      name: "Maite Jiménez"
+      gender: "female"
+      accent: "neutral"
+      notes: "Female, ideal for narrations, e-learning, podcasts"
+    # Castilian Spanish voices (Spain)
+    - voice_id: "gGr0c5znjcZfTNIRdJZ1"
+      name: "Gabriel Reyes"
+      gender: "male"
+      accent: "Madrid"
+      notes: "40-year-old, clear Madrid accent, news and culture"
+    - voice_id: "syjZiIvIUSwKREBfMpKZ"
+      name: "Jacobo Montoro"
+      gender: "male"
+      accent: "Andalusian"
+      notes: "Warm middle-aged male, southern Spain accent"
+
+deck:
+  name_template: "Spanish {level} Vocabulary"
+  # Unique IDs for Spanish (prevents Anki deck conflicts)
+  deck_id_base: 2059400200
+  model_id_base: 1607390200
+
+# Spanish-specific features
+features:
+  has_gender: true
+  has_articles: true
+  gender_types: ["m", "f"]
+  article_forms:
+    masculine:
+      - "el"    # singular
+      - "los"   # plural
+    feminine:
+      - "la"    # singular
+      - "las"   # plural
+  # Regional variants to consider
+  regional_notes:
+    latin_american:
+      - "Uses 'ustedes' for both formal and informal plural 'you'"
+      - "Seseo: pronounces c/z as 's' (e.g., gracias = gra-syas)"
+      - "Some regions use 'vos' instead of 'tú' (Argentina, Uruguay)"
+    castilian:
+      - "Uses 'vosotros' for informal plural 'you' (e.g., habláis)"
+      - "Distinción: pronounces c/z as 'th' (e.g., gracias = gra-thyas)"
+      - "More common in European Spanish content"
+
+# Pronunciation notes for Spanish TTS
+pronunciation_notes:
+  - "Default voice (Gabriel Reyes) uses Castilian pronunciation with distinción"
+  - "For Latin American Spanish, use Santiago or Leonardo"
+  - "Always spell out numbers in text (write 'veinte' not '20')"
+  - "Test words with ñ, ll, rr before bulk generation"
+  - "Words to verify: año (ñ), calle (ll), perro (rr), queso (qu)"

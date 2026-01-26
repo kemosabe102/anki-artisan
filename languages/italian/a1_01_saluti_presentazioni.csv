@@ -1,0 +1,41 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+ciao,hello/goodbye (informal),Ciao! Come stai?,Hello! How are you?,interjection,n/a,greetings informal
+buongiorno,good morning/good day,Buongiorno! Come sta?,Good morning! How are you?,interjection,n/a,greetings formal
+buonasera,good evening,Buonasera a tutti.,Good evening everyone.,interjection,n/a,greetings formal
+buonanotte,good night,Buonanotte! Dormi bene.,Good night! Sleep well.,interjection,n/a,greetings informal
+arrivederci,goodbye (formal),Arrivederci! A presto.,Goodbye! See you soon.,interjection,n/a,greetings formal
+arrivederLa,goodbye (very formal),ArrivederLa e grazie.,Goodbye and thank you.,interjection,n/a,greetings formal
+a presto,see you soon,A presto! Ci vediamo.,See you soon! We'll meet.,interjection,n/a,greetings informal
+a dopo,see you later,A dopo! Buona giornata.,See you later! Have a good day.,interjection,n/a,greetings informal
+salve,hello (neutral),Salve! Posso aiutarLa?,Hello! May I help you?,interjection,n/a,greetings formal
+piacere,nice to meet you,Piacere di conoscerLa.,Nice to meet you.,noun,m,introductions formal
+come sta,how are you (formal),Come sta oggi?,How are you today?,phrase,n/a,greetings formal
+come stai,how are you (informal),Come stai? Tutto bene?,How are you? All good?,phrase,n/a,greetings informal
+sto bene,I am well,Sto bene grazie. E Lei?,I am well thanks. And you?,phrase,n/a,responses formal
+molto bene,very well,Molto bene grazie!,Very well thanks!,phrase,n/a,responses
+così così,so-so,Così così. Sono stanco.,So-so. I am tired.,phrase,n/a,responses
+come si chiama,what is your name (formal),Come si chiama Lei?,What is your name?,phrase,n/a,introductions formal
+come ti chiami,what is your name (informal),Come ti chiami?,What is your name?,phrase,n/a,introductions informal
+mi chiamo,my name is,Mi chiamo Marco.,My name is Marco.,phrase,n/a,introductions
+sono,I am,Sono americano.,I am American.,verb,n/a,introductions
+di dove è,where are you from (formal),Di dove è Lei?,Where are you from?,phrase,n/a,introductions formal
+di dove sei,where are you from (informal),Di dove sei?,Where are you from?,phrase,n/a,introductions informal
+sono di,I am from,Sono di Seattle.,I am from Seattle.,phrase,n/a,introductions
+grazie,thank you,Grazie mille!,Thank you very much!,interjection,n/a,courtesies
+grazie mille,thank you very much,Grazie mille! Molto gentile.,Thank you! Very kind.,phrase,n/a,courtesies formal
+prego,you're welcome,Prego! Di niente.,You're welcome! It's nothing.,interjection,n/a,courtesies
+per favore,please,Un caffè per favore.,A coffee please.,phrase,n/a,courtesies
+per piacere,please (alternative),Per piacere mi aiuti.,Please help me.,phrase,n/a,courtesies formal
+scusi,excuse me (formal),Scusi! Dov'è la stazione?,Excuse me! Where is the station?,interjection,n/a,courtesies formal
+scusa,excuse me (informal),Scusa! Ho sbagliato.,Excuse me! I made a mistake.,interjection,n/a,courtesies informal
+mi dispiace,I'm sorry,Mi dispiace molto.,I'm very sorry.,phrase,n/a,courtesies
+permesso,excuse me (passing by),Permesso! Posso passare?,Excuse me! May I pass?,interjection,n/a,courtesies
+sì,yes,Sì certo!,Yes of course!,adverb,n/a,responses
+no,no,No grazie.,No thank you.,adverb,n/a,responses
+forse,maybe/perhaps,Forse domani.,Maybe tomorrow.,adverb,n/a,responses
+non lo so,I don't know,Non lo so. Mi dispiace.,I don't know. I'm sorry.,phrase,n/a,responses
+non capisco,I don't understand,Non capisco. Può ripetere?,I don't understand. Can you repeat?,phrase,n/a,responses formal
+parla inglese,do you speak English (formal),Parla inglese Lei?,Do you speak English?,phrase,n/a,communication formal
+parli inglese,do you speak English (informal),Parli inglese?,Do you speak English?,phrase,n/a,communication informal
+parlo italiano,I speak Italian,Parlo un po' italiano.,I speak a little Italian.,phrase,n/a,communication
+un momento,one moment,Un momento per favore.,One moment please.,phrase,n/a,courtesies

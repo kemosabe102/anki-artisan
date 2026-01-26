@@ -1,0 +1,52 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+la famiglia,the family,La mia famiglia è grande.,My family is big.,noun,f,family
+i genitori,the parents,I miei genitori vivono a Roma.,My parents live in Rome.,noun,m,family
+la madre,the mother,Mia madre cucina bene.,My mother cooks well.,noun,f,family
+il padre,the father,Mio padre lavora molto.,My father works a lot.,noun,m,family
+la mamma,mom,La mamma è a casa.,Mom is at home.,noun,f,family informal
+il papà,dad,Il papà arriva stasera.,Dad arrives tonight.,noun,m,family informal
+il fratello,the brother,Ho un fratello maggiore.,I have an older brother.,noun,m,family
+la sorella,the sister,Mia sorella abita a Milano.,My sister lives in Milan.,noun,f,family
+il figlio,the son,Il figlio ha dieci anni.,The son is ten years old.,noun,m,family
+la figlia,the daughter,La figlia studia medicina.,The daughter studies medicine.,noun,f,family
+i figli,the children,Hanno tre figli.,They have three children.,noun,m,family
+il nonno,the grandfather,Il nonno racconta storie.,Grandfather tells stories.,noun,m,family
+la nonna,the grandmother,La nonna fa la pasta.,Grandmother makes pasta.,noun,f,family
+i nonni,the grandparents,I nonni vivono in campagna.,The grandparents live in the countryside.,noun,m,family
+lo zio,the uncle,Lo zio viene a cena.,Uncle is coming to dinner.,noun,m,family
+la zia,the aunt,La zia abita vicino.,Aunt lives nearby.,noun,f,family
+il cugino,the cousin (male),Il cugino ha la mia età.,My cousin is my age.,noun,m,family
+la cugina,the cousin (female),La cugina si sposa a giugno.,My cousin is getting married in June.,noun,f,family
+il nipote,the nephew/grandson,Il nipote è molto simpatico.,The nephew is very nice.,noun,m,family
+la nipote,the niece/granddaughter,La nipote studia all'università.,The niece studies at university.,noun,f,family
+il marito,the husband,Mio marito lavora da casa.,My husband works from home.,noun,m,relationships
+la moglie,the wife,Mia moglie è avvocato.,My wife is a lawyer.,noun,f,relationships
+il fidanzato,the fiancé/boyfriend,Il mio fidanzato è italiano.,My boyfriend is Italian.,noun,m,relationships
+la fidanzata,the fiancée/girlfriend,La fidanzata arriva domani.,The girlfriend arrives tomorrow.,noun,f,relationships
+il compagno,the partner (male),Il mio compagno cucina sempre.,My partner always cooks.,noun,m,relationships
+la compagna,the partner (female),La compagna lavora in banca.,The partner works at a bank.,noun,f,relationships
+single,single,Sono single da un anno.,I've been single for a year.,adjective,n/a,relationships
+sposato,married (male),Sono sposato da cinque anni.,I've been married for five years.,adjective,n/a,relationships
+sposata,married (female),È sposata con un medico.,She is married to a doctor.,adjective,n/a,relationships
+divorziato,divorced (male),È divorziato da poco.,He is recently divorced.,adjective,n/a,relationships
+il vicino,the neighbor (male),Il vicino è molto gentile.,The neighbor is very kind.,noun,m,relationships
+la vicina,the neighbor (female),La vicina ha un cane.,The neighbor has a dog.,noun,f,relationships
+conoscere,to know/meet,Voglio conoscere i tuoi amici.,I want to meet your friends.,verb,n/a,verbs
+presentare,to introduce,Ti presento mia sorella.,I introduce you to my sister.,verb,n/a,verbs
+sposarsi,to get married,Si sposano il mese prossimo.,They're getting married next month.,verb,n/a,verbs
+fidanzarsi,to get engaged,Si sono fidanzati ieri.,They got engaged yesterday.,verb,n/a,verbs
+divorziare,to divorce,Hanno deciso di divorziare.,They decided to divorce.,verb,n/a,verbs
+vivere insieme,to live together,Vivono insieme da tre anni.,They've lived together for three years.,phrase,n/a,verbs
+andare d'accordo,to get along,Andiamo molto d'accordo.,We get along very well.,phrase,n/a,verbs
+litigare,to argue/fight,Non litighiamo mai.,We never argue.,verb,n/a,verbs
+maggiore,older/elder,Il fratello maggiore ha trent'anni.,The older brother is thirty.,adjective,n/a,descriptions
+minore,younger,La sorella minore studia ancora.,The younger sister still studies.,adjective,n/a,descriptions
+grande,grown up/big,I figli sono già grandi.,The children are already grown up.,adjective,n/a,descriptions
+piccolo,little/young,Quando ero piccolo abitavo qui.,When I was little I lived here.,adjective,n/a,descriptions
+insieme,together,Usciamo insieme stasera?,Shall we go out together tonight?,adverb,n/a,relationships
+da solo,alone (male),Vivo da solo.,I live alone.,phrase,n/a,relationships
+da sola,alone (female),Viaggia spesso da sola.,She often travels alone.,phrase,n/a,relationships
+il rapporto,the relationship,Abbiamo un buon rapporto.,We have a good relationship.,noun,m,relationships
+l'amicizia,the friendship,L'amicizia è importante.,Friendship is important.,noun,f,relationships
+il migliore amico,the best friend (male),È il mio migliore amico.,He is my best friend.,noun,m,relationships
+la migliore amica,the best friend (female),È la mia migliore amica.,She is my best friend.,noun,f,relationships

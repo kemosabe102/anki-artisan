@@ -1,0 +1,50 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+la casa,the house,La casa è grande.,The house is big.,noun,f,places
+l'appartamento,the apartment,Vivo in un appartamento.,I live in an apartment.,noun,m,places
+la stanza,the room,La stanza è luminosa.,The room is bright.,noun,f,rooms
+la camera,the bedroom,La camera da letto è piccola.,The bedroom is small.,noun,f,rooms
+il bagno,the bathroom,Dov'è il bagno?,Where is the bathroom?,noun,m,rooms
+la cucina,the kitchen,Cucino in cucina.,I cook in the kitchen.,noun,f,rooms
+il soggiorno,the living room,Il soggiorno è grande.,The living room is big.,noun,m,rooms
+la sala da pranzo,the dining room,Mangiamo nella sala da pranzo.,We eat in the dining room.,noun,f,rooms
+l'ingresso,the entrance/hallway,L'ingresso è stretto.,The entrance is narrow.,noun,m,rooms
+il balcone,the balcony,Ho un balcone piccolo.,I have a small balcony.,noun,m,rooms
+il giardino,the garden,Il giardino è bello.,The garden is beautiful.,noun,m,places
+il piano,the floor (level),Abito al terzo piano.,I live on the third floor.,noun,m,places
+le scale,the stairs,Le scale sono ripide.,The stairs are steep.,noun,f,places
+l'ascensore,the elevator,C'è l'ascensore?,Is there an elevator?,noun,m,places
+la porta,the door,Chiudi la porta per favore.,Close the door please.,noun,f,furniture
+la finestra,the window,Apro la finestra.,I open the window.,noun,f,furniture
+il letto,the bed,Il letto è comodo.,The bed is comfortable.,noun,m,furniture
+l'armadio,the wardrobe/closet,L'armadio è pieno.,The wardrobe is full.,noun,m,furniture
+il tavolo,the table,Il tavolo è in cucina.,The table is in the kitchen.,noun,m,furniture
+la sedia,the chair,La sedia è rotta.,The chair is broken.,noun,f,furniture
+il divano,the sofa,Mi siedo sul divano.,I sit on the sofa.,noun,m,furniture
+la poltrona,the armchair,La poltrona è comoda.,The armchair is comfortable.,noun,f,furniture
+lo specchio,the mirror,Lo specchio è in bagno.,The mirror is in the bathroom.,noun,m,furniture
+la lampada,the lamp,Accendo la lampada.,I turn on the lamp.,noun,f,furniture
+il frigorifero,the refrigerator,Il frigorifero è vuoto.,The refrigerator is empty.,noun,m,furniture
+la lavatrice,the washing machine,La lavatrice è nuova.,The washing machine is new.,noun,f,furniture
+la televisione,the television,Guardo la televisione.,I watch television.,noun,f,furniture
+il computer,the computer,Il computer è sul tavolo.,The computer is on the table.,noun,m,furniture
+in,in/into,Sono in casa.,I am at home.,preposition,n/a,prepositions
+su,on,Il libro è sul tavolo.,The book is on the table.,preposition,n/a,prepositions
+sotto,under,Il gatto è sotto il letto.,The cat is under the bed.,preposition,n/a,prepositions
+sopra,above/over,La lampada è sopra il tavolo.,The lamp is above the table.,preposition,n/a,prepositions
+davanti a,in front of,La sedia è davanti alla finestra.,The chair is in front of the window.,preposition,n/a,prepositions
+dietro,behind,Il giardino è dietro la casa.,The garden is behind the house.,preposition,n/a,prepositions
+vicino a,near/close to,Abito vicino al centro.,I live near the center.,preposition,n/a,prepositions
+lontano da,far from,La casa è lontano dal mare.,The house is far from the sea.,preposition,n/a,prepositions
+tra/fra,between,Il tavolo è tra le sedie.,The table is between the chairs.,preposition,n/a,prepositions
+a destra,on the right,Il bagno è a destra.,The bathroom is on the right.,phrase,n/a,directions
+a sinistra,on the left,La cucina è a sinistra.,The kitchen is on the left.,phrase,n/a,directions
+abitare,to live (reside),Dove abita Lei?,Where do you live?,verb,n/a,verbs formal
+vivere,to live,Vivo in Italia.,I live in Italy.,verb,n/a,verbs
+aprire,to open,Apro la porta.,I open the door.,verb,n/a,verbs
+chiudere,to close,Chiudo la finestra.,I close the window.,verb,n/a,verbs
+accendere,to turn on,Accendo la luce.,I turn on the light.,verb,n/a,verbs
+spegnere,to turn off,Spengo la televisione.,I turn off the television.,verb,n/a,verbs
+pulito,clean,La casa è pulita.,The house is clean.,adjective,n/a,adjectives
+sporco,dirty,Il bagno è sporco.,The bathroom is dirty.,adjective,n/a,adjectives
+grande,big,La cucina è grande.,The kitchen is big.,adjective,n/a,adjectives
+piccolo,small,La camera è piccola.,The room is small.,adjective,n/a,adjectives

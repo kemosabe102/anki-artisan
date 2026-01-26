@@ -1,0 +1,54 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+la salute,health,La salute è importante.,Health is important.,noun,f,health
+il corpo,the body,Il corpo ha bisogno di riposo.,The body needs rest.,noun,m,body
+la testa,the head,Mi fa male la testa.,My head hurts.,noun,f,body
+il viso,the face,Ha un viso simpatico.,He has a friendly face.,noun,m,body
+gli occhi,the eyes,Ha gli occhi verdi.,She has green eyes.,noun,m,body
+il naso,the nose,Ho il naso chiuso.,My nose is blocked.,noun,m,body
+la bocca,the mouth,Apri la bocca.,Open your mouth.,noun,f,body
+l'orecchio,the ear,Mi fa male l'orecchio.,My ear hurts.,noun,m,body
+i denti,the teeth,Mi lavo i denti due volte.,I brush my teeth twice.,noun,m,body
+il collo,the neck,Ho dolore al collo.,I have neck pain.,noun,m,body
+la spalla,the shoulder,Mi fa male la spalla.,My shoulder hurts.,noun,f,body
+il braccio,the arm,Ho rotto il braccio.,I broke my arm.,noun,m,body
+il gomito,the elbow,Ho sbattuto il gomito.,I hit my elbow.,noun,m,body
+la mano,the hand,Dammi la mano.,Give me your hand.,noun,f,body
+il dito,the finger,Mi sono tagliato il dito.,I cut my finger.,noun,m,body
+la schiena,the back,Ho mal di schiena.,I have back pain.,noun,f,body
+il petto,the chest,Ho dolore al petto.,I have chest pain.,noun,m,body
+lo stomaco,the stomach,Ho lo stomaco pieno.,My stomach is full.,noun,m,body
+la pancia,the belly/tummy,Mi fa male la pancia.,My tummy hurts.,noun,f,body
+la gamba,the leg,Mi fa male la gamba.,My leg hurts.,noun,f,body
+il ginocchio,the knee,Ho problemi al ginocchio.,I have knee problems.,noun,m,body
+il piede,the foot,Mi fa male il piede.,My foot hurts.,noun,m,body
+il cuore,the heart,Il cuore batte forte.,The heart beats fast.,noun,m,body
+il medico,the doctor,Devo andare dal medico.,I have to go to the doctor.,noun,m,medical
+il dottore,the doctor (title),Buongiorno dottore.,Good morning doctor.,noun,m,medical
+l'ospedale,the hospital,L'ospedale è vicino.,The hospital is nearby.,noun,m,medical
+la farmacia,the pharmacy,C'è una farmacia aperta?,Is there an open pharmacy?,noun,f,medical
+la medicina,the medicine,Prendo la medicina ogni giorno.,I take the medicine every day.,noun,f,medical
+la ricetta,the prescription,Ho bisogno di una ricetta.,I need a prescription.,noun,f,medical
+la pastiglia,the pill/tablet,Prendo due pastiglie al giorno.,I take two pills a day.,noun,f,medical
+l'aspirina,aspirin,Hai un'aspirina?,Do you have an aspirin?,noun,f,medical
+il dolore,the pain,Ho un forte dolore.,I have a strong pain.,noun,m,symptoms
+la febbre,the fever,Ho la febbre alta.,I have a high fever.,noun,f,symptoms
+il raffreddore,the cold,Ho preso un raffreddore.,I caught a cold.,noun,m,symptoms
+l'influenza,the flu,Ho l'influenza.,I have the flu.,noun,f,symptoms
+la tosse,the cough,Ho una brutta tosse.,I have a bad cough.,noun,f,symptoms
+il mal di testa,headache,Ho un forte mal di testa.,I have a bad headache.,noun,m,symptoms
+il mal di gola,sore throat,Ho mal di gola.,I have a sore throat.,noun,m,symptoms
+il mal di stomaco,stomachache,Ho mal di stomaco.,I have a stomachache.,noun,m,symptoms
+stare male,to feel sick/unwell,Oggi sto male.,Today I feel unwell.,phrase,n/a,verbs
+stare bene,to feel well,Oggi sto bene.,Today I feel well.,phrase,n/a,verbs
+sentirsi,to feel,Mi sento stanco.,I feel tired.,verb,n/a,verbs
+ammalarsi,to get sick,Mi sono ammalato ieri.,I got sick yesterday.,verb,n/a,verbs
+guarire,to heal/recover,Spero di guarire presto.,I hope to recover soon.,verb,n/a,verbs
+riposarsi,to rest,Devo riposarmi di più.,I need to rest more.,verb,n/a,verbs
+prendere,to take (medicine),Prendo l'aspirina per il dolore.,I take aspirin for the pain.,verb,n/a,verbs
+fare male,to hurt,Mi fa male qui.,It hurts here.,phrase,n/a,verbs
+malato,sick/ill,Sono malato da tre giorni.,I've been sick for three days.,adjective,n/a,adjectives
+sano,healthy,Cerco di mangiare sano.,I try to eat healthy.,adjective,n/a,adjectives
+debole,weak,Mi sento debole.,I feel weak.,adjective,n/a,adjectives
+forte,strong,Il dolore è molto forte.,The pain is very strong.,adjective,n/a,adjectives
+grave,serious,Non è niente di grave.,It's nothing serious.,adjective,n/a,adjectives
+allergico,allergic,Sono allergico ai gatti.,I'm allergic to cats.,adjective,n/a,adjectives

@@ -1,0 +1,48 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+Egregio,Dear (formal - male),Egregio Dott. Rossi...,Dear Dr. Rossi...,adjective,n/a,salutations
+Egregia,Dear (formal - female),Egregia Dott.ssa Bianchi...,Dear Dr. Bianchi...,adjective,n/a,salutations
+Gentile,Dear (polite),Gentile Sig. Verdi...,Dear Mr. Verdi...,adjective,n/a,salutations
+Spettabile,Dear (to company),Spettabile Azienda...,Dear Company...,adjective,n/a,salutations
+Dott.,Dr. (male),Egregio Dott. Martinelli...,Dear Dr. Martinelli...,noun,m,titles
+Dott.ssa,Dr. (female),Gentile Dott.ssa Ricci...,Dear Dr. Ricci...,noun,f,titles
+Ing.,Engineer,Egregio Ing. Colombo...,Dear Engineer Colombo...,noun,m,titles
+Avv.,Lawyer,Gentile Avv. Ferrari...,Dear Attorney Ferrari...,noun,m,titles
+In allegato,Attached,In allegato troverà il documento.,Attached you will find the document.,phrase,n/a,email
+In riferimento a,In reference to,In riferimento alla Sua richiesta...,In reference to your request...,phrase,n/a,email
+Come da accordi,As agreed,Come da accordi telefonici...,As per our phone conversation...,phrase,n/a,email
+A seguito di,Following,A seguito del nostro incontro...,Following our meeting...,phrase,n/a,email
+Le scrivo per,I am writing to,Le scrivo per richiedere informazioni.,I am writing to request information.,phrase,n/a,email
+Con la presente,With this letter,Con la presente comunico che...,With this letter I inform you that...,phrase,n/a,email
+Cordiali saluti,Kind regards,Cordiali saluti e a presto.,Kind regards and see you soon.,phrase,n/a,closings
+Distinti saluti,Yours faithfully,Distinti saluti.,Yours faithfully.,phrase,n/a,closings
+Cordialmente,Cordially,Cordialmente.,Cordially.,adverb,n/a,closings
+In attesa di riscontro,Awaiting your reply,In attesa di un Suo cortese riscontro...,Awaiting your kind reply...,phrase,n/a,closings
+La ringrazio anticipatamente,Thank you in advance,La ringrazio anticipatamente per la collaborazione.,Thank you in advance for your cooperation.,phrase,n/a,closings
+RingraziandoLa,Thanking you,RingraziandoLa per l'attenzione...,Thanking you for your attention...,gerund,n/a,closings
+Potrebbe gentilmente,Could you kindly,Potrebbe gentilmente inviarmi...,Could you kindly send me...,phrase,n/a,requests
+Le sarei grato se,I would be grateful if,Le sarei grato se potesse confermare.,I would be grateful if you could confirm.,phrase,n/a,requests
+Sarebbe possibile,Would it be possible,Sarebbe possibile fissare un appuntamento?,Would it be possible to schedule an appointment?,phrase,n/a,requests
+La prego di,Please (formal),La prego di contattarmi.,Please contact me.,phrase,n/a,requests
+Mi permetta di,Allow me to,Mi permetta di presentarmi.,Allow me to introduce myself.,phrase,n/a,requests
+dare del Lei,to use formal you,In Italia si dà spesso del Lei.,In Italy the formal you is often used.,phrase,n/a,register
+dare del tu,to use informal you,Possiamo darci del tu.,We can use informal address.,phrase,n/a,register
+il registro formale,formal register,Usi un registro formale.,Use a formal register.,noun,m,register
+il tono,the tone,Il tono dell'email è professionale.,The tone of the email is professional.,noun,m,register
+sollecitare,to urge/follow up,Vorrei sollecitare una risposta.,I would like to urge a response.,verb,n/a,verbs
+confermare,to confirm,Le confermo la mia disponibilità.,I confirm my availability.,verb,n/a,verbs
+comunicare,to communicate/inform,Le comunico che...,I inform you that...,verb,n/a,verbs
+richiedere,to request,Vorrei richiedere un preventivo.,I would like to request a quote.,verb,n/a,verbs
+inoltrare,to forward,Le inoltro la documentazione.,I forward you the documentation.,verb,n/a,verbs
+allegare,to attach,Allego il documento richiesto.,I attach the requested document.,verb,n/a,verbs
+porgere,to extend (formal),Porgo distinti saluti.,I extend my best regards.,verb,n/a,verbs
+la corrispondenza,correspondence,La corrispondenza è riservata.,The correspondence is confidential.,noun,f,nouns
+il destinatario,the recipient,Il destinatario è il Dott. Rossi.,The recipient is Dr. Rossi.,noun,m,nouns
+il mittente,the sender,Il mittente non è specificato.,The sender is not specified.,noun,m,nouns
+l'oggetto,the subject line,L'oggetto dell'email è chiaro.,The subject line is clear.,noun,m,nouns
+la richiesta,the request,La Sua richiesta è stata ricevuta.,Your request has been received.,noun,f,nouns
+il sollecito,the reminder/follow-up,Invio un sollecito per la fattura.,I send a reminder for the invoice.,noun,m,nouns
+tempestivo,prompt/timely,Grazie per la risposta tempestiva.,Thanks for the prompt response.,adjective,n/a,adjectives
+cortese,kind/courteous,La ringrazio per la Sua cortese attenzione.,Thank you for your kind attention.,adjective,n/a,adjectives
+disponibile,available,Resto disponibile per chiarimenti.,I remain available for clarifications.,adjective,n/a,adjectives
+urgente,urgent,La questione è urgente.,The matter is urgent.,adjective,n/a,adjectives
+riservato,confidential,L'informazione è riservata.,The information is confidential.,adjective,n/a,adjectives

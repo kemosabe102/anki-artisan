@@ -1,0 +1,51 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+il bar,the café/bar,Andiamo al bar?,Shall we go to the café?,noun,m,places
+il ristorante,the restaurant,Il ristorante è buono.,The restaurant is good.,noun,m,places
+il cameriere,the waiter,Il cameriere è gentile.,The waiter is kind.,noun,m,people
+la cameriera,the waitress,Chiamo la cameriera.,I'll call the waitress.,noun,f,people
+il menu,the menu,Posso vedere il menu?,May I see the menu?,noun,m,restaurant
+il conto,the bill,Il conto per favore.,The bill please.,noun,m,restaurant
+la prenotazione,the reservation,Ho una prenotazione.,I have a reservation.,noun,f,restaurant
+il tavolo,the table,Un tavolo per due.,A table for two.,noun,m,restaurant
+l'acqua,the water,Un'acqua naturale per favore.,A still water please.,noun,f,drinks
+il caffè,the coffee,Un caffè per favore.,A coffee please.,noun,m,drinks
+il tè,the tea,Preferisco il tè.,I prefer tea.,noun,m,drinks
+il vino,the wine,Un bicchiere di vino rosso.,A glass of red wine.,noun,m,drinks
+la birra,the beer,Una birra per favore.,A beer please.,noun,f,drinks
+il succo,the juice,Un succo d'arancia.,An orange juice.,noun,m,drinks
+il latte,the milk,Caffè con latte.,Coffee with milk.,noun,m,drinks
+il pane,the bread,Il pane è fresco.,The bread is fresh.,noun,m,food
+la pasta,the pasta,La pasta è buonissima!,The pasta is delicious!,noun,f,food
+la pizza,the pizza,Una pizza margherita.,A margherita pizza.,noun,f,food
+il formaggio,the cheese,Con formaggio per favore.,With cheese please.,noun,m,food
+il prosciutto,the ham,Prosciutto e melone.,Ham and melon.,noun,m,food
+la carne,the meat,Non mangio carne.,I don't eat meat.,noun,f,food
+il pesce,the fish,Il pesce è fresco?,Is the fish fresh?,noun,m,food
+il pollo,the chicken,Prendo il pollo.,I'll have the chicken.,noun,m,food
+l'insalata,the salad,Un'insalata mista.,A mixed salad.,noun,f,food
+la verdura,the vegetables,Mi piace la verdura.,I like vegetables.,noun,f,food
+la frutta,the fruit,Frutta di stagione.,Seasonal fruit.,noun,f,food
+il dolce,the dessert,Un dolce per finire.,A dessert to finish.,noun,m,food
+il gelato,the ice cream,Un gelato al cioccolato.,A chocolate ice cream.,noun,m,food
+lo zucchero,the sugar,Senza zucchero grazie.,Without sugar thanks.,noun,m,food
+il sale,the salt,Passa il sale?,Can you pass the salt?,noun,m,food
+mangiare,to eat,Voglio mangiare bene.,I want to eat well.,verb,n/a,verbs
+bere,to drink,Cosa vuole bere?,What would you like to drink?,verb,n/a,verbs
+ordinare,to order,Possiamo ordinare?,Can we order?,verb,n/a,verbs
+pagare,to pay,Posso pagare con carta?,Can I pay by card?,verb,n/a,verbs
+prenotare,to reserve/book,Vorrei prenotare un tavolo.,I would like to book a table.,verb,n/a,verbs
+prendere,to take/have,Cosa prende Lei?,What will you have?,verb,n/a,verbs formal
+vorrei,I would like,Vorrei un caffè.,I would like a coffee.,verb,n/a,verbs formal
+buono,good/tasty,È molto buono!,It's very good!,adjective,n/a,adjectives
+delizioso,delicious,Il dolce è delizioso.,The dessert is delicious.,adjective,n/a,adjectives
+caldo,hot,Il caffè è caldo.,The coffee is hot.,adjective,n/a,adjectives
+freddo,cold,Una birra fredda.,A cold beer.,adjective,n/a,adjectives
+la colazione,breakfast,A che ora è colazione?,What time is breakfast?,noun,f,meals
+il pranzo,lunch,Pranzo all'una.,I have lunch at one.,noun,m,meals
+la cena,dinner,La cena è alle otto.,Dinner is at eight.,noun,m,meals
+buon appetito,enjoy your meal,Buon appetito a tutti!,Enjoy your meal everyone!,phrase,n/a,phrases
+alla salute,cheers,Alla salute! Cin cin!,Cheers!,phrase,n/a,phrases
+basta così,that's enough,Basta così grazie.,That's enough thanks.,phrase,n/a,phrases
+ancora,more/again,Ancora un po' di vino?,A little more wine?,adverb,n/a,restaurant
+insieme,together,Paghiamo insieme.,We pay together.,adverb,n/a,restaurant
+separato,separate,Conti separati per favore.,Separate bills please.,adjective,n/a,restaurant

@@ -1,0 +1,49 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+inoltre,furthermore/moreover,Inoltre vorrei aggiungere che...,Furthermore I'd like to add that...,adverb,n/a,additive
+anche,also/too,Anche io penso così.,I think so too.,adverb,n/a,additive
+pure,also/even,Vengo pure io.,I'm coming too.,adverb,n/a,additive
+oltre a ciò,besides that,Oltre a ciò c'è un altro problema.,Besides that there's another problem.,phrase,n/a,additive
+in più,in addition,In più ho dimenticato le chiavi.,In addition I forgot my keys.,phrase,n/a,additive
+non solo... ma anche,not only... but also,Non solo parla italiano ma anche tedesco.,He speaks not only Italian but also German.,phrase,n/a,additive
+ma,but,Vorrei venire ma non posso.,I'd like to come but I can't.,conjunction,n/a,adversative
+però,however/but,È bravo però deve studiare di più.,He's good however he needs to study more.,adverb,n/a,adversative
+tuttavia,however/nevertheless,Tuttavia ci sono dei problemi.,However there are some problems.,adverb,n/a,adversative
+comunque,anyway/however,Comunque grazie per l'aiuto.,Anyway thanks for the help.,adverb,n/a,adversative
+invece,instead/on the contrary,Invece di lamentarti agisci.,Instead of complaining take action.,adverb,n/a,adversative
+al contrario,on the contrary,Al contrario penso che sia giusto.,On the contrary I think it's right.,phrase,n/a,adversative
+d'altra parte,on the other hand,D'altra parte capisco il tuo punto.,On the other hand I understand your point.,phrase,n/a,adversative
+perché,because,L'ho fatto perché era necessario.,I did it because it was necessary.,conjunction,n/a,causal
+dato che,given that/since,Dato che piove resto a casa.,Since it's raining I'll stay home.,phrase,n/a,causal
+visto che,seeing that/since,Visto che sei qui aiutami.,Since you're here help me.,phrase,n/a,causal
+siccome,since/as,Siccome ero stanco sono andato a letto.,Since I was tired I went to bed.,conjunction,n/a,causal
+poiché,since/because,Poiché è tardi chiudiamo.,Since it's late let's close.,conjunction,n/a,causal
+a causa di,because of,A causa del traffico sono in ritardo.,Because of traffic I'm late.,phrase,n/a,causal
+grazie a,thanks to,Grazie a te ho capito.,Thanks to you I understood.,phrase,n/a,causal
+quindi,therefore/so,Quindi cosa facciamo?,So what do we do?,adverb,n/a,result
+dunque,therefore/thus,Dunque la risposta è no.,Therefore the answer is no.,adverb,n/a,result
+perciò,therefore/so,Perciò ho deciso di restare.,So I decided to stay.,adverb,n/a,result
+di conseguenza,consequently,Di conseguenza il progetto è in ritardo.,Consequently the project is late.,phrase,n/a,result
+per questo motivo,for this reason,Per questo motivo ho rifiutato.,For this reason I refused.,phrase,n/a,result
+prima,first/before,Prima mangio poi studio.,First I eat then I study.,adverb,n/a,sequential
+poi,then/afterwards,Poi andiamo al cinema.,Then we go to the cinema.,adverb,n/a,sequential
+dopo,after/afterwards,Dopo il lavoro mi riposo.,After work I rest.,adverb,n/a,sequential
+infine,finally,Infine vorrei ringraziare tutti.,Finally I'd like to thank everyone.,adverb,n/a,sequential
+alla fine,in the end,Alla fine abbiamo deciso di restare.,In the end we decided to stay.,phrase,n/a,sequential
+prima di tutto,first of all,Prima di tutto devo capire.,First of all I need to understand.,phrase,n/a,sequential
+in primo luogo,firstly,In primo luogo è troppo caro.,Firstly it's too expensive.,phrase,n/a,sequential
+in secondo luogo,secondly,In secondo luogo non mi piace.,Secondly I don't like it.,phrase,n/a,sequential
+nel frattempo,meanwhile,Nel frattempo preparo la cena.,Meanwhile I'll prepare dinner.,phrase,n/a,sequential
+se,if,Se vuoi possiamo uscire.,If you want we can go out.,conjunction,n/a,conditional
+nel caso che,in case,Nel caso che piova porto l'ombrello.,In case it rains I'll bring an umbrella.,phrase,n/a,conditional
+a meno che,unless,Vengo a meno che piova.,I'll come unless it rains.,phrase,n/a,conditional
+anche se,even if/even though,Anche se piove esco.,Even if it rains I go out.,phrase,n/a,concessive
+nonostante,despite/although,Nonostante tutto sono felice.,Despite everything I'm happy.,preposition,n/a,concessive
+malgrado,despite,Malgrado le difficoltà continuiamo.,Despite the difficulties we continue.,preposition,n/a,concessive
+cioè,that is/namely,Parlo due lingue cioè italiano e inglese.,I speak two languages namely Italian and English.,adverb,n/a,explanation
+ovvero,or rather/that is,Arrivo domani ovvero martedì.,I arrive tomorrow that is Tuesday.,adverb,n/a,explanation
+in altre parole,in other words,In altre parole non sono d'accordo.,In other words I don't agree.,phrase,n/a,explanation
+per esempio,for example,Per esempio prendiamo questo caso.,For example let's take this case.,phrase,n/a,explanation
+ad esempio,for instance,Ad esempio il prezzo è aumentato.,For instance the price went up.,phrase,n/a,explanation
+in conclusione,in conclusion,In conclusione il progetto è approvato.,In conclusion the project is approved.,phrase,n/a,conclusion
+in sintesi,in summary,In sintesi abbiamo tre opzioni.,In summary we have three options.,phrase,n/a,conclusion
+riassumendo,to summarize,Riassumendo i punti principali sono tre.,To summarize the main points are three.,gerund,n/a,conclusion
