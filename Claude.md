@@ -8,6 +8,7 @@
 
 | Resource | Path |
 |----------|------|
+| **Deck Generation Guide** | `docs/deck-generation-guide.md` |
 | Project Spec | `docs/italian-anki-generator-spec.md` |
 | ElevenLabs Integration | `docs/elevenlabs-integration.md` |
 | Development Guide | `docs/development.md` |
@@ -54,7 +55,8 @@ anki-artisan/
 │   ├── tts_service.py    # ElevenLabs integration
 │   └── deck_builder.py   # genanki deck generation
 ├── languages/            # Language configurations
-│   └── italian/          # Italian vocab & config
+│   ├── italian/          # Italian vocab & config
+│   └── spanish/          # Spanish vocab & config
 ├── templates/            # Card HTML templates
 ├── cache/                # Audio cache (gitignored)
 ├── tests/                # Unit tests
@@ -88,8 +90,14 @@ black src/ tests/
 # Lint
 ruff check src/ tests/
 
-# Generate deck
-anki-artisan generate --language italian --output deck.apkg
+# Generate deck (--level is the CSV filename without .csv)
+uv run anki-artisan generate --language italian --level a1_01_saluti_presentazioni
+
+# List available languages
+uv run anki-artisan list-languages
+
+# List available voices
+uv run anki-artisan list-voices
 ```
 
 ---

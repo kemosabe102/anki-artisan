@@ -1,6 +1,0 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-ciao,hello/goodbye,Ciao! Come stai?,Hello! How are you?,interjection,n/a,greetings
-buongiorno,good morning,Buongiorno! Tutto bene?,Good morning! All well?,interjection,n/a,greetings
-buonasera,good evening,Buonasera a tutti.,Good evening everyone.,interjection,n/a,greetings
-buonanotte,good night,Buonanotte! Dormi bene.,Good night! Sleep well.,interjection,n/a,greetings
-arrivederci,goodbye,Arrivederci! A presto.,Goodbye! See you soon.,interjection,n/a,greetings
