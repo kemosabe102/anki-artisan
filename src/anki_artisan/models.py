@@ -138,3 +138,26 @@ class GeneratedAudio(BaseModel):
         """Pydantic configuration."""
 
         arbitrary_types_allowed = True
+
+
+class ImageManifestEntry(BaseModel):
+    """Single entry in the image cache manifest."""
+
+    translation: str = Field(..., description="Normalized English translation (cache key)")
+    filename: str = Field(..., description="Image filename in cache/images/")
+    prompt: str = Field(..., description="Prompt used for generation")
+    generated_at: str = Field(..., description="ISO 8601 timestamp")
+
+
+class GeneratedImage(BaseModel):
+    """Metadata for a generated image file."""
+
+    translation: str = Field(..., description="English translation used as cache key")
+    file_path: Path = Field(..., description="Path to image file")
+    cached: bool = Field(False, description="Whether loaded from cache")
+    prompt: str = Field(..., description="Prompt used for generation")
+
+    class Config:
+        """Pydantic configuration."""
+
+        arbitrary_types_allowed = True

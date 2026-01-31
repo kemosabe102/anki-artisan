@@ -24,6 +24,7 @@ from .models import (
 BASE_DIR = Path(__file__).parent.parent.parent
 LANGUAGES_DIR = BASE_DIR / "languages"
 CACHE_DIR = BASE_DIR / "cache"
+IMAGE_CACHE_DIR = CACHE_DIR / "images"
 OUTPUT_DIR = BASE_DIR / "output"
 
 
@@ -38,6 +39,7 @@ class Settings(BaseSettings):
 
     elevenlabs_api_key: str = Field(..., description="ElevenLabs API key")
     elevenlabs_voice_id: Optional[str] = Field(None, description="Override voice ID")
+    openai_api_key: Optional[str] = Field(None, description="OpenAI API key for image generation")
     default_language: str = Field("italian", description="Default language")
     audio_cache_dir: Path = Field(CACHE_DIR, description="Audio cache directory")
 
@@ -129,4 +131,5 @@ def list_available_languages() -> list[str]:
 def ensure_directories() -> None:
     """Create cache and output directories if they don't exist."""
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    IMAGE_CACHE_DIR.mkdir(parents=True, exist_ok=True)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

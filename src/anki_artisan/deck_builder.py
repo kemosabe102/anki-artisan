@@ -6,10 +6,11 @@ audio files, and three card types for comprehensive learning.
 
 import logging
 from pathlib import Path
+from typing import Optional
 
 import genanki
 
-from .models import GeneratedAudio, LanguageConfig, VocabItem
+from .models import GeneratedAudio, GeneratedImage, LanguageConfig, VocabItem
 
 logger = logging.getLogger(__name__)
 
@@ -74,6 +75,16 @@ CARD_CSS = """
     color: #ff9800;
     margin-bottom: 20px;
 }
+
+.image {
+    margin: 10px auto;
+    max-width: 256px;
+}
+.image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
 """
 
 
@@ -94,7 +105,7 @@ class DeckBuilder:
         deck_id = language_config.deck.deck_id_base + hash(level) % 1000
         model_id = language_config.deck.model_id_base + hash(level) % 1000
 
-        # Create note model with 8 fields
+        # Create note model with 9 fields
         self._model = genanki.Model(
             model_id,
             f"{language_config.language_name} Vocabulary",
@@ -107,6 +118,7 @@ class DeckBuilder:
                 {"name": "PhraseAudio"},
                 {"name": "PartOfSpeech"},
                 {"name": "Gender"},
+                {"name": "Image"},
             ],
             templates=[
                 self._recognition_template(),
@@ -135,6 +147,7 @@ class DeckBuilder:
                 {{FrontSide}}
                 <hr>
                 <div class="translation">{{Translation}}</div>
+                {{#Image}}<div class="image">{{Image}}</div>{{/Image}}
                 <div class="phrase">{{Phrase}}</div>
                 {{PhraseAudio}}
                 <div class="phrase-translation">{{PhraseTranslation}}</div>
@@ -157,6 +170,7 @@ class DeckBuilder:
                 <hr>
                 <div class="word">{{Word}}</div>
                 {{WordAudio}}
+                {{#Image}}<div class="image">{{Image}}</div>{{/Image}}
                 <div class="phrase">{{Phrase}}</div>
                 {{PhraseAudio}}
                 <div class="phrase-translation">{{PhraseTranslation}}</div>
@@ -195,6 +209,7 @@ class DeckBuilder:
         vocab: VocabItem,
         word_audio: GeneratedAudio,
         phrase_audio: GeneratedAudio,
+        image: Optional[GeneratedImage] = None,
     ) -> None:
         """Add a vocabulary item to the deck.
 
@@ -202,12 +217,16 @@ class DeckBuilder:
             vocab: Vocabulary item data
             word_audio: Generated audio for the word
             phrase_audio: Generated audio for the phrase
+            image: Optional generated image for the vocabulary item
         """
         # Get audio filenames
         word_audio_file = word_audio.file_path.name
         phrase_audio_file = phrase_audio.file_path.name
 
-        # Create note with all 8 fields
+        # Build image field
+        image_field = f'<img src="{image.file_path.name}">' if image else ""
+
+        # Create note with all 9 fields
         note = genanki.Note(
             model=self._model,
             fields=[
@@ -219,6 +238,7 @@ class DeckBuilder:
                 f"[sound:{phrase_audio_file}]",
                 vocab.part_of_speech.value,
                 vocab.gender.value,
+                image_field,
             ],
         )
 
@@ -227,6 +247,8 @@ class DeckBuilder:
         # Track media files
         self._media_files.append(str(word_audio.file_path))
         self._media_files.append(str(phrase_audio.file_path))
+        if image:
+            self._media_files.append(str(image.file_path))
 
         logger.debug(f"Added note: {vocab.word}")
 
@@ -248,7 +270,7 @@ class DeckBuilder:
 
         package.write_to_file(str(output_path))
 
-        logger.info(f"Created deck: {output_path} ({len(self._media_files) // 2} items)")
+        logger.info(f"Created deck: {output_path} ({self.note_count} items, {len(self._media_files)} media files)")
         return output_path
 
     @property

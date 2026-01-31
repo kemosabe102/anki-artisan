@@ -10,6 +10,8 @@ import sys
 from pathlib import Path
 from typing import Optional
 
+logger = logging.getLogger(__name__)
+
 from .config import (
     OUTPUT_DIR,
     ensure_directories,
@@ -19,6 +21,7 @@ from .config import (
 )
 from .csv_reader import load_vocabulary
 from .deck_builder import DeckBuilder
+from .image_service import ImageService
 from .tts_service import TTSService
 
 
@@ -79,6 +82,13 @@ def cmd_generate(args: argparse.Namespace) -> int:
     voice_id_override = args.voice_id
     dry_run = args.dry_run
     cache_only = args.cache_only
+    skip_images = args.skip_images
+    images_only = args.images_only
+
+    # Validate mutually exclusive flags
+    if skip_images and images_only:
+        print("Error: --skip-images and --images-only are mutually exclusive")
+        return 1
 
     # Validate language
     available = list_available_languages()
@@ -118,40 +128,79 @@ def cmd_generate(args: argparse.Namespace) -> int:
     # Ensure directories exist
     ensure_directories()
 
-    # Initialize TTS service
-    try:
-        tts = TTSService()
-    except Exception as e:
-        print(f"Error initializing TTS service: {e}")
-        return 1
+    # Initialize TTS service (skip if images_only)
+    tts = None
+    if not images_only:
+        try:
+            tts = TTSService()
+        except Exception as e:
+            print(f"Error initializing TTS service: {e}")
+            return 1
+
+    # Initialize image service (skip if skip_images)
+    image_service = None
+    if not skip_images:
+        settings = get_settings()
+        if settings.openai_api_key:
+            try:
+                image_service = ImageService()
+            except Exception as e:
+                print(f"Error initializing image service: {e}")
+                return 1
+        else:
+            logger.warning("OPENAI_API_KEY not set, skipping images")
 
     # Use override voice ID if provided
     voice_id = voice_id_override or config.elevenlabs.voice_id
 
-    # Generate audio for all items
-    print(f"\nGenerating audio using voice: {voice_id}")
-    audio_map: dict[str, tuple] = {}  # word -> (word_audio, phrase_audio)
+    # Generate audio and images for all items
+    if tts:
+        print(f"\nGenerating audio using voice: {voice_id}")
+    if image_service:
+        print("Generating images...")
+
+    audio_map: dict[str, tuple] = {}
+    image_map: dict[str, object] = {}
 
     for i, item in enumerate(vocab_items, 1):
         print(f"  [{i}/{len(vocab_items)}] {item.word}...")
 
-        try:
-            word_audio = tts.generate_audio(item.word, config, voice_id)
-            phrase_audio = tts.generate_audio(item.phrase, config, voice_id)
-            audio_map[item.word] = (word_audio, phrase_audio)
+        # Audio generation (skip if images_only)
+        if tts:
+            try:
+                word_audio = tts.generate_audio(item.word, config, voice_id)
+                phrase_audio = tts.generate_audio(item.phrase, config, voice_id)
+                audio_map[item.word] = (word_audio, phrase_audio)
 
-            status = "cached" if word_audio.cached and phrase_audio.cached else "generated"
-            print(f"    {status}")
+                status = "cached" if word_audio.cached and phrase_audio.cached else "generated"
+                print(f"    audio: {status}")
 
-        except Exception as e:
-            print(f"    Error: {e}")
-            return 1
+            except Exception as e:
+                print(f"    Audio error: {e}")
+                return 1
 
-    print(f"\nAudio generation complete. Characters used: {tts.total_characters_used}")
+        # Image generation
+        if image_service:
+            try:
+                image = image_service.generate_image(item)
+                if image:
+                    image_map[item.word] = image
+                    img_status = "cached" if image.cached else "generated"
+                    print(f"    image: {img_status}")
+            except Exception as e:
+                print(f"    Image error: {e}")
+                return 1
 
-    # Cache only - skip deck building
-    if cache_only:
-        print("\n[Cache only] Audio cached successfully!")
+    # Summaries
+    if tts:
+        print(f"\nAudio: {tts.total_characters_used} characters used")
+    if image_service:
+        n = image_service.total_images_generated
+        print(f"Images: {n} generated, ~${image_service.estimated_cost:.2f}")
+
+    # Cache only modes - skip deck building
+    if cache_only or images_only:
+        print("\n[Cache mode] Complete!")
         return 0
 
     # Build deck
@@ -160,7 +209,8 @@ def cmd_generate(args: argparse.Namespace) -> int:
 
     for item in vocab_items:
         word_audio, phrase_audio = audio_map[item.word]
-        builder.add_vocab_item(item, word_audio, phrase_audio)
+        image = image_map.get(item.word)
+        builder.add_vocab_item(item, word_audio, phrase_audio, image=image)
 
     # Determine output path
     if output_path is None:
@@ -237,6 +287,16 @@ def create_parser() -> argparse.ArgumentParser:
         "--cache-only",
         action="store_true",
         help="Generate audio cache only, skip deck building",
+    )
+    gen_parser.add_argument(
+        "--skip-images",
+        action="store_true",
+        help="Skip image generation (audio only)",
+    )
+    gen_parser.add_argument(
+        "--images-only",
+        action="store_true",
+        help="Generate image cache only, skip audio and deck building",
     )
 
     return parser
