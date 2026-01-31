@@ -27,11 +27,13 @@ from .tts_service import TTSService
 
 def setup_logging(verbose: bool = False) -> None:
     """Configure logging based on verbosity."""
-    level = logging.DEBUG if verbose else logging.INFO
     logging.basicConfig(
-        level=level,
+        level=logging.DEBUG if verbose else logging.INFO,
         format="%(levelname)s: %(message)s",
     )
+    # Suppress noisy third-party debug logs (httpcore, httpx, urllib3, etc.)
+    for name in ("httpcore", "httpx", "urllib3", "openai", "elevenlabs"):
+        logging.getLogger(name).setLevel(logging.WARNING)
 
 
 def cmd_list_languages(args: argparse.Namespace) -> int:
