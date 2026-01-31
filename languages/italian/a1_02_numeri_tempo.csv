@@ -1,19 +1,19 @@
 word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-uno,one,Ho un fratello.,I have one brother.,noun,m,numbers
-due,two,Ho due gatti.,I have two cats.,noun,m,numbers
-tre,three,Sono le tre.,It is three o'clock.,noun,m,numbers
-quattro,four,Quattro persone per favore.,Four people please.,noun,m,numbers
-cinque,five,Cinque minuti ancora.,Five more minutes.,noun,m,numbers
-sei,six,Lavoro sei giorni.,I work six days.,noun,m,numbers
-sette,seven,Ci sono sette giorni.,There are seven days.,noun,m,numbers
-otto,eight,Sono le otto.,It is eight o'clock.,noun,m,numbers
-nove,nine,Arrivo alle nove.,I arrive at nine.,noun,m,numbers
-dieci,ten,Costa dieci euro.,It costs ten euros.,noun,m,numbers
-undici,eleven,Sono le undici.,It is eleven o'clock.,noun,m,numbers
-dodici,twelve,Pranzo a mezzogiorno.,I eat lunch at noon.,noun,m,numbers
-venti,twenty,Ho venti anni.,I am twenty years old.,noun,m,numbers
-trenta,thirty,Trenta minuti di pausa.,Thirty minutes of break.,noun,m,numbers
-cento,one hundred,Costa cento euro.,It costs one hundred euros.,noun,m,numbers
+uno,one,Ho un fratello.,I have one brother.,adjective,n/a,numbers
+due,two,Ho due gatti.,I have two cats.,adjective,n/a,numbers
+tre,three,Sono le tre.,It is three o'clock.,adjective,n/a,numbers
+quattro,four,Quattro persone per favore.,Four people please.,adjective,n/a,numbers
+cinque,five,Cinque minuti ancora.,Five more minutes.,adjective,n/a,numbers
+sei,six,Lavoro sei giorni.,I work six days.,adjective,n/a,numbers
+sette,seven,Ci sono sette giorni.,There are seven days.,adjective,n/a,numbers
+otto,eight,Sono le otto.,It is eight o'clock.,adjective,n/a,numbers
+nove,nine,Arrivo alle nove.,I arrive at nine.,adjective,n/a,numbers
+dieci,ten,Costa dieci euro.,It costs ten euros.,adjective,n/a,numbers
+undici,eleven,Sono le undici.,It is eleven o'clock.,adjective,n/a,numbers
+dodici,twelve,Sono le dodici.,It is twelve o'clock.,adjective,n/a,numbers
+venti,twenty,Ho venti anni.,I am twenty years old.,adjective,n/a,numbers
+trenta,thirty,Trenta minuti di pausa.,Thirty minutes of break.,adjective,n/a,numbers
+cento,one hundred,Costa cento euro.,It costs one hundred euros.,adjective,n/a,numbers
 il lunedì,Monday,Il lunedì lavoro.,On Monday I work.,noun,m,days
 il martedì,Tuesday,Il martedì studio italiano.,On Tuesday I study Italian.,noun,m,days
 il mercoledì,Wednesday,Il mercoledì vado in palestra.,On Wednesday I go to the gym.,noun,m,days
@@ -39,14 +39,14 @@ spesso,often,Spesso mangio fuori.,I often eat out.,adverb,n/a,time
 gennaio,January,Gennaio è freddo.,January is cold.,noun,m,months
 febbraio,February,Febbraio è corto.,February is short.,noun,m,months
 marzo,March,Marzo è primavera.,March is spring.,noun,m,months
-aprile,April,Aprile piove spesso.,In April it rains often.,noun,m,months
+aprile,April,In aprile piove spesso.,In April it rains often.,noun,m,months
 maggio,May,Maggio è bello.,May is beautiful.,noun,m,months
-giugno,June,Giugno fa caldo.,June is hot.,noun,m,months
-luglio,July,Luglio vado in vacanza.,In July I go on vacation.,noun,m,months
-agosto,August,Agosto l'Italia chiude.,In August Italy closes.,noun,m,months
-settembre,September,Settembre torno al lavoro.,In September I return to work.,noun,m,months
+giugno,June,A giugno fa caldo.,In June it's hot.,noun,m,months
+luglio,July,A luglio vado in vacanza.,In July I go on vacation.,noun,m,months
+agosto,August,In agosto l'Italia chiude.,In August Italy closes.,noun,m,months
+settembre,September,A settembre torno al lavoro.,In September I return to work.,noun,m,months
 ottobre,October,Ottobre è autunno.,October is autumn.,noun,m,months
-novembre,November,Novembre piove molto.,In November it rains a lot.,noun,m,months
+novembre,November,In novembre piove molto.,In November it rains a lot.,noun,m,months
 dicembre,December,Dicembre è Natale.,December is Christmas.,noun,m,months
 la settimana,the week,Questa settimana sono occupato.,This week I am busy.,noun,f,time
 il mese,the month,Il mese prossimo parto.,Next month I leave.,noun,m,time

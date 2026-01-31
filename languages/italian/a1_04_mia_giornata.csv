@@ -38,7 +38,7 @@ ogni giorno,every day,Lavoro ogni giorno.,I work every day.,phrase,n/a,time
 a volte,sometimes,A volte esco la sera.,Sometimes I go out at night.,phrase,n/a,time
 poi,then/afterwards,Poi vado a dormire.,Then I go to sleep.,adverb,n/a,time
 prima di,before,Prima di uscire mangio.,Before going out I eat.,phrase,n/a,time
-dopo di,after,Dopo il lavoro mi riposo.,After work I rest.,phrase,n/a,time
+dopo,after,Dopo il lavoro mi riposo.,After work I rest.,adverb,n/a,time
 durante,during,Durante il pranzo leggo.,During lunch I read.,preposition,n/a,time
 stanco,tired,Sono molto stanco.,I am very tired.,adjective,n/a,adjectives
 occupato,busy,Oggi sono occupato.,Today I am busy.,adjective,n/a,adjectives
