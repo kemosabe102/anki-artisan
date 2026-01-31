@@ -44,6 +44,7 @@ class TTSService:
         text: str,
         language_config: LanguageConfig,
         voice_id: Optional[str] = None,
+        model_id_override: Optional[str] = None,
     ) -> GeneratedAudio:
         """Generate audio for text, using cache if available.
 
@@ -51,6 +52,7 @@ class TTSService:
             text: Text to convert to speech
             language_config: Language configuration with voice settings
             voice_id: Override voice ID (uses config default if None)
+            model_id_override: Override model ID (uses config default if None)
 
         Returns:
             GeneratedAudio with file path and metadata
@@ -58,11 +60,14 @@ class TTSService:
         if voice_id is None:
             voice_id = language_config.elevenlabs.voice_id
 
+        model_id = model_id_override or language_config.elevenlabs.model_id
+
         # Generate cache path
         cache_path = self._get_cache_path(
             text=text,
             language=language_config.language_code,
             voice_id=voice_id,
+            model_id=model_id,
         )
 
         # Check cache first
@@ -80,6 +85,7 @@ class TTSService:
         self._generate_with_retry(
             text=text,
             voice_id=voice_id,
+            model_id=model_id,
             language_config=language_config,
             output_path=cache_path,
         )
@@ -97,6 +103,7 @@ class TTSService:
         self,
         text: str,
         voice_id: str,
+        model_id: str,
         language_config: LanguageConfig,
         output_path: Path,
         max_retries: int = 3,
@@ -106,6 +113,7 @@ class TTSService:
         Args:
             text: Text to convert
             voice_id: ElevenLabs voice ID
+            model_id: TTS model ID to use
             language_config: Language config with voice settings
             output_path: Where to save the audio file
             max_retries: Maximum retry attempts
@@ -121,20 +129,25 @@ class TTSService:
                 # Prepare text with SSML break if configured
                 tts_text = self._prepare_text_for_tts(text, settings)
 
-                audio = self._client.text_to_speech.convert(
-                    voice_id=voice_id,
-                    text=tts_text,
-                    model_id=language_config.elevenlabs.model_id,
-                    language_code=language_config.language_code,
-                    output_format="mp3_44100_128",
-                    voice_settings={
+                api_kwargs = {
+                    "voice_id": voice_id,
+                    "text": tts_text,
+                    "model_id": model_id,
+                    "output_format": "mp3_44100_128",
+                    "voice_settings": {
                         "stability": settings.stability,
                         "similarity_boost": settings.similarity_boost,
                         "style": settings.style,
                         "use_speaker_boost": settings.use_speaker_boost,
                         "speed": settings.speed,
                     },
-                )
+                }
+
+                # language_code only works with turbo/flash models
+                if model_id in ("eleven_turbo_v2_5", "eleven_flash_v2_5"):
+                    api_kwargs["language_code"] = language_config.language_code
+
+                audio = self._client.text_to_speech.convert(**api_kwargs)
 
                 # Ensure cache directory exists
                 output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -153,19 +166,20 @@ class TTSService:
                     logger.error(f"Failed after {max_retries} attempts: {e}")
                     raise
 
-    def _get_cache_path(self, text: str, language: str, voice_id: str) -> Path:
+    def _get_cache_path(self, text: str, language: str, voice_id: str, model_id: str) -> Path:
         """Generate cache file path for audio.
 
         Args:
             text: Source text
             language: Language code
             voice_id: Voice ID
+            model_id: TTS model ID
 
         Returns:
             Path in format: cache/{language}/{voice_id}/{hash}.mp3
         """
-        # Create hash from text + language + voice_id
-        hash_input = f"{text}|{language}|{voice_id}"
+        # Create hash from text + language + voice_id + model_id
+        hash_input = f"{text}|{language}|{voice_id}|{model_id}"
         hash_value = hashlib.sha256(hash_input.encode()).hexdigest()[:16]
 
         return CACHE_DIR / language / voice_id / f"{hash_value}.mp3"

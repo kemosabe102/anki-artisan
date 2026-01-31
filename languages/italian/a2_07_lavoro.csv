@@ -1,42 +1,42 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-il lavoro,the job/work,Mi piace il mio lavoro.,I like my job.,noun,m,work
-l'ufficio,the office,Lavoro in ufficio.,I work in an office.,noun,m,places
-l'azienda,the company,L'azienda è grande.,The company is big.,noun,f,work
-la ditta,the firm/business,La ditta ha cento dipendenti.,The firm has one hundred employees.,noun,f,work
-il capo,the boss,Il capo è in riunione.,The boss is in a meeting.,noun,m,people
-il collega,the colleague (male),Il mio collega è simpatico.,My colleague is nice.,noun,m,people
-la collega,the colleague (female),La collega parla tre lingue.,The colleague speaks three languages.,noun,f,people
-il dipendente,the employee,Sono un dipendente pubblico.,I'm a public employee.,noun,m,people
-il cliente,the client/customer,Il cliente ha sempre ragione.,The customer is always right.,noun,m,people
-il contratto,the contract,Ho firmato il contratto.,I signed the contract.,noun,m,work
-lo stipendio,the salary,Lo stipendio è buono.,The salary is good.,noun,m,work
-le ferie,vacation time/leave,Ho due settimane di ferie.,I have two weeks of vacation.,noun,f,work
-la riunione,the meeting,La riunione è alle dieci.,The meeting is at ten.,noun,f,work
-il progetto,the project,Il progetto va bene.,The project is going well.,noun,m,work
-il curriculum,the resume/CV,Mando il mio curriculum.,I send my resume.,noun,m,work
-il colloquio,the interview,Ho un colloquio domani.,I have an interview tomorrow.,noun,m,work
-l'esperienza,the experience,Ho molta esperienza.,I have a lot of experience.,noun,f,work
-la carriera,the career,Vuole fare carriera.,He wants to have a career.,noun,f,work
-l'orario,the schedule/hours,L'orario è flessibile.,The schedule is flexible.,noun,m,work
-il part-time,part-time,Lavoro part-time.,I work part-time.,noun,m,work
-il tempo pieno,full-time,Cerco un lavoro a tempo pieno.,I'm looking for a full-time job.,noun,m,work
-lavorare,to work,Lavoro dalle nove alle sei.,I work from nine to six.,verb,n/a,verbs
-guadagnare,to earn,Quanto guadagni al mese?,How much do you earn per month?,verb,n/a,verbs
-cercare lavoro,to look for work,Sto cercando lavoro.,I'm looking for work.,phrase,n/a,verbs
-fare domanda,to apply,Ho fatto domanda per il posto.,I applied for the position.,phrase,n/a,verbs
-andare in pensione,to retire,Mio padre va in pensione.,My father is retiring.,phrase,n/a,verbs
-il programmatore,the programmer,Sono programmatore da dieci anni.,I've been a programmer for ten years.,noun,m,professions
-l'ingegnere,the engineer,L'ingegnere progetta edifici.,The engineer designs buildings.,noun,m,professions
-il commercialista,the accountant,Il commercialista fa le tasse.,The accountant does the taxes.,noun,m,professions
-l'architetto,the architect,L'architetto disegna case.,The architect designs houses.,noun,m,professions
-il manager,the manager,Il manager gestisce il team.,The manager manages the team.,noun,m,professions
-il consulente,the consultant,Lavoro come consulente.,I work as a consultant.,noun,m,professions
-l'impiegato,the clerk/office worker,L'impiegato lavora in banca.,The clerk works at a bank.,noun,m,professions
-l'operaio,the factory worker,L'operaio lavora in fabbrica.,The worker works in a factory.,noun,m,professions
-disoccupato,unemployed,Sono disoccupato da sei mesi.,I've been unemployed for six months.,adjective,n/a,work
-occupato,busy/employed,Sono molto occupato oggi.,I'm very busy today.,adjective,n/a,work
-stressante,stressful,Il lavoro è stressante.,The job is stressful.,adjective,n/a,adjectives
-impegnativo,demanding,È un lavoro impegnativo.,It's a demanding job.,adjective,n/a,adjectives
-soddisfacente,satisfying,Il lavoro è soddisfacente.,The job is satisfying.,adjective,n/a,adjectives
-da remoto,remotely,Lavoro da remoto.,I work remotely.,phrase,n/a,work
-in sede,on-site,Lavoro in sede tre giorni.,I work on-site three days.,phrase,n/a,work
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+il lavoro,the job/work,Mi piace il mio lavoro.,I like my job.,noun,m,work,
+l'ufficio,the office,Lavoro in ufficio.,I work in an office.,noun,m,places,
+l'azienda,the company,L'azienda è grande.,The company is big.,noun,f,work,
+la ditta,the firm/business,La ditta ha cento dipendenti.,The firm has one hundred employees.,noun,f,work,
+il capo,the boss,Il capo è in riunione.,The boss is in a meeting.,noun,m,people,
+il collega,the colleague (male),Il mio collega è simpatico.,My colleague is nice.,noun,m,people,
+la collega,the colleague (female),La collega parla tre lingue.,The colleague speaks three languages.,noun,f,people,
+il dipendente,the employee,Sono un dipendente pubblico.,I'm a public employee.,noun,m,people,
+il cliente,the client/customer,Il cliente ha sempre ragione.,The customer is always right.,noun,m,people,
+il contratto,the contract,Ho firmato il contratto.,I signed the contract.,noun,m,work,
+lo stipendio,the salary,Lo stipendio è buono.,The salary is good.,noun,m,work,
+le ferie,vacation time/leave,Ho due settimane di ferie.,I have two weeks of vacation.,noun,f,work,
+la riunione,the meeting,La riunione è alle dieci.,The meeting is at ten.,noun,f,work,
+il progetto,the project,Il progetto va bene.,The project is going well.,noun,m,work,
+il curriculum,the resume/CV,Mando il mio curriculum.,I send my resume.,noun,m,work,
+il colloquio,the interview,Ho un colloquio domani.,I have an interview tomorrow.,noun,m,work,
+l'esperienza,the experience,Ho molta esperienza.,I have a lot of experience.,noun,f,work,
+la carriera,the career,Vuole fare carriera.,He wants to have a career.,noun,f,work,
+l'orario,the schedule/hours,L'orario è flessibile.,The schedule is flexible.,noun,m,work,
+il part-time,part-time,Lavoro part-time.,I work part-time.,noun,m,work,
+il tempo pieno,full-time,Cerco un lavoro a tempo pieno.,I'm looking for a full-time job.,noun,m,work,
+lavorare,to work,Lavoro dalle nove alle sei.,I work from nine to six.,verb,n/a,verbs,
+guadagnare,to earn,Quanto guadagni al mese?,How much do you earn per month?,verb,n/a,verbs,
+cercare lavoro,to look for work,Sto cercando lavoro.,I'm looking for work.,phrase,n/a,verbs,
+fare domanda,to apply,Ho fatto domanda per il posto.,I applied for the position.,phrase,n/a,verbs,
+andare in pensione,to retire,Mio padre va in pensione.,My father is retiring.,phrase,n/a,verbs,
+il programmatore,the programmer,Sono programmatore da dieci anni.,I've been a programmer for ten years.,noun,m,professions,
+l'ingegnere,the engineer,L'ingegnere progetta edifici.,The engineer designs buildings.,noun,m,professions,
+il commercialista,the accountant,Il commercialista fa le tasse.,The accountant does the taxes.,noun,m,professions,
+l'architetto,the architect,L'architetto disegna case.,The architect designs houses.,noun,m,professions,
+il manager,the manager,Il manager gestisce il team.,The manager manages the team.,noun,m,professions,
+il consulente,the consultant,Lavoro come consulente.,I work as a consultant.,noun,m,professions,
+l'impiegato,the clerk/office worker,L'impiegato lavora in banca.,The clerk works at a bank.,noun,m,professions,
+l'operaio,the factory worker,L'operaio lavora in fabbrica.,The worker works in a factory.,noun,m,professions,
+disoccupato,unemployed,Sono disoccupato da sei mesi.,I've been unemployed for six months.,adjective,n/a,work,
+occupato,busy/employed,Sono molto occupato oggi.,I'm very busy today.,adjective,n/a,work,
+stressante,stressful,Il lavoro è stressante.,The job is stressful.,adjective,n/a,adjectives,
+impegnativo,demanding,È un lavoro impegnativo.,It's a demanding job.,adjective,n/a,adjectives,
+soddisfacente,satisfying,Il lavoro è soddisfacente.,The job is satisfying.,adjective,n/a,adjectives,
+da remoto,remotely,Lavoro da remoto.,I work remotely.,phrase,n/a,work,
+in sede,on-site,Lavoro in sede tre giorni.,I work on-site three days.,phrase,n/a,work,

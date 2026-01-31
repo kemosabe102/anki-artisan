@@ -1,45 +1,45 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-buena suerte,good luck,¡Buena suerte en tu examen!,Good luck on your exam!,phrase,n/a,common
-romper el hielo,to break the ice,Intenté romper el hielo.,I tried to break the ice.,phrase,n/a,common
-no ver la hora,can't wait,No veo la hora de verla.,I can't wait to see her.,phrase,n/a,common
-quedar bien/mal,to make a good/bad impression,Quiero quedar bien con su familia.,I want to make a good impression on her family.,phrase,n/a,common
-ni modo,oh well/no way,Ni modo tendremos que esperar.,Oh well we'll have to wait.,phrase,n/a,common
-¡qué padre!,how cool! (Mexico),¡Qué padre tu carro nuevo!,How cool your new car!,phrase,n/a,common
-¡qué chévere!,how cool! (Latin America),¡Qué chévere tu viaje!,How cool your trip!,phrase,n/a,common
-en un abrir y cerrar de ojos,in the blink of an eye,En un abrir y cerrar.,In the blink of an eye.,phrase,n/a,common
-poner el carro delante del caballo,to put the cart before the horse,El carro delante del caballo.,The cart before the horse.,phrase,n/a,common
-costar un ojo de la cara,to cost an arm and a leg,Costó un ojo de la cara.,It cost an arm and a leg.,phrase,n/a,body
-meter la pata,to put your foot in it,Metí la pata con ese comentario.,I put my foot in it with that comment.,phrase,n/a,body
-no tener pelos en la lengua,to not mince words,No tiene pelos en la lengua.,She doesn't mince words.,phrase,n/a,body
-ser muy buena onda,to be really cool/nice,Tu hermano es muy buena onda.,Your brother is really cool.,phrase,n/a,body
-andar con la cabeza en las nubes,to have one's head in the clouds,La cabeza en las nubes.,Head in the clouds.,phrase,n/a,body
-echar una mano,to lend a hand,¿Me echas una mano con esto?,Can you lend me a hand with this?,phrase,n/a,body
-quedarse de brazos cruzados,to sit idly by,No puedo quedarme de brazos cruzados.,I can't sit idly by.,phrase,n/a,body
-perder la cabeza,to lose one's head,Perdió la cabeza por ella.,He lost his head over her.,phrase,n/a,body
-estar sin un centavo,to be broke,Estoy sin un centavo.,I'm broke.,phrase,n/a,money
-estar en las últimas,to be on one's last legs,El negocio está en las últimas.,The business is on its last legs.,phrase,n/a,money
-devolver la pelota,to return the favor,Ahora te devuelvo la pelota.,Now I'll return the favor.,phrase,n/a,money
-ser pan comido,to be a piece of cake,El examen fue pan comido.,The exam was a piece of cake.,phrase,n/a,food
-ser harina de otro costal,to be a different story,Eso es harina de otro costal.,That's a different story.,phrase,n/a,food
-estar como pez en el agua,to be in one's element,Está como pez en el agua.,She's in her element.,phrase,n/a,animals
-ser un pez gordo,to be a big shot,Es un pez gordo.,He's a big shot.,phrase,n/a,animals
-tener la sartén por el mango,to be in control,Tiene la sartén por el mango.,She's in control.,phrase,n/a,control
-tomar el pelo,to pull someone's leg,¿Me estás tomando el pelo?,Are you pulling my leg?,phrase,n/a,common
-poner las cartas sobre la mesa,to put the cards on the table,Poner las cartas sobre la mesa.,Put the cards on the table.,phrase,n/a,common
-soltar la sopa,to spill the beans,Al final soltó la sopa.,In the end he spilled the beans.,phrase,n/a,common
-tocar madera,to knock on wood,Toco madera. ¡Buena suerte!,Knock on wood. Good luck!,phrase,n/a,common
-el que persevera alcanza,persistence pays off,El que persevera alcanza recuerda eso.,Persistence pays off remember that.,phrase,n/a,proverbs
-no todo lo que brilla es oro,all that glitters is not gold,No todo lo que brilla.,All that glitters is not gold.,phrase,n/a,proverbs
-quien tiene un amigo tiene un tesoro,a friend is a treasure,Un amigo es un tesoro.,A friend is a treasure.,phrase,n/a,proverbs
-el hábito no hace al monje,don't judge a book by its cover,El hábito no hace al monje.,Don't judge a book by its cover.,phrase,n/a,proverbs
-más vale tarde que nunca,better late than never,Más vale tarde que nunca.,Better late than never.,phrase,n/a,proverbs
-del dicho al hecho hay mucho trecho,easier said than done,Del dicho al hecho.,Easier said than done.,phrase,n/a,proverbs
-camarón que se duerme se lo lleva la corriente,you snooze you lose,Camarón que se duerme.,You snooze you lose.,phrase,n/a,proverbs
-a palabras necias oídos sordos,don't listen to fools,A palabras necias oídos sordos.,Don't listen to fools.,phrase,n/a,proverbs
-una golondrina no hace verano,one swallow doesn't make a summer,Una golondrina no hace verano.,One swallow doesn't make a summer.,phrase,n/a,proverbs
-cada quien con su cada cual,to each their own,Cada quien con su cada cual.,To each their own.,phrase,n/a,proverbs
-no hay mal que por bien no venga,every cloud has a silver lining,No hay mal que por bien.,Every cloud has a silver lining.,phrase,n/a,proverbs
-dime con quién andas,you are known by the company you keep,Dime con quién andas.,Tell me who your friends are.,phrase,n/a,proverbs
-en boca cerrada no entran moscas,silence is golden,En boca cerrada no entran moscas.,Silence is golden.,phrase,n/a,proverbs
-estar hasta las narices,to be fed up,Estoy hasta las narices de esperar.,I'm fed up with waiting.,phrase,n/a,emotions
-ponerse las pilas,to get one's act together,Tienes que ponerte las pilas.,You need to get your act together.,phrase,n/a,common
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+buena suerte,good luck,¡Buena suerte en tu examen!,Good luck on your exam!,phrase,n/a,common,
+romper el hielo,to break the ice,Intenté romper el hielo.,I tried to break the ice.,phrase,n/a,common,
+no ver la hora,can't wait,No veo la hora de verla.,I can't wait to see her.,phrase,n/a,common,
+quedar bien/mal,to make a good/bad impression,Quiero quedar bien con su familia.,I want to make a good impression on her family.,phrase,n/a,common,
+ni modo,oh well/no way,Ni modo tendremos que esperar.,Oh well we'll have to wait.,phrase,n/a,common,
+¡qué padre!,how cool! (Mexico),¡Qué padre tu carro nuevo!,How cool your new car!,phrase,n/a,common,
+¡qué chévere!,how cool! (Latin America),¡Qué chévere tu viaje!,How cool your trip!,phrase,n/a,common,
+en un abrir y cerrar de ojos,in the blink of an eye,En un abrir y cerrar.,In the blink of an eye.,phrase,n/a,common,
+poner el carro delante del caballo,to put the cart before the horse,El carro delante del caballo.,The cart before the horse.,phrase,n/a,common,
+costar un ojo de la cara,to cost an arm and a leg,Costó un ojo de la cara.,It cost an arm and a leg.,phrase,n/a,body,
+meter la pata,to put your foot in it,Metí la pata con ese comentario.,I put my foot in it with that comment.,phrase,n/a,body,
+no tener pelos en la lengua,to not mince words,No tiene pelos en la lengua.,She doesn't mince words.,phrase,n/a,body,
+ser muy buena onda,to be really cool/nice,Tu hermano es muy buena onda.,Your brother is really cool.,phrase,n/a,body,
+andar con la cabeza en las nubes,to have one's head in the clouds,La cabeza en las nubes.,Head in the clouds.,phrase,n/a,body,
+echar una mano,to lend a hand,¿Me echas una mano con esto?,Can you lend me a hand with this?,phrase,n/a,body,
+quedarse de brazos cruzados,to sit idly by,No puedo quedarme de brazos cruzados.,I can't sit idly by.,phrase,n/a,body,
+perder la cabeza,to lose one's head,Perdió la cabeza por ella.,He lost his head over her.,phrase,n/a,body,
+estar sin un centavo,to be broke,Estoy sin un centavo.,I'm broke.,phrase,n/a,money,
+estar en las últimas,to be on one's last legs,El negocio está en las últimas.,The business is on its last legs.,phrase,n/a,money,
+devolver la pelota,to return the favor,Ahora te devuelvo la pelota.,Now I'll return the favor.,phrase,n/a,money,
+ser pan comido,to be a piece of cake,El examen fue pan comido.,The exam was a piece of cake.,phrase,n/a,food,
+ser harina de otro costal,to be a different story,Eso es harina de otro costal.,That's a different story.,phrase,n/a,food,
+estar como pez en el agua,to be in one's element,Está como pez en el agua.,She's in her element.,phrase,n/a,animals,
+ser un pez gordo,to be a big shot,Es un pez gordo.,He's a big shot.,phrase,n/a,animals,
+tener la sartén por el mango,to be in control,Tiene la sartén por el mango.,She's in control.,phrase,n/a,control,
+tomar el pelo,to pull someone's leg,¿Me estás tomando el pelo?,Are you pulling my leg?,phrase,n/a,common,
+poner las cartas sobre la mesa,to put the cards on the table,Poner las cartas sobre la mesa.,Put the cards on the table.,phrase,n/a,common,
+soltar la sopa,to spill the beans,Al final soltó la sopa.,In the end he spilled the beans.,phrase,n/a,common,
+tocar madera,to knock on wood,Toco madera. ¡Buena suerte!,Knock on wood. Good luck!,phrase,n/a,common,
+el que persevera alcanza,persistence pays off,El que persevera alcanza recuerda eso.,Persistence pays off remember that.,phrase,n/a,proverbs,
+no todo lo que brilla es oro,all that glitters is not gold,No todo lo que brilla.,All that glitters is not gold.,phrase,n/a,proverbs,
+quien tiene un amigo tiene un tesoro,a friend is a treasure,Un amigo es un tesoro.,A friend is a treasure.,phrase,n/a,proverbs,
+el hábito no hace al monje,don't judge a book by its cover,El hábito no hace al monje.,Don't judge a book by its cover.,phrase,n/a,proverbs,
+más vale tarde que nunca,better late than never,Más vale tarde que nunca.,Better late than never.,phrase,n/a,proverbs,
+del dicho al hecho hay mucho trecho,easier said than done,Del dicho al hecho.,Easier said than done.,phrase,n/a,proverbs,
+camarón que se duerme se lo lleva la corriente,you snooze you lose,Camarón que se duerme.,You snooze you lose.,phrase,n/a,proverbs,
+a palabras necias oídos sordos,don't listen to fools,A palabras necias oídos sordos.,Don't listen to fools.,phrase,n/a,proverbs,
+una golondrina no hace verano,one swallow doesn't make a summer,Una golondrina no hace verano.,One swallow doesn't make a summer.,phrase,n/a,proverbs,
+cada quien con su cada cual,to each their own,Cada quien con su cada cual.,To each their own.,phrase,n/a,proverbs,
+no hay mal que por bien no venga,every cloud has a silver lining,No hay mal que por bien.,Every cloud has a silver lining.,phrase,n/a,proverbs,
+dime con quién andas,you are known by the company you keep,Dime con quién andas.,Tell me who your friends are.,phrase,n/a,proverbs,
+en boca cerrada no entran moscas,silence is golden,En boca cerrada no entran moscas.,Silence is golden.,phrase,n/a,proverbs,
+estar hasta las narices,to be fed up,Estoy hasta las narices de esperar.,I'm fed up with waiting.,phrase,n/a,emotions,
+ponerse las pilas,to get one's act together,Tienes que ponerte las pilas.,You need to get your act together.,phrase,n/a,common,

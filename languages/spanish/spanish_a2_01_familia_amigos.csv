@@ -1,48 +1,48 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-la familia,the family,Mi familia es grande.,My family is big.,noun,f,family
-el padre,the father,Mi padre trabaja mucho.,My father works a lot.,noun,m,family
-la madre,the mother,Mi madre cocina muy bien.,My mother cooks very well.,noun,f,family
-los padres,the parents,Mis padres viven en México.,My parents live in Mexico.,noun,m,family
-el hermano,the brother,Tengo un hermano mayor.,I have an older brother.,noun,m,family
-la hermana,the sister,Mi hermana estudia medicina.,My sister studies medicine.,noun,f,family
-el abuelo,the grandfather,Mi abuelo tiene ochenta años.,My grandfather is eighty years old.,noun,m,family
-la abuela,the grandmother,Mi abuela cocina muy rico.,My grandmother cooks very well.,noun,f,family
-los abuelos,the grandparents,Visito a mis abuelos cada mes.,I visit my grandparents every month.,noun,m,family
-el tío,the uncle,Mi tío vive en California.,My uncle lives in California.,noun,m,family
-la tía,the aunt,Mi tía es profesora.,My aunt is a teacher.,noun,f,family
-el primo,the cousin (male),Mi primo tiene mi edad.,My cousin is my age.,noun,m,family
-la prima,the cousin (female),Se casó el año pasado.,She got married last year.,noun,f,family
-el sobrino,the nephew,Mi sobrino tiene tres años.,My nephew is three years old.,noun,m,family
-la sobrina,the niece,Mi sobrina empieza la escuela.,My niece starts school.,noun,f,family
-el nieto,the grandson,Mi nieto nació ayer.,My grandson was born yesterday.,noun,m,family
-la nieta,the granddaughter,Mi nieta es muy inteligente.,My granddaughter is very smart.,noun,f,family
-el esposo,the husband,Mi esposo trabaja en un banco.,My husband works at a bank.,noun,m,relationships
-la esposa,the wife,Su esposa es muy simpática.,His wife is very nice.,noun,f,relationships
-el marido,the husband,Mi marido cocina los domingos.,My husband cooks on Sundays.,noun,m,relationships
-el novio,the boyfriend,Mi novio es de Colombia.,My boyfriend is from Colombia.,noun,m,relationships
-la novia,the girlfriend,Su novia estudia derecho.,His girlfriend studies law.,noun,f,relationships
-el suegro,the father-in-law,Mi suegro es muy amable.,My father-in-law is very kind.,noun,m,family
-la suegra,the mother-in-law,Mi suegra viene de visita.,My mother-in-law is coming to visit.,noun,f,family
-el cuñado,the brother-in-law,Mi cuñado vive cerca.,My brother-in-law lives nearby.,noun,m,family
-la cuñada,the sister-in-law,Mi cuñada trabaja conmigo.,My sister-in-law works with me.,noun,f,family
-el vecino,the neighbor (male),Mi vecino es muy ruidoso.,My neighbor is very noisy.,noun,m,relationships
-la vecina,the neighbor (female),La vecina tiene un perro.,The neighbor has a dog.,noun,f,relationships
-soltero,single,Mi hermano está soltero.,My brother is single.,adjective,n/a,status
-casado,married,Estoy casado desde hace cinco años.,I've been married for five years.,adjective,n/a,status
-divorciado,divorced,Mis padres están divorciados.,My parents are divorced.,adjective,n/a,status
-viudo,widowed,Mi abuelo está viudo.,My grandfather is widowed.,adjective,n/a,status
-comprometido,engaged,Mi hermana está comprometida.,My sister is engaged.,adjective,n/a,status
-conocer,to know (people)/meet,Quiero conocer a tu familia.,I want to meet your family.,verb,n/a,verbs
-presentar,to introduce,Te presento a mi hermana.,I introduce you to my sister.,verb,n/a,verbs
-casarse,to get married,Se casan en junio.,They're getting married in June.,verb,n/a,verbs
-divorciarse,to get divorced,Se divorciaron el año pasado.,They got divorced last year.,verb,n/a,verbs
-llevarse bien,to get along well,Me llevo bien con mi hermano.,I get along well with my brother.,phrase,n/a,verbs
-llevarse mal,to not get along,Se llevan mal a veces.,They don't get along sometimes.,phrase,n/a,verbs
-parecerse a,to look like,Te pareces a tu madre.,You look like your mother.,phrase,n/a,verbs
-vivir juntos,to live together,Vivimos juntos hace dos años.,We've lived together for two years.,phrase,n/a,verbs
-el mejor amigo,the best friend (male),Es mi mejor amigo.,He's my best friend.,noun,m,relationships
-la mejor amiga,the best friend (female),Ella es mi mejor amiga.,She's my best friend.,noun,f,relationships
-el compañero,the companion/partner,Mi compañero de cuarto.,My roommate.,noun,m,relationships
-la pareja,the partner/couple,Mi pareja y yo viajamos mucho.,My partner and I travel a lot.,noun,f,relationships
-el hijo único,the only child (male),Soy hijo único.,I'm an only child.,noun,m,family
-la hija única,the only child (female),Ella es hija única.,She's an only child.,noun,f,family
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+la familia,the family,Mi familia es grande.,My family is big.,noun,f,family,
+el padre,the father,Mi padre trabaja mucho.,My father works a lot.,noun,m,family,
+la madre,the mother,Mi madre cocina muy bien.,My mother cooks very well.,noun,f,family,
+los padres,the parents,Mis padres viven en México.,My parents live in Mexico.,noun,m,family,
+el hermano,the brother,Tengo un hermano mayor.,I have an older brother.,noun,m,family,
+la hermana,the sister,Mi hermana estudia medicina.,My sister studies medicine.,noun,f,family,
+el abuelo,the grandfather,Mi abuelo tiene ochenta años.,My grandfather is eighty years old.,noun,m,family,
+la abuela,the grandmother,Mi abuela cocina muy rico.,My grandmother cooks very well.,noun,f,family,
+los abuelos,the grandparents,Visito a mis abuelos cada mes.,I visit my grandparents every month.,noun,m,family,
+el tío,the uncle,Mi tío vive en California.,My uncle lives in California.,noun,m,family,
+la tía,the aunt,Mi tía es profesora.,My aunt is a teacher.,noun,f,family,
+el primo,the cousin (male),Mi primo tiene mi edad.,My cousin is my age.,noun,m,family,
+la prima,the cousin (female),Se casó el año pasado.,She got married last year.,noun,f,family,
+el sobrino,the nephew,Mi sobrino tiene tres años.,My nephew is three years old.,noun,m,family,
+la sobrina,the niece,Mi sobrina empieza la escuela.,My niece starts school.,noun,f,family,
+el nieto,the grandson,Mi nieto nació ayer.,My grandson was born yesterday.,noun,m,family,
+la nieta,the granddaughter,Mi nieta es muy inteligente.,My granddaughter is very smart.,noun,f,family,
+el esposo,the husband,Mi esposo trabaja en un banco.,My husband works at a bank.,noun,m,relationships,
+la esposa,the wife,Su esposa es muy simpática.,His wife is very nice.,noun,f,relationships,
+el marido,the husband,Mi marido cocina los domingos.,My husband cooks on Sundays.,noun,m,relationships,
+el novio,the boyfriend,Mi novio es de Colombia.,My boyfriend is from Colombia.,noun,m,relationships,
+la novia,the girlfriend,Su novia estudia derecho.,His girlfriend studies law.,noun,f,relationships,
+el suegro,the father-in-law,Mi suegro es muy amable.,My father-in-law is very kind.,noun,m,family,
+la suegra,the mother-in-law,Mi suegra viene de visita.,My mother-in-law is coming to visit.,noun,f,family,
+el cuñado,the brother-in-law,Mi cuñado vive cerca.,My brother-in-law lives nearby.,noun,m,family,
+la cuñada,the sister-in-law,Mi cuñada trabaja conmigo.,My sister-in-law works with me.,noun,f,family,
+el vecino,the neighbor (male),Mi vecino es muy ruidoso.,My neighbor is very noisy.,noun,m,relationships,
+la vecina,the neighbor (female),La vecina tiene un perro.,The neighbor has a dog.,noun,f,relationships,
+soltero,single,Mi hermano está soltero.,My brother is single.,adjective,n/a,status,
+casado,married,Estoy casado desde hace cinco años.,I've been married for five years.,adjective,n/a,status,
+divorciado,divorced,Mis padres están divorciados.,My parents are divorced.,adjective,n/a,status,
+viudo,widowed,Mi abuelo está viudo.,My grandfather is widowed.,adjective,n/a,status,
+comprometido,engaged,Mi hermana está comprometida.,My sister is engaged.,adjective,n/a,status,
+conocer,to know (people)/meet,Quiero conocer a tu familia.,I want to meet your family.,verb,n/a,verbs,
+presentar,to introduce,Te presento a mi hermana.,I introduce you to my sister.,verb,n/a,verbs,
+casarse,to get married,Se casan en junio.,They're getting married in June.,verb,n/a,verbs,
+divorciarse,to get divorced,Se divorciaron el año pasado.,They got divorced last year.,verb,n/a,verbs,
+llevarse bien,to get along well,Me llevo bien con mi hermano.,I get along well with my brother.,phrase,n/a,verbs,
+llevarse mal,to not get along,Se llevan mal a veces.,They don't get along sometimes.,phrase,n/a,verbs,
+parecerse a,to look like,Te pareces a tu madre.,You look like your mother.,phrase,n/a,verbs,
+vivir juntos,to live together,Vivimos juntos hace dos años.,We've lived together for two years.,phrase,n/a,verbs,
+el mejor amigo,the best friend (male),Es mi mejor amigo.,He's my best friend.,noun,m,relationships,
+la mejor amiga,the best friend (female),Ella es mi mejor amiga.,She's my best friend.,noun,f,relationships,
+el compañero,the companion/partner,Mi compañero de cuarto.,My roommate.,noun,m,relationships,
+la pareja,the partner/couple,Mi pareja y yo viajamos mucho.,My partner and I travel a lot.,noun,f,relationships,
+el hijo único,the only child (male),Soy hijo único.,I'm an only child.,noun,m,family,
+la hija única,the only child (female),Ella es hija única.,She's an only child.,noun,f,family,

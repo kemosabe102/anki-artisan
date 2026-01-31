@@ -1,54 +1,54 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-il negozio,the shop/store,Il negozio apre alle nove.,The shop opens at nine.,noun,m,places
-il supermercato,the supermarket,Vado al supermercato.,I go to the supermarket.,noun,m,places
-il mercato,the market,Il mercato è il sabato.,The market is on Saturday.,noun,m,places
-il centro commerciale,the shopping mall,C'è un centro commerciale vicino?,Is there a mall nearby?,noun,m,places
-la cassa,the checkout/register,La cassa è laggiù.,The checkout is over there.,noun,f,shopping
-lo scontrino,the receipt,Posso avere lo scontrino?,Can I have the receipt?,noun,m,shopping
-il prezzo,the price,Qual è il prezzo?,What is the price?,noun,m,shopping
-lo sconto,the discount,C'è uno sconto oggi?,Is there a discount today?,noun,m,shopping
-i saldi,the sales,I saldi iniziano domani.,The sales start tomorrow.,noun,m,shopping
-la taglia,the size (clothing),Che taglia porta?,What size do you wear?,noun,f,shopping
-il numero,the size (shoes),Che numero di scarpe?,What shoe size?,noun,m,shopping
-la camicia,the shirt,La camicia è di cotone.,The shirt is cotton.,noun,f,clothing
-la maglietta,the t-shirt,Porto una maglietta bianca.,I wear a white t-shirt.,noun,f,clothing
-il maglione,the sweater,Il maglione è caldo.,The sweater is warm.,noun,m,clothing
-la giacca,the jacket,La giacca è troppo grande.,The jacket is too big.,noun,f,clothing
-il cappotto,the coat,Ho bisogno di un cappotto.,I need a coat.,noun,m,clothing
-i pantaloni,the pants/trousers,I pantaloni sono nuovi.,The pants are new.,noun,m,clothing
-i jeans,the jeans,I jeans sono comodi.,The jeans are comfortable.,noun,m,clothing
-la gonna,the skirt,La gonna è troppo corta.,The skirt is too short.,noun,f,clothing
-il vestito,the dress/suit,Il vestito è elegante.,The dress is elegant.,noun,m,clothing
-le scarpe,the shoes,Le scarpe sono italiane.,The shoes are Italian.,noun,f,clothing
-gli stivali,the boots,Gli stivali sono di pelle.,The boots are leather.,noun,m,clothing
-le scarpe da ginnastica,the sneakers,Porto le scarpe da ginnastica.,I wear sneakers.,noun,f,clothing
-i calzini,the socks,Ho bisogno di calzini nuovi.,I need new socks.,noun,m,clothing
-la borsa,the bag/purse,La borsa è in pelle.,The bag is leather.,noun,f,clothing
-il cappello,the hat,Porta sempre un cappello.,He always wears a hat.,noun,m,clothing
-la sciarpa,the scarf,La sciarpa è di lana.,The scarf is wool.,noun,f,clothing
-i guanti,the gloves,I guanti sono caldi.,The gloves are warm.,noun,m,clothing
-l'ombrello,the umbrella,Ho dimenticato l'ombrello.,I forgot the umbrella.,noun,m,clothing
-gli occhiali,the glasses,Porto gli occhiali.,I wear glasses.,noun,m,clothing
-gli occhiali da sole,the sunglasses,Mi servono gli occhiali da sole.,I need sunglasses.,noun,m,clothing
-comprare,to buy,Voglio comprare una giacca.,I want to buy a jacket.,verb,n/a,verbs
-vendere,to sell,Vendono prodotti italiani.,They sell Italian products.,verb,n/a,verbs
-pagare,to pay,Posso pagare con carta?,Can I pay by card?,verb,n/a,verbs
-costare,to cost,Quanto costa questa borsa?,How much does this bag cost?,verb,n/a,verbs
-provare,to try on,Posso provare questi pantaloni?,Can I try on these pants?,verb,n/a,verbs
-portare,to wear/carry,Cosa porti stasera?,What are you wearing tonight?,verb,n/a,verbs
-cambiare,to exchange,Posso cambiare questa taglia?,Can I exchange this size?,verb,n/a,verbs
-restituire,to return,Vorrei restituire questo.,I would like to return this.,verb,n/a,verbs
-spendere,to spend,Non voglio spendere molto.,I don't want to spend much.,verb,n/a,verbs
-risparmiare,to save (money),Cerco di risparmiare.,I try to save money.,verb,n/a,verbs
-caro,expensive,È troppo caro per me.,It's too expensive for me.,adjective,n/a,adjectives
-economico,cheap/affordable,Questo negozio è economico.,This store is affordable.,adjective,n/a,adjectives
-in contanti,in cash,Pago in contanti.,I pay in cash.,phrase,n/a,shopping
-con la carta,by card,Preferisco pagare con la carta.,I prefer to pay by card.,phrase,n/a,shopping
-largo,wide/loose,La camicia è troppo larga.,The shirt is too loose.,adjective,n/a,adjectives
-stretto,tight/narrow,Le scarpe sono strette.,The shoes are tight.,adjective,n/a,adjectives
-lungo,long,Il vestito è troppo lungo.,The dress is too long.,adjective,n/a,adjectives
-corto,short,I pantaloni sono corti.,The pants are short.,adjective,n/a,adjectives
-di cotone,cotton (made of),La maglietta è di cotone.,The t-shirt is cotton.,phrase,n/a,materials
-di lana,wool (made of),Il maglione è di lana.,The sweater is wool.,phrase,n/a,materials
-di pelle,leather (made of),La borsa è di pelle.,The bag is leather.,phrase,n/a,materials
-di seta,silk (made of),La sciarpa è di seta.,The scarf is silk.,phrase,n/a,materials
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+il negozio,the shop/store,Il negozio apre alle nove.,The shop opens at nine.,noun,m,places,
+il supermercato,the supermarket,Vado al supermercato.,I go to the supermarket.,noun,m,places,
+il mercato,the market,Il mercato è il sabato.,The market is on Saturday.,noun,m,places,
+il centro commerciale,the shopping mall,C'è un centro commerciale vicino?,Is there a mall nearby?,noun,m,places,
+la cassa,the checkout/register,La cassa è laggiù.,The checkout is over there.,noun,f,shopping,
+lo scontrino,the receipt,Posso avere lo scontrino?,Can I have the receipt?,noun,m,shopping,
+il prezzo,the price,Qual è il prezzo?,What is the price?,noun,m,shopping,
+lo sconto,the discount,C'è uno sconto oggi?,Is there a discount today?,noun,m,shopping,
+i saldi,the sales,I saldi iniziano domani.,The sales start tomorrow.,noun,m,shopping,
+la taglia,the size (clothing),Che taglia porta?,What size do you wear?,noun,f,shopping,
+il numero,the size (shoes),Che numero di scarpe?,What shoe size?,noun,m,shopping,
+la camicia,the shirt,La camicia è di cotone.,The shirt is cotton.,noun,f,clothing,
+la maglietta,the t-shirt,Porto una maglietta bianca.,I wear a white t-shirt.,noun,f,clothing,
+il maglione,the sweater,Il maglione è caldo.,The sweater is warm.,noun,m,clothing,
+la giacca,the jacket,La giacca è troppo grande.,The jacket is too big.,noun,f,clothing,
+il cappotto,the coat,Ho bisogno di un cappotto.,I need a coat.,noun,m,clothing,
+i pantaloni,the pants/trousers,I pantaloni sono nuovi.,The pants are new.,noun,m,clothing,
+i jeans,the jeans,I jeans sono comodi.,The jeans are comfortable.,noun,m,clothing,
+la gonna,the skirt,La gonna è troppo corta.,The skirt is too short.,noun,f,clothing,
+il vestito,the dress/suit,Il vestito è elegante.,The dress is elegant.,noun,m,clothing,
+le scarpe,the shoes,Le scarpe sono italiane.,The shoes are Italian.,noun,f,clothing,
+gli stivali,the boots,Gli stivali sono di pelle.,The boots are leather.,noun,m,clothing,
+le scarpe da ginnastica,the sneakers,Porto le scarpe da ginnastica.,I wear sneakers.,noun,f,clothing,
+i calzini,the socks,Ho bisogno di calzini nuovi.,I need new socks.,noun,m,clothing,
+la borsa,the bag/purse,La borsa è in pelle.,The bag is leather.,noun,f,clothing,
+il cappello,the hat,Porta sempre un cappello.,He always wears a hat.,noun,m,clothing,
+la sciarpa,the scarf,La sciarpa è di lana.,The scarf is wool.,noun,f,clothing,
+i guanti,the gloves,I guanti sono caldi.,The gloves are warm.,noun,m,clothing,
+l'ombrello,the umbrella,Ho dimenticato l'ombrello.,I forgot the umbrella.,noun,m,clothing,
+gli occhiali,the glasses,Porto gli occhiali.,I wear glasses.,noun,m,clothing,
+gli occhiali da sole,the sunglasses,Mi servono gli occhiali da sole.,I need sunglasses.,noun,m,clothing,
+comprare,to buy,Voglio comprare una giacca.,I want to buy a jacket.,verb,n/a,verbs,
+vendere,to sell,Vendono prodotti italiani.,They sell Italian products.,verb,n/a,verbs,
+pagare,to pay,Posso pagare con carta?,Can I pay by card?,verb,n/a,verbs,
+costare,to cost,Quanto costa questa borsa?,How much does this bag cost?,verb,n/a,verbs,
+provare,to try on,Posso provare questi pantaloni?,Can I try on these pants?,verb,n/a,verbs,
+portare,to wear/carry,Cosa porti stasera?,What are you wearing tonight?,verb,n/a,verbs,
+cambiare,to exchange,Posso cambiare questa taglia?,Can I exchange this size?,verb,n/a,verbs,
+restituire,to return,Vorrei restituire questo.,I would like to return this.,verb,n/a,verbs,
+spendere,to spend,Non voglio spendere molto.,I don't want to spend much.,verb,n/a,verbs,
+risparmiare,to save (money),Cerco di risparmiare.,I try to save money.,verb,n/a,verbs,
+caro,expensive,È troppo caro per me.,It's too expensive for me.,adjective,n/a,adjectives,
+economico,cheap/affordable,Questo negozio è economico.,This store is affordable.,adjective,n/a,adjectives,
+in contanti,in cash,Pago in contanti.,I pay in cash.,phrase,n/a,shopping,
+con la carta,by card,Preferisco pagare con la carta.,I prefer to pay by card.,phrase,n/a,shopping,
+largo,wide/loose,La camicia è troppo larga.,The shirt is too loose.,adjective,n/a,adjectives,
+stretto,tight/narrow,Le scarpe sono strette.,The shoes are tight.,adjective,n/a,adjectives,
+lungo,long,Il vestito è troppo lungo.,The dress is too long.,adjective,n/a,adjectives,
+corto,short,I pantaloni sono corti.,The pants are short.,adjective,n/a,adjectives,
+di cotone,cotton (made of),La maglietta è di cotone.,The t-shirt is cotton.,phrase,n/a,materials,
+di lana,wool (made of),Il maglione è di lana.,The sweater is wool.,phrase,n/a,materials,
+di pelle,leather (made of),La borsa è di pelle.,The bag is leather.,phrase,n/a,materials,
+di seta,silk (made of),La sciarpa è di seta.,The scarf is silk.,phrase,n/a,materials,

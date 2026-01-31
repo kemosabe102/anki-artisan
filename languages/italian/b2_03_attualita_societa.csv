@@ -1,45 +1,45 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-il governo,the government,Il governo ha approvato la legge.,The government approved the law.,noun,m,politics
-il ministero,the ministry,Il Ministero della Salute.,The Ministry of Health.,noun,m,politics
-il ministro,the minister,Il ministro ha parlato alla stampa.,The minister spoke to the press.,noun,m,politics
-il Parlamento,Parliament,Il Parlamento discute la riforma.,Parliament discusses the reform.,noun,m,politics
-la Camera dei deputati,Chamber of Deputies,La Camera dei deputati vota domani.,The Chamber of Deputies votes tomorrow.,noun,f,politics
-il Senato,the Senate,Il Senato ha approvato il decreto.,The Senate approved the decree.,noun,m,politics
-il Presidente della Repubblica,President of the Republic,Il Presidente della Repubblica ha firmato.,The President signed.,noun,m,politics
-il sindaco,the mayor,Il sindaco ha inaugurato la piazza.,The mayor inaugurated the square.,noun,m,politics
-il partito,the political party,Il partito ha vinto le elezioni.,The party won the elections.,noun,m,politics
-le elezioni,the elections,Le elezioni sono a maggio.,The elections are in May.,noun,f,politics
-votare,to vote,Voto sempre alle elezioni.,I always vote in elections.,verb,n/a,verbs
-la legge,the law,La legge entra in vigore domani.,The law takes effect tomorrow.,noun,f,legal
-il decreto,the decree,Il decreto è stato pubblicato.,The decree was published.,noun,m,legal
-la riforma,the reform,La riforma è necessaria.,The reform is necessary.,noun,f,legal
-il regolamento,the regulation,Il regolamento è chiaro.,The regulation is clear.,noun,m,legal
-il tribunale,the court,Il tribunale ha deciso.,The court decided.,noun,m,legal
-il giudice,the judge,Il giudice ha emesso la sentenza.,The judge issued the verdict.,noun,m,legal
-il diritto,the right/law,Il diritto alla salute.,The right to health.,noun,m,legal
-il dovere,the duty,È un dovere civico votare.,Voting is a civic duty.,noun,m,legal
-il cittadino,the citizen,I cittadini hanno dei diritti.,Citizens have rights.,noun,m,society
-la società,society,La società sta cambiando.,Society is changing.,noun,f,society
-l'immigrazione,immigration,L'immigrazione è un tema importante.,Immigration is an important topic.,noun,f,society
-l'integrazione,integration,L'integrazione richiede tempo.,Integration takes time.,noun,f,society
-la disoccupazione,unemployment,La disoccupazione è in calo.,Unemployment is decreasing.,noun,f,society
-la povertà,poverty,La povertà è un problema serio.,Poverty is a serious problem.,noun,f,society
-l'uguaglianza,equality,L'uguaglianza di genere è importante.,Gender equality is important.,noun,f,society
-la discriminazione,discrimination,La discriminazione è illegale.,Discrimination is illegal.,noun,f,society
-la cronaca,news/current affairs,La cronaca di oggi.,Today's news.,noun,f,media
-l'articolo,the article,L'articolo è interessante.,The article is interesting.,noun,m,media
-l'editoriale,the editorial,L'editoriale critica il governo.,The editorial criticizes the government.,noun,m,media
-l'inchiesta,the investigation,L'inchiesta giornalistica.,The journalistic investigation.,noun,f,media
-il reportage,the report/feature,Il reportage sulla crisi.,The report on the crisis.,noun,m,media
-il giornalista,the journalist,Il giornalista intervista il ministro.,The journalist interviews the minister.,noun,m,media
-la crisi,the crisis,La crisi economica continua.,The economic crisis continues.,noun,f,issues
-la protesta,the protest,La protesta è pacifica.,The protest is peaceful.,noun,f,issues
-la manifestazione,the demonstration,La manifestazione è domani.,The demonstration is tomorrow.,noun,f,issues
-lo sciopero,the strike,Lo sciopero dei trasporti.,The transport strike.,noun,m,issues
-il dibattito,the debate,Il dibattito politico è acceso.,The political debate is heated.,noun,m,issues
-la questione,the issue/question,La questione è complessa.,The issue is complex.,noun,f,issues
-affrontare,to face/tackle,Dobbiamo affrontare il problema.,We need to tackle the problem.,verb,n/a,verbs
-risolvere,to solve,È difficile risolvere la crisi.,It's difficult to solve the crisis.,verb,n/a,verbs
-denunciare,to denounce/report,Ha denunciato la corruzione.,He denounced the corruption.,verb,n/a,verbs
-sostenere,to support/argue,Sostengo questa posizione.,I support this position.,verb,n/a,verbs
-opporsi,to oppose,Mi oppongo a questa decisione.,I oppose this decision.,verb,n/a,verbs
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+il governo,the government,Il governo ha approvato la legge.,The government approved the law.,noun,m,politics,
+il ministero,the ministry,Il Ministero della Salute.,The Ministry of Health.,noun,m,politics,
+il ministro,the minister,Il ministro ha parlato alla stampa.,The minister spoke to the press.,noun,m,politics,
+il Parlamento,Parliament,Il Parlamento discute la riforma.,Parliament discusses the reform.,noun,m,politics,
+la Camera dei deputati,Chamber of Deputies,La Camera dei deputati vota domani.,The Chamber of Deputies votes tomorrow.,noun,f,politics,
+il Senato,the Senate,Il Senato ha approvato il decreto.,The Senate approved the decree.,noun,m,politics,
+il Presidente della Repubblica,President of the Republic,Il Presidente della Repubblica ha firmato.,The President signed.,noun,m,politics,
+il sindaco,the mayor,Il sindaco ha inaugurato la piazza.,The mayor inaugurated the square.,noun,m,politics,
+il partito,the political party,Il partito ha vinto le elezioni.,The party won the elections.,noun,m,politics,
+le elezioni,the elections,Le elezioni sono a maggio.,The elections are in May.,noun,f,politics,
+votare,to vote,Voto sempre alle elezioni.,I always vote in elections.,verb,n/a,verbs,
+la legge,the law,La legge entra in vigore domani.,The law takes effect tomorrow.,noun,f,legal,
+il decreto,the decree,Il decreto è stato pubblicato.,The decree was published.,noun,m,legal,
+la riforma,the reform,La riforma è necessaria.,The reform is necessary.,noun,f,legal,
+il regolamento,the regulation,Il regolamento è chiaro.,The regulation is clear.,noun,m,legal,
+il tribunale,the court,Il tribunale ha deciso.,The court decided.,noun,m,legal,
+il giudice,the judge,Il giudice ha emesso la sentenza.,The judge issued the verdict.,noun,m,legal,
+il diritto,the right/law,Il diritto alla salute.,The right to health.,noun,m,legal,
+il dovere,the duty,È un dovere civico votare.,Voting is a civic duty.,noun,m,legal,
+il cittadino,the citizen,I cittadini hanno dei diritti.,Citizens have rights.,noun,m,society,
+la società,society,La società sta cambiando.,Society is changing.,noun,f,society,
+l'immigrazione,immigration,L'immigrazione è un tema importante.,Immigration is an important topic.,noun,f,society,
+l'integrazione,integration,L'integrazione richiede tempo.,Integration takes time.,noun,f,society,
+la disoccupazione,unemployment,La disoccupazione è in calo.,Unemployment is decreasing.,noun,f,society,
+la povertà,poverty,La povertà è un problema serio.,Poverty is a serious problem.,noun,f,society,
+l'uguaglianza,equality,L'uguaglianza di genere è importante.,Gender equality is important.,noun,f,society,
+la discriminazione,discrimination,La discriminazione è illegale.,Discrimination is illegal.,noun,f,society,
+la cronaca,news/current affairs,La cronaca di oggi.,Today's news.,noun,f,media,
+l'articolo,the article,L'articolo è interessante.,The article is interesting.,noun,m,media,
+l'editoriale,the editorial,L'editoriale critica il governo.,The editorial criticizes the government.,noun,m,media,
+l'inchiesta,the investigation,L'inchiesta giornalistica.,The journalistic investigation.,noun,f,media,
+il reportage,the report/feature,Il reportage sulla crisi.,The report on the crisis.,noun,m,media,
+il giornalista,the journalist,Il giornalista intervista il ministro.,The journalist interviews the minister.,noun,m,media,
+la crisi,the crisis,La crisi economica continua.,The economic crisis continues.,noun,f,issues,
+la protesta,the protest,La protesta è pacifica.,The protest is peaceful.,noun,f,issues,
+la manifestazione,the demonstration,La manifestazione è domani.,The demonstration is tomorrow.,noun,f,issues,
+lo sciopero,the strike,Lo sciopero dei trasporti.,The transport strike.,noun,m,issues,
+il dibattito,the debate,Il dibattito politico è acceso.,The political debate is heated.,noun,m,issues,
+la questione,the issue/question,La questione è complessa.,The issue is complex.,noun,f,issues,
+affrontare,to face/tackle,Dobbiamo affrontare il problema.,We need to tackle the problem.,verb,n/a,verbs,
+risolvere,to solve,È difficile risolvere la crisi.,It's difficult to solve the crisis.,verb,n/a,verbs,
+denunciare,to denounce/report,Ha denunciato la corruzione.,He denounced the corruption.,verb,n/a,verbs,
+sostenere,to support/argue,Sostengo questa posizione.,I support this position.,verb,n/a,verbs,
+opporsi,to oppose,Mi oppongo a questa decisione.,I oppose this decision.,verb,n/a,verbs,

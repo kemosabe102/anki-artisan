@@ -1,46 +1,46 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-l'istruzione,education,L'istruzione è importante.,Education is important.,noun,f,education
-la formazione,training/education,Ho una buona formazione.,I have good training.,noun,f,education
-l'università,the university,Studio all'università di Bologna.,I study at the University of Bologna.,noun,f,institutions
-la facoltà,the faculty/school,La facoltà di ingegneria.,The engineering school.,noun,f,institutions
-il liceo,the high school,Ho frequentato il liceo scientifico.,I attended a science-focused high school.,noun,m,institutions
-l'istituto,the institute,L'istituto tecnico è vicino.,The technical institute is nearby.,noun,m,institutions
-la scuola media,middle school,Mio figlio va alle scuole medie.,My son goes to middle school.,noun,f,institutions
-la scuola elementare,elementary school,La scuola elementare è gratuita.,Elementary school is free.,noun,f,institutions
-l'asilo,kindergarten/daycare,Il bambino va all'asilo.,The child goes to kindergarten.,noun,m,institutions
-il corso,the course,Il corso dura sei mesi.,The course lasts six months.,noun,m,academics
-la lezione,the lesson/class,La lezione inizia alle nove.,The class starts at nine.,noun,f,academics
-il seminario,the seminar,Ho partecipato a un seminario.,I attended a seminar.,noun,m,academics
-la laurea,the degree,Ho una laurea in economia.,I have a degree in economics.,noun,f,academics
-il diploma,the diploma,Ho il diploma di maturità.,I have a high school diploma.,noun,m,academics
-il certificato,the certificate,Ho ottenuto un certificato.,I obtained a certificate.,noun,m,academics
-l'esame,the exam,L'esame è difficile.,The exam is difficult.,noun,m,academics
-il voto,the grade,Ho preso un buon voto.,I got a good grade.,noun,m,academics
-la pagella,the report card,La pagella arriva a giugno.,The report card comes in June.,noun,f,academics
-la materia,the subject,La mia materia preferita è storia.,My favorite subject is history.,noun,f,academics
-la tesi,the thesis,Sto scrivendo la tesi.,I'm writing my thesis.,noun,f,academics
-la ricerca,the research,La ricerca va avanti bene.,The research is going well.,noun,f,academics
-la borsa di studio,the scholarship,Ho vinto una borsa di studio.,I won a scholarship.,noun,f,academics
-il professore,the professor,Il professore spiega bene.,The professor explains well.,noun,m,people
-la professoressa,the professor (female),La professoressa è severa.,The professor is strict.,noun,f,people
-il docente,the instructor/lecturer,Il docente è esperto.,The instructor is an expert.,noun,m,people
-il preside,the principal/dean,Il preside ha convocato una riunione.,The principal called a meeting.,noun,m,people
-il rettore,the rector/president,Il rettore ha parlato agli studenti.,The rector spoke to the students.,noun,m,people
-laurearsi,to graduate (university),Mi laureo l'anno prossimo.,I graduate next year.,verb,n/a,verbs
-diplomarsi,to graduate (high school),Mi sono diplomato nel duemila.,I graduated in two thousand.,verb,n/a,verbs
-iscriversi,to enroll,Mi sono iscritto all'università.,I enrolled at the university.,verb,n/a,verbs
-frequentare,to attend,Frequento le lezioni ogni giorno.,I attend classes every day.,verb,n/a,verbs
-superare,to pass (an exam),Ho superato l'esame.,I passed the exam.,verb,n/a,verbs
-bocciare,to fail (someone),L'hanno bocciato all'esame.,They failed him on the exam.,verb,n/a,verbs
-essere bocciato,to fail (be failed),Sono stato bocciato in matematica.,I failed math.,phrase,n/a,verbs
-ripetere,to repeat (a year),Deve ripetere l'anno.,He has to repeat the year.,verb,n/a,verbs
-preparare,to prepare,Mi preparo per l'esame.,I'm preparing for the exam.,verb,n/a,verbs
-ripassare,to review,Devo ripassare la grammatica.,I need to review the grammar.,verb,n/a,verbs
-approfondire,to deepen/study in depth,Voglio approfondire questo argomento.,I want to study this topic in depth.,verb,n/a,verbs
-gli appunti,notes,Prendo sempre appunti.,I always take notes.,noun,m,academics
-il quaderno,the notebook,Ho dimenticato il quaderno.,I forgot my notebook.,noun,m,academics
-la biblioteca,the library,Studio in biblioteca.,I study in the library.,noun,f,places
-l'aula,the classroom,L'aula è al primo piano.,The classroom is on the first floor.,noun,f,places
-obbligatorio,mandatory/required,Il corso è obbligatorio.,The course is mandatory.,adjective,n/a,adjectives
-facoltativo,optional/elective,Questa materia è facoltativa.,This subject is optional.,adjective,n/a,adjectives
-fuori corso,behind schedule (studies),Sono fuori corso di un anno.,I'm a year behind in my studies.,phrase,n/a,academics
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+l'istruzione,education,L'istruzione è importante.,Education is important.,noun,f,education,
+la formazione,training/education,Ho una buona formazione.,I have good training.,noun,f,education,
+l'università,the university,Studio all'università di Bologna.,I study at the University of Bologna.,noun,f,institutions,
+la facoltà,the faculty/school,La facoltà di ingegneria.,The engineering school.,noun,f,institutions,
+il liceo,the high school,Ho frequentato il liceo scientifico.,I attended a science-focused high school.,noun,m,institutions,
+l'istituto,the institute,L'istituto tecnico è vicino.,The technical institute is nearby.,noun,m,institutions,
+la scuola media,middle school,Mio figlio va alle scuole medie.,My son goes to middle school.,noun,f,institutions,
+la scuola elementare,elementary school,La scuola elementare è gratuita.,Elementary school is free.,noun,f,institutions,
+l'asilo,kindergarten/daycare,Il bambino va all'asilo.,The child goes to kindergarten.,noun,m,institutions,
+il corso,the course,Il corso dura sei mesi.,The course lasts six months.,noun,m,academics,
+la lezione,the lesson/class,La lezione inizia alle nove.,The class starts at nine.,noun,f,academics,
+il seminario,the seminar,Ho partecipato a un seminario.,I attended a seminar.,noun,m,academics,
+la laurea,the degree,Ho una laurea in economia.,I have a degree in economics.,noun,f,academics,
+il diploma,the diploma,Ho il diploma di maturità.,I have a high school diploma.,noun,m,academics,
+il certificato,the certificate,Ho ottenuto un certificato.,I obtained a certificate.,noun,m,academics,
+l'esame,the exam,L'esame è difficile.,The exam is difficult.,noun,m,academics,
+il voto,the grade,Ho preso un buon voto.,I got a good grade.,noun,m,academics,
+la pagella,the report card,La pagella arriva a giugno.,The report card comes in June.,noun,f,academics,
+la materia,the subject,La mia materia preferita è storia.,My favorite subject is history.,noun,f,academics,
+la tesi,the thesis,Sto scrivendo la tesi.,I'm writing my thesis.,noun,f,academics,
+la ricerca,the research,La ricerca va avanti bene.,The research is going well.,noun,f,academics,
+la borsa di studio,the scholarship,Ho vinto una borsa di studio.,I won a scholarship.,noun,f,academics,
+il professore,the professor,Il professore spiega bene.,The professor explains well.,noun,m,people,
+la professoressa,the professor (female),La professoressa è severa.,The professor is strict.,noun,f,people,
+il docente,the instructor/lecturer,Il docente è esperto.,The instructor is an expert.,noun,m,people,
+il preside,the principal/dean,Il preside ha convocato una riunione.,The principal called a meeting.,noun,m,people,
+il rettore,the rector/president,Il rettore ha parlato agli studenti.,The rector spoke to the students.,noun,m,people,
+laurearsi,to graduate (university),Mi laureo l'anno prossimo.,I graduate next year.,verb,n/a,verbs,
+diplomarsi,to graduate (high school),Mi sono diplomato nel duemila.,I graduated in two thousand.,verb,n/a,verbs,
+iscriversi,to enroll,Mi sono iscritto all'università.,I enrolled at the university.,verb,n/a,verbs,
+frequentare,to attend,Frequento le lezioni ogni giorno.,I attend classes every day.,verb,n/a,verbs,
+superare,to pass (an exam),Ho superato l'esame.,I passed the exam.,verb,n/a,verbs,
+bocciare,to fail (someone),L'hanno bocciato all'esame.,They failed him on the exam.,verb,n/a,verbs,
+essere bocciato,to fail (be failed),Sono stato bocciato in matematica.,I failed math.,phrase,n/a,verbs,
+ripetere,to repeat (a year),Deve ripetere l'anno.,He has to repeat the year.,verb,n/a,verbs,
+preparare,to prepare,Mi preparo per l'esame.,I'm preparing for the exam.,verb,n/a,verbs,
+ripassare,to review,Devo ripassare la grammatica.,I need to review the grammar.,verb,n/a,verbs,
+approfondire,to deepen/study in depth,Voglio approfondire questo argomento.,I want to study this topic in depth.,verb,n/a,verbs,
+gli appunti,notes,Prendo sempre appunti.,I always take notes.,noun,m,academics,
+il quaderno,the notebook,Ho dimenticato il quaderno.,I forgot my notebook.,noun,m,academics,
+la biblioteca,the library,Studio in biblioteca.,I study in the library.,noun,f,places,
+l'aula,the classroom,L'aula è al primo piano.,The classroom is on the first floor.,noun,f,places,
+obbligatorio,mandatory/required,Il corso è obbligatorio.,The course is mandatory.,adjective,n/a,adjectives,
+facoltativo,optional/elective,Questa materia è facoltativa.,This subject is optional.,adjective,n/a,adjectives,
+fuori corso,behind schedule (studies),Sono fuori corso di un anno.,I'm a year behind in my studies.,phrase,n/a,academics,

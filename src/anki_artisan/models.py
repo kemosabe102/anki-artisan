@@ -56,6 +56,9 @@ class VocabItem(BaseModel):
     part_of_speech: PartOfSpeech
     gender: Gender = Gender.NOT_APPLICABLE
     tags: list[str] = Field(default_factory=list)
+    tts_model: Optional[str] = Field(
+        None, description="TTS model override: 'turbo' for language enforcement"
+    )
 
     @field_validator("phrase")
     @classmethod

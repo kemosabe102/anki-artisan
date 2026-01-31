@@ -1,43 +1,43 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-la cabeza,the head,Me duele la cabeza.,My head hurts.,noun,f,body
-el pelo,the hair,Tiene el pelo negro.,He has black hair.,noun,m,body
-la cara,the face,Tiene una cara bonita.,She has a pretty face.,noun,f,body
-los ojos,the eyes,Tiene los ojos verdes.,She has green eyes.,noun,m,body
-la nariz,the nose,Tiene la nariz pequeña.,He has a small nose.,noun,f,body
-la boca,the mouth,Abre la boca por favor.,Open your mouth please.,noun,f,body
-los dientes,the teeth,Me cepillo los dientes.,I brush my teeth.,noun,m,body
-la oreja,the ear,Me duele la oreja.,My ear hurts.,noun,f,body
-el cuello,the neck,Tengo dolor de cuello.,I have neck pain.,noun,m,body
-el hombro,the shoulder,Me duele el hombro izquierdo.,My left shoulder hurts.,noun,m,body
-el brazo,the arm,Me rompí el brazo.,I broke my arm.,noun,m,body
-la mano,the hand,Lávate las manos.,Wash your hands.,noun,f,body
-el dedo,the finger,Me corté el dedo.,I cut my finger.,noun,m,body
-la espalda,the back,Me duele la espalda.,My back hurts.,noun,f,body
-el estómago,the stomach,Tengo dolor de estómago.,I have a stomachache.,noun,m,body
-la pierna,the leg,Me duele la pierna derecha.,My right leg hurts.,noun,f,body
-la rodilla,the knee,Tengo problemas con la rodilla.,I have knee problems.,noun,f,body
-el pie,the foot,Me duelen los pies.,My feet hurt.,noun,m,body
-el corazón,the heart,El corazón late rápido.,The heart beats fast.,noun,m,body
-la clínica,the clinic,La clínica abre a las ocho.,The clinic opens at eight.,noun,f,health
-la medicina,the medicine,Tomo la medicina tres veces.,I take the medicine three times.,noun,f,health
-la pastilla,the pill,Tomo una pastilla al día.,I take one pill a day.,noun,f,health
-la receta,the prescription,Necesito una receta médica.,I need a medical prescription.,noun,f,health
-el dolor,the pain,Tengo un dolor muy fuerte.,I have a very strong pain.,noun,m,symptoms
-la fiebre,the fever,Tengo un poco de fiebre.,I have a slight fever.,noun,f,symptoms
-la gripe,the flu,Tengo gripe y me siento mal.,I have the flu and feel bad.,noun,f,conditions
-el resfriado,the cold,Es solo un resfriado.,It's just a cold.,noun,m,conditions
-la tos,the cough,Tengo mucha tos.,I have a bad cough.,noun,f,symptoms
-el dolor de cabeza,headache,Tengo dolor de cabeza fuerte.,I have a strong headache.,noun,m,symptoms
-el dolor de garganta,sore throat,Tengo dolor de garganta.,I have a sore throat.,noun,m,symptoms
-la alergia,the allergy,Tengo alergia al polen.,I'm allergic to pollen.,noun,f,conditions
-enfermo,sick,Estoy enfermo hoy.,I'm sick today.,adjective,n/a,adjectives
-sano,healthy,Quiero estar sano.,I want to be healthy.,adjective,n/a,adjectives
-doler,to hurt,Me duele mucho la espalda.,My back hurts a lot.,verb,n/a,verbs
-mejorar,to improve/get better,Espero mejorar pronto.,I hope to get better soon.,verb,n/a,verbs
-empeorar,to get worse,Los síntomas están empeorando.,The symptoms are getting worse.,verb,n/a,verbs
-cuidarse,to take care of oneself,Debes cuidarte más.,You should take better care of yourself.,verb,n/a,verbs
-ir al médico,to go to the doctor,Deberías ir al médico.,You should go to the doctor.,phrase,n/a,phrases
-¿qué te pasa?,what's wrong?,¿Qué te pasa? Te ves mal.,What's wrong? You look bad.,phrase,n/a,phrases
-me siento mal,I feel bad,Me siento mal hoy.,I feel bad today.,phrase,n/a,phrases
-tengo náuseas,I feel nauseous,Tengo náuseas desde ayer.,I've felt nauseous since yesterday.,phrase,n/a,symptoms
-estoy mareado,I feel dizzy,Estoy mareado desde esta mañana.,I've been dizzy since this morning.,phrase,n/a,symptoms
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+la cabeza,the head,Me duele la cabeza.,My head hurts.,noun,f,body,
+el pelo,the hair,Tiene el pelo negro.,He has black hair.,noun,m,body,
+la cara,the face,Tiene una cara bonita.,She has a pretty face.,noun,f,body,
+los ojos,the eyes,Tiene los ojos verdes.,She has green eyes.,noun,m,body,
+la nariz,the nose,Tiene la nariz pequeña.,He has a small nose.,noun,f,body,
+la boca,the mouth,Abre la boca por favor.,Open your mouth please.,noun,f,body,
+los dientes,the teeth,Me cepillo los dientes.,I brush my teeth.,noun,m,body,
+la oreja,the ear,Me duele la oreja.,My ear hurts.,noun,f,body,
+el cuello,the neck,Tengo dolor de cuello.,I have neck pain.,noun,m,body,
+el hombro,the shoulder,Me duele el hombro izquierdo.,My left shoulder hurts.,noun,m,body,
+el brazo,the arm,Me rompí el brazo.,I broke my arm.,noun,m,body,
+la mano,the hand,Lávate las manos.,Wash your hands.,noun,f,body,
+el dedo,the finger,Me corté el dedo.,I cut my finger.,noun,m,body,
+la espalda,the back,Me duele la espalda.,My back hurts.,noun,f,body,
+el estómago,the stomach,Tengo dolor de estómago.,I have a stomachache.,noun,m,body,
+la pierna,the leg,Me duele la pierna derecha.,My right leg hurts.,noun,f,body,
+la rodilla,the knee,Tengo problemas con la rodilla.,I have knee problems.,noun,f,body,
+el pie,the foot,Me duelen los pies.,My feet hurt.,noun,m,body,
+el corazón,the heart,El corazón late rápido.,The heart beats fast.,noun,m,body,
+la clínica,the clinic,La clínica abre a las ocho.,The clinic opens at eight.,noun,f,health,
+la medicina,the medicine,Tomo la medicina tres veces.,I take the medicine three times.,noun,f,health,
+la pastilla,the pill,Tomo una pastilla al día.,I take one pill a day.,noun,f,health,
+la receta,the prescription,Necesito una receta médica.,I need a medical prescription.,noun,f,health,
+el dolor,the pain,Tengo un dolor muy fuerte.,I have a very strong pain.,noun,m,symptoms,
+la fiebre,the fever,Tengo un poco de fiebre.,I have a slight fever.,noun,f,symptoms,
+la gripe,the flu,Tengo gripe y me siento mal.,I have the flu and feel bad.,noun,f,conditions,
+el resfriado,the cold,Es solo un resfriado.,It's just a cold.,noun,m,conditions,
+la tos,the cough,Tengo mucha tos.,I have a bad cough.,noun,f,symptoms,
+el dolor de cabeza,headache,Tengo dolor de cabeza fuerte.,I have a strong headache.,noun,m,symptoms,
+el dolor de garganta,sore throat,Tengo dolor de garganta.,I have a sore throat.,noun,m,symptoms,
+la alergia,the allergy,Tengo alergia al polen.,I'm allergic to pollen.,noun,f,conditions,
+enfermo,sick,Estoy enfermo hoy.,I'm sick today.,adjective,n/a,adjectives,
+sano,healthy,Quiero estar sano.,I want to be healthy.,adjective,n/a,adjectives,
+doler,to hurt,Me duele mucho la espalda.,My back hurts a lot.,verb,n/a,verbs,
+mejorar,to improve/get better,Espero mejorar pronto.,I hope to get better soon.,verb,n/a,verbs,
+empeorar,to get worse,Los síntomas están empeorando.,The symptoms are getting worse.,verb,n/a,verbs,
+cuidarse,to take care of oneself,Debes cuidarte más.,You should take better care of yourself.,verb,n/a,verbs,
+ir al médico,to go to the doctor,Deberías ir al médico.,You should go to the doctor.,phrase,n/a,phrases,
+¿qué te pasa?,what's wrong?,¿Qué te pasa? Te ves mal.,What's wrong? You look bad.,phrase,n/a,phrases,
+me siento mal,I feel bad,Me siento mal hoy.,I feel bad today.,phrase,n/a,phrases,
+tengo náuseas,I feel nauseous,Tengo náuseas desde ayer.,I've felt nauseous since yesterday.,phrase,n/a,symptoms,
+estoy mareado,I feel dizzy,Estoy mareado desde esta mañana.,I've been dizzy since this morning.,phrase,n/a,symptoms,

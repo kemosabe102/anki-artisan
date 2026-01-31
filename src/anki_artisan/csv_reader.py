@@ -116,6 +116,9 @@ def _parse_row(row: dict[str, str], line_num: int) -> VocabItem | None:
     tags_str = row.get("tags", "").strip()
     tags = tags_str.split() if tags_str else []
 
+    # Parse optional tts_model override
+    tts_model = row.get("tts_model", "").strip().lower() or None
+
     return VocabItem(
         word=row["word"].strip(),
         translation=row["translation"].strip(),
@@ -124,4 +127,5 @@ def _parse_row(row: dict[str, str], line_num: int) -> VocabItem | None:
         part_of_speech=part_of_speech,
         gender=gender,
         tags=tags,
+        tts_model=tts_model,
     )

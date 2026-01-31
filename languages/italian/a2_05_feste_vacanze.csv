@@ -1,53 +1,53 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-la festa,the party/holiday,La festa è stata bellissima.,The party was wonderful.,noun,f,celebrations
-il compleanno,the birthday,Buon compleanno!,Happy birthday!,noun,m,celebrations
-l'anniversario,the anniversary,È il nostro anniversario.,It's our anniversary.,noun,m,celebrations
-il matrimonio,the wedding,Il matrimonio è a giugno.,The wedding is in June.,noun,m,celebrations
-il Natale,Christmas,A Natale sto con la famiglia.,At Christmas I stay with family.,noun,m,holidays
-la Pasqua,Easter,A Pasqua mangiamo insieme.,At Easter we eat together.,noun,f,holidays
-il Capodanno,New Year,A Capodanno festeggiamo.,On New Year we celebrate.,noun,m,holidays
-la Vigilia,Christmas Eve,La Vigilia ceniamo a casa.,On Christmas Eve we dine at home.,noun,f,holidays
-Ferragosto,August holiday,A Ferragosto l'Italia chiude.,On Ferragosto Italy closes.,noun,m,holidays
-il regalo,the gift,Ho comprato un regalo.,I bought a gift.,noun,m,celebrations
-la torta,the cake,La torta è al cioccolato.,The cake is chocolate.,noun,f,celebrations
-le candeline,the candles (birthday),Spegni le candeline!,Blow out the candles!,noun,f,celebrations
-gli auguri,wishes/greetings,Tanti auguri!,Best wishes!,noun,m,celebrations
-l'invito,the invitation,Ho ricevuto un invito.,I received an invitation.,noun,m,celebrations
-gli ospiti,the guests,Arrivano gli ospiti.,The guests are arriving.,noun,m,celebrations
-la vacanza,the vacation,Vado in vacanza ad agosto.,I go on vacation in August.,noun,f,vacation
-le ferie,time off/leave,Prendo le ferie a luglio.,I take time off in July.,noun,f,vacation
-il mare,the sea,Andiamo al mare quest'estate.,We're going to the sea this summer.,noun,m,vacation
-la montagna,the mountain,Preferisco la montagna.,I prefer the mountains.,noun,f,vacation
-la spiaggia,the beach,La spiaggia è affollata.,The beach is crowded.,noun,f,vacation
-il lago,the lake,Il lago è tranquillo.,The lake is peaceful.,noun,m,vacation
-la campagna,the countryside,I nonni vivono in campagna.,The grandparents live in the countryside.,noun,f,vacation
-l'isola,the island,L'isola è bellissima.,The island is beautiful.,noun,f,vacation
-l'albergo,the hotel,L'albergo ha una piscina.,The hotel has a pool.,noun,m,vacation
-la prenotazione,the reservation,Ho fatto una prenotazione.,I made a reservation.,noun,f,vacation
-la camera,the room (hotel),La camera è al terzo piano.,The room is on the third floor.,noun,f,vacation
-la piscina,the pool,La piscina è aperta.,The pool is open.,noun,f,vacation
-la cartolina,the postcard,Ti mando una cartolina.,I'll send you a postcard.,noun,f,vacation
-il souvenir,the souvenir,Ho comprato un souvenir.,I bought a souvenir.,noun,m,vacation
-festeggiare,to celebrate,Festeggiamo il tuo compleanno!,Let's celebrate your birthday!,verb,n/a,verbs
-invitare,to invite,Ti invito alla mia festa.,I invite you to my party.,verb,n/a,verbs
-regalare,to give (a gift),Cosa ti hanno regalato?,What did they give you?,verb,n/a,verbs
-augurare,to wish,Ti auguro buone feste.,I wish you happy holidays.,verb,n/a,verbs
-brindare,to toast,Brindiamo al nuovo anno!,Let's toast to the new year!,verb,n/a,verbs
-divertirsi,to have fun,Mi sono divertito molto.,I had a lot of fun.,verb,n/a,verbs
-rilassarsi,to relax,In vacanza mi rilasso.,On vacation I relax.,verb,n/a,verbs
-viaggiare,to travel,Mi piace viaggiare.,I like to travel.,verb,n/a,verbs
-visitare,to visit,Voglio visitare Roma.,I want to visit Rome.,verb,n/a,verbs
-prenotare,to book/reserve,Devo prenotare l'albergo.,I need to book the hotel.,verb,n/a,verbs
-fare il bagno,to swim/bathe,Facciamo il bagno al mare.,Let's swim in the sea.,phrase,n/a,verbs
-prendere il sole,to sunbathe,Prendo il sole in spiaggia.,I sunbathe on the beach.,phrase,n/a,verbs
-buon compleanno,happy birthday,Buon compleanno a te!,Happy birthday to you!,phrase,n/a,phrases
-buon anno,happy new year,Buon anno a tutti!,Happy new year everyone!,phrase,n/a,phrases
-buon Natale,merry Christmas,Buon Natale e buone feste!,Merry Christmas and happy holidays!,phrase,n/a,phrases
-buone vacanze,have a good vacation,Buone vacanze! A presto!,Have a good vacation! See you soon!,phrase,n/a,phrases
-in bocca al lupo,good luck,In bocca al lupo per l'esame!,Good luck on the exam!,phrase,n/a,phrases
-crepi il lupo,thanks (response),Crepi il lupo! Grazie!,Thanks! (response to good luck),phrase,n/a,phrases
-cin cin,cheers,Cin cin! Alla salute!,Cheers! To health!,phrase,n/a,phrases
-bellissimo,very beautiful,Il viaggio è stato bellissimo.,The trip was wonderful.,adjective,n/a,adjectives
-indimenticabile,unforgettable,È stata una vacanza indimenticabile.,It was an unforgettable vacation.,adjective,n/a,adjectives
-affollato,crowded,La spiaggia è troppo affollata.,The beach is too crowded.,adjective,n/a,adjectives
-tranquillo,peaceful/quiet,Cerco un posto tranquillo.,I'm looking for a quiet place.,adjective,n/a,adjectives
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+la festa,the party/holiday,La festa è stata bellissima.,The party was wonderful.,noun,f,celebrations,
+il compleanno,the birthday,Buon compleanno!,Happy birthday!,noun,m,celebrations,
+l'anniversario,the anniversary,È il nostro anniversario.,It's our anniversary.,noun,m,celebrations,
+il matrimonio,the wedding,Il matrimonio è a giugno.,The wedding is in June.,noun,m,celebrations,
+il Natale,Christmas,A Natale sto con la famiglia.,At Christmas I stay with family.,noun,m,holidays,
+la Pasqua,Easter,A Pasqua mangiamo insieme.,At Easter we eat together.,noun,f,holidays,
+il Capodanno,New Year,A Capodanno festeggiamo.,On New Year we celebrate.,noun,m,holidays,
+la Vigilia,Christmas Eve,La Vigilia ceniamo a casa.,On Christmas Eve we dine at home.,noun,f,holidays,
+Ferragosto,August holiday,A Ferragosto l'Italia chiude.,On Ferragosto Italy closes.,noun,m,holidays,
+il regalo,the gift,Ho comprato un regalo.,I bought a gift.,noun,m,celebrations,
+la torta,the cake,La torta è al cioccolato.,The cake is chocolate.,noun,f,celebrations,
+le candeline,the candles (birthday),Spegni le candeline!,Blow out the candles!,noun,f,celebrations,
+gli auguri,wishes/greetings,Tanti auguri!,Best wishes!,noun,m,celebrations,
+l'invito,the invitation,Ho ricevuto un invito.,I received an invitation.,noun,m,celebrations,
+gli ospiti,the guests,Arrivano gli ospiti.,The guests are arriving.,noun,m,celebrations,
+la vacanza,the vacation,Vado in vacanza ad agosto.,I go on vacation in August.,noun,f,vacation,
+le ferie,time off/leave,Prendo le ferie a luglio.,I take time off in July.,noun,f,vacation,
+il mare,the sea,Andiamo al mare quest'estate.,We're going to the sea this summer.,noun,m,vacation,
+la montagna,the mountain,Preferisco la montagna.,I prefer the mountains.,noun,f,vacation,
+la spiaggia,the beach,La spiaggia è affollata.,The beach is crowded.,noun,f,vacation,
+il lago,the lake,Il lago è tranquillo.,The lake is peaceful.,noun,m,vacation,
+la campagna,the countryside,I nonni vivono in campagna.,The grandparents live in the countryside.,noun,f,vacation,
+l'isola,the island,L'isola è bellissima.,The island is beautiful.,noun,f,vacation,
+l'albergo,the hotel,L'albergo ha una piscina.,The hotel has a pool.,noun,m,vacation,
+la prenotazione,the reservation,Ho fatto una prenotazione.,I made a reservation.,noun,f,vacation,
+la camera,the room (hotel),La camera è al terzo piano.,The room is on the third floor.,noun,f,vacation,
+la piscina,the pool,La piscina è aperta.,The pool is open.,noun,f,vacation,
+la cartolina,the postcard,Ti mando una cartolina.,I'll send you a postcard.,noun,f,vacation,
+il souvenir,the souvenir,Ho comprato un souvenir.,I bought a souvenir.,noun,m,vacation,
+festeggiare,to celebrate,Festeggiamo il tuo compleanno!,Let's celebrate your birthday!,verb,n/a,verbs,
+invitare,to invite,Ti invito alla mia festa.,I invite you to my party.,verb,n/a,verbs,
+regalare,to give (a gift),Cosa ti hanno regalato?,What did they give you?,verb,n/a,verbs,
+augurare,to wish,Ti auguro buone feste.,I wish you happy holidays.,verb,n/a,verbs,
+brindare,to toast,Brindiamo al nuovo anno!,Let's toast to the new year!,verb,n/a,verbs,
+divertirsi,to have fun,Mi sono divertito molto.,I had a lot of fun.,verb,n/a,verbs,
+rilassarsi,to relax,In vacanza mi rilasso.,On vacation I relax.,verb,n/a,verbs,
+viaggiare,to travel,Mi piace viaggiare.,I like to travel.,verb,n/a,verbs,
+visitare,to visit,Voglio visitare Roma.,I want to visit Rome.,verb,n/a,verbs,
+prenotare,to book/reserve,Devo prenotare l'albergo.,I need to book the hotel.,verb,n/a,verbs,
+fare il bagno,to swim/bathe,Facciamo il bagno al mare.,Let's swim in the sea.,phrase,n/a,verbs,
+prendere il sole,to sunbathe,Prendo il sole in spiaggia.,I sunbathe on the beach.,phrase,n/a,verbs,
+buon compleanno,happy birthday,Buon compleanno a te!,Happy birthday to you!,phrase,n/a,phrases,
+buon anno,happy new year,Buon anno a tutti!,Happy new year everyone!,phrase,n/a,phrases,
+buon Natale,merry Christmas,Buon Natale e buone feste!,Merry Christmas and happy holidays!,phrase,n/a,phrases,
+buone vacanze,have a good vacation,Buone vacanze! A presto!,Have a good vacation! See you soon!,phrase,n/a,phrases,
+in bocca al lupo,good luck,In bocca al lupo per l'esame!,Good luck on the exam!,phrase,n/a,phrases,
+crepi il lupo,thanks (response),Crepi il lupo! Grazie!,Thanks! (response to good luck),phrase,n/a,phrases,
+cin cin,cheers,Cin cin! Alla salute!,Cheers! To health!,phrase,n/a,phrases,
+bellissimo,very beautiful,Il viaggio è stato bellissimo.,The trip was wonderful.,adjective,n/a,adjectives,
+indimenticabile,unforgettable,È stata una vacanza indimenticabile.,It was an unforgettable vacation.,adjective,n/a,adjectives,
+affollato,crowded,La spiaggia è troppo affollata.,The beach is too crowded.,adjective,n/a,adjectives,
+tranquillo,peaceful/quiet,Cerco un posto tranquillo.,I'm looking for a quiet place.,adjective,n/a,adjectives,

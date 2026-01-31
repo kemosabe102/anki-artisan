@@ -1,53 +1,53 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-uno,one,Ho un fratello.,I have one brother.,adjective,n/a,numbers
-due,two,Ho due gatti.,I have two cats.,adjective,n/a,numbers
-tre,three,Sono le tre.,It is three o'clock.,adjective,n/a,numbers
-quattro,four,Quattro persone per favore.,Four people please.,adjective,n/a,numbers
-cinque,five,Cinque minuti ancora.,Five more minutes.,adjective,n/a,numbers
-sei,six,Lavoro sei giorni.,I work six days.,adjective,n/a,numbers
-sette,seven,Ci sono sette giorni.,There are seven days.,adjective,n/a,numbers
-otto,eight,Sono le otto.,It is eight o'clock.,adjective,n/a,numbers
-nove,nine,Arrivo alle nove.,I arrive at nine.,adjective,n/a,numbers
-dieci,ten,Costa dieci euro.,It costs ten euros.,adjective,n/a,numbers
-undici,eleven,Sono le undici.,It is eleven o'clock.,adjective,n/a,numbers
-dodici,twelve,Sono le dodici.,It is twelve o'clock.,adjective,n/a,numbers
-venti,twenty,Ho venti anni.,I am twenty years old.,adjective,n/a,numbers
-trenta,thirty,Trenta minuti di pausa.,Thirty minutes of break.,adjective,n/a,numbers
-cento,one hundred,Costa cento euro.,It costs one hundred euros.,adjective,n/a,numbers
-il lunedì,Monday,Il lunedì lavoro.,On Monday I work.,noun,m,days
-il martedì,Tuesday,Il martedì studio italiano.,On Tuesday I study Italian.,noun,m,days
-il mercoledì,Wednesday,Il mercoledì vado in palestra.,On Wednesday I go to the gym.,noun,m,days
-il giovedì,Thursday,Il giovedì ho lezione.,On Thursday I have class.,noun,m,days
-il venerdì,Friday,Il venerdì esco con amici.,On Friday I go out with friends.,noun,m,days
-il sabato,Saturday,Il sabato mi riposo.,On Saturday I rest.,noun,m,days
-la domenica,Sunday,La domenica pranzo in famiglia.,On Sunday I eat with family.,noun,f,days
-oggi,today,Oggi è lunedì.,Today is Monday.,adverb,n/a,time
-ieri,yesterday,Ieri ho lavorato molto.,Yesterday I worked a lot.,adverb,n/a,time
-domani,tomorrow,Domani parto presto.,Tomorrow I leave early.,adverb,n/a,time
-la mattina,the morning,La mattina bevo caffè.,In the morning I drink coffee.,noun,f,time
-il pomeriggio,the afternoon,Il pomeriggio studio.,In the afternoon I study.,noun,m,time
-la sera,the evening,La sera guardo la TV.,In the evening I watch TV.,noun,f,time
-la notte,the night,La notte dormo bene.,At night I sleep well.,noun,f,time
-l'ora,the hour,Che ora è?,What time is it?,noun,f,time
-il minuto,the minute,Aspetta un minuto.,Wait a minute.,noun,m,time
-adesso,now,Adesso devo andare.,Now I have to go.,adverb,n/a,time
-dopo,after/later,Dopo mangiamo insieme.,Later we eat together.,adverb,n/a,time
-prima,before/first,Prima il lavoro poi svago.,First work then fun.,adverb,n/a,time
-sempre,always,Sempre in ritardo!,Always late!,adverb,n/a,time
-mai,never,Non sono mai stanco.,I am never tired.,adverb,n/a,time
-spesso,often,Spesso mangio fuori.,I often eat out.,adverb,n/a,time
-gennaio,January,Gennaio è freddo.,January is cold.,noun,m,months
-febbraio,February,Febbraio è corto.,February is short.,noun,m,months
-marzo,March,Marzo è primavera.,March is spring.,noun,m,months
-aprile,April,In aprile piove spesso.,In April it rains often.,noun,m,months
-maggio,May,Maggio è bello.,May is beautiful.,noun,m,months
-giugno,June,A giugno fa caldo.,In June it's hot.,noun,m,months
-luglio,July,A luglio vado in vacanza.,In July I go on vacation.,noun,m,months
-agosto,August,In agosto l'Italia chiude.,In August Italy closes.,noun,m,months
-settembre,September,A settembre torno al lavoro.,In September I return to work.,noun,m,months
-ottobre,October,Ottobre è autunno.,October is autumn.,noun,m,months
-novembre,November,In novembre piove molto.,In November it rains a lot.,noun,m,months
-dicembre,December,Dicembre è Natale.,December is Christmas.,noun,m,months
-la settimana,the week,Questa settimana sono occupato.,This week I am busy.,noun,f,time
-il mese,the month,Il mese prossimo parto.,Next month I leave.,noun,m,time
-l'anno,the year,Quest'anno studio italiano.,This year I study Italian.,noun,m,time
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+uno,one,Ho un fratello.,I have one brother.,adjective,n/a,numbers,
+due,two,Ho due gatti.,I have two cats.,adjective,n/a,numbers,turbo
+tre,three,Sono le tre.,It is three o'clock.,adjective,n/a,numbers,
+quattro,four,Quattro persone per favore.,Four people please.,adjective,n/a,numbers,
+cinque,five,Cinque minuti ancora.,Five more minutes.,adjective,n/a,numbers,
+sei,six,Lavoro sei giorni.,I work six days.,adjective,n/a,numbers,
+sette,seven,Ci sono sette giorni.,There are seven days.,adjective,n/a,numbers,
+otto,eight,Sono le otto.,It is eight o'clock.,adjective,n/a,numbers,
+nove,nine,Arrivo alle nove.,I arrive at nine.,adjective,n/a,numbers,
+dieci,ten,Costa dieci euro.,It costs ten euros.,adjective,n/a,numbers,
+undici,eleven,Sono le undici.,It is eleven o'clock.,adjective,n/a,numbers,
+dodici,twelve,Sono le dodici.,It is twelve o'clock.,adjective,n/a,numbers,
+venti,twenty,Ho venti anni.,I am twenty years old.,adjective,n/a,numbers,
+trenta,thirty,Trenta minuti di pausa.,Thirty minutes of break.,adjective,n/a,numbers,
+cento,one hundred,Costa cento euro.,It costs one hundred euros.,adjective,n/a,numbers,
+il lunedì,Monday,Il lunedì lavoro.,On Monday I work.,noun,m,days,
+il martedì,Tuesday,Il martedì studio italiano.,On Tuesday I study Italian.,noun,m,days,
+il mercoledì,Wednesday,Il mercoledì vado in palestra.,On Wednesday I go to the gym.,noun,m,days,
+il giovedì,Thursday,Il giovedì ho lezione.,On Thursday I have class.,noun,m,days,
+il venerdì,Friday,Il venerdì esco con amici.,On Friday I go out with friends.,noun,m,days,
+il sabato,Saturday,Il sabato mi riposo.,On Saturday I rest.,noun,m,days,
+la domenica,Sunday,La domenica pranzo in famiglia.,On Sunday I eat with family.,noun,f,days,
+oggi,today,Oggi è lunedì.,Today is Monday.,adverb,n/a,time,
+ieri,yesterday,Ieri ho lavorato molto.,Yesterday I worked a lot.,adverb,n/a,time,
+domani,tomorrow,Domani parto presto.,Tomorrow I leave early.,adverb,n/a,time,
+la mattina,the morning,La mattina bevo caffè.,In the morning I drink coffee.,noun,f,time,
+il pomeriggio,the afternoon,Il pomeriggio studio.,In the afternoon I study.,noun,m,time,
+la sera,the evening,La sera guardo la TV.,In the evening I watch TV.,noun,f,time,
+la notte,the night,La notte dormo bene.,At night I sleep well.,noun,f,time,
+l'ora,the hour,Che ora è?,What time is it?,noun,f,time,
+il minuto,the minute,Aspetta un minuto.,Wait a minute.,noun,m,time,
+adesso,now,Adesso devo andare.,Now I have to go.,adverb,n/a,time,
+dopo,after/later,Dopo mangiamo insieme.,Later we eat together.,adverb,n/a,time,
+prima,before/first,Prima il lavoro poi svago.,First work then fun.,adverb,n/a,time,
+sempre,always,Sempre in ritardo!,Always late!,adverb,n/a,time,
+mai,never,Non sono mai stanco.,I am never tired.,adverb,n/a,time,
+spesso,often,Spesso mangio fuori.,I often eat out.,adverb,n/a,time,
+gennaio,January,Gennaio è freddo.,January is cold.,noun,m,months,
+febbraio,February,Febbraio è corto.,February is short.,noun,m,months,
+marzo,March,Marzo è primavera.,March is spring.,noun,m,months,
+aprile,April,In aprile piove spesso.,In April it rains often.,noun,m,months,
+maggio,May,Maggio è bello.,May is beautiful.,noun,m,months,
+giugno,June,A giugno fa caldo.,In June it's hot.,noun,m,months,
+luglio,July,A luglio vado in vacanza.,In July I go on vacation.,noun,m,months,
+agosto,August,In agosto l'Italia chiude.,In August Italy closes.,noun,m,months,
+settembre,September,A settembre torno al lavoro.,In September I return to work.,noun,m,months,
+ottobre,October,Ottobre è autunno.,October is autumn.,noun,m,months,
+novembre,November,In novembre piove molto.,In November it rains a lot.,noun,m,months,
+dicembre,December,Dicembre è Natale.,December is Christmas.,noun,m,months,
+la settimana,the week,Questa settimana sono occupato.,This week I am busy.,noun,f,time,
+il mese,the month,Il mese prossimo parto.,Next month I leave.,noun,m,time,
+l'anno,the year,Quest'anno studio italiano.,This year I study Italian.,noun,m,time,

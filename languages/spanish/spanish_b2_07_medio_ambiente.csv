@@ -1,45 +1,45 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-el medio ambiente,the environment,Debemos proteger el medio ambiente.,We must protect the environment.,noun,m,environment
-la contaminación,pollution,La contaminación del aire es grave.,Air pollution is serious.,noun,f,environment
-el reciclaje,recycling,El reciclaje es obligatorio aquí.,Recycling is mandatory here.,noun,m,environment
-los residuos,waste,Los residuos se separan por tipo.,Waste is separated by type.,noun,m,environment
-el plástico,plastic,Hay que reducir el plástico.,We need to reduce plastic.,noun,m,environment
-la sostenibilidad,sustainability,La sostenibilidad es una prioridad.,Sustainability is a priority.,noun,f,environment
-sostenible,sustainable,Buscamos soluciones sostenibles.,We seek sustainable solutions.,adjective,n/a,environment
-el cambio climático,climate change,El cambio climático nos afecta.,Climate change affects us.,noun,m,environment
-el calentamiento global,global warming,El calentamiento global es una amenaza.,Global warming is a threat.,noun,m,environment
-el efecto invernadero,greenhouse effect,El efecto invernadero causa problemas.,The greenhouse effect causes problems.,noun,m,environment
-las emisiones,emissions,Hay que reducir las emisiones.,We need to reduce emissions.,noun,f,environment
-la huella ecológica,ecological footprint,Mi huella ecológica es muy grande.,My ecological footprint is very large.,noun,f,environment
-el ecosistema,ecosystem,El ecosistema está en peligro.,The ecosystem is in danger.,noun,m,ecology
-la biodiversidad,biodiversity,La biodiversidad es esencial.,Biodiversity is essential.,noun,f,ecology
-la deforestación,deforestation,La deforestación destruye hábitats.,Deforestation destroys habitats.,noun,f,ecology
-la conservación,conservation,La conservación de especies es vital.,Species conservation is vital.,noun,f,ecology
-la especie en peligro,endangered species,El tigre es especie en peligro.,The tiger is an endangered species.,noun,f,ecology
-el recurso natural,natural resource,Los recursos naturales son limitados.,Natural resources are limited.,noun,m,ecology
-el combustible,fuel,El combustible fósil contamina.,Fossil fuel pollutes.,noun,m,ecology
-la energía renovable,renewable energy,La energía renovable es el futuro.,Renewable energy is the future.,noun,f,energy
-la energía solar,solar energy,Instalamos paneles de energía solar.,We installed solar energy panels.,noun,f,energy
-la energía eólica,wind energy,La energía eólica crece cada año.,Wind energy grows every year.,noun,f,energy
-el descubrimiento,discovery,Es un descubrimiento importante.,It's an important discovery.,noun,m,science
-el experimento,experiment,El experimento fue exitoso.,The experiment was successful.,noun,m,science
-el científico,the scientist,El científico publicó sus hallazgos.,The scientist published his findings.,noun,m,science
-el laboratorio,laboratory,Trabaja en un laboratorio de genética.,He works in a genetics laboratory.,noun,m,science
-los datos,data,Los datos apoyan la teoría.,The data supports the theory.,noun,m,science
-la inteligencia artificial,artificial intelligence,La inteligencia artificial avanza rápido.,Artificial intelligence advances quickly.,noun,f,technology
-el algoritmo,algorithm,El algoritmo procesa los datos.,The algorithm processes the data.,noun,m,technology
-el software,software,El software necesita actualización.,The software needs an update.,noun,m,technology
-el hardware,hardware,El hardware está obsoleto.,The hardware is obsolete.,noun,m,technology
-la privacidad,privacy,La privacidad en línea es importante.,Online privacy is important.,noun,f,technology
-la ciberseguridad,cybersecurity,La ciberseguridad protege los datos.,Cybersecurity protects data.,noun,f,technology
-la nube,the cloud,Guardo mis archivos en la nube.,I save my files in the cloud.,noun,f,technology
-innovar,to innovate,Las empresas deben innovar constantemente.,Companies must constantly innovate.,verb,n/a,verbs
-desarrollar,to develop,Desarrollaron un nuevo medicamento.,They developed a new medicine.,verb,n/a,verbs
-proteger,to protect,Debemos proteger el planeta.,We must protect the planet.,verb,n/a,verbs
-contaminar,to pollute,Las fábricas contaminan el río.,The factories pollute the river.,verb,n/a,verbs
-reciclar,to recycle,Reciclamos el papel y el vidrio.,We recycle paper and glass.,verb,n/a,verbs
-reducir,to reduce,Hay que reducir el consumo.,We need to reduce consumption.,verb,n/a,verbs
-reutilizar,to reuse,Es mejor reutilizar que tirar.,It's better to reuse than throw away.,verb,n/a,verbs
-desperdiciar,to waste,No debemos desperdiciar comida.,We shouldn't waste food.,verb,n/a,verbs
-consumir,to consume,Consumimos demasiada energía.,We consume too much energy.,verb,n/a,verbs
-ecológico,ecological/eco-friendly,Uso productos ecológicos.,I use eco-friendly products.,adjective,n/a,adjectives
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+el medio ambiente,the environment,Debemos proteger el medio ambiente.,We must protect the environment.,noun,m,environment,
+la contaminación,pollution,La contaminación del aire es grave.,Air pollution is serious.,noun,f,environment,
+el reciclaje,recycling,El reciclaje es obligatorio aquí.,Recycling is mandatory here.,noun,m,environment,
+los residuos,waste,Los residuos se separan por tipo.,Waste is separated by type.,noun,m,environment,
+el plástico,plastic,Hay que reducir el plástico.,We need to reduce plastic.,noun,m,environment,
+la sostenibilidad,sustainability,La sostenibilidad es una prioridad.,Sustainability is a priority.,noun,f,environment,
+sostenible,sustainable,Buscamos soluciones sostenibles.,We seek sustainable solutions.,adjective,n/a,environment,
+el cambio climático,climate change,El cambio climático nos afecta.,Climate change affects us.,noun,m,environment,
+el calentamiento global,global warming,El calentamiento global es una amenaza.,Global warming is a threat.,noun,m,environment,
+el efecto invernadero,greenhouse effect,El efecto invernadero causa problemas.,The greenhouse effect causes problems.,noun,m,environment,
+las emisiones,emissions,Hay que reducir las emisiones.,We need to reduce emissions.,noun,f,environment,
+la huella ecológica,ecological footprint,Mi huella ecológica es muy grande.,My ecological footprint is very large.,noun,f,environment,
+el ecosistema,ecosystem,El ecosistema está en peligro.,The ecosystem is in danger.,noun,m,ecology,
+la biodiversidad,biodiversity,La biodiversidad es esencial.,Biodiversity is essential.,noun,f,ecology,
+la deforestación,deforestation,La deforestación destruye hábitats.,Deforestation destroys habitats.,noun,f,ecology,
+la conservación,conservation,La conservación de especies es vital.,Species conservation is vital.,noun,f,ecology,
+la especie en peligro,endangered species,El tigre es especie en peligro.,The tiger is an endangered species.,noun,f,ecology,
+el recurso natural,natural resource,Los recursos naturales son limitados.,Natural resources are limited.,noun,m,ecology,
+el combustible,fuel,El combustible fósil contamina.,Fossil fuel pollutes.,noun,m,ecology,
+la energía renovable,renewable energy,La energía renovable es el futuro.,Renewable energy is the future.,noun,f,energy,
+la energía solar,solar energy,Instalamos paneles de energía solar.,We installed solar energy panels.,noun,f,energy,
+la energía eólica,wind energy,La energía eólica crece cada año.,Wind energy grows every year.,noun,f,energy,
+el descubrimiento,discovery,Es un descubrimiento importante.,It's an important discovery.,noun,m,science,
+el experimento,experiment,El experimento fue exitoso.,The experiment was successful.,noun,m,science,
+el científico,the scientist,El científico publicó sus hallazgos.,The scientist published his findings.,noun,m,science,
+el laboratorio,laboratory,Trabaja en un laboratorio de genética.,He works in a genetics laboratory.,noun,m,science,
+los datos,data,Los datos apoyan la teoría.,The data supports the theory.,noun,m,science,
+la inteligencia artificial,artificial intelligence,La inteligencia artificial avanza rápido.,Artificial intelligence advances quickly.,noun,f,technology,
+el algoritmo,algorithm,El algoritmo procesa los datos.,The algorithm processes the data.,noun,m,technology,
+el software,software,El software necesita actualización.,The software needs an update.,noun,m,technology,
+el hardware,hardware,El hardware está obsoleto.,The hardware is obsolete.,noun,m,technology,
+la privacidad,privacy,La privacidad en línea es importante.,Online privacy is important.,noun,f,technology,
+la ciberseguridad,cybersecurity,La ciberseguridad protege los datos.,Cybersecurity protects data.,noun,f,technology,
+la nube,the cloud,Guardo mis archivos en la nube.,I save my files in the cloud.,noun,f,technology,
+innovar,to innovate,Las empresas deben innovar constantemente.,Companies must constantly innovate.,verb,n/a,verbs,
+desarrollar,to develop,Desarrollaron un nuevo medicamento.,They developed a new medicine.,verb,n/a,verbs,
+proteger,to protect,Debemos proteger el planeta.,We must protect the planet.,verb,n/a,verbs,
+contaminar,to pollute,Las fábricas contaminan el río.,The factories pollute the river.,verb,n/a,verbs,
+reciclar,to recycle,Reciclamos el papel y el vidrio.,We recycle paper and glass.,verb,n/a,verbs,
+reducir,to reduce,Hay que reducir el consumo.,We need to reduce consumption.,verb,n/a,verbs,
+reutilizar,to reuse,Es mejor reutilizar que tirar.,It's better to reuse than throw away.,verb,n/a,verbs,
+desperdiciar,to waste,No debemos desperdiciar comida.,We shouldn't waste food.,verb,n/a,verbs,
+consumir,to consume,Consumimos demasiada energía.,We consume too much energy.,verb,n/a,verbs,
+ecológico,ecological/eco-friendly,Uso productos ecológicos.,I use eco-friendly products.,adjective,n/a,adjectives,

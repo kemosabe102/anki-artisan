@@ -1,39 +1,39 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-el síntoma,the symptom,¿Cuáles son los síntomas?,What are the symptoms?,noun,m,medical
-el diagnóstico,the diagnosis,El diagnóstico fue positivo.,The diagnosis was positive.,noun,m,medical
-la cura,the cure,No hay cura todavía.,There's no cure yet.,noun,f,medical
-el tratamiento,the treatment,El tratamiento dura seis meses.,The treatment lasts six months.,noun,m,medical
-la terapia,the therapy,La terapia física ayuda mucho.,Physical therapy helps a lot.,noun,f,medical
-la consulta,the consultation,Tengo una consulta médica.,I have a medical consultation.,noun,f,medical
-el chequeo,the checkup,Me hago un chequeo cada año.,I get a checkup every year.,noun,m,medical
-el análisis,the test/analysis,Los análisis de sangre salieron bien.,The blood tests came out fine.,noun,m,medical
-la radiografía,the x-ray,La radiografía muestra una fractura.,The x-ray shows a fracture.,noun,f,medical
-la ecografía,the ultrasound,La ecografía es mañana.,The ultrasound is tomorrow.,noun,f,medical
-la sala de emergencias,emergency room,Está en la sala de emergencias.,He's in the emergency room.,noun,f,healthcare
-el consultorio,the doctor's office,El consultorio está en el centro.,The doctor's office is downtown.,noun,m,healthcare
-el pabellón,the ward,Está en el pabellón de cardiología.,He's in the cardiology ward.,noun,m,healthcare
-internar,to hospitalize,Lo internaron por tres días.,They hospitalized him for three days.,verb,n/a,healthcare
-dar de alta,to discharge,Le dieron de alta ayer.,They discharged him yesterday.,phrase,n/a,healthcare
-el medicamento,the medication,Tomo el medicamento dos veces.,I take the medication twice.,noun,m,medication
-el antibiótico,the antibiotic,El antibiótico es muy fuerte.,The antibiotic is very strong.,noun,m,medication
-el analgésico,the painkiller,Necesito un analgésico para el dolor.,I need a painkiller for the pain.,noun,m,medication
-el jarabe,the syrup,El jarabe para la tos funciona.,The cough syrup works.,noun,m,medication
-la pomada,the ointment,Aplique la pomada tres veces.,Apply the ointment three times.,noun,f,medication
-la inyección,the injection,La inyección no duele mucho.,The injection doesn't hurt much.,noun,f,medication
-la vacuna,the vaccine,Me puse la vacuna.,I got the vaccine.,noun,f,medication
-vacunar,to vaccinate,Vacunaron a todos los niños.,They vaccinated all the children.,verb,n/a,medication
-alérgico,allergic,Soy alérgico a los mariscos.,I'm allergic to shellfish.,adjective,n/a,conditions
-la infección,the infection,La infección se está curando.,The infection is healing.,noun,f,conditions
-la inflamación,the inflammation,Hay inflamación en la rodilla.,There's inflammation in the knee.,noun,f,conditions
-la fractura,the fracture,La fractura necesita cirugía.,The fracture needs surgery.,noun,f,conditions
-el esguince,the sprain,Tengo un esguince en el tobillo.,I have a sprained ankle.,noun,m,conditions
-la hinchazón,the swelling,La hinchazón está bajando.,The swelling is going down.,noun,f,symptoms
-las náuseas,nausea,Siento náuseas desde ayer.,I've felt nauseous since yesterday.,noun,f,symptoms
-el mareo,dizziness,Los mareos son frecuentes.,The dizziness is frequent.,noun,m,symptoms
-el especialista,the specialist,Necesito ver a un especialista.,I need to see a specialist.,noun,m,people
-el cirujano,the surgeon,El cirujano opera mañana.,The surgeon operates tomorrow.,noun,m,people
-el paciente,the patient,El paciente se recupera bien.,The patient is recovering well.,noun,m,people
-sanar,to heal,La herida está sanando.,The wound is healing.,verb,n/a,verbs
-curar,to cure/heal,El médico me curó la herida.,The doctor healed my wound.,verb,n/a,verbs
-recetar,to prescribe,El doctor me recetó antibióticos.,The doctor prescribed me antibiotics.,verb,n/a,verbs
-crónico,chronic,Es una enfermedad crónica.,It's a chronic illness.,adjective,n/a,adjectives
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+el síntoma,the symptom,¿Cuáles son los síntomas?,What are the symptoms?,noun,m,medical,
+el diagnóstico,the diagnosis,El diagnóstico fue positivo.,The diagnosis was positive.,noun,m,medical,
+la cura,the cure,No hay cura todavía.,There's no cure yet.,noun,f,medical,
+el tratamiento,the treatment,El tratamiento dura seis meses.,The treatment lasts six months.,noun,m,medical,
+la terapia,the therapy,La terapia física ayuda mucho.,Physical therapy helps a lot.,noun,f,medical,
+la consulta,the consultation,Tengo una consulta médica.,I have a medical consultation.,noun,f,medical,
+el chequeo,the checkup,Me hago un chequeo cada año.,I get a checkup every year.,noun,m,medical,
+el análisis,the test/analysis,Los análisis de sangre salieron bien.,The blood tests came out fine.,noun,m,medical,
+la radiografía,the x-ray,La radiografía muestra una fractura.,The x-ray shows a fracture.,noun,f,medical,
+la ecografía,the ultrasound,La ecografía es mañana.,The ultrasound is tomorrow.,noun,f,medical,
+la sala de emergencias,emergency room,Está en la sala de emergencias.,He's in the emergency room.,noun,f,healthcare,
+el consultorio,the doctor's office,El consultorio está en el centro.,The doctor's office is downtown.,noun,m,healthcare,
+el pabellón,the ward,Está en el pabellón de cardiología.,He's in the cardiology ward.,noun,m,healthcare,
+internar,to hospitalize,Lo internaron por tres días.,They hospitalized him for three days.,verb,n/a,healthcare,
+dar de alta,to discharge,Le dieron de alta ayer.,They discharged him yesterday.,phrase,n/a,healthcare,
+el medicamento,the medication,Tomo el medicamento dos veces.,I take the medication twice.,noun,m,medication,
+el antibiótico,the antibiotic,El antibiótico es muy fuerte.,The antibiotic is very strong.,noun,m,medication,
+el analgésico,the painkiller,Necesito un analgésico para el dolor.,I need a painkiller for the pain.,noun,m,medication,
+el jarabe,the syrup,El jarabe para la tos funciona.,The cough syrup works.,noun,m,medication,
+la pomada,the ointment,Aplique la pomada tres veces.,Apply the ointment three times.,noun,f,medication,
+la inyección,the injection,La inyección no duele mucho.,The injection doesn't hurt much.,noun,f,medication,
+la vacuna,the vaccine,Me puse la vacuna.,I got the vaccine.,noun,f,medication,
+vacunar,to vaccinate,Vacunaron a todos los niños.,They vaccinated all the children.,verb,n/a,medication,
+alérgico,allergic,Soy alérgico a los mariscos.,I'm allergic to shellfish.,adjective,n/a,conditions,
+la infección,the infection,La infección se está curando.,The infection is healing.,noun,f,conditions,
+la inflamación,the inflammation,Hay inflamación en la rodilla.,There's inflammation in the knee.,noun,f,conditions,
+la fractura,the fracture,La fractura necesita cirugía.,The fracture needs surgery.,noun,f,conditions,
+el esguince,the sprain,Tengo un esguince en el tobillo.,I have a sprained ankle.,noun,m,conditions,
+la hinchazón,the swelling,La hinchazón está bajando.,The swelling is going down.,noun,f,symptoms,
+las náuseas,nausea,Siento náuseas desde ayer.,I've felt nauseous since yesterday.,noun,f,symptoms,
+el mareo,dizziness,Los mareos son frecuentes.,The dizziness is frequent.,noun,m,symptoms,
+el especialista,the specialist,Necesito ver a un especialista.,I need to see a specialist.,noun,m,people,
+el cirujano,the surgeon,El cirujano opera mañana.,The surgeon operates tomorrow.,noun,m,people,
+el paciente,the patient,El paciente se recupera bien.,The patient is recovering well.,noun,m,people,
+sanar,to heal,La herida está sanando.,The wound is healing.,verb,n/a,verbs,
+curar,to cure/heal,El médico me curó la herida.,The doctor healed my wound.,verb,n/a,verbs,
+recetar,to prescribe,El doctor me recetó antibióticos.,The doctor prescribed me antibiotics.,verb,n/a,verbs,
+crónico,chronic,Es una enfermedad crónica.,It's a chronic illness.,adjective,n/a,adjectives,

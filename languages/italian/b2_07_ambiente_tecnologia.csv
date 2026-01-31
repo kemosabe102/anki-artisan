@@ -1,47 +1,47 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-l'ambiente,the environment,L'ambiente è in pericolo.,The environment is in danger.,noun,m,environment
-l'inquinamento,pollution,L'inquinamento dell'aria è grave.,Air pollution is serious.,noun,m,environment
-il riciclaggio,recycling,Il riciclaggio è obbligatorio.,Recycling is mandatory.,noun,m,environment
-i rifiuti,waste/garbage,La raccolta differenziata dei rifiuti.,Separate waste collection.,noun,m,environment
-la plastica,plastic,Riduciamo l'uso della plastica.,Let's reduce plastic use.,noun,f,environment
-l'energia rinnovabile,renewable energy,L'energia rinnovabile è il futuro.,Renewable energy is the future.,noun,f,environment
-l'energia solare,solar energy,L'energia solare è pulita.,Solar energy is clean.,noun,f,environment
-l'energia eolica,wind energy,L'energia eolica è in crescita.,Wind energy is growing.,noun,f,environment
-la sostenibilità,sustainability,La sostenibilità è importante.,Sustainability is important.,noun,f,environment
-sostenibile,sustainable,Lo sviluppo sostenibile.,Sustainable development.,adjective,n/a,adjectives
-il cambiamento climatico,climate change,Il cambiamento climatico è reale.,Climate change is real.,noun,m,environment
-il riscaldamento globale,global warming,Il riscaldamento globale preoccupa.,Global warming is concerning.,noun,m,environment
-l'effetto serra,greenhouse effect,L'effetto serra causa problemi.,The greenhouse effect causes problems.,noun,m,environment
-le emissioni,emissions,Ridurre le emissioni di CO2.,Reduce CO2 emissions.,noun,f,environment
-l'impronta ecologica,ecological footprint,Riduco la mia impronta ecologica.,I reduce my ecological footprint.,noun,f,environment
-l'ecosistema,ecosystem,L'ecosistema è fragile.,The ecosystem is fragile.,noun,m,environment
-la biodiversità,biodiversity,Proteggere la biodiversità.,Protect biodiversity.,noun,f,environment
-la deforestazione,deforestation,La deforestazione è un problema.,Deforestation is a problem.,noun,f,environment
-la conservazione,conservation,La conservazione della natura.,Conservation of nature.,noun,f,environment
-la specie protetta,protected species,È una specie protetta.,It's a protected species.,noun,f,environment
-la risorsa,resource,Le risorse naturali sono limitate.,Natural resources are limited.,noun,f,environment
-il combustibile,fuel,I combustibili fossili inquinano.,Fossil fuels pollute.,noun,m,environment
-la scoperta,discovery,Una scoperta importante.,An important discovery.,noun,f,science
-l'esperimento,experiment,L'esperimento è riuscito.,The experiment succeeded.,noun,m,science
-lo scienziato,the scientist,Lo scienziato ha pubblicato lo studio.,The scientist published the study.,noun,m,science
-il laboratorio,laboratory,Lavoro in laboratorio.,I work in a laboratory.,noun,m,science
-i dati,data,I dati confermano la teoria.,The data confirm the theory.,noun,m,science
-l'intelligenza artificiale,artificial intelligence,L'intelligenza artificiale è in evoluzione.,Artificial intelligence is evolving.,noun,f,technology
-l'algoritmo,algorithm,L'algoritmo è complesso.,The algorithm is complex.,noun,m,technology
-il software,software,Il software deve essere aggiornato.,The software needs to be updated.,noun,m,technology
-l'hardware,hardware,L'hardware è obsoleto.,The hardware is obsolete.,noun,m,technology
-la privacy,privacy,La privacy online è importante.,Online privacy is important.,noun,f,technology
-la cybersicurezza,cybersecurity,La cybersicurezza è fondamentale.,Cybersecurity is fundamental.,noun,f,technology
-il cloud,the cloud,I dati sono nel cloud.,The data is in the cloud.,noun,m,technology
-la rete,network,La rete è veloce.,The network is fast.,noun,f,technology
-l'applicazione,application/app,L'applicazione è molto utile.,The app is very useful.,noun,f,technology
-innovare,to innovate,Dobbiamo innovare per crescere.,We need to innovate to grow.,verb,n/a,verbs
-sviluppare,to develop,Sviluppiamo nuove tecnologie.,We develop new technologies.,verb,n/a,verbs
-proteggere,to protect,Dobbiamo proteggere l'ambiente.,We must protect the environment.,verb,n/a,verbs
-inquinare,to pollute,Le fabbriche inquinano l'aria.,Factories pollute the air.,verb,n/a,verbs
-riciclare,to recycle,È importante riciclare.,It's important to recycle.,verb,n/a,verbs
-ridurre,to reduce,Bisogna ridurre i consumi.,We need to reduce consumption.,verb,n/a,verbs
-riutilizzare,to reuse,Riutilizza quello che puoi.,Reuse what you can.,verb,n/a,verbs
-sprecare,to waste,Non sprecare l'acqua.,Don't waste water.,verb,n/a,verbs
-consumare,to consume,Consumiamo troppa energia.,We consume too much energy.,verb,n/a,verbs
-ecologico,ecological/eco-friendly,Uso prodotti ecologici.,I use eco-friendly products.,adjective,n/a,adjectives
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+l'ambiente,the environment,L'ambiente è in pericolo.,The environment is in danger.,noun,m,environment,
+l'inquinamento,pollution,L'inquinamento dell'aria è grave.,Air pollution is serious.,noun,m,environment,
+il riciclaggio,recycling,Il riciclaggio è obbligatorio.,Recycling is mandatory.,noun,m,environment,
+i rifiuti,waste/garbage,La raccolta differenziata dei rifiuti.,Separate waste collection.,noun,m,environment,
+la plastica,plastic,Riduciamo l'uso della plastica.,Let's reduce plastic use.,noun,f,environment,
+l'energia rinnovabile,renewable energy,L'energia rinnovabile è il futuro.,Renewable energy is the future.,noun,f,environment,
+l'energia solare,solar energy,L'energia solare è pulita.,Solar energy is clean.,noun,f,environment,
+l'energia eolica,wind energy,L'energia eolica è in crescita.,Wind energy is growing.,noun,f,environment,
+la sostenibilità,sustainability,La sostenibilità è importante.,Sustainability is important.,noun,f,environment,
+sostenibile,sustainable,Lo sviluppo sostenibile.,Sustainable development.,adjective,n/a,adjectives,
+il cambiamento climatico,climate change,Il cambiamento climatico è reale.,Climate change is real.,noun,m,environment,
+il riscaldamento globale,global warming,Il riscaldamento globale preoccupa.,Global warming is concerning.,noun,m,environment,
+l'effetto serra,greenhouse effect,L'effetto serra causa problemi.,The greenhouse effect causes problems.,noun,m,environment,
+le emissioni,emissions,Ridurre le emissioni di CO2.,Reduce CO2 emissions.,noun,f,environment,
+l'impronta ecologica,ecological footprint,Riduco la mia impronta ecologica.,I reduce my ecological footprint.,noun,f,environment,
+l'ecosistema,ecosystem,L'ecosistema è fragile.,The ecosystem is fragile.,noun,m,environment,
+la biodiversità,biodiversity,Proteggere la biodiversità.,Protect biodiversity.,noun,f,environment,
+la deforestazione,deforestation,La deforestazione è un problema.,Deforestation is a problem.,noun,f,environment,
+la conservazione,conservation,La conservazione della natura.,Conservation of nature.,noun,f,environment,
+la specie protetta,protected species,È una specie protetta.,It's a protected species.,noun,f,environment,
+la risorsa,resource,Le risorse naturali sono limitate.,Natural resources are limited.,noun,f,environment,
+il combustibile,fuel,I combustibili fossili inquinano.,Fossil fuels pollute.,noun,m,environment,
+la scoperta,discovery,Una scoperta importante.,An important discovery.,noun,f,science,
+l'esperimento,experiment,L'esperimento è riuscito.,The experiment succeeded.,noun,m,science,
+lo scienziato,the scientist,Lo scienziato ha pubblicato lo studio.,The scientist published the study.,noun,m,science,
+il laboratorio,laboratory,Lavoro in laboratorio.,I work in a laboratory.,noun,m,science,
+i dati,data,I dati confermano la teoria.,The data confirm the theory.,noun,m,science,
+l'intelligenza artificiale,artificial intelligence,L'intelligenza artificiale è in evoluzione.,Artificial intelligence is evolving.,noun,f,technology,
+l'algoritmo,algorithm,L'algoritmo è complesso.,The algorithm is complex.,noun,m,technology,
+il software,software,Il software deve essere aggiornato.,The software needs to be updated.,noun,m,technology,
+l'hardware,hardware,L'hardware è obsoleto.,The hardware is obsolete.,noun,m,technology,
+la privacy,privacy,La privacy online è importante.,Online privacy is important.,noun,f,technology,
+la cybersicurezza,cybersecurity,La cybersicurezza è fondamentale.,Cybersecurity is fundamental.,noun,f,technology,
+il cloud,the cloud,I dati sono nel cloud.,The data is in the cloud.,noun,m,technology,
+la rete,network,La rete è veloce.,The network is fast.,noun,f,technology,
+l'applicazione,application/app,L'applicazione è molto utile.,The app is very useful.,noun,f,technology,
+innovare,to innovate,Dobbiamo innovare per crescere.,We need to innovate to grow.,verb,n/a,verbs,
+sviluppare,to develop,Sviluppiamo nuove tecnologie.,We develop new technologies.,verb,n/a,verbs,
+proteggere,to protect,Dobbiamo proteggere l'ambiente.,We must protect the environment.,verb,n/a,verbs,
+inquinare,to pollute,Le fabbriche inquinano l'aria.,Factories pollute the air.,verb,n/a,verbs,
+riciclare,to recycle,È importante riciclare.,It's important to recycle.,verb,n/a,verbs,
+ridurre,to reduce,Bisogna ridurre i consumi.,We need to reduce consumption.,verb,n/a,verbs,
+riutilizzare,to reuse,Riutilizza quello che puoi.,Reuse what you can.,verb,n/a,verbs,
+sprecare,to waste,Non sprecare l'acqua.,Don't waste water.,verb,n/a,verbs,
+consumare,to consume,Consumiamo troppa energia.,We consume too much energy.,verb,n/a,verbs,
+ecologico,ecological/eco-friendly,Uso prodotti ecologici.,I use eco-friendly products.,adjective,n/a,adjectives,

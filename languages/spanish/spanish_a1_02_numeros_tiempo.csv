@@ -1,50 +1,50 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-cero,zero,El resultado es cero.,The result is zero.,adjective,n/a,numbers
-uno,one,Tengo un hermano.,I have one brother.,adjective,n/a,numbers
-dos,two,Son las dos de la tarde.,It's two in the afternoon.,adjective,n/a,numbers
-tres,three,Tres cafés por favor.,Three coffees please.,adjective,n/a,numbers
-cuatro,four,Hay cuatro sillas.,There are four chairs.,adjective,n/a,numbers
-cinco,five,Trabajo cinco días.,I work five days.,adjective,n/a,numbers
-seis,six,Son las seis.,It's six o'clock.,adjective,n/a,numbers
-siete,seven,A las siete de la mañana.,At seven in the morning.,adjective,n/a,numbers
-ocho,eight,Ocho horas de sueño.,Eight hours of sleep.,adjective,n/a,numbers
-nueve,nine,Tengo nueve años aquí.,I've been here nine years.,adjective,n/a,numbers
-diez,ten,Diez minutos más.,Ten more minutes.,adjective,n/a,numbers
-once,eleven,El once de enero.,The eleventh of January.,adjective,n/a,numbers
-doce,twelve,A las doce del mediodía.,At twelve noon.,adjective,n/a,numbers
-veinte,twenty,Veinte personas vinieron.,Twenty people came.,adjective,n/a,numbers
-treinta,thirty,Tengo treinta años.,I'm thirty years old.,adjective,n/a,numbers
-cuarenta,forty,Cuarenta grados de calor.,Forty degrees of heat.,adjective,n/a,numbers
-cincuenta,fifty,Cuesta cincuenta dólares.,It costs fifty dollars.,adjective,n/a,numbers
-cien,one hundred,Cien por ciento seguro.,One hundred percent sure.,adjective,n/a,numbers
-el lunes,Monday,El lunes tengo clase.,On Monday I have class.,noun,m,days
-el martes,Tuesday,El martes voy al médico.,On Tuesday I go to the doctor.,noun,m,days
-el miércoles,Wednesday,El miércoles es mi día libre.,Wednesday is my day off.,noun,m,days
-el jueves,Thursday,Nos vemos el jueves.,See you on Thursday.,noun,m,days
-el viernes,Friday,El viernes salimos temprano.,On Friday we leave early.,noun,m,days
-el sábado,Saturday,El sábado no trabajo.,On Saturday I don't work.,noun,m,days
-el domingo,Sunday,El domingo descanso.,On Sunday I rest.,noun,m,days
-enero,January,Mi cumpleaños es en enero.,My birthday is in January.,noun,m,months
-febrero,February,Febrero es corto.,February is short.,noun,m,months
-marzo,March,En marzo empieza la primavera.,Spring starts in March.,noun,m,months
-abril,April,Abril tiene treinta días.,April has thirty days.,noun,m,months
-mayo,May,En mayo hay flores.,In May there are flowers.,noun,m,months
-junio,June,Junio es mi mes favorito.,June is my favorite month.,noun,m,months
-julio,July,Julio es muy caliente.,July is very hot.,noun,m,months
-agosto,August,En agosto tengo vacaciones.,In August I have vacation.,noun,m,months
-septiembre,September,Septiembre empieza el otoño.,September begins autumn.,noun,m,months
-octubre,October,En octubre hace fresco.,In October it's cool.,noun,m,months
-noviembre,November,Noviembre es lluvioso.,November is rainy.,noun,m,months
-diciembre,December,En diciembre es Navidad.,In December it's Christmas.,noun,m,months
-hoy,today,Hoy es un buen día.,Today is a good day.,adverb,n/a,time
-ayer,yesterday,Ayer no trabajé.,Yesterday I didn't work.,adverb,n/a,time
-mañana,tomorrow,Mañana tengo una cita.,Tomorrow I have an appointment.,adverb,n/a,time
-la mañana,the morning,Por la mañana estudio.,In the morning I study.,noun,f,time
-la tarde,the afternoon,Por la tarde trabajo.,In the afternoon I work.,noun,f,time
-la noche,the night,Por la noche duermo.,At night I sleep.,noun,f,time
-¿qué hora es?,what time is it?,¿Qué hora es ahora?,What time is it now?,phrase,n/a,time
-es la una,it's one o'clock,Es la una de la tarde.,It's one in the afternoon.,phrase,n/a,time
-son las dos,it's two o'clock,Son las dos y media.,It's two thirty.,phrase,n/a,time
-y media,half past,Son las tres y media.,It's three thirty.,phrase,n/a,time
-y cuarto,quarter past,Son las cuatro y cuarto.,It's quarter past four.,phrase,n/a,time
-menos cuarto,quarter to,Son las cinco menos cuarto.,It's quarter to five.,phrase,n/a,time
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+cero,zero,El resultado es cero.,The result is zero.,adjective,n/a,numbers,
+uno,one,Tengo un hermano.,I have one brother.,adjective,n/a,numbers,
+dos,two,Son las dos de la tarde.,It's two in the afternoon.,adjective,n/a,numbers,
+tres,three,Tres cafés por favor.,Three coffees please.,adjective,n/a,numbers,
+cuatro,four,Hay cuatro sillas.,There are four chairs.,adjective,n/a,numbers,
+cinco,five,Trabajo cinco días.,I work five days.,adjective,n/a,numbers,
+seis,six,Son las seis.,It's six o'clock.,adjective,n/a,numbers,
+siete,seven,A las siete de la mañana.,At seven in the morning.,adjective,n/a,numbers,
+ocho,eight,Ocho horas de sueño.,Eight hours of sleep.,adjective,n/a,numbers,
+nueve,nine,Tengo nueve años aquí.,I've been here nine years.,adjective,n/a,numbers,
+diez,ten,Diez minutos más.,Ten more minutes.,adjective,n/a,numbers,
+once,eleven,El once de enero.,The eleventh of January.,adjective,n/a,numbers,turbo
+doce,twelve,A las doce del mediodía.,At twelve noon.,adjective,n/a,numbers,
+veinte,twenty,Veinte personas vinieron.,Twenty people came.,adjective,n/a,numbers,
+treinta,thirty,Tengo treinta años.,I'm thirty years old.,adjective,n/a,numbers,
+cuarenta,forty,Cuarenta grados de calor.,Forty degrees of heat.,adjective,n/a,numbers,
+cincuenta,fifty,Cuesta cincuenta dólares.,It costs fifty dollars.,adjective,n/a,numbers,
+cien,one hundred,Cien por ciento seguro.,One hundred percent sure.,adjective,n/a,numbers,
+el lunes,Monday,El lunes tengo clase.,On Monday I have class.,noun,m,days,
+el martes,Tuesday,El martes voy al médico.,On Tuesday I go to the doctor.,noun,m,days,
+el miércoles,Wednesday,El miércoles es mi día libre.,Wednesday is my day off.,noun,m,days,
+el jueves,Thursday,Nos vemos el jueves.,See you on Thursday.,noun,m,days,
+el viernes,Friday,El viernes salimos temprano.,On Friday we leave early.,noun,m,days,
+el sábado,Saturday,El sábado no trabajo.,On Saturday I don't work.,noun,m,days,
+el domingo,Sunday,El domingo descanso.,On Sunday I rest.,noun,m,days,
+enero,January,Mi cumpleaños es en enero.,My birthday is in January.,noun,m,months,
+febrero,February,Febrero es corto.,February is short.,noun,m,months,
+marzo,March,En marzo empieza la primavera.,Spring starts in March.,noun,m,months,
+abril,April,Abril tiene treinta días.,April has thirty days.,noun,m,months,
+mayo,May,En mayo hay flores.,In May there are flowers.,noun,m,months,
+junio,June,Junio es mi mes favorito.,June is my favorite month.,noun,m,months,
+julio,July,Julio es muy caliente.,July is very hot.,noun,m,months,
+agosto,August,En agosto tengo vacaciones.,In August I have vacation.,noun,m,months,
+septiembre,September,Septiembre empieza el otoño.,September begins autumn.,noun,m,months,
+octubre,October,En octubre hace fresco.,In October it's cool.,noun,m,months,
+noviembre,November,Noviembre es lluvioso.,November is rainy.,noun,m,months,
+diciembre,December,En diciembre es Navidad.,In December it's Christmas.,noun,m,months,
+hoy,today,Hoy es un buen día.,Today is a good day.,adverb,n/a,time,
+ayer,yesterday,Ayer no trabajé.,Yesterday I didn't work.,adverb,n/a,time,
+mañana,tomorrow,Mañana tengo una cita.,Tomorrow I have an appointment.,adverb,n/a,time,
+la mañana,the morning,Por la mañana estudio.,In the morning I study.,noun,f,time,
+la tarde,the afternoon,Por la tarde trabajo.,In the afternoon I work.,noun,f,time,
+la noche,the night,Por la noche duermo.,At night I sleep.,noun,f,time,
+¿qué hora es?,what time is it?,¿Qué hora es ahora?,What time is it now?,phrase,n/a,time,
+es la una,it's one o'clock,Es la una de la tarde.,It's one in the afternoon.,phrase,n/a,time,
+son las dos,it's two o'clock,Son las dos y media.,It's two thirty.,phrase,n/a,time,
+y media,half past,Son las tres y media.,It's three thirty.,phrase,n/a,time,
+y cuarto,quarter past,Son las cuatro y cuarto.,It's quarter past four.,phrase,n/a,time,
+menos cuarto,quarter to,Son las cinco menos cuarto.,It's quarter to five.,phrase,n/a,time,

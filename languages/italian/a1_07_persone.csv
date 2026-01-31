@@ -1,50 +1,50 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-la persona,the person,È una brava persona.,He/She is a good person.,noun,f,people
-l'uomo,the man,L'uomo è alto.,The man is tall.,noun,m,people
-la donna,the woman,La donna è italiana.,The woman is Italian.,noun,f,people
-il ragazzo,the boy/young man,Il ragazzo studia.,The boy studies.,noun,m,people
-la ragazza,the girl/young woman,La ragazza lavora qui.,The girl works here.,noun,f,people
-il bambino,the child (male),Il bambino gioca.,The child plays.,noun,m,people
-la bambina,the child (female),La bambina è simpatica.,The girl is nice.,noun,f,people
-l'amico,the friend (male),È il mio amico.,He is my friend.,noun,m,people
-l'amica,the friend (female),È la mia amica.,She is my friend.,noun,f,people
-il collega,the colleague (male),Il mio collega è gentile.,My colleague is kind.,noun,m,people
-la collega,the colleague (female),La collega parla italiano.,The colleague speaks Italian.,noun,f,people
-italiano,Italian,Sono italiano.,I am Italian.,adjective,n/a,nationalities
-americana,American (female),Sono americana.,I am American.,adjective,n/a,nationalities
-americano,American (male),Lui è americano.,He is American.,adjective,n/a,nationalities
-inglese,English/British,Lei è inglese.,She is English.,adjective,n/a,nationalities
-francese,French,Il vino è francese.,The wine is French.,adjective,n/a,nationalities
-tedesco,German,Parlo tedesco.,I speak German.,adjective,n/a,nationalities
-spagnolo,Spanish,La musica è spagnola.,The music is Spanish.,adjective,n/a,nationalities
-cinese,Chinese,Il ristorante è cinese.,The restaurant is Chinese.,adjective,n/a,nationalities
-giapponese,Japanese,L'auto è giapponese.,The car is Japanese.,adjective,n/a,nationalities
-il medico,the doctor,Il medico è bravo.,The doctor is good.,noun,m,professions
-l'infermiere,the nurse (male),L'infermiere lavora in ospedale.,The nurse works in hospital.,noun,m,professions
-l'insegnante,the teacher,L'insegnante è paziente.,The teacher is patient.,noun,mf,professions
-lo studente,the student (male),Lo studente studia molto.,The student studies a lot.,noun,m,professions
-la studentessa,the student (female),La studentessa è brava.,The student is good.,noun,f,professions
-l'avvocato,the lawyer,L'avvocato è in ufficio.,The lawyer is in the office.,noun,m,professions
-l'ingegnere,the engineer,L'ingegnere lavora molto.,The engineer works a lot.,noun,m,professions
-il cameriere,the waiter,Il cameriere è veloce.,The waiter is fast.,noun,m,professions
-il cuoco,the cook,Il cuoco è italiano.,The cook is Italian.,noun,m,professions
-alto,tall,Marco è molto alto.,Marco is very tall.,adjective,n/a,descriptions
-basso,short (height),Maria è bassa.,Maria is short.,adjective,n/a,descriptions
-giovane,young,È molto giovane.,He/She is very young.,adjective,n/a,descriptions
-vecchio,old,L'edificio è vecchio.,The building is old.,adjective,n/a,descriptions
-anziano,elderly,L'uomo è anziano.,The man is elderly.,adjective,n/a,descriptions
-bello,beautiful/handsome,Il ragazzo è bello.,The boy is handsome.,adjective,n/a,descriptions
-brutto,ugly,Il tempo è brutto.,The weather is bad/ugly.,adjective,n/a,descriptions
-simpatico,nice/likeable,Lui è molto simpatico.,He is very nice.,adjective,n/a,descriptions
-antipatico,unpleasant,Non è antipatico.,He's not unpleasant.,adjective,n/a,descriptions
-gentile,kind,Lei è molto gentile.,She is very kind.,adjective,n/a,descriptions
-intelligente,intelligent,La ragazza è intelligente.,The girl is intelligent.,adjective,n/a,descriptions
-divertente,funny/fun,Il film è divertente.,The movie is funny.,adjective,n/a,descriptions
-serio,serious,L'uomo è serio.,The man is serious.,adjective,n/a,descriptions
-tranquillo,calm/quiet,È una persona tranquilla.,He/She is a calm person.,adjective,n/a,descriptions
-nervoso,nervous,Sono un po' nervoso.,I am a little nervous.,adjective,n/a,descriptions
-felice,happy,Sono molto felice.,I am very happy.,adjective,n/a,descriptions
-triste,sad,Perché sei triste?,Why are you sad?,adjective,n/a,descriptions
-stanco,tired,Sono stanco oggi.,I am tired today.,adjective,n/a,descriptions
-i capelli,the hair,Ha i capelli neri.,He/She has black hair.,noun,m,descriptions
-gli occhi,the eyes,Ha gli occhi blu.,He/She has blue eyes.,noun,m,descriptions
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+la persona,the person,È una brava persona.,He/She is a good person.,noun,f,people,
+l'uomo,the man,L'uomo è alto.,The man is tall.,noun,m,people,
+la donna,the woman,La donna è italiana.,The woman is Italian.,noun,f,people,
+il ragazzo,the boy/young man,Il ragazzo studia.,The boy studies.,noun,m,people,
+la ragazza,the girl/young woman,La ragazza lavora qui.,The girl works here.,noun,f,people,
+il bambino,the child (male),Il bambino gioca.,The child plays.,noun,m,people,
+la bambina,the child (female),La bambina è simpatica.,The girl is nice.,noun,f,people,
+l'amico,the friend (male),È il mio amico.,He is my friend.,noun,m,people,
+l'amica,the friend (female),È la mia amica.,She is my friend.,noun,f,people,
+il collega,the colleague (male),Il mio collega è gentile.,My colleague is kind.,noun,m,people,
+la collega,the colleague (female),La collega parla italiano.,The colleague speaks Italian.,noun,f,people,
+italiano,Italian,Sono italiano.,I am Italian.,adjective,n/a,nationalities,
+americana,American (female),Sono americana.,I am American.,adjective,n/a,nationalities,
+americano,American (male),Lui è americano.,He is American.,adjective,n/a,nationalities,
+inglese,English/British,Lei è inglese.,She is English.,adjective,n/a,nationalities,
+francese,French,Il vino è francese.,The wine is French.,adjective,n/a,nationalities,
+tedesco,German,Parlo tedesco.,I speak German.,adjective,n/a,nationalities,
+spagnolo,Spanish,La musica è spagnola.,The music is Spanish.,adjective,n/a,nationalities,
+cinese,Chinese,Il ristorante è cinese.,The restaurant is Chinese.,adjective,n/a,nationalities,
+giapponese,Japanese,L'auto è giapponese.,The car is Japanese.,adjective,n/a,nationalities,
+il medico,the doctor,Il medico è bravo.,The doctor is good.,noun,m,professions,
+l'infermiere,the nurse (male),L'infermiere lavora in ospedale.,The nurse works in hospital.,noun,m,professions,
+l'insegnante,the teacher,L'insegnante è paziente.,The teacher is patient.,noun,mf,professions,
+lo studente,the student (male),Lo studente studia molto.,The student studies a lot.,noun,m,professions,
+la studentessa,the student (female),La studentessa è brava.,The student is good.,noun,f,professions,
+l'avvocato,the lawyer,L'avvocato è in ufficio.,The lawyer is in the office.,noun,m,professions,
+l'ingegnere,the engineer,L'ingegnere lavora molto.,The engineer works a lot.,noun,m,professions,
+il cameriere,the waiter,Il cameriere è veloce.,The waiter is fast.,noun,m,professions,
+il cuoco,the cook,Il cuoco è italiano.,The cook is Italian.,noun,m,professions,
+alto,tall,Marco è molto alto.,Marco is very tall.,adjective,n/a,descriptions,
+basso,short (height),Maria è bassa.,Maria is short.,adjective,n/a,descriptions,
+giovane,young,È molto giovane.,He/She is very young.,adjective,n/a,descriptions,
+vecchio,old,L'edificio è vecchio.,The building is old.,adjective,n/a,descriptions,
+anziano,elderly,L'uomo è anziano.,The man is elderly.,adjective,n/a,descriptions,
+bello,beautiful/handsome,Il ragazzo è bello.,The boy is handsome.,adjective,n/a,descriptions,
+brutto,ugly,Il tempo è brutto.,The weather is bad/ugly.,adjective,n/a,descriptions,
+simpatico,nice/likeable,Lui è molto simpatico.,He is very nice.,adjective,n/a,descriptions,
+antipatico,unpleasant,Non è antipatico.,He's not unpleasant.,adjective,n/a,descriptions,
+gentile,kind,Lei è molto gentile.,She is very kind.,adjective,n/a,descriptions,
+intelligente,intelligent,La ragazza è intelligente.,The girl is intelligent.,adjective,n/a,descriptions,
+divertente,funny/fun,Il film è divertente.,The movie is funny.,adjective,n/a,descriptions,
+serio,serious,L'uomo è serio.,The man is serious.,adjective,n/a,descriptions,
+tranquillo,calm/quiet,È una persona tranquilla.,He/She is a calm person.,adjective,n/a,descriptions,
+nervoso,nervous,Sono un po' nervoso.,I am a little nervous.,adjective,n/a,descriptions,
+felice,happy,Sono molto felice.,I am very happy.,adjective,n/a,descriptions,
+triste,sad,Perché sei triste?,Why are you sad?,adjective,n/a,descriptions,
+stanco,tired,Sono stanco oggi.,I am tired today.,adjective,n/a,descriptions,
+i capelli,the hair,Ha i capelli neri.,He/She has black hair.,noun,m,descriptions,
+gli occhi,the eyes,Ha gli occhi blu.,He/She has blue eyes.,noun,m,descriptions,

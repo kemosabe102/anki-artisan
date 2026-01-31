@@ -1,49 +1,49 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-la stazione,the station,Dov'è la stazione?,Where is the station?,noun,f,places
-l'aeroporto,the airport,Vado all'aeroporto.,I go to the airport.,noun,m,places
-la fermata,the stop (bus/tram),La fermata è qui.,The stop is here.,noun,f,places
-il binario,the platform/track,Il treno parte dal binario tre.,The train leaves from platform three.,noun,m,places
-l'uscita,the exit,Dov'è l'uscita?,Where is the exit?,noun,f,places
-l'entrata,the entrance,L'entrata è chiusa.,The entrance is closed.,noun,f,places
-il centro,the center/downtown,Vado in centro.,I go downtown.,noun,m,places
-la piazza,the square,La piazza è bella.,The square is beautiful.,noun,f,places
-la via,the street,Abito in Via Roma.,I live on Via Roma.,noun,f,places
-il treno,the train,Il treno è in ritardo.,The train is late.,noun,m,transportation
-l'autobus,the bus,Prendo l'autobus.,I take the bus.,noun,m,transportation
-la metropolitana,the metro/subway,La metropolitana è veloce.,The metro is fast.,noun,f,transportation
-il taxi,the taxi,Chiamo un taxi.,I call a taxi.,noun,m,transportation
-l'aereo,the airplane,L'aereo parte alle dieci.,The plane leaves at ten.,noun,m,transportation
-la macchina,the car,Vado in macchina.,I go by car.,noun,f,transportation
-la bicicletta,the bicycle,Vado in bicicletta.,I go by bicycle.,noun,f,transportation
-a piedi,on foot,Vado a piedi.,I go on foot.,phrase,n/a,transportation
-il biglietto,the ticket,Un biglietto per Milano.,A ticket to Milan.,noun,m,travel
-andata e ritorno,round trip,Andata e ritorno per favore.,Round trip please.,phrase,n/a,travel
-solo andata,one way,Solo andata per Roma.,One way to Rome.,phrase,n/a,travel
-la partenza,the departure,A che ora è la partenza?,What time is the departure?,noun,f,travel
-l'arrivo,the arrival,L'arrivo è alle tre.,The arrival is at three.,noun,m,travel
-il volo,the flight,Il volo è cancellato.,The flight is cancelled.,noun,m,travel
-la valigia,the suitcase,Porto una valigia.,I bring a suitcase.,noun,f,travel
-il passaporto,the passport,Ho il passaporto.,I have the passport.,noun,m,travel
-la carta d'identità,the ID card,La carta d'identità per favore.,The ID card please.,noun,f,travel
-partire,to leave/depart,Parto domani mattina.,I leave tomorrow morning.,verb,n/a,verbs
-arrivare,to arrive,Arrivo stasera.,I arrive tonight.,verb,n/a,verbs
-prendere,to take (transport),Prendo il treno delle otto.,I take the eight o'clock train.,verb,n/a,verbs
-cambiare,to change (transfer),Devo cambiare a Milano.,I have to change in Milan.,verb,n/a,verbs
-girare,to turn,Giri a destra.,Turn right.,verb,n/a,verbs directions
-attraversare,to cross,Attraversi la piazza.,Cross the square.,verb,n/a,verbs directions
-continuare,to continue,Continui dritto.,Continue straight.,verb,n/a,verbs directions
-cercare,to look for,Cerco la stazione.,I'm looking for the station.,verb,n/a,verbs
-dritto,straight,Vada sempre dritto.,Go straight ahead.,adverb,n/a,directions
-qui,here,Il museo è qui.,The museum is here.,adverb,n/a,directions
-là,there,La stazione è là.,The station is over there.,adverb,n/a,directions
-lontano,far,È lontano da qui?,Is it far from here?,adverb,n/a,directions
-vicino,near/close,È molto vicino.,It's very close.,adverb,n/a,directions
-quanto tempo,how long,Quanto tempo ci vuole?,How long does it take?,phrase,n/a,questions
-quanto costa,how much does it cost,Quanto costa il biglietto?,How much does the ticket cost?,phrase,n/a,questions
-a che ora,at what time,A che ora parte?,What time does it leave?,phrase,n/a,questions
-dov'è,where is,Scusi dov'è il bagno?,Excuse me where is the bathroom?,phrase,n/a,questions formal
-come arrivo,how do I get to,Come arrivo al centro?,How do I get downtown?,phrase,n/a,questions
-aperto,open,Il museo è aperto.,The museum is open.,adjective,n/a,adjectives
-chiuso,closed,La stazione è chiusa.,The station is closed.,adjective,n/a,adjectives
-veloce,fast,Il treno è veloce.,The train is fast.,adjective,n/a,adjectives
-lento,slow,L'autobus è lento.,The bus is slow.,adjective,n/a,adjectives
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+la stazione,the station,Dov'è la stazione?,Where is the station?,noun,f,places,
+l'aeroporto,the airport,Vado all'aeroporto.,I go to the airport.,noun,m,places,
+la fermata,the stop (bus/tram),La fermata è qui.,The stop is here.,noun,f,places,
+il binario,the platform/track,Il treno parte dal binario tre.,The train leaves from platform three.,noun,m,places,
+l'uscita,the exit,Dov'è l'uscita?,Where is the exit?,noun,f,places,
+l'entrata,the entrance,L'entrata è chiusa.,The entrance is closed.,noun,f,places,
+il centro,the center/downtown,Vado in centro.,I go downtown.,noun,m,places,
+la piazza,the square,La piazza è bella.,The square is beautiful.,noun,f,places,
+la via,the street,Abito in Via Roma.,I live on Via Roma.,noun,f,places,
+il treno,the train,Il treno è in ritardo.,The train is late.,noun,m,transportation,
+l'autobus,the bus,Prendo l'autobus.,I take the bus.,noun,m,transportation,
+la metropolitana,the metro/subway,La metropolitana è veloce.,The metro is fast.,noun,f,transportation,
+il taxi,the taxi,Chiamo un taxi.,I call a taxi.,noun,m,transportation,
+l'aereo,the airplane,L'aereo parte alle dieci.,The plane leaves at ten.,noun,m,transportation,
+la macchina,the car,Vado in macchina.,I go by car.,noun,f,transportation,
+la bicicletta,the bicycle,Vado in bicicletta.,I go by bicycle.,noun,f,transportation,
+a piedi,on foot,Vado a piedi.,I go on foot.,phrase,n/a,transportation,
+il biglietto,the ticket,Un biglietto per Milano.,A ticket to Milan.,noun,m,travel,
+andata e ritorno,round trip,Andata e ritorno per favore.,Round trip please.,phrase,n/a,travel,
+solo andata,one way,Solo andata per Roma.,One way to Rome.,phrase,n/a,travel,
+la partenza,the departure,A che ora è la partenza?,What time is the departure?,noun,f,travel,
+l'arrivo,the arrival,L'arrivo è alle tre.,The arrival is at three.,noun,m,travel,
+il volo,the flight,Il volo è cancellato.,The flight is cancelled.,noun,m,travel,
+la valigia,the suitcase,Porto una valigia.,I bring a suitcase.,noun,f,travel,
+il passaporto,the passport,Ho il passaporto.,I have the passport.,noun,m,travel,
+la carta d'identità,the ID card,La carta d'identità per favore.,The ID card please.,noun,f,travel,
+partire,to leave/depart,Parto domani mattina.,I leave tomorrow morning.,verb,n/a,verbs,
+arrivare,to arrive,Arrivo stasera.,I arrive tonight.,verb,n/a,verbs,
+prendere,to take (transport),Prendo il treno delle otto.,I take the eight o'clock train.,verb,n/a,verbs,
+cambiare,to change (transfer),Devo cambiare a Milano.,I have to change in Milan.,verb,n/a,verbs,
+girare,to turn,Giri a destra.,Turn right.,verb,n/a,verbs directions,
+attraversare,to cross,Attraversi la piazza.,Cross the square.,verb,n/a,verbs directions,
+continuare,to continue,Continui dritto.,Continue straight.,verb,n/a,verbs directions,
+cercare,to look for,Cerco la stazione.,I'm looking for the station.,verb,n/a,verbs,
+dritto,straight,Vada sempre dritto.,Go straight ahead.,adverb,n/a,directions,
+qui,here,Il museo è qui.,The museum is here.,adverb,n/a,directions,
+là,there,La stazione è là.,The station is over there.,adverb,n/a,directions,
+lontano,far,È lontano da qui?,Is it far from here?,adverb,n/a,directions,
+vicino,near/close,È molto vicino.,It's very close.,adverb,n/a,directions,
+quanto tempo,how long,Quanto tempo ci vuole?,How long does it take?,phrase,n/a,questions,
+quanto costa,how much does it cost,Quanto costa il biglietto?,How much does the ticket cost?,phrase,n/a,questions,
+a che ora,at what time,A che ora parte?,What time does it leave?,phrase,n/a,questions,
+dov'è,where is,Scusi dov'è il bagno?,Excuse me where is the bathroom?,phrase,n/a,questions formal,
+come arrivo,how do I get to,Come arrivo al centro?,How do I get downtown?,phrase,n/a,questions,
+aperto,open,Il museo è aperto.,The museum is open.,adjective,n/a,adjectives,
+chiuso,closed,La stazione è chiusa.,The station is closed.,adjective,n/a,adjectives,
+veloce,fast,Il treno è veloce.,The train is fast.,adjective,n/a,adjectives,
+lento,slow,L'autobus è lento.,The bus is slow.,adjective,n/a,adjectives,

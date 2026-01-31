@@ -1,45 +1,45 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-la reserva,the reservation,Hice una reserva para dos noches.,I made a reservation for two nights.,noun,f,travel
-la confirmación,the confirmation,Recibí la confirmación por email.,I received the confirmation by email.,noun,f,travel
-la cancelación,the cancellation,La cancelación es gratuita.,The cancellation is free.,noun,f,travel
-el retraso,the delay,El vuelo tiene retraso.,The flight is delayed.,noun,m,travel
-la conexión,the connection,Perdí la conexión en Madrid.,I missed the connection in Madrid.,noun,f,travel
-el andén,the platform,El tren sale del andén tres.,The train leaves from platform three.,noun,m,travel
-la taquilla,the ticket office,Compré los boletos en la taquilla.,I bought the tickets at the ticket office.,noun,f,travel
-la ventanilla,the counter/window,Haga fila en la ventanilla dos.,Line up at window two.,noun,f,services
-la fila,the line/queue,La fila es muy larga.,The line is very long.,noun,f,services
-el formulario,the form,Complete este formulario por favor.,Please complete this form.,noun,m,services
-llenar,to fill out,Llené el formulario en línea.,I filled out the form online.,verb,n/a,services
-la firma,the signature,Necesito su firma aquí.,I need your signature here.,noun,f,services
-firmar,to sign,Firmé todos los documentos.,I signed all the documents.,verb,n/a,services
-el documento,the document,Traiga los documentos originales.,Bring the original documents.,noun,m,services
-el trámite,the paperwork/procedure,El trámite tarda dos semanas.,The paperwork takes two weeks.,noun,m,services
-la cédula,ID card (Latin America),Muestre su cédula por favor.,Show your ID please.,noun,f,documents
-la visa,the visa,Solicité la visa de trabajo.,I applied for the work visa.,noun,f,documents
-el permiso,the permit,Necesito un permiso de residencia.,I need a residence permit.,noun,m,documents
-la cuenta bancaria,bank account,Abrí una cuenta bancaria nueva.,I opened a new bank account.,noun,f,banking
-el cajero automático,ATM,El cajero está fuera de servicio.,The ATM is out of service.,noun,m,banking
-retirar,to withdraw,Retiré dinero del cajero.,I withdrew money from the ATM.,verb,n/a,banking
-depositar,to deposit,Deposité el cheque ayer.,I deposited the check yesterday.,verb,n/a,banking
-la transferencia,the transfer,Hice una transferencia bancaria.,I made a bank transfer.,noun,f,banking
-el saldo,the balance,Mi saldo es bajo.,My balance is low.,noun,m,banking
-la tarjeta de crédito,credit card,Pago con tarjeta de crédito.,I pay with credit card.,noun,f,banking
-la tarjeta de débito,debit card,Prefiero usar tarjeta de débito.,I prefer using debit card.,noun,f,banking
-la factura,the invoice,La factura llegó por correo.,The invoice arrived by mail.,noun,f,transactions
-la devolución,the return/refund,La devolución tarda cinco días.,The refund takes five days.,noun,f,transactions
-el reembolso,the refund,Solicité un reembolso completo.,I requested a full refund.,noun,m,transactions
-cambiar,to exchange/change,Quiero cambiar este producto.,I want to exchange this product.,verb,n/a,transactions
-devolver,to return,Devolví el artículo defectuoso.,I returned the defective item.,verb,n/a,transactions
-reclamar,to complain/claim,Reclamé por el mal servicio.,I complained about the bad service.,verb,n/a,transactions
-el reclamo,the complaint,Presenté un reclamo formal.,I filed a formal complaint.,noun,m,transactions
-la garantía,the warranty,La garantía cubre dos años.,The warranty covers two years.,noun,f,transactions
-vencer,to expire,Mi licencia vence mañana.,My license expires tomorrow.,verb,n/a,services
-renovar,to renew,Necesito renovar mi pasaporte.,I need to renew my passport.,verb,n/a,services
-la suscripción,the subscription,Cancelé mi suscripción mensual.,I canceled my monthly subscription.,noun,f,services
-la tarifa,the rate/fare,La tarifa aumentó este año.,The rate increased this year.,noun,f,services
-la multa,the fine,Me pusieron una multa de tránsito.,I got a traffic fine.,noun,f,services
-pagar una multa,to pay a fine,Pagué la multa en línea.,I paid the fine online.,phrase,n/a,services
-el seguro,insurance,El seguro cubre todo.,The insurance covers everything.,noun,m,services
-asegurar,to insure,Aseguré mi carro nuevo.,I insured my new car.,verb,n/a,services
-el presupuesto,the quote/estimate,Pedí un presupuesto gratis.,I asked for a free quote.,noun,m,services
-cotizar,to quote,Me cotizaron mil dólares.,They quoted me a thousand dollars.,verb,n/a,services
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+la reserva,the reservation,Hice una reserva para dos noches.,I made a reservation for two nights.,noun,f,travel,
+la confirmación,the confirmation,Recibí la confirmación por email.,I received the confirmation by email.,noun,f,travel,
+la cancelación,the cancellation,La cancelación es gratuita.,The cancellation is free.,noun,f,travel,
+el retraso,the delay,El vuelo tiene retraso.,The flight is delayed.,noun,m,travel,
+la conexión,the connection,Perdí la conexión en Madrid.,I missed the connection in Madrid.,noun,f,travel,
+el andén,the platform,El tren sale del andén tres.,The train leaves from platform three.,noun,m,travel,
+la taquilla,the ticket office,Compré los boletos en la taquilla.,I bought the tickets at the ticket office.,noun,f,travel,
+la ventanilla,the counter/window,Haga fila en la ventanilla dos.,Line up at window two.,noun,f,services,
+la fila,the line/queue,La fila es muy larga.,The line is very long.,noun,f,services,
+el formulario,the form,Complete este formulario por favor.,Please complete this form.,noun,m,services,
+llenar,to fill out,Llené el formulario en línea.,I filled out the form online.,verb,n/a,services,
+la firma,the signature,Necesito su firma aquí.,I need your signature here.,noun,f,services,
+firmar,to sign,Firmé todos los documentos.,I signed all the documents.,verb,n/a,services,
+el documento,the document,Traiga los documentos originales.,Bring the original documents.,noun,m,services,
+el trámite,the paperwork/procedure,El trámite tarda dos semanas.,The paperwork takes two weeks.,noun,m,services,
+la cédula,ID card (Latin America),Muestre su cédula por favor.,Show your ID please.,noun,f,documents,
+la visa,the visa,Solicité la visa de trabajo.,I applied for the work visa.,noun,f,documents,
+el permiso,the permit,Necesito un permiso de residencia.,I need a residence permit.,noun,m,documents,
+la cuenta bancaria,bank account,Abrí una cuenta bancaria nueva.,I opened a new bank account.,noun,f,banking,
+el cajero automático,ATM,El cajero está fuera de servicio.,The ATM is out of service.,noun,m,banking,
+retirar,to withdraw,Retiré dinero del cajero.,I withdrew money from the ATM.,verb,n/a,banking,
+depositar,to deposit,Deposité el cheque ayer.,I deposited the check yesterday.,verb,n/a,banking,
+la transferencia,the transfer,Hice una transferencia bancaria.,I made a bank transfer.,noun,f,banking,
+el saldo,the balance,Mi saldo es bajo.,My balance is low.,noun,m,banking,
+la tarjeta de crédito,credit card,Pago con tarjeta de crédito.,I pay with credit card.,noun,f,banking,
+la tarjeta de débito,debit card,Prefiero usar tarjeta de débito.,I prefer using debit card.,noun,f,banking,
+la factura,the invoice,La factura llegó por correo.,The invoice arrived by mail.,noun,f,transactions,
+la devolución,the return/refund,La devolución tarda cinco días.,The refund takes five days.,noun,f,transactions,
+el reembolso,the refund,Solicité un reembolso completo.,I requested a full refund.,noun,m,transactions,
+cambiar,to exchange/change,Quiero cambiar este producto.,I want to exchange this product.,verb,n/a,transactions,
+devolver,to return,Devolví el artículo defectuoso.,I returned the defective item.,verb,n/a,transactions,
+reclamar,to complain/claim,Reclamé por el mal servicio.,I complained about the bad service.,verb,n/a,transactions,
+el reclamo,the complaint,Presenté un reclamo formal.,I filed a formal complaint.,noun,m,transactions,
+la garantía,the warranty,La garantía cubre dos años.,The warranty covers two years.,noun,f,transactions,
+vencer,to expire,Mi licencia vence mañana.,My license expires tomorrow.,verb,n/a,services,
+renovar,to renew,Necesito renovar mi pasaporte.,I need to renew my passport.,verb,n/a,services,
+la suscripción,the subscription,Cancelé mi suscripción mensual.,I canceled my monthly subscription.,noun,f,services,
+la tarifa,the rate/fare,La tarifa aumentó este año.,The rate increased this year.,noun,f,services,
+la multa,the fine,Me pusieron una multa de tránsito.,I got a traffic fine.,noun,f,services,
+pagar una multa,to pay a fine,Pagué la multa en línea.,I paid the fine online.,phrase,n/a,services,
+el seguro,insurance,El seguro cubre todo.,The insurance covers everything.,noun,m,services,
+asegurar,to insure,Aseguré mi carro nuevo.,I insured my new car.,verb,n/a,services,
+el presupuesto,the quote/estimate,Pedí un presupuesto gratis.,I asked for a free quote.,noun,m,services,
+cotizar,to quote,Me cotizaron mil dólares.,They quoted me a thousand dollars.,verb,n/a,services,

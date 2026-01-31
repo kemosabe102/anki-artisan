@@ -1,43 +1,43 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-el trabajo,the job/work,Me gusta mi trabajo.,I like my job.,noun,m,work
-el empleo,the employment/job,Busco un nuevo empleo.,I'm looking for a new job.,noun,m,work
-la oficina,the office,Trabajo en una oficina.,I work in an office.,noun,f,workplace
-la empresa,the company,La empresa es muy grande.,The company is very big.,noun,f,workplace
-el jefe,the boss (male),Mi jefe es muy amable.,My boss is very kind.,noun,m,people
-la jefa,the boss (female),La jefa está de vacaciones.,The boss is on vacation.,noun,f,people
-el empleado,the employee (male),Soy empleado de esta empresa.,I'm an employee of this company.,noun,m,people
-la empleada,the employee (female),La empleada nueva llegó hoy.,The new employee arrived today.,noun,f,people
-el compañero de trabajo,the coworker (male),Mi compañero de trabajo es simpático.,My coworker is nice.,noun,m,people
-la compañera de trabajo,the coworker (female),Mi compañera me ayuda mucho.,My coworker helps me a lot.,noun,f,people
-el sueldo,the salary,El sueldo es muy bajo.,The salary is very low.,noun,m,work
-el salario,the salary,Recibo mi salario cada mes.,I receive my salary every month.,noun,m,work
-el horario,the schedule,Horario de nueve a cinco.,Schedule from nine to five.,noun,m,work
-la reunión,the meeting,Tengo una reunión a las diez.,I have a meeting at ten.,noun,f,work
-el proyecto,the project,El proyecto termina en diciembre.,The project ends in December.,noun,m,work
-la computadora,the computer,Trabajo en la computadora.,I work on the computer.,noun,f,workplace
-el ordenador,the computer (Spain),El ordenador está roto.,The computer is broken.,noun,m,workplace
-el correo electrónico,email,Te mando un correo electrónico.,I'll send you an email.,noun,m,technology
-el cliente,the client,El cliente está satisfecho.,The client is satisfied.,noun,m,people
-buscar,to look for,Busco trabajo desde enero.,I've been looking for work since January.,verb,n/a,verbs
-encontrar,to find,Encontré un trabajo nuevo.,I found a new job.,verb,n/a,verbs
-ganar,to earn,Gano un buen sueldo.,I earn a good salary.,verb,n/a,verbs
-contratar,to hire,La empresa me contrató ayer.,The company hired me yesterday.,verb,n/a,verbs
-despedir,to fire,Lo despidieron la semana pasada.,They fired him last week.,verb,n/a,verbs
-renunciar,to resign,Voy a renunciar pronto.,I'm going to resign soon.,verb,n/a,verbs
-jubilarse,to retire,Mi padre se jubiló.,My father retired.,verb,n/a,verbs
-el maestro,the teacher (elementary),El maestro enseña matemáticas.,The teacher teaches math.,noun,m,professions
-el contador,the accountant,El contador revisa los números.,The accountant reviews the numbers.,noun,m,professions
-el arquitecto,the architect,El arquitecto diseñó la casa.,The architect designed the house.,noun,m,professions
-el enfermero,the nurse (male),El enfermero cuida a los pacientes.,The nurse cares for patients.,noun,m,professions
-la enfermera,the nurse (female),La enfermera trabaja en el hospital.,The nurse works at the hospital.,noun,f,professions
-el vendedor,the salesperson,El vendedor me ayudó mucho.,The salesperson helped me a lot.,noun,m,professions
-el peluquero,the hairdresser,El peluquero me cortó el pelo.,The hairdresser cut my hair.,noun,m,professions
-el mecánico,the mechanic,El mecánico arregló mi carro.,The mechanic fixed my car.,noun,m,professions
-el electricista,the electrician,Llamé al electricista.,I called the electrician.,noun,m,professions
-el plomero,the plumber,El plomero viene mañana.,The plumber comes tomorrow.,noun,m,professions
-a tiempo completo,full-time,Trabajo a tiempo completo.,I work full-time.,phrase,n/a,work
-a tiempo parcial,part-time,Busco un trabajo a tiempo parcial.,I'm looking for a part-time job.,phrase,n/a,work
-la entrevista,the interview,Tengo una entrevista de trabajo.,I have a job interview.,noun,f,work
-el currículum,the resume,Mandé mi currículum ayer.,I sent my resume yesterday.,noun,m,work
-la experiencia,experience,Tengo cinco años de experiencia.,I have five years of experience.,noun,f,work
-el turno,the shift,Trabajo el turno de noche.,I work the night shift.,noun,m,work
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+el trabajo,the job/work,Me gusta mi trabajo.,I like my job.,noun,m,work,
+el empleo,the employment/job,Busco un nuevo empleo.,I'm looking for a new job.,noun,m,work,
+la oficina,the office,Trabajo en una oficina.,I work in an office.,noun,f,workplace,
+la empresa,the company,La empresa es muy grande.,The company is very big.,noun,f,workplace,
+el jefe,the boss (male),Mi jefe es muy amable.,My boss is very kind.,noun,m,people,
+la jefa,the boss (female),La jefa está de vacaciones.,The boss is on vacation.,noun,f,people,
+el empleado,the employee (male),Soy empleado de esta empresa.,I'm an employee of this company.,noun,m,people,
+la empleada,the employee (female),La empleada nueva llegó hoy.,The new employee arrived today.,noun,f,people,
+el compañero de trabajo,the coworker (male),Mi compañero de trabajo es simpático.,My coworker is nice.,noun,m,people,
+la compañera de trabajo,the coworker (female),Mi compañera me ayuda mucho.,My coworker helps me a lot.,noun,f,people,
+el sueldo,the salary,El sueldo es muy bajo.,The salary is very low.,noun,m,work,
+el salario,the salary,Recibo mi salario cada mes.,I receive my salary every month.,noun,m,work,
+el horario,the schedule,Horario de nueve a cinco.,Schedule from nine to five.,noun,m,work,
+la reunión,the meeting,Tengo una reunión a las diez.,I have a meeting at ten.,noun,f,work,
+el proyecto,the project,El proyecto termina en diciembre.,The project ends in December.,noun,m,work,
+la computadora,the computer,Trabajo en la computadora.,I work on the computer.,noun,f,workplace,
+el ordenador,the computer (Spain),El ordenador está roto.,The computer is broken.,noun,m,workplace,
+el correo electrónico,email,Te mando un correo electrónico.,I'll send you an email.,noun,m,technology,
+el cliente,the client,El cliente está satisfecho.,The client is satisfied.,noun,m,people,
+buscar,to look for,Busco trabajo desde enero.,I've been looking for work since January.,verb,n/a,verbs,
+encontrar,to find,Encontré un trabajo nuevo.,I found a new job.,verb,n/a,verbs,
+ganar,to earn,Gano un buen sueldo.,I earn a good salary.,verb,n/a,verbs,
+contratar,to hire,La empresa me contrató ayer.,The company hired me yesterday.,verb,n/a,verbs,
+despedir,to fire,Lo despidieron la semana pasada.,They fired him last week.,verb,n/a,verbs,
+renunciar,to resign,Voy a renunciar pronto.,I'm going to resign soon.,verb,n/a,verbs,
+jubilarse,to retire,Mi padre se jubiló.,My father retired.,verb,n/a,verbs,
+el maestro,the teacher (elementary),El maestro enseña matemáticas.,The teacher teaches math.,noun,m,professions,
+el contador,the accountant,El contador revisa los números.,The accountant reviews the numbers.,noun,m,professions,
+el arquitecto,the architect,El arquitecto diseñó la casa.,The architect designed the house.,noun,m,professions,
+el enfermero,the nurse (male),El enfermero cuida a los pacientes.,The nurse cares for patients.,noun,m,professions,
+la enfermera,the nurse (female),La enfermera trabaja en el hospital.,The nurse works at the hospital.,noun,f,professions,
+el vendedor,the salesperson,El vendedor me ayudó mucho.,The salesperson helped me a lot.,noun,m,professions,
+el peluquero,the hairdresser,El peluquero me cortó el pelo.,The hairdresser cut my hair.,noun,m,professions,
+el mecánico,the mechanic,El mecánico arregló mi carro.,The mechanic fixed my car.,noun,m,professions,
+el electricista,the electrician,Llamé al electricista.,I called the electrician.,noun,m,professions,
+el plomero,the plumber,El plomero viene mañana.,The plumber comes tomorrow.,noun,m,professions,
+a tiempo completo,full-time,Trabajo a tiempo completo.,I work full-time.,phrase,n/a,work,
+a tiempo parcial,part-time,Busco un trabajo a tiempo parcial.,I'm looking for a part-time job.,phrase,n/a,work,
+la entrevista,the interview,Tengo una entrevista de trabajo.,I have a job interview.,noun,f,work,
+el currículum,the resume,Mandé mi currículum ayer.,I sent my resume yesterday.,noun,m,work,
+la experiencia,experience,Tengo cinco años de experiencia.,I have five years of experience.,noun,f,work,
+el turno,the shift,Trabajo el turno de noche.,I work the night shift.,noun,m,work,

@@ -1,39 +1,39 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-la libertà,freedom/liberty,La libertà di espressione è fondamentale.,Freedom of expression is fundamental.,noun,f,values
-la giustizia,justice,La giustizia deve prevalere.,Justice must prevail.,noun,f,values
-la dignità,dignity,La dignità umana è inviolabile.,Human dignity is inviolable.,noun,f,values
-la responsabilità,responsibility,È una grande responsabilità.,It's a great responsibility.,noun,f,values
-l'onestà,honesty,L'onestà è importante nei rapporti.,Honesty is important in relationships.,noun,f,values
-l'integrità,integrity,L'integrità morale è essenziale.,Moral integrity is essential.,noun,f,values
-la solidarietà,solidarity,La solidarietà tra i popoli.,Solidarity among peoples.,noun,f,values
-la fiducia,trust,La fiducia si costruisce nel tempo.,Trust is built over time.,noun,f,emotions
-il coraggio,courage,Ci vuole coraggio per cambiare.,It takes courage to change.,noun,m,emotions
-la speranza,hope,Non perdere la speranza.,Don't lose hope.,noun,f,emotions
-l'ansia,anxiety,L'ansia per il futuro.,Anxiety about the future.,noun,f,emotions
-la conoscenza,knowledge,La conoscenza è potere.,Knowledge is power.,noun,f,intellectual
-il comportamento,behavior,Il comportamento è inaccettabile.,The behavior is unacceptable.,noun,m,intellectual
-l'atteggiamento,attitude,L'atteggiamento positivo aiuta.,A positive attitude helps.,noun,m,intellectual
-il significato,meaning,Il significato profondo del testo.,The deep meaning of the text.,noun,m,intellectual
-il concetto,concept,Il concetto è difficile da spiegare.,The concept is hard to explain.,noun,m,intellectual
-la conseguenza,consequence,Le conseguenze sono gravi.,The consequences are serious.,noun,f,cause-effect
-la causa,cause,La causa del problema è chiara.,The cause of the problem is clear.,noun,f,cause-effect
-l'effetto,effect,L'effetto è immediato.,The effect is immediate.,noun,m,cause-effect
-il successo,success,Il successo dipende dall'impegno.,Success depends on effort.,noun,m,outcomes
-il fallimento,failure,Il fallimento non è la fine.,Failure is not the end.,noun,m,outcomes
-il vantaggio,advantage,Il vantaggio è evidente.,The advantage is evident.,noun,m,outcomes
-lo svantaggio,disadvantage,Lo svantaggio principale è il costo.,The main disadvantage is the cost.,noun,m,outcomes
-il beneficio,benefit,I benefici sono numerosi.,The benefits are numerous.,noun,m,outcomes
-il rischio,risk,Il rischio è calcolato.,The risk is calculated.,noun,m,outcomes
-riflettere,to reflect,Devo riflettere sulla questione.,I need to reflect on the matter.,verb,n/a,verbs
-analizzare,to analyze,Analizziamo i dati insieme.,Let's analyze the data together.,verb,n/a,verbs
-valutare,to evaluate,Bisogna valutare le opzioni.,We need to evaluate the options.,verb,n/a,verbs
-considerare,to consider,Considero questa possibilità.,I consider this possibility.,verb,n/a,verbs
-interpretare,to interpret,Come interpreti questo testo?,How do you interpret this text?,verb,n/a,verbs
-dedurre,to deduce,Da ciò deduco che hai ragione.,From this I deduce you're right.,verb,n/a,verbs
-concludere,to conclude,Concludo che è necessario agire.,I conclude that action is necessary.,verb,n/a,verbs
-dimostrare,to demonstrate,I dati dimostrano la teoria.,The data demonstrate the theory.,verb,n/a,verbs
-contraddire,to contradict,Non voglio contraddirti.,I don't want to contradict you.,verb,n/a,verbs
-fondamentale,fundamental,È un principio fondamentale.,It's a fundamental principle.,adjective,n/a,adjectives
-essenziale,essential,È essenziale capire questo.,It's essential to understand this.,adjective,n/a,adjectives
-significativo,significant,Un cambiamento significativo.,A significant change.,adjective,n/a,adjectives
-complesso,complex,La situazione è complessa.,The situation is complex.,adjective,n/a,adjectives
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+la libertà,freedom/liberty,La libertà di espressione è fondamentale.,Freedom of expression is fundamental.,noun,f,values,
+la giustizia,justice,La giustizia deve prevalere.,Justice must prevail.,noun,f,values,
+la dignità,dignity,La dignità umana è inviolabile.,Human dignity is inviolable.,noun,f,values,
+la responsabilità,responsibility,È una grande responsabilità.,It's a great responsibility.,noun,f,values,
+l'onestà,honesty,L'onestà è importante nei rapporti.,Honesty is important in relationships.,noun,f,values,
+l'integrità,integrity,L'integrità morale è essenziale.,Moral integrity is essential.,noun,f,values,
+la solidarietà,solidarity,La solidarietà tra i popoli.,Solidarity among peoples.,noun,f,values,
+la fiducia,trust,La fiducia si costruisce nel tempo.,Trust is built over time.,noun,f,emotions,
+il coraggio,courage,Ci vuole coraggio per cambiare.,It takes courage to change.,noun,m,emotions,
+la speranza,hope,Non perdere la speranza.,Don't lose hope.,noun,f,emotions,
+l'ansia,anxiety,L'ansia per il futuro.,Anxiety about the future.,noun,f,emotions,
+la conoscenza,knowledge,La conoscenza è potere.,Knowledge is power.,noun,f,intellectual,
+il comportamento,behavior,Il comportamento è inaccettabile.,The behavior is unacceptable.,noun,m,intellectual,
+l'atteggiamento,attitude,L'atteggiamento positivo aiuta.,A positive attitude helps.,noun,m,intellectual,
+il significato,meaning,Il significato profondo del testo.,The deep meaning of the text.,noun,m,intellectual,
+il concetto,concept,Il concetto è difficile da spiegare.,The concept is hard to explain.,noun,m,intellectual,
+la conseguenza,consequence,Le conseguenze sono gravi.,The consequences are serious.,noun,f,cause-effect,
+la causa,cause,La causa del problema è chiara.,The cause of the problem is clear.,noun,f,cause-effect,
+l'effetto,effect,L'effetto è immediato.,The effect is immediate.,noun,m,cause-effect,
+il successo,success,Il successo dipende dall'impegno.,Success depends on effort.,noun,m,outcomes,
+il fallimento,failure,Il fallimento non è la fine.,Failure is not the end.,noun,m,outcomes,
+il vantaggio,advantage,Il vantaggio è evidente.,The advantage is evident.,noun,m,outcomes,
+lo svantaggio,disadvantage,Lo svantaggio principale è il costo.,The main disadvantage is the cost.,noun,m,outcomes,
+il beneficio,benefit,I benefici sono numerosi.,The benefits are numerous.,noun,m,outcomes,
+il rischio,risk,Il rischio è calcolato.,The risk is calculated.,noun,m,outcomes,
+riflettere,to reflect,Devo riflettere sulla questione.,I need to reflect on the matter.,verb,n/a,verbs,
+analizzare,to analyze,Analizziamo i dati insieme.,Let's analyze the data together.,verb,n/a,verbs,
+valutare,to evaluate,Bisogna valutare le opzioni.,We need to evaluate the options.,verb,n/a,verbs,
+considerare,to consider,Considero questa possibilità.,I consider this possibility.,verb,n/a,verbs,
+interpretare,to interpret,Come interpreti questo testo?,How do you interpret this text?,verb,n/a,verbs,
+dedurre,to deduce,Da ciò deduco che hai ragione.,From this I deduce you're right.,verb,n/a,verbs,
+concludere,to conclude,Concludo che è necessario agire.,I conclude that action is necessary.,verb,n/a,verbs,
+dimostrare,to demonstrate,I dati dimostrano la teoria.,The data demonstrate the theory.,verb,n/a,verbs,
+contraddire,to contradict,Non voglio contraddirti.,I don't want to contradict you.,verb,n/a,verbs,
+fondamentale,fundamental,È un principio fondamentale.,It's a fundamental principle.,adjective,n/a,adjectives,
+essenziale,essential,È essenziale capire questo.,It's essential to understand this.,adjective,n/a,adjectives,
+significativo,significant,Un cambiamento significativo.,A significant change.,adjective,n/a,adjectives,
+complesso,complex,La situazione è complessa.,The situation is complex.,adjective,n/a,adjectives,

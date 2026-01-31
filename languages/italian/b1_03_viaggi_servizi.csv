@@ -1,50 +1,50 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-la prenotazione,the reservation,Ho una prenotazione a nome Rossi.,I have a reservation under Rossi.,noun,f,travel
-la conferma,the confirmation,Aspetto la conferma via email.,I'm waiting for email confirmation.,noun,f,travel
-la cancellazione,the cancellation,La cancellazione è gratuita.,The cancellation is free.,noun,f,travel
-il ritardo,the delay,Il treno ha un'ora di ritardo.,The train is an hour late.,noun,m,travel
-la coincidenza,the connection (transport),Ho perso la coincidenza.,I missed my connection.,noun,f,travel
-il binario,the platform/track,Il treno parte dal binario cinque.,The train leaves from platform five.,noun,m,travel
-la biglietteria,the ticket office,La biglietteria è chiusa.,The ticket office is closed.,noun,f,travel
-lo sportello,the counter/window,Vada allo sportello tre.,Go to counter three.,noun,m,services
-la fila,the queue/line,C'è molta fila oggi.,There's a long line today.,noun,f,services
-il modulo,the form,Compili questo modulo.,Fill out this form.,noun,m,services
-compilare,to fill out,Devo compilare la domanda.,I need to fill out the application.,verb,n/a,verbs
-la firma,the signature,Metta la firma qui.,Put your signature here.,noun,f,services
-firmare,to sign,Firmi qui per favore.,Sign here please.,verb,n/a,verbs
-il documento,the document,Mi serve un documento d'identità.,I need an ID document.,noun,m,services
-la carta d'identità,the ID card,La carta d'identità è scaduta.,The ID card is expired.,noun,f,documents
-il passaporto,the passport,Il passaporto scade l'anno prossimo.,The passport expires next year.,noun,m,documents
-il permesso di soggiorno,the residence permit,Ho richiesto il permesso di soggiorno.,I applied for a residence permit.,noun,m,documents
-il visto,the visa,Il visto è valido tre mesi.,The visa is valid for three months.,noun,m,documents
-la questura,the police headquarters,Devo andare in questura.,I have to go to the police headquarters.,noun,f,services
-l'anagrafe,the registry office,L'anagrafe è in centro.,The registry office is downtown.,noun,f,services
-il comune,the town hall/municipality,Il comune è aperto la mattina.,The town hall is open in the morning.,noun,m,services
-la pratica,the paperwork/file,La pratica è in lavorazione.,The paperwork is being processed.,noun,f,services
-il conto corrente,the checking account,Ho aperto un conto corrente.,I opened a checking account.,noun,m,banking
-il bancomat,the ATM,Il bancomat è fuori servizio.,The ATM is out of service.,noun,m,banking
-prelevare,to withdraw,Devo prelevare dei soldi.,I need to withdraw some money.,verb,n/a,banking
-versare,to deposit,Ho versato lo stipendio.,I deposited my salary.,verb,n/a,banking
-il bonifico,the bank transfer,Ho fatto un bonifico.,I made a bank transfer.,noun,m,banking
-il saldo,the balance,Qual è il saldo del conto?,What's the account balance?,noun,m,banking
-la carta di credito,the credit card,Accettate carta di credito?,Do you accept credit cards?,noun,f,banking
-la carta di debito,the debit card,Pago con carta di debito.,I pay with debit card.,noun,f,banking
-il contante,cash,Preferisco pagare in contante.,I prefer to pay in cash.,noun,m,banking
-lo scontrino,the receipt,Mi serve lo scontrino.,I need the receipt.,noun,m,shopping
-la fattura,the invoice,Posso avere la fattura?,Can I have the invoice?,noun,f,shopping
-il reso,the return (of goods),Vorrei fare un reso.,I'd like to make a return.,noun,m,shopping
-il rimborso,the refund,Ho chiesto un rimborso.,I asked for a refund.,noun,m,shopping
-cambiare,to exchange,Posso cambiare questa taglia?,Can I exchange this size?,verb,n/a,shopping
-restituire,to return (give back),Devo restituire questo prodotto.,I need to return this product.,verb,n/a,shopping
-reclamare,to complain/claim,Voglio reclamare per il servizio.,I want to complain about the service.,verb,n/a,services
-il reclamo,the complaint,Ho presentato un reclamo.,I filed a complaint.,noun,m,services
-la garanzia,the warranty,La garanzia dura due anni.,The warranty lasts two years.,noun,f,shopping
-scadere,to expire,Il biglietto scade domani.,The ticket expires tomorrow.,verb,n/a,verbs
-rinnovare,to renew,Devo rinnovare l'abbonamento.,I need to renew my subscription.,verb,n/a,verbs
-l'abbonamento,the subscription,L'abbonamento costa trenta euro.,The subscription costs thirty euros.,noun,m,services
-la tariffa,the rate/fee,Qual è la tariffa mensile?,What's the monthly rate?,noun,f,services
-la multa,the fine,Ho preso una multa.,I got a fine.,noun,f,services
-pagare una multa,to pay a fine,Devo pagare una multa salata.,I have to pay a hefty fine.,phrase,n/a,services
-l'assicurazione,the insurance,L'assicurazione è obbligatoria.,Insurance is mandatory.,noun,f,services
-assicurare,to insure,Ho assicurato la macchina.,I insured the car.,verb,n/a,verbs
-il preventivo,the quote/estimate,Chiedo un preventivo gratuito.,I'm asking for a free quote.,noun,m,services
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+la prenotazione,the reservation,Ho una prenotazione a nome Rossi.,I have a reservation under Rossi.,noun,f,travel,
+la conferma,the confirmation,Aspetto la conferma via email.,I'm waiting for email confirmation.,noun,f,travel,
+la cancellazione,the cancellation,La cancellazione è gratuita.,The cancellation is free.,noun,f,travel,
+il ritardo,the delay,Il treno ha un'ora di ritardo.,The train is an hour late.,noun,m,travel,
+la coincidenza,the connection (transport),Ho perso la coincidenza.,I missed my connection.,noun,f,travel,
+il binario,the platform/track,Il treno parte dal binario cinque.,The train leaves from platform five.,noun,m,travel,
+la biglietteria,the ticket office,La biglietteria è chiusa.,The ticket office is closed.,noun,f,travel,
+lo sportello,the counter/window,Vada allo sportello tre.,Go to counter three.,noun,m,services,
+la fila,the queue/line,C'è molta fila oggi.,There's a long line today.,noun,f,services,
+il modulo,the form,Compili questo modulo.,Fill out this form.,noun,m,services,
+compilare,to fill out,Devo compilare la domanda.,I need to fill out the application.,verb,n/a,verbs,
+la firma,the signature,Metta la firma qui.,Put your signature here.,noun,f,services,
+firmare,to sign,Firmi qui per favore.,Sign here please.,verb,n/a,verbs,
+il documento,the document,Mi serve un documento d'identità.,I need an ID document.,noun,m,services,
+la carta d'identità,the ID card,La carta d'identità è scaduta.,The ID card is expired.,noun,f,documents,
+il passaporto,the passport,Il passaporto scade l'anno prossimo.,The passport expires next year.,noun,m,documents,
+il permesso di soggiorno,the residence permit,Ho richiesto il permesso di soggiorno.,I applied for a residence permit.,noun,m,documents,
+il visto,the visa,Il visto è valido tre mesi.,The visa is valid for three months.,noun,m,documents,
+la questura,the police headquarters,Devo andare in questura.,I have to go to the police headquarters.,noun,f,services,
+l'anagrafe,the registry office,L'anagrafe è in centro.,The registry office is downtown.,noun,f,services,
+il comune,the town hall/municipality,Il comune è aperto la mattina.,The town hall is open in the morning.,noun,m,services,
+la pratica,the paperwork/file,La pratica è in lavorazione.,The paperwork is being processed.,noun,f,services,
+il conto corrente,the checking account,Ho aperto un conto corrente.,I opened a checking account.,noun,m,banking,
+il bancomat,the ATM,Il bancomat è fuori servizio.,The ATM is out of service.,noun,m,banking,
+prelevare,to withdraw,Devo prelevare dei soldi.,I need to withdraw some money.,verb,n/a,banking,
+versare,to deposit,Ho versato lo stipendio.,I deposited my salary.,verb,n/a,banking,
+il bonifico,the bank transfer,Ho fatto un bonifico.,I made a bank transfer.,noun,m,banking,
+il saldo,the balance,Qual è il saldo del conto?,What's the account balance?,noun,m,banking,
+la carta di credito,the credit card,Accettate carta di credito?,Do you accept credit cards?,noun,f,banking,
+la carta di debito,the debit card,Pago con carta di debito.,I pay with debit card.,noun,f,banking,
+il contante,cash,Preferisco pagare in contante.,I prefer to pay in cash.,noun,m,banking,
+lo scontrino,the receipt,Mi serve lo scontrino.,I need the receipt.,noun,m,shopping,
+la fattura,the invoice,Posso avere la fattura?,Can I have the invoice?,noun,f,shopping,
+il reso,the return (of goods),Vorrei fare un reso.,I'd like to make a return.,noun,m,shopping,
+il rimborso,the refund,Ho chiesto un rimborso.,I asked for a refund.,noun,m,shopping,
+cambiare,to exchange,Posso cambiare questa taglia?,Can I exchange this size?,verb,n/a,shopping,
+restituire,to return (give back),Devo restituire questo prodotto.,I need to return this product.,verb,n/a,shopping,
+reclamare,to complain/claim,Voglio reclamare per il servizio.,I want to complain about the service.,verb,n/a,services,
+il reclamo,the complaint,Ho presentato un reclamo.,I filed a complaint.,noun,m,services,
+la garanzia,the warranty,La garanzia dura due anni.,The warranty lasts two years.,noun,f,shopping,
+scadere,to expire,Il biglietto scade domani.,The ticket expires tomorrow.,verb,n/a,verbs,
+rinnovare,to renew,Devo rinnovare l'abbonamento.,I need to renew my subscription.,verb,n/a,verbs,
+l'abbonamento,the subscription,L'abbonamento costa trenta euro.,The subscription costs thirty euros.,noun,m,services,
+la tariffa,the rate/fee,Qual è la tariffa mensile?,What's the monthly rate?,noun,f,services,
+la multa,the fine,Ho preso una multa.,I got a fine.,noun,f,services,
+pagare una multa,to pay a fine,Devo pagare una multa salata.,I have to pay a hefty fine.,phrase,n/a,services,
+l'assicurazione,the insurance,L'assicurazione è obbligatoria.,Insurance is mandatory.,noun,f,services,
+assicurare,to insure,Ho assicurato la macchina.,I insured the car.,verb,n/a,verbs,
+il preventivo,the quote/estimate,Chiedo un preventivo gratuito.,I'm asking for a free quote.,noun,m,services,

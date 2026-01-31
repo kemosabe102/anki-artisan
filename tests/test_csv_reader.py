@@ -96,3 +96,50 @@ class TestParseRow:
 
         result = _parse_row(row, line_num=2)
         assert result.gender == Gender.NOT_APPLICABLE
+
+    def test_parse_row_tts_model_turbo(self):
+        """tts_model='turbo' is parsed correctly."""
+        row = {
+            "word": "due",
+            "translation": "two",
+            "phrase": "Ho due gatti.",
+            "phrase_translation": "I have two cats.",
+            "part_of_speech": "adjective",
+            "gender": "n/a",
+            "tags": "numbers",
+            "tts_model": "turbo",
+        }
+
+        result = _parse_row(row, line_num=2)
+        assert result.tts_model == "turbo"
+
+    def test_parse_row_tts_model_empty(self):
+        """Empty tts_model defaults to None."""
+        row = {
+            "word": "uno",
+            "translation": "one",
+            "phrase": "Ho un fratello.",
+            "phrase_translation": "I have one brother.",
+            "part_of_speech": "adjective",
+            "gender": "n/a",
+            "tags": "numbers",
+            "tts_model": "",
+        }
+
+        result = _parse_row(row, line_num=2)
+        assert result.tts_model is None
+
+    def test_parse_row_tts_model_missing(self):
+        """Missing tts_model column defaults to None."""
+        row = {
+            "word": "uno",
+            "translation": "one",
+            "phrase": "Ho un fratello.",
+            "phrase_translation": "I have one brother.",
+            "part_of_speech": "adjective",
+            "gender": "n/a",
+            "tags": "numbers",
+        }
+
+        result = _parse_row(row, line_num=2)
+        assert result.tts_model is None

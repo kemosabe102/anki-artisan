@@ -1,49 +1,49 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-el tren,the train,El tren sale a las ocho.,The train leaves at eight.,noun,m,transport
-el autobús,the bus,Tomo el autobús al trabajo.,I take the bus to work.,noun,m,transport
-el metro,the subway,El metro es muy rápido.,The subway is very fast.,noun,m,transport
-el taxi,the taxi,Necesito un taxi.,I need a taxi.,noun,m,transport
-el avión,the airplane,El avión llega a las tres.,The airplane arrives at three.,noun,m,transport
-el carro,the car,Voy en carro al trabajo.,I go by car to work.,noun,m,transport
-el coche,the car (Spain),El coche está estacionado.,The car is parked.,noun,m,transport
-la bicicleta,the bicycle,Voy en bicicleta a la escuela.,I go by bicycle to school.,noun,f,transport
-a pie,on foot,Voy a pie al centro.,I go on foot downtown.,phrase,n/a,transport
-la estación,the station,La estación está cerca.,The station is nearby.,noun,f,places
-el aeropuerto,the airport,El aeropuerto está lejos.,The airport is far.,noun,m,places
-la parada,the stop,La parada de autobús.,The bus stop.,noun,f,places
-el boleto,the ticket,Un boleto de ida y vuelta.,A round-trip ticket.,noun,m,travel
-el pasaje,the ticket/fare,¿Cuánto cuesta el pasaje?,How much is the ticket?,noun,m,travel
-la salida,the departure/exit,La salida es a las diez.,The departure is at ten.,noun,f,travel
-la llegada,the arrival,La llegada es a las dos.,The arrival is at two.,noun,f,travel
-el equipaje,the luggage,Mi equipaje está aquí.,My luggage is here.,noun,m,travel
-la maleta,the suitcase,Hago la maleta.,I pack the suitcase.,noun,f,travel
-el pasaporte,the passport,Necesito mi pasaporte.,I need my passport.,noun,m,travel
-la ciudad,the city,La ciudad es muy grande.,The city is very big.,noun,f,places
-el centro,downtown/center,Vivo en el centro.,I live downtown.,noun,m,places
-la calle,the street,¿En qué calle vives?,On what street do you live?,noun,f,places
-la avenida,the avenue,La avenida principal.,The main avenue.,noun,f,places
-la plaza,the square/plaza,Nos vemos en la plaza.,See you at the plaza.,noun,f,places
-el banco,the bank,El banco está cerrado.,The bank is closed.,noun,m,places
-el hospital,the hospital,El hospital está cerca.,The hospital is nearby.,noun,m,places
-la farmacia,the pharmacy,Voy a la farmacia.,I'm going to the pharmacy.,noun,f,places
-el supermercado,the supermarket,Compro en el supermercado.,I shop at the supermarket.,noun,m,places
-la tienda,the store,La tienda abre a las nueve.,The store opens at nine.,noun,f,places
-el hotel,the hotel,El hotel es muy bonito.,The hotel is very nice.,noun,m,places
-ir,to go,Voy al centro.,I'm going downtown.,verb,n/a,verbs
-venir,to come,¿Vienes conmigo?,Are you coming with me?,verb,n/a,verbs
-tomar,to take (transport),Tomo el tren.,I take the train.,verb,n/a,verbs
-viajar,to travel,Me gusta viajar.,I like to travel.,verb,n/a,verbs
-¿dónde está?,where is?,¿Dónde está el banco?,Where is the bank?,phrase,n/a,questions
-¿cómo llego?,how do I get there?,¿Cómo llego al centro?,How do I get downtown?,phrase,n/a,questions
-derecha,right,Gira a la derecha.,Turn right.,noun,f,directions
-izquierda,left,Gira a la izquierda.,Turn left.,noun,f,directions
-recto,straight,Sigue recto dos cuadras.,Go straight two blocks.,adverb,n/a,directions
-todo recto,straight ahead,Sigue todo recto.,Go straight ahead.,phrase,n/a,directions
-la cuadra,the block,Está a dos cuadras.,It's two blocks away.,noun,f,directions
-la esquina,the corner,En la esquina de la calle.,On the corner of the street.,noun,f,directions
-aquí,here,El banco está aquí.,The bank is here.,adverb,n/a,directions
-allí,there,El hotel está allí.,The hotel is over there.,adverb,n/a,directions
-cerca,near/close,El metro está cerca.,The subway is nearby.,adverb,n/a,directions
-lejos,far,El aeropuerto está lejos.,The airport is far.,adverb,n/a,directions
-¿cuánto cuesta?,how much does it cost?,¿Cuánto cuesta el boleto?,How much is the ticket?,phrase,n/a,questions
-¿a qué hora?,at what time?,¿A qué hora sale el tren?,What time does the train leave?,phrase,n/a,questions
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+el tren,the train,El tren sale a las ocho.,The train leaves at eight.,noun,m,transport,
+el autobús,the bus,Tomo el autobús al trabajo.,I take the bus to work.,noun,m,transport,
+el metro,the subway,El metro es muy rápido.,The subway is very fast.,noun,m,transport,
+el taxi,the taxi,Necesito un taxi.,I need a taxi.,noun,m,transport,
+el avión,the airplane,El avión llega a las tres.,The airplane arrives at three.,noun,m,transport,
+el carro,the car,Voy en carro al trabajo.,I go by car to work.,noun,m,transport,
+el coche,the car (Spain),El coche está estacionado.,The car is parked.,noun,m,transport,
+la bicicleta,the bicycle,Voy en bicicleta a la escuela.,I go by bicycle to school.,noun,f,transport,
+a pie,on foot,Voy a pie al centro.,I go on foot downtown.,phrase,n/a,transport,
+la estación,the station,La estación está cerca.,The station is nearby.,noun,f,places,
+el aeropuerto,the airport,El aeropuerto está lejos.,The airport is far.,noun,m,places,
+la parada,the stop,La parada de autobús.,The bus stop.,noun,f,places,
+el boleto,the ticket,Un boleto de ida y vuelta.,A round-trip ticket.,noun,m,travel,
+el pasaje,the ticket/fare,¿Cuánto cuesta el pasaje?,How much is the ticket?,noun,m,travel,
+la salida,the departure/exit,La salida es a las diez.,The departure is at ten.,noun,f,travel,
+la llegada,the arrival,La llegada es a las dos.,The arrival is at two.,noun,f,travel,
+el equipaje,the luggage,Mi equipaje está aquí.,My luggage is here.,noun,m,travel,
+la maleta,the suitcase,Hago la maleta.,I pack the suitcase.,noun,f,travel,
+el pasaporte,the passport,Necesito mi pasaporte.,I need my passport.,noun,m,travel,
+la ciudad,the city,La ciudad es muy grande.,The city is very big.,noun,f,places,
+el centro,downtown/center,Vivo en el centro.,I live downtown.,noun,m,places,
+la calle,the street,¿En qué calle vives?,On what street do you live?,noun,f,places,
+la avenida,the avenue,La avenida principal.,The main avenue.,noun,f,places,
+la plaza,the square/plaza,Nos vemos en la plaza.,See you at the plaza.,noun,f,places,
+el banco,the bank,El banco está cerrado.,The bank is closed.,noun,m,places,
+el hospital,the hospital,El hospital está cerca.,The hospital is nearby.,noun,m,places,
+la farmacia,the pharmacy,Voy a la farmacia.,I'm going to the pharmacy.,noun,f,places,
+el supermercado,the supermarket,Compro en el supermercado.,I shop at the supermarket.,noun,m,places,
+la tienda,the store,La tienda abre a las nueve.,The store opens at nine.,noun,f,places,
+el hotel,the hotel,El hotel es muy bonito.,The hotel is very nice.,noun,m,places,
+ir,to go,Voy al centro.,I'm going downtown.,verb,n/a,verbs,
+venir,to come,¿Vienes conmigo?,Are you coming with me?,verb,n/a,verbs,
+tomar,to take (transport),Tomo el tren.,I take the train.,verb,n/a,verbs,
+viajar,to travel,Me gusta viajar.,I like to travel.,verb,n/a,verbs,
+¿dónde está?,where is?,¿Dónde está el banco?,Where is the bank?,phrase,n/a,questions,
+¿cómo llego?,how do I get there?,¿Cómo llego al centro?,How do I get downtown?,phrase,n/a,questions,
+derecha,right,Gira a la derecha.,Turn right.,noun,f,directions,
+izquierda,left,Gira a la izquierda.,Turn left.,noun,f,directions,
+recto,straight,Sigue recto dos cuadras.,Go straight two blocks.,adverb,n/a,directions,
+todo recto,straight ahead,Sigue todo recto.,Go straight ahead.,phrase,n/a,directions,
+la cuadra,the block,Está a dos cuadras.,It's two blocks away.,noun,f,directions,
+la esquina,the corner,En la esquina de la calle.,On the corner of the street.,noun,f,directions,
+aquí,here,El banco está aquí.,The bank is here.,adverb,n/a,directions,
+allí,there,El hotel está allí.,The hotel is over there.,adverb,n/a,directions,
+cerca,near/close,El metro está cerca.,The subway is nearby.,adverb,n/a,directions,
+lejos,far,El aeropuerto está lejos.,The airport is far.,adverb,n/a,directions,
+¿cuánto cuesta?,how much does it cost?,¿Cuánto cuesta el boleto?,How much is the ticket?,phrase,n/a,questions,
+¿a qué hora?,at what time?,¿A qué hora sale el tren?,What time does the train leave?,phrase,n/a,questions,

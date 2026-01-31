@@ -1,46 +1,46 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-il datore di lavoro,the employer,Il datore di lavoro offre benefici.,The employer offers benefits.,noun,m,work
-il collaboratore,the collaborator/coworker,È un ottimo collaboratore.,He's an excellent coworker.,noun,m,work
-lo stagista,the intern,Lo stagista impara velocemente.,The intern learns quickly.,noun,m,work
-il responsabile,the manager/person in charge,Parlo con il responsabile.,I'll speak with the manager.,noun,m,work
-il dirigente,the executive,Il dirigente prende le decisioni.,The executive makes the decisions.,noun,m,work
-la sede,the headquarters,La sede è a Milano.,The headquarters is in Milan.,noun,f,work
-la filiale,the branch office,Abbiamo una filiale a Roma.,We have a branch in Rome.,noun,f,work
-il reparto,the department,Lavoro nel reparto vendite.,I work in the sales department.,noun,m,work
-l'impresa,the business/enterprise,L'impresa sta crescendo.,The business is growing.,noun,f,work
-il settore,the sector/industry,Lavoro nel settore tecnologico.,I work in the tech sector.,noun,m,work
-il turno,the shift,Faccio il turno di notte.,I work the night shift.,noun,m,work
-lo straordinario,overtime,Faccio spesso straordinari.,I often do overtime.,noun,m,work
-la promozione,the promotion,Ho ricevuto una promozione.,I received a promotion.,noun,f,work
-l'aumento,the raise,Chiedo un aumento di stipendio.,I'm asking for a raise.,noun,m,work
-la busta paga,the payslip,La busta paga arriva domani.,The payslip arrives tomorrow.,noun,f,work
-il benefit,the benefit/perk,L'azienda offre molti benefit.,The company offers many benefits.,noun,m,work
-il sindacato,the union,Il sindacato protegge i lavoratori.,The union protects the workers.,noun,m,work
-il tirocinio,the internship/training,Faccio un tirocinio di sei mesi.,I'm doing a six-month internship.,noun,m,work
-la mansione,the duty/task,Le mie mansioni sono varie.,My duties are varied.,noun,f,work
-la competenza,the skill/competence,Ha molte competenze tecniche.,He has many technical skills.,noun,f,work
-la qualifica,the qualification,Hai le qualifiche necessarie?,Do you have the necessary qualifications?,noun,f,work
-il candidato,the candidate,Il candidato è qualificato.,The candidate is qualified.,noun,m,work
-la selezione,the selection/recruitment,Il processo di selezione è lungo.,The selection process is long.,noun,f,work
-assumere,to hire,L'azienda assume nuovi dipendenti.,The company hires new employees.,verb,n/a,verbs
-licenziare,to fire/lay off,Hanno licenziato dieci persone.,They fired ten people.,verb,n/a,verbs
-licenziarsi,to resign/quit,Mi sono licenziato il mese scorso.,I resigned last month.,verb,n/a,verbs
-dimettersi,to resign (formal),Il direttore si è dimesso.,The director resigned.,verb,n/a,verbs
-promuovere,to promote,L'hanno promosso a direttore.,They promoted him to director.,verb,n/a,verbs
-trasferire,to transfer,Mi trasferiscono a Torino.,They're transferring me to Turin.,verb,n/a,verbs
-sostenere un colloquio,to have an interview,Domani sostengo un colloquio.,Tomorrow I have an interview.,phrase,n/a,verbs
-gestire,to manage,Gestisco un team di dieci persone.,I manage a team of ten people.,verb,n/a,verbs
-coordinare,to coordinate,Coordino i progetti internazionali.,I coordinate international projects.,verb,n/a,verbs
-supervisionare,to supervise,Supervisiono il lavoro del team.,I supervise the team's work.,verb,n/a,verbs
-a tempo determinato,fixed-term (contract),Ho un contratto a tempo determinato.,I have a fixed-term contract.,phrase,n/a,contracts
-a tempo indeterminato,permanent (contract),Cerco un lavoro a tempo indeterminato.,I'm looking for a permanent job.,phrase,n/a,contracts
-il lavoro autonomo,self-employment,Preferisco il lavoro autonomo.,I prefer self-employment.,noun,m,work
-la partita IVA,VAT number (freelance status),Ho aperto la partita IVA.,I registered as a freelancer.,noun,f,work
-il libero professionista,freelancer,Sono libero professionista.,I'm a freelancer.,noun,m,work
-il carico di lavoro,workload,Il carico di lavoro è pesante.,The workload is heavy.,noun,m,work
-la scadenza,the deadline,La scadenza è venerdì.,The deadline is Friday.,noun,f,work
-l'obiettivo,the goal/objective,Abbiamo raggiunto l'obiettivo.,We reached the goal.,noun,m,work
-il risultato,the result,I risultati sono positivi.,The results are positive.,noun,m,work
-la valutazione,the evaluation/review,La valutazione annuale è importante.,The annual review is important.,noun,f,work
-lo smart working,remote work,Faccio smart working tre giorni.,I work remotely three days.,noun,m,work
-in presenza,in person/on-site,Lavoro in presenza due giorni.,I work on-site two days.,phrase,n/a,work
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+il datore di lavoro,the employer,Il datore di lavoro offre benefici.,The employer offers benefits.,noun,m,work,
+il collaboratore,the collaborator/coworker,È un ottimo collaboratore.,He's an excellent coworker.,noun,m,work,
+lo stagista,the intern,Lo stagista impara velocemente.,The intern learns quickly.,noun,m,work,
+il responsabile,the manager/person in charge,Parlo con il responsabile.,I'll speak with the manager.,noun,m,work,
+il dirigente,the executive,Il dirigente prende le decisioni.,The executive makes the decisions.,noun,m,work,
+la sede,the headquarters,La sede è a Milano.,The headquarters is in Milan.,noun,f,work,
+la filiale,the branch office,Abbiamo una filiale a Roma.,We have a branch in Rome.,noun,f,work,
+il reparto,the department,Lavoro nel reparto vendite.,I work in the sales department.,noun,m,work,
+l'impresa,the business/enterprise,L'impresa sta crescendo.,The business is growing.,noun,f,work,
+il settore,the sector/industry,Lavoro nel settore tecnologico.,I work in the tech sector.,noun,m,work,
+il turno,the shift,Faccio il turno di notte.,I work the night shift.,noun,m,work,
+lo straordinario,overtime,Faccio spesso straordinari.,I often do overtime.,noun,m,work,
+la promozione,the promotion,Ho ricevuto una promozione.,I received a promotion.,noun,f,work,
+l'aumento,the raise,Chiedo un aumento di stipendio.,I'm asking for a raise.,noun,m,work,
+la busta paga,the payslip,La busta paga arriva domani.,The payslip arrives tomorrow.,noun,f,work,
+il benefit,the benefit/perk,L'azienda offre molti benefit.,The company offers many benefits.,noun,m,work,
+il sindacato,the union,Il sindacato protegge i lavoratori.,The union protects the workers.,noun,m,work,
+il tirocinio,the internship/training,Faccio un tirocinio di sei mesi.,I'm doing a six-month internship.,noun,m,work,
+la mansione,the duty/task,Le mie mansioni sono varie.,My duties are varied.,noun,f,work,
+la competenza,the skill/competence,Ha molte competenze tecniche.,He has many technical skills.,noun,f,work,
+la qualifica,the qualification,Hai le qualifiche necessarie?,Do you have the necessary qualifications?,noun,f,work,
+il candidato,the candidate,Il candidato è qualificato.,The candidate is qualified.,noun,m,work,
+la selezione,the selection/recruitment,Il processo di selezione è lungo.,The selection process is long.,noun,f,work,
+assumere,to hire,L'azienda assume nuovi dipendenti.,The company hires new employees.,verb,n/a,verbs,
+licenziare,to fire/lay off,Hanno licenziato dieci persone.,They fired ten people.,verb,n/a,verbs,
+licenziarsi,to resign/quit,Mi sono licenziato il mese scorso.,I resigned last month.,verb,n/a,verbs,
+dimettersi,to resign (formal),Il direttore si è dimesso.,The director resigned.,verb,n/a,verbs,
+promuovere,to promote,L'hanno promosso a direttore.,They promoted him to director.,verb,n/a,verbs,
+trasferire,to transfer,Mi trasferiscono a Torino.,They're transferring me to Turin.,verb,n/a,verbs,
+sostenere un colloquio,to have an interview,Domani sostengo un colloquio.,Tomorrow I have an interview.,phrase,n/a,verbs,
+gestire,to manage,Gestisco un team di dieci persone.,I manage a team of ten people.,verb,n/a,verbs,
+coordinare,to coordinate,Coordino i progetti internazionali.,I coordinate international projects.,verb,n/a,verbs,
+supervisionare,to supervise,Supervisiono il lavoro del team.,I supervise the team's work.,verb,n/a,verbs,
+a tempo determinato,fixed-term (contract),Ho un contratto a tempo determinato.,I have a fixed-term contract.,phrase,n/a,contracts,
+a tempo indeterminato,permanent (contract),Cerco un lavoro a tempo indeterminato.,I'm looking for a permanent job.,phrase,n/a,contracts,
+il lavoro autonomo,self-employment,Preferisco il lavoro autonomo.,I prefer self-employment.,noun,m,work,
+la partita IVA,VAT number (freelance status),Ho aperto la partita IVA.,I registered as a freelancer.,noun,f,work,
+il libero professionista,freelancer,Sono libero professionista.,I'm a freelancer.,noun,m,work,
+il carico di lavoro,workload,Il carico di lavoro è pesante.,The workload is heavy.,noun,m,work,
+la scadenza,the deadline,La scadenza è venerdì.,The deadline is Friday.,noun,f,work,
+l'obiettivo,the goal/objective,Abbiamo raggiunto l'obiettivo.,We reached the goal.,noun,m,work,
+il risultato,the result,I risultati sono positivi.,The results are positive.,noun,m,work,
+la valutazione,the evaluation/review,La valutazione annuale è importante.,The annual review is important.,noun,f,work,
+lo smart working,remote work,Faccio smart working tre giorni.,I work remotely three days.,noun,m,work,
+in presenza,in person/on-site,Lavoro in presenza due giorni.,I work on-site two days.,phrase,n/a,work,

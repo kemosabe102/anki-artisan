@@ -1,50 +1,50 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-svegliarsi,to wake up,Mi sveglio alle sette.,I wake up at seven.,verb,n/a,verbs reflexive
-alzarsi,to get up,Mi alzo subito.,I get up right away.,verb,n/a,verbs reflexive
-lavarsi,to wash oneself,Mi lavo la faccia.,I wash my face.,verb,n/a,verbs reflexive
-vestirsi,to get dressed,Mi vesto in fretta.,I get dressed quickly.,verb,n/a,verbs reflexive
-prepararsi,to get ready,Mi preparo per uscire.,I get ready to go out.,verb,n/a,verbs reflexive
-fare colazione,to have breakfast,Faccio colazione a casa.,I have breakfast at home.,phrase,n/a,routine
-andare,to go,Vado al lavoro.,I go to work.,verb,n/a,verbs
-arrivare,to arrive,Arrivo alle nove.,I arrive at nine.,verb,n/a,verbs
-lavorare,to work,Lavoro otto ore.,I work eight hours.,verb,n/a,verbs
-studiare,to study,Studio italiano ogni giorno.,I study Italian every day.,verb,n/a,verbs
-leggere,to read,Leggo il giornale.,I read the newspaper.,verb,n/a,verbs
-scrivere,to write,Scrivo molte email.,I write many emails.,verb,n/a,verbs
-parlare,to speak,Parlo con i colleghi.,I speak with colleagues.,verb,n/a,verbs
-ascoltare,to listen,Ascolto la musica.,I listen to music.,verb,n/a,verbs
-guardare,to watch/look,Guardo la televisione.,I watch television.,verb,n/a,verbs
-fare,to do/make,Cosa fai oggi?,What are you doing today?,verb,n/a,verbs
-finire,to finish,Finisco alle sei.,I finish at six.,verb,n/a,verbs
-tornare,to return,Torno a casa tardi.,I return home late.,verb,n/a,verbs
-riposarsi,to rest,Mi riposo un po'.,I rest a little.,verb,n/a,verbs reflexive
-cenare,to have dinner,Ceno con la famiglia.,I have dinner with family.,verb,n/a,verbs
-addormentarsi,to fall asleep,Mi addormento presto.,I fall asleep early.,verb,n/a,verbs reflexive
-dormire,to sleep,Dormo otto ore.,I sleep eight hours.,verb,n/a,verbs
-uscire,to go out,Esco con gli amici.,I go out with friends.,verb,n/a,verbs
-entrare,to enter,Entro in ufficio.,I enter the office.,verb,n/a,verbs
-aspettare,to wait,Aspetto l'autobus.,I wait for the bus.,verb,n/a,verbs
-camminare,to walk,Cammino al lavoro.,I walk to work.,verb,n/a,verbs
-correre,to run,Corro ogni mattina.,I run every morning.,verb,n/a,verbs
-cucinare,to cook,Cucino la cena.,I cook dinner.,verb,n/a,verbs
-pulire,to clean,Pulisco la casa.,I clean the house.,verb,n/a,verbs
-fare la spesa,to go grocery shopping,Faccio la spesa al mercato.,I go shopping at the market.,phrase,n/a,routine
-fare la doccia,to take a shower,Faccio la doccia la mattina.,I take a shower in the morning.,phrase,n/a,routine
-presto,early,Mi sveglio presto.,I wake up early.,adverb,n/a,time
-tardi,late,Arrivo sempre tardi.,I always arrive late.,adverb,n/a,time
-subito,immediately/right away,Vengo subito!,I'm coming right away!,adverb,n/a,time
-di solito,usually,Di solito pranzo a casa.,Usually I eat lunch at home.,phrase,n/a,time
-ogni giorno,every day,Lavoro ogni giorno.,I work every day.,phrase,n/a,time
-a volte,sometimes,A volte esco la sera.,Sometimes I go out at night.,phrase,n/a,time
-poi,then/afterwards,Poi vado a dormire.,Then I go to sleep.,adverb,n/a,time
-prima di,before,Prima di uscire mangio.,Before going out I eat.,phrase,n/a,time
-dopo,after,Dopo il lavoro mi riposo.,After work I rest.,adverb,n/a,time
-durante,during,Durante il pranzo leggo.,During lunch I read.,preposition,n/a,time
-stanco,tired,Sono molto stanco.,I am very tired.,adjective,n/a,adjectives
-occupato,busy,Oggi sono occupato.,Today I am busy.,adjective,n/a,adjectives
-libero,free,Domani sono libero.,Tomorrow I am free.,adjective,n/a,adjectives
-pronto,ready,Sono pronto per uscire.,I am ready to go out.,adjective,n/a,adjectives
-in ritardo,late (running late),Sono in ritardo!,I am late!,phrase,n/a,time
-in anticipo,early (ahead of time),Arrivo in anticipo.,I arrive early.,phrase,n/a,time
-avere fretta,to be in a hurry,Ho fretta! Devo andare.,I'm in a hurry! I have to go.,phrase,n/a,routine
-avere tempo,to have time,Non ho tempo oggi.,I don't have time today.,phrase,n/a,routine
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+svegliarsi,to wake up,Mi sveglio alle sette.,I wake up at seven.,verb,n/a,verbs reflexive,
+alzarsi,to get up,Mi alzo subito.,I get up right away.,verb,n/a,verbs reflexive,
+lavarsi,to wash oneself,Mi lavo la faccia.,I wash my face.,verb,n/a,verbs reflexive,
+vestirsi,to get dressed,Mi vesto in fretta.,I get dressed quickly.,verb,n/a,verbs reflexive,
+prepararsi,to get ready,Mi preparo per uscire.,I get ready to go out.,verb,n/a,verbs reflexive,
+fare colazione,to have breakfast,Faccio colazione a casa.,I have breakfast at home.,phrase,n/a,routine,
+andare,to go,Vado al lavoro.,I go to work.,verb,n/a,verbs,
+arrivare,to arrive,Arrivo alle nove.,I arrive at nine.,verb,n/a,verbs,
+lavorare,to work,Lavoro otto ore.,I work eight hours.,verb,n/a,verbs,
+studiare,to study,Studio italiano ogni giorno.,I study Italian every day.,verb,n/a,verbs,
+leggere,to read,Leggo il giornale.,I read the newspaper.,verb,n/a,verbs,
+scrivere,to write,Scrivo molte email.,I write many emails.,verb,n/a,verbs,
+parlare,to speak,Parlo con i colleghi.,I speak with colleagues.,verb,n/a,verbs,
+ascoltare,to listen,Ascolto la musica.,I listen to music.,verb,n/a,verbs,
+guardare,to watch/look,Guardo la televisione.,I watch television.,verb,n/a,verbs,
+fare,to do/make,Cosa fai oggi?,What are you doing today?,verb,n/a,verbs,
+finire,to finish,Finisco alle sei.,I finish at six.,verb,n/a,verbs,
+tornare,to return,Torno a casa tardi.,I return home late.,verb,n/a,verbs,
+riposarsi,to rest,Mi riposo un po'.,I rest a little.,verb,n/a,verbs reflexive,
+cenare,to have dinner,Ceno con la famiglia.,I have dinner with family.,verb,n/a,verbs,
+addormentarsi,to fall asleep,Mi addormento presto.,I fall asleep early.,verb,n/a,verbs reflexive,
+dormire,to sleep,Dormo otto ore.,I sleep eight hours.,verb,n/a,verbs,
+uscire,to go out,Esco con gli amici.,I go out with friends.,verb,n/a,verbs,
+entrare,to enter,Entro in ufficio.,I enter the office.,verb,n/a,verbs,
+aspettare,to wait,Aspetto l'autobus.,I wait for the bus.,verb,n/a,verbs,
+camminare,to walk,Cammino al lavoro.,I walk to work.,verb,n/a,verbs,
+correre,to run,Corro ogni mattina.,I run every morning.,verb,n/a,verbs,
+cucinare,to cook,Cucino la cena.,I cook dinner.,verb,n/a,verbs,
+pulire,to clean,Pulisco la casa.,I clean the house.,verb,n/a,verbs,
+fare la spesa,to go grocery shopping,Faccio la spesa al mercato.,I go shopping at the market.,phrase,n/a,routine,
+fare la doccia,to take a shower,Faccio la doccia la mattina.,I take a shower in the morning.,phrase,n/a,routine,
+presto,early,Mi sveglio presto.,I wake up early.,adverb,n/a,time,
+tardi,late,Arrivo sempre tardi.,I always arrive late.,adverb,n/a,time,
+subito,immediately/right away,Vengo subito!,I'm coming right away!,adverb,n/a,time,
+di solito,usually,Di solito pranzo a casa.,Usually I eat lunch at home.,phrase,n/a,time,
+ogni giorno,every day,Lavoro ogni giorno.,I work every day.,phrase,n/a,time,
+a volte,sometimes,A volte esco la sera.,Sometimes I go out at night.,phrase,n/a,time,
+poi,then/afterwards,Poi vado a dormire.,Then I go to sleep.,adverb,n/a,time,
+prima di,before,Prima di uscire mangio.,Before going out I eat.,phrase,n/a,time,
+dopo,after,Dopo il lavoro mi riposo.,After work I rest.,adverb,n/a,time,
+durante,during,Durante il pranzo leggo.,During lunch I read.,preposition,n/a,time,
+stanco,tired,Sono molto stanco.,I am very tired.,adjective,n/a,adjectives,
+occupato,busy,Oggi sono occupato.,Today I am busy.,adjective,n/a,adjectives,
+libero,free,Domani sono libero.,Tomorrow I am free.,adjective,n/a,adjectives,
+pronto,ready,Sono pronto per uscire.,I am ready to go out.,adjective,n/a,adjectives,
+in ritardo,late (running late),Sono in ritardo!,I am late!,phrase,n/a,time,
+in anticipo,early (ahead of time),Arrivo in anticipo.,I arrive early.,phrase,n/a,time,
+avere fretta,to be in a hurry,Ho fretta! Devo andare.,I'm in a hurry! I have to go.,phrase,n/a,routine,
+avere tempo,to have time,Non ho tempo oggi.,I don't have time today.,phrase,n/a,routine,

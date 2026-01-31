@@ -1,41 +1,41 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-il sintomo,the symptom,Quali sono i sintomi?,What are the symptoms?,noun,m,health
-la diagnosi,the diagnosis,La diagnosi è positiva.,The diagnosis is positive.,noun,f,health
-la cura,the treatment/cure,La cura dura un mese.,The treatment lasts a month.,noun,f,health
-la terapia,the therapy,Seguo una terapia fisica.,I'm doing physical therapy.,noun,f,health
-il trattamento,the treatment,Il trattamento è efficace.,The treatment is effective.,noun,m,health
-la visita medica,the medical examination,Ho una visita medica domani.,I have a medical exam tomorrow.,noun,f,health
-il controllo,the checkup,Faccio un controllo ogni anno.,I get a checkup every year.,noun,m,health
-l'analisi,the test/analysis,Devo fare le analisi del sangue.,I need to do blood tests.,noun,f,health
-la radiografia,the X-ray,La radiografia è negativa.,The X-ray is negative.,noun,f,health
-l'ecografia,the ultrasound,L'ecografia mostra tutto bene.,The ultrasound shows everything's fine.,noun,f,health
-il pronto soccorso,the emergency room,Sono andato al pronto soccorso.,I went to the emergency room.,noun,m,health
-il reparto,the ward/department,Il reparto è al terzo piano.,The ward is on the third floor.,noun,m,health
-il ricovero,the hospitalization,Il ricovero dura tre giorni.,The hospitalization lasts three days.,noun,m,health
-ricoverare,to hospitalize,L'hanno ricoverato ieri.,They hospitalized him yesterday.,verb,n/a,verbs
-dimettere,to discharge,Lo dimettono domani.,They're discharging him tomorrow.,verb,n/a,verbs
-il farmaco,the medication/drug,Prendo questo farmaco due volte.,I take this medication twice.,noun,m,health
-l'antibiotico,the antibiotic,Devo prendere l'antibiotico.,I have to take an antibiotic.,noun,m,health
-l'antidolorifico,the painkiller,Prendo un antidolorifico.,I take a painkiller.,noun,m,health
-la compressa,the tablet/pill,Prendo due compresse al giorno.,I take two tablets a day.,noun,f,health
-lo sciroppo,the syrup,Lo sciroppo per la tosse.,The cough syrup.,noun,m,health
-la pomata,the ointment/cream,Applica la pomata due volte.,Apply the ointment twice.,noun,f,health
-l'iniezione,the injection,Ho fatto un'iniezione.,I got an injection.,noun,f,health
-il vaccino,the vaccine,Ho fatto il vaccino.,I got the vaccine.,noun,m,health
-vaccinare,to vaccinate,Mi sono vaccinato contro l'influenza.,I got vaccinated against the flu.,verb,n/a,verbs
-l'allergia,the allergy,Ho un'allergia al polline.,I have a pollen allergy.,noun,f,conditions
-l'infezione,the infection,Ha un'infezione alla gola.,He has a throat infection.,noun,f,conditions
-l'infiammazione,the inflammation,C'è un'infiammazione al ginocchio.,There's inflammation in the knee.,noun,f,conditions
-la frattura,the fracture,Ha una frattura al braccio.,He has a fracture in his arm.,noun,f,conditions
-la distorsione,the sprain,Ho una distorsione alla caviglia.,I have a sprained ankle.,noun,f,conditions
-il gonfiore,the swelling,C'è un po' di gonfiore.,There's some swelling.,noun,m,symptoms
-la nausea,nausea,Ho un po' di nausea.,I have some nausea.,noun,f,symptoms
-le vertigini,dizziness,Ho avuto le vertigini.,I felt dizzy.,noun,f,symptoms
-peggiorare,to get worse,I sintomi sono peggiorati.,The symptoms got worse.,verb,n/a,verbs
-migliorare,to improve,La situazione sta migliorando.,The situation is improving.,verb,n/a,verbs
-curare,to treat/cure,Il medico mi cura bene.,The doctor treats me well.,verb,n/a,verbs
-prescrivere,to prescribe,Il dottore ha prescritto un farmaco.,The doctor prescribed a medication.,verb,n/a,verbs
-lo specialista,the specialist,Devo vedere uno specialista.,I need to see a specialist.,noun,m,people
-il chirurgo,the surgeon,Il chirurgo è molto bravo.,The surgeon is very good.,noun,m,people
-il paziente,the patient,Il paziente si sta riprendendo.,The patient is recovering.,noun,m,people
-cronico,chronic,È una malattia cronica.,It's a chronic illness.,adjective,n/a,adjectives
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+il sintomo,the symptom,Quali sono i sintomi?,What are the symptoms?,noun,m,health,
+la diagnosi,the diagnosis,La diagnosi è positiva.,The diagnosis is positive.,noun,f,health,
+la cura,the treatment/cure,La cura dura un mese.,The treatment lasts a month.,noun,f,health,
+la terapia,the therapy,Seguo una terapia fisica.,I'm doing physical therapy.,noun,f,health,
+il trattamento,the treatment,Il trattamento è efficace.,The treatment is effective.,noun,m,health,
+la visita medica,the medical examination,Ho una visita medica domani.,I have a medical exam tomorrow.,noun,f,health,
+il controllo,the checkup,Faccio un controllo ogni anno.,I get a checkup every year.,noun,m,health,
+l'analisi,the test/analysis,Devo fare le analisi del sangue.,I need to do blood tests.,noun,f,health,
+la radiografia,the X-ray,La radiografia è negativa.,The X-ray is negative.,noun,f,health,
+l'ecografia,the ultrasound,L'ecografia mostra tutto bene.,The ultrasound shows everything's fine.,noun,f,health,
+il pronto soccorso,the emergency room,Sono andato al pronto soccorso.,I went to the emergency room.,noun,m,health,
+il reparto,the ward/department,Il reparto è al terzo piano.,The ward is on the third floor.,noun,m,health,
+il ricovero,the hospitalization,Il ricovero dura tre giorni.,The hospitalization lasts three days.,noun,m,health,
+ricoverare,to hospitalize,L'hanno ricoverato ieri.,They hospitalized him yesterday.,verb,n/a,verbs,
+dimettere,to discharge,Lo dimettono domani.,They're discharging him tomorrow.,verb,n/a,verbs,
+il farmaco,the medication/drug,Prendo questo farmaco due volte.,I take this medication twice.,noun,m,health,
+l'antibiotico,the antibiotic,Devo prendere l'antibiotico.,I have to take an antibiotic.,noun,m,health,
+l'antidolorifico,the painkiller,Prendo un antidolorifico.,I take a painkiller.,noun,m,health,
+la compressa,the tablet/pill,Prendo due compresse al giorno.,I take two tablets a day.,noun,f,health,
+lo sciroppo,the syrup,Lo sciroppo per la tosse.,The cough syrup.,noun,m,health,
+la pomata,the ointment/cream,Applica la pomata due volte.,Apply the ointment twice.,noun,f,health,
+l'iniezione,the injection,Ho fatto un'iniezione.,I got an injection.,noun,f,health,
+il vaccino,the vaccine,Ho fatto il vaccino.,I got the vaccine.,noun,m,health,
+vaccinare,to vaccinate,Mi sono vaccinato contro l'influenza.,I got vaccinated against the flu.,verb,n/a,verbs,
+l'allergia,the allergy,Ho un'allergia al polline.,I have a pollen allergy.,noun,f,conditions,
+l'infezione,the infection,Ha un'infezione alla gola.,He has a throat infection.,noun,f,conditions,
+l'infiammazione,the inflammation,C'è un'infiammazione al ginocchio.,There's inflammation in the knee.,noun,f,conditions,
+la frattura,the fracture,Ha una frattura al braccio.,He has a fracture in his arm.,noun,f,conditions,
+la distorsione,the sprain,Ho una distorsione alla caviglia.,I have a sprained ankle.,noun,f,conditions,
+il gonfiore,the swelling,C'è un po' di gonfiore.,There's some swelling.,noun,m,symptoms,
+la nausea,nausea,Ho un po' di nausea.,I have some nausea.,noun,f,symptoms,
+le vertigini,dizziness,Ho avuto le vertigini.,I felt dizzy.,noun,f,symptoms,
+peggiorare,to get worse,I sintomi sono peggiorati.,The symptoms got worse.,verb,n/a,verbs,
+migliorare,to improve,La situazione sta migliorando.,The situation is improving.,verb,n/a,verbs,
+curare,to treat/cure,Il medico mi cura bene.,The doctor treats me well.,verb,n/a,verbs,
+prescrivere,to prescribe,Il dottore ha prescritto un farmaco.,The doctor prescribed a medication.,verb,n/a,verbs,
+lo specialista,the specialist,Devo vedere uno specialista.,I need to see a specialist.,noun,m,people,
+il chirurgo,the surgeon,Il chirurgo è molto bravo.,The surgeon is very good.,noun,m,people,
+il paziente,the patient,Il paziente si sta riprendendo.,The patient is recovering.,noun,m,people,
+cronico,chronic,È una malattia cronica.,It's a chronic illness.,adjective,n/a,adjectives,

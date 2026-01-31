@@ -1,49 +1,49 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-el hombre,the man,El hombre es alto.,The man is tall.,noun,m,people
-la mujer,the woman,La mujer es doctora.,The woman is a doctor.,noun,f,people
-el chico,the boy,El chico estudia español.,The boy studies Spanish.,noun,m,people
-la chica,the girl,La chica es muy simpática.,The girl is very nice.,noun,f,people
-el niño,the child (boy),El niño juega en el parque.,The child plays in the park.,noun,m,people
-la niña,the child (girl),La niña tiene cinco años.,The girl is five years old.,noun,f,people
-el amigo,the friend (male),Mi amigo vive en México.,My friend lives in Mexico.,noun,m,people
-la amiga,the friend (female),Mi amiga es de España.,My friend is from Spain.,noun,f,people
-mexicano,Mexican,Soy mexicano.,I'm Mexican.,adjective,n/a,nationalities
-español,Spanish,Él es español de Madrid.,He's Spanish from Madrid.,adjective,n/a,nationalities
-estadounidense,American (US),Ella es estadounidense.,She's American.,adjective,n/a,nationalities
-colombiano,Colombian,Mi amigo es colombiano.,My friend is Colombian.,adjective,n/a,nationalities
-argentino,Argentine,El cantante es argentino.,The singer is Argentine.,adjective,n/a,nationalities
-peruano,Peruvian,La comida peruana es deliciosa.,Peruvian food is delicious.,adjective,n/a,nationalities
-chileno,Chilean,El vino chileno es famoso.,Chilean wine is famous.,adjective,n/a,nationalities
-inglés,English,Hablo inglés y español.,I speak English and Spanish.,adjective,n/a,nationalities
-francés,French,La cocina francesa es elegante.,French cuisine is elegant.,adjective,n/a,nationalities
-alemán,German,Él es alemán de Berlín.,He's German from Berlin.,adjective,n/a,nationalities
-el médico,the doctor,El médico está ocupado.,The doctor is busy.,noun,m,professions
-la doctora,the doctor (female),La doctora me ayuda.,The doctor helps me.,noun,f,professions
-el profesor,the teacher (male),El profesor enseña matemáticas.,The teacher teaches math.,noun,m,professions
-la profesora,the teacher (female),La profesora es muy buena.,The teacher is very good.,noun,f,professions
-el estudiante,the student (male),El estudiante estudia mucho.,The student studies a lot.,noun,m,professions
-la estudiante,the student (female),La estudiante aprende rápido.,The student learns quickly.,noun,f,professions
-el abogado,the lawyer,Mi padre es abogado.,My father is a lawyer.,noun,m,professions
-el ingeniero,the engineer,Trabajo como ingeniero.,I work as an engineer.,noun,m,professions
-el cocinero,the cook,El cocinero prepara la cena.,The cook prepares dinner.,noun,m,professions
-el mesero,the waiter,El mesero trae la cuenta.,The waiter brings the bill.,noun,m,professions
-alto,tall,Mi hermano es muy alto.,My brother is very tall.,adjective,n/a,descriptions
-bajo,short,El niño es bajo.,The child is short.,adjective,n/a,descriptions
-joven,young,Ella es muy joven.,She is very young.,adjective,n/a,descriptions
-viejo,old,El edificio es viejo.,The building is old.,adjective,n/a,descriptions
-mayor,older/elderly,Mi abuelo es mayor.,My grandfather is elderly.,adjective,n/a,descriptions
-guapo,handsome,El actor es muy guapo.,The actor is very handsome.,adjective,n/a,descriptions
-bonito,pretty,La casa es bonita.,The house is pretty.,adjective,n/a,descriptions
-feo,ugly,El dibujo no es feo.,The drawing is not ugly.,adjective,n/a,descriptions
-gordo,fat,El gato está gordo.,The cat is fat.,adjective,n/a,descriptions
-delgado,thin,Ella es muy delgada.,She is very thin.,adjective,n/a,descriptions
-simpático,nice/friendly,El vecino es muy simpático.,The neighbor is very friendly.,adjective,n/a,descriptions
-antipático,unfriendly,No seas antipático.,Don't be unfriendly.,adjective,n/a,descriptions
-inteligente,intelligent,La estudiante es inteligente.,The student is intelligent.,adjective,n/a,descriptions
-amable,kind,La señora es muy amable.,The lady is very kind.,adjective,n/a,descriptions
-feliz,happy,Estoy muy feliz hoy.,I'm very happy today.,adjective,n/a,emotions
-triste,sad,Él está un poco triste.,He's a little sad.,adjective,n/a,emotions
-cansado,tired,Estoy muy cansado.,I'm very tired.,adjective,n/a,emotions
-ocupado,busy,El doctor está ocupado.,The doctor is busy.,adjective,n/a,descriptions
-ser,to be (permanent),Soy estudiante.,I'm a student.,verb,n/a,verbs
-estar,to be (temporary),Estoy cansado.,I'm tired.,verb,n/a,verbs
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+el hombre,the man,El hombre es alto.,The man is tall.,noun,m,people,
+la mujer,the woman,La mujer es doctora.,The woman is a doctor.,noun,f,people,
+el chico,the boy,El chico estudia español.,The boy studies Spanish.,noun,m,people,
+la chica,the girl,La chica es muy simpática.,The girl is very nice.,noun,f,people,
+el niño,the child (boy),El niño juega en el parque.,The child plays in the park.,noun,m,people,
+la niña,the child (girl),La niña tiene cinco años.,The girl is five years old.,noun,f,people,
+el amigo,the friend (male),Mi amigo vive en México.,My friend lives in Mexico.,noun,m,people,
+la amiga,the friend (female),Mi amiga es de España.,My friend is from Spain.,noun,f,people,
+mexicano,Mexican,Soy mexicano.,I'm Mexican.,adjective,n/a,nationalities,
+español,Spanish,Él es español de Madrid.,He's Spanish from Madrid.,adjective,n/a,nationalities,
+estadounidense,American (US),Ella es estadounidense.,She's American.,adjective,n/a,nationalities,
+colombiano,Colombian,Mi amigo es colombiano.,My friend is Colombian.,adjective,n/a,nationalities,
+argentino,Argentine,El cantante es argentino.,The singer is Argentine.,adjective,n/a,nationalities,
+peruano,Peruvian,La comida peruana es deliciosa.,Peruvian food is delicious.,adjective,n/a,nationalities,
+chileno,Chilean,El vino chileno es famoso.,Chilean wine is famous.,adjective,n/a,nationalities,
+inglés,English,Hablo inglés y español.,I speak English and Spanish.,adjective,n/a,nationalities,
+francés,French,La cocina francesa es elegante.,French cuisine is elegant.,adjective,n/a,nationalities,
+alemán,German,Él es alemán de Berlín.,He's German from Berlin.,adjective,n/a,nationalities,
+el médico,the doctor,El médico está ocupado.,The doctor is busy.,noun,m,professions,
+la doctora,the doctor (female),La doctora me ayuda.,The doctor helps me.,noun,f,professions,
+el profesor,the teacher (male),El profesor enseña matemáticas.,The teacher teaches math.,noun,m,professions,
+la profesora,the teacher (female),La profesora es muy buena.,The teacher is very good.,noun,f,professions,
+el estudiante,the student (male),El estudiante estudia mucho.,The student studies a lot.,noun,m,professions,
+la estudiante,the student (female),La estudiante aprende rápido.,The student learns quickly.,noun,f,professions,
+el abogado,the lawyer,Mi padre es abogado.,My father is a lawyer.,noun,m,professions,
+el ingeniero,the engineer,Trabajo como ingeniero.,I work as an engineer.,noun,m,professions,
+el cocinero,the cook,El cocinero prepara la cena.,The cook prepares dinner.,noun,m,professions,
+el mesero,the waiter,El mesero trae la cuenta.,The waiter brings the bill.,noun,m,professions,
+alto,tall,Mi hermano es muy alto.,My brother is very tall.,adjective,n/a,descriptions,
+bajo,short,El niño es bajo.,The child is short.,adjective,n/a,descriptions,
+joven,young,Ella es muy joven.,She is very young.,adjective,n/a,descriptions,
+viejo,old,El edificio es viejo.,The building is old.,adjective,n/a,descriptions,
+mayor,older/elderly,Mi abuelo es mayor.,My grandfather is elderly.,adjective,n/a,descriptions,
+guapo,handsome,El actor es muy guapo.,The actor is very handsome.,adjective,n/a,descriptions,
+bonito,pretty,La casa es bonita.,The house is pretty.,adjective,n/a,descriptions,
+feo,ugly,El dibujo no es feo.,The drawing is not ugly.,adjective,n/a,descriptions,
+gordo,fat,El gato está gordo.,The cat is fat.,adjective,n/a,descriptions,
+delgado,thin,Ella es muy delgada.,She is very thin.,adjective,n/a,descriptions,
+simpático,nice/friendly,El vecino es muy simpático.,The neighbor is very friendly.,adjective,n/a,descriptions,
+antipático,unfriendly,No seas antipático.,Don't be unfriendly.,adjective,n/a,descriptions,
+inteligente,intelligent,La estudiante es inteligente.,The student is intelligent.,adjective,n/a,descriptions,
+amable,kind,La señora es muy amable.,The lady is very kind.,adjective,n/a,descriptions,
+feliz,happy,Estoy muy feliz hoy.,I'm very happy today.,adjective,n/a,emotions,
+triste,sad,Él está un poco triste.,He's a little sad.,adjective,n/a,emotions,
+cansado,tired,Estoy muy cansado.,I'm very tired.,adjective,n/a,emotions,
+ocupado,busy,El doctor está ocupado.,The doctor is busy.,adjective,n/a,descriptions,
+ser,to be (permanent),Soy estudiante.,I'm a student.,verb,n/a,verbs,
+estar,to be (temporary),Estoy cansado.,I'm tired.,verb,n/a,verbs,

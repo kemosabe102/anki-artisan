@@ -1,50 +1,50 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-lo schermo,the screen,Lo schermo è troppo piccolo.,The screen is too small.,noun,m,technology
-la tastiera,the keyboard,La tastiera non funziona.,The keyboard doesn't work.,noun,f,technology
-il mouse,the mouse,Il mouse è wireless.,The mouse is wireless.,noun,m,technology
-la stampante,the printer,La stampante è senza carta.,The printer is out of paper.,noun,f,technology
-il portatile,the laptop,Il mio portatile è vecchio.,My laptop is old.,noun,m,technology
-il tablet,the tablet,Leggo sul tablet.,I read on my tablet.,noun,m,technology
-il caricatore,the charger,Ho dimenticato il caricatore.,I forgot the charger.,noun,m,technology
-la batteria,the battery,La batteria è scarica.,The battery is dead.,noun,f,technology
-il file,the file,Salva il file sul desktop.,Save the file to the desktop.,noun,m,technology
-la cartella,the folder,Crea una nuova cartella.,Create a new folder.,noun,f,technology
-l'allegato,the attachment,Ho inviato l'allegato.,I sent the attachment.,noun,m,technology
-il documento,the document,Il documento è in PDF.,The document is in PDF.,noun,m,technology
-scaricare,to download,Devo scaricare l'applicazione.,I need to download the app.,verb,n/a,verbs
-caricare,to upload,Carico le foto sul cloud.,I upload the photos to the cloud.,verb,n/a,verbs
-salvare,to save,Salva il documento spesso.,Save the document often.,verb,n/a,verbs
-cancellare,to delete,Ho cancellato il messaggio.,I deleted the message.,verb,n/a,verbs
-copiare,to copy,Copia e incolla il testo.,Copy and paste the text.,verb,n/a,verbs
-incollare,to paste,Incolla qui il link.,Paste the link here.,verb,n/a,verbs
-condividere,to share,Condivido il file con te.,I share the file with you.,verb,n/a,verbs
-collegare,to connect,Collego il telefono al computer.,I connect the phone to the computer.,verb,n/a,verbs
-il sito web,the website,Il sito web è aggiornato.,The website is updated.,noun,m,internet
-la pagina,the page,Apri la pagina iniziale.,Open the home page.,noun,f,internet
-il link,the link,Clicca sul link.,Click on the link.,noun,m,internet
-la rete,the network,La rete è lenta oggi.,The network is slow today.,noun,f,internet
-la connessione,the connection,La connessione è instabile.,The connection is unstable.,noun,f,internet
-il Wi-Fi,the Wi-Fi,Il Wi-Fi non funziona.,The Wi-Fi isn't working.,noun,m,internet
-la password,the password,Ho dimenticato la password.,I forgot the password.,noun,f,internet
-l'account,the account,Crea un nuovo account.,Create a new account.,noun,m,internet
-il profilo,the profile,Aggiorna il tuo profilo.,Update your profile.,noun,m,internet
-i social media,social media,Uso poco i social media.,I don't use social media much.,noun,m,internet
-il post,the post,Ho visto il tuo post.,I saw your post.,noun,m,internet
-il giornale,the newspaper,Leggo il giornale online.,I read the newspaper online.,noun,m,media
-la rivista,the magazine,La rivista esce ogni mese.,The magazine comes out every month.,noun,f,media
-le notizie,the news,Le notizie sono preoccupanti.,The news is worrying.,noun,f,media
-il telegiornale,the TV news,Guardo il telegiornale alle otto.,I watch the news at eight.,noun,m,media
-il programma,the program/show,Il programma è interessante.,The show is interesting.,noun,m,media
-il documentario,the documentary,Ho visto un documentario.,I watched a documentary.,noun,m,media
-la serie,the series,La serie ha dieci episodi.,The series has ten episodes.,noun,f,media
-la pubblicità,the advertisement,La pubblicità è noiosa.,The advertisement is boring.,noun,f,media
-il canale,the channel,Cambia canale per favore.,Change the channel please.,noun,m,media
-la diretta,live broadcast,Il concerto è in diretta.,The concert is live.,noun,f,media
-in streaming,streaming,Guardo film in streaming.,I watch movies streaming.,phrase,n/a,media
-il podcast,the podcast,Ascolto molti podcast.,I listen to many podcasts.,noun,m,media
-l'app,the app,L'app è molto utile.,The app is very useful.,noun,f,technology
-aggiornare,to update,Devo aggiornare il software.,I need to update the software.,verb,n/a,verbs
-installare,to install,Ho installato l'antivirus.,I installed the antivirus.,verb,n/a,verbs
-funzionare,to work/function,Il computer non funziona.,The computer isn't working.,verb,n/a,verbs
-bloccarsi,to freeze/crash,Il sistema si è bloccato.,The system crashed.,verb,n/a,verbs
-riavviare,to restart,Riavvia il computer.,Restart the computer.,verb,n/a,verbs
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+lo schermo,the screen,Lo schermo è troppo piccolo.,The screen is too small.,noun,m,technology,
+la tastiera,the keyboard,La tastiera non funziona.,The keyboard doesn't work.,noun,f,technology,
+il mouse,the mouse,Il mouse è wireless.,The mouse is wireless.,noun,m,technology,
+la stampante,the printer,La stampante è senza carta.,The printer is out of paper.,noun,f,technology,
+il portatile,the laptop,Il mio portatile è vecchio.,My laptop is old.,noun,m,technology,
+il tablet,the tablet,Leggo sul tablet.,I read on my tablet.,noun,m,technology,
+il caricatore,the charger,Ho dimenticato il caricatore.,I forgot the charger.,noun,m,technology,
+la batteria,the battery,La batteria è scarica.,The battery is dead.,noun,f,technology,
+il file,the file,Salva il file sul desktop.,Save the file to the desktop.,noun,m,technology,
+la cartella,the folder,Crea una nuova cartella.,Create a new folder.,noun,f,technology,
+l'allegato,the attachment,Ho inviato l'allegato.,I sent the attachment.,noun,m,technology,
+il documento,the document,Il documento è in PDF.,The document is in PDF.,noun,m,technology,
+scaricare,to download,Devo scaricare l'applicazione.,I need to download the app.,verb,n/a,verbs,
+caricare,to upload,Carico le foto sul cloud.,I upload the photos to the cloud.,verb,n/a,verbs,
+salvare,to save,Salva il documento spesso.,Save the document often.,verb,n/a,verbs,
+cancellare,to delete,Ho cancellato il messaggio.,I deleted the message.,verb,n/a,verbs,
+copiare,to copy,Copia e incolla il testo.,Copy and paste the text.,verb,n/a,verbs,
+incollare,to paste,Incolla qui il link.,Paste the link here.,verb,n/a,verbs,
+condividere,to share,Condivido il file con te.,I share the file with you.,verb,n/a,verbs,
+collegare,to connect,Collego il telefono al computer.,I connect the phone to the computer.,verb,n/a,verbs,
+il sito web,the website,Il sito web è aggiornato.,The website is updated.,noun,m,internet,
+la pagina,the page,Apri la pagina iniziale.,Open the home page.,noun,f,internet,
+il link,the link,Clicca sul link.,Click on the link.,noun,m,internet,
+la rete,the network,La rete è lenta oggi.,The network is slow today.,noun,f,internet,
+la connessione,the connection,La connessione è instabile.,The connection is unstable.,noun,f,internet,
+il Wi-Fi,the Wi-Fi,Il Wi-Fi non funziona.,The Wi-Fi isn't working.,noun,m,internet,
+la password,the password,Ho dimenticato la password.,I forgot the password.,noun,f,internet,
+l'account,the account,Crea un nuovo account.,Create a new account.,noun,m,internet,
+il profilo,the profile,Aggiorna il tuo profilo.,Update your profile.,noun,m,internet,
+i social media,social media,Uso poco i social media.,I don't use social media much.,noun,m,internet,
+il post,the post,Ho visto il tuo post.,I saw your post.,noun,m,internet,
+il giornale,the newspaper,Leggo il giornale online.,I read the newspaper online.,noun,m,media,
+la rivista,the magazine,La rivista esce ogni mese.,The magazine comes out every month.,noun,f,media,
+le notizie,the news,Le notizie sono preoccupanti.,The news is worrying.,noun,f,media,
+il telegiornale,the TV news,Guardo il telegiornale alle otto.,I watch the news at eight.,noun,m,media,
+il programma,the program/show,Il programma è interessante.,The show is interesting.,noun,m,media,
+il documentario,the documentary,Ho visto un documentario.,I watched a documentary.,noun,m,media,
+la serie,the series,La serie ha dieci episodi.,The series has ten episodes.,noun,f,media,
+la pubblicità,the advertisement,La pubblicità è noiosa.,The advertisement is boring.,noun,f,media,
+il canale,the channel,Cambia canale per favore.,Change the channel please.,noun,m,media,
+la diretta,live broadcast,Il concerto è in diretta.,The concert is live.,noun,f,media,
+in streaming,streaming,Guardo film in streaming.,I watch movies streaming.,phrase,n/a,media,
+il podcast,the podcast,Ascolto molti podcast.,I listen to many podcasts.,noun,m,media,
+l'app,the app,L'app è molto utile.,The app is very useful.,noun,f,technology,
+aggiornare,to update,Devo aggiornare il software.,I need to update the software.,verb,n/a,verbs,
+installare,to install,Ho installato l'antivirus.,I installed the antivirus.,verb,n/a,verbs,
+funzionare,to work/function,Il computer non funziona.,The computer isn't working.,verb,n/a,verbs,
+bloccarsi,to freeze/crash,Il sistema si è bloccato.,The system crashed.,verb,n/a,verbs,
+riavviare,to restart,Riavvia il computer.,Restart the computer.,verb,n/a,verbs,

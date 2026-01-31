@@ -1,44 +1,44 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-además,furthermore,Además es muy económico.,Furthermore it's very economical.,adverb,n/a,additive
-también,also,También me gusta el cine.,I also like cinema.,adverb,n/a,additive
-incluso,even,Incluso él está de acuerdo.,Even he agrees.,adverb,n/a,additive
-aparte de eso,besides that,Aparte de eso todo está bien.,Besides that everything is fine.,phrase,n/a,additive
-encima,on top of that,Y encima llegó tarde.,And on top of that he arrived late.,adverb,n/a,additive
-no solo... sino también,not only... but also,No solo es inteligente sino trabajador.,Not only smart but hardworking.,phrase,n/a,additive
-pero,but,Me gusta pero es caro.,I like it but it's expensive.,conjunction,n/a,adversative
-sin embargo,however,Sin embargo no estoy seguro.,However I'm not sure.,phrase,n/a,adversative
-no obstante,nevertheless,No obstante seguiremos adelante.,Nevertheless we'll move forward.,phrase,n/a,adversative
-de todas formas,anyway,De todas formas lo haré.,I'll do it anyway.,phrase,n/a,adversative
-en cambio,instead/on the other hand,En cambio él prefiere quedarse.,On the other hand he prefers to stay.,phrase,n/a,adversative
-al contrario,on the contrary,Al contrario me parece excelente.,On the contrary I think it's excellent.,phrase,n/a,adversative
-por otro lado,on the other hand,Por otro lado tiene sus ventajas.,On the other hand it has its advantages.,phrase,n/a,adversative
-porque,because,Lo hice porque era necesario.,I did it because it was necessary.,conjunction,n/a,causal
-dado que,given that,Dado que no hay tiempo.,Given that there's no time.,phrase,n/a,causal
-ya que,since,Ya que estás aquí ayúdame.,Since you're here help me.,phrase,n/a,causal
-como,since/as,Como llovía me quedé en casa.,Since it was raining I stayed home.,conjunction,n/a,causal
-puesto que,since/given that,Puesto que insistes te lo diré.,Since you insist I'll tell you.,phrase,n/a,causal
-debido a,due to,Debido a la lluvia se canceló.,Due to the rain it was canceled.,phrase,n/a,causal
-gracias a,thanks to,Gracias a ti lo logramos.,Thanks to you we made it.,phrase,n/a,causal
-por lo tanto,therefore,Por lo tanto debemos actuar.,Therefore we must act.,phrase,n/a,result
-así que,so,Así que decidí quedarme.,So I decided to stay.,phrase,n/a,result
-por eso,that's why,Por eso no pude ir.,That's why I couldn't go.,phrase,n/a,result
-por consiguiente,consequently,Por consiguiente el proyecto se cerró.,Consequently the project was closed.,phrase,n/a,result
-por esta razón,for this reason,Por esta razón te lo digo.,For this reason I'm telling you.,phrase,n/a,result
-finalmente,finally,Finalmente llegamos a un acuerdo.,Finally we reached an agreement.,adverb,n/a,sequence
-al final,in the end,Al final todo salió bien.,In the end everything turned out well.,phrase,n/a,sequence
-en primer lugar,first of all,En primer lugar quiero agradecer.,First of all I want to thank.,phrase,n/a,sequence
-en segundo lugar,secondly,En segundo lugar debemos considerar.,Secondly we must consider.,phrase,n/a,sequence
-mientras tanto,meanwhile,Mientras tanto tú puedes empezar.,Meanwhile you can start.,phrase,n/a,sequence
-si,if,Si tienes tiempo llámame.,If you have time call me.,conjunction,n/a,conditional
-en caso de que,in case,En caso de que llueva.,In case it rains.,phrase,n/a,conditional
-a menos que,unless,A menos que digas algo.,Unless you say something.,phrase,n/a,conditional
-aunque,although/even if,Aunque llueva voy a ir.,Even if it rains I'm going to go.,conjunction,n/a,concessive
-a pesar de,despite,A pesar de todo lo logró.,Despite everything he achieved it.,phrase,n/a,concessive
-pese a,in spite of,Pese a las dificultades avanzamos.,In spite of the difficulties we advanced.,phrase,n/a,concessive
-es decir,that is to say,Es decir no hay otra opción.,That is to say there's no other option.,phrase,n/a,explanation
-o sea,in other words,O sea que no vienes.,In other words you're not coming.,phrase,n/a,explanation
-en otras palabras,in other words,En otras palabras es imposible.,In other words it's impossible.,phrase,n/a,explanation
-por ejemplo,for example,Por ejemplo el caso de Ana.,For example the case of Ana.,phrase,n/a,explanation
-en conclusión,in conclusion,En conclusión el proyecto fue exitoso.,In conclusion the project was successful.,phrase,n/a,conclusion
-en resumen,in summary,En resumen todo salió bien.,In summary everything went well.,phrase,n/a,conclusion
-para resumir,to summarize,Para resumir hay tres puntos clave.,To summarize there are three key points.,phrase,n/a,conclusion
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+además,furthermore,Además es muy económico.,Furthermore it's very economical.,adverb,n/a,additive,
+también,also,También me gusta el cine.,I also like cinema.,adverb,n/a,additive,
+incluso,even,Incluso él está de acuerdo.,Even he agrees.,adverb,n/a,additive,
+aparte de eso,besides that,Aparte de eso todo está bien.,Besides that everything is fine.,phrase,n/a,additive,
+encima,on top of that,Y encima llegó tarde.,And on top of that he arrived late.,adverb,n/a,additive,
+no solo... sino también,not only... but also,No solo es inteligente sino trabajador.,Not only smart but hardworking.,phrase,n/a,additive,
+pero,but,Me gusta pero es caro.,I like it but it's expensive.,conjunction,n/a,adversative,
+sin embargo,however,Sin embargo no estoy seguro.,However I'm not sure.,phrase,n/a,adversative,
+no obstante,nevertheless,No obstante seguiremos adelante.,Nevertheless we'll move forward.,phrase,n/a,adversative,
+de todas formas,anyway,De todas formas lo haré.,I'll do it anyway.,phrase,n/a,adversative,
+en cambio,instead/on the other hand,En cambio él prefiere quedarse.,On the other hand he prefers to stay.,phrase,n/a,adversative,
+al contrario,on the contrary,Al contrario me parece excelente.,On the contrary I think it's excellent.,phrase,n/a,adversative,
+por otro lado,on the other hand,Por otro lado tiene sus ventajas.,On the other hand it has its advantages.,phrase,n/a,adversative,
+porque,because,Lo hice porque era necesario.,I did it because it was necessary.,conjunction,n/a,causal,
+dado que,given that,Dado que no hay tiempo.,Given that there's no time.,phrase,n/a,causal,
+ya que,since,Ya que estás aquí ayúdame.,Since you're here help me.,phrase,n/a,causal,
+como,since/as,Como llovía me quedé en casa.,Since it was raining I stayed home.,conjunction,n/a,causal,
+puesto que,since/given that,Puesto que insistes te lo diré.,Since you insist I'll tell you.,phrase,n/a,causal,
+debido a,due to,Debido a la lluvia se canceló.,Due to the rain it was canceled.,phrase,n/a,causal,
+gracias a,thanks to,Gracias a ti lo logramos.,Thanks to you we made it.,phrase,n/a,causal,
+por lo tanto,therefore,Por lo tanto debemos actuar.,Therefore we must act.,phrase,n/a,result,
+así que,so,Así que decidí quedarme.,So I decided to stay.,phrase,n/a,result,
+por eso,that's why,Por eso no pude ir.,That's why I couldn't go.,phrase,n/a,result,
+por consiguiente,consequently,Por consiguiente el proyecto se cerró.,Consequently the project was closed.,phrase,n/a,result,
+por esta razón,for this reason,Por esta razón te lo digo.,For this reason I'm telling you.,phrase,n/a,result,
+finalmente,finally,Finalmente llegamos a un acuerdo.,Finally we reached an agreement.,adverb,n/a,sequence,
+al final,in the end,Al final todo salió bien.,In the end everything turned out well.,phrase,n/a,sequence,
+en primer lugar,first of all,En primer lugar quiero agradecer.,First of all I want to thank.,phrase,n/a,sequence,
+en segundo lugar,secondly,En segundo lugar debemos considerar.,Secondly we must consider.,phrase,n/a,sequence,
+mientras tanto,meanwhile,Mientras tanto tú puedes empezar.,Meanwhile you can start.,phrase,n/a,sequence,
+si,if,Si tienes tiempo llámame.,If you have time call me.,conjunction,n/a,conditional,
+en caso de que,in case,En caso de que llueva.,In case it rains.,phrase,n/a,conditional,
+a menos que,unless,A menos que digas algo.,Unless you say something.,phrase,n/a,conditional,
+aunque,although/even if,Aunque llueva voy a ir.,Even if it rains I'm going to go.,conjunction,n/a,concessive,
+a pesar de,despite,A pesar de todo lo logró.,Despite everything he achieved it.,phrase,n/a,concessive,
+pese a,in spite of,Pese a las dificultades avanzamos.,In spite of the difficulties we advanced.,phrase,n/a,concessive,
+es decir,that is to say,Es decir no hay otra opción.,That is to say there's no other option.,phrase,n/a,explanation,
+o sea,in other words,O sea que no vienes.,In other words you're not coming.,phrase,n/a,explanation,
+en otras palabras,in other words,En otras palabras es imposible.,In other words it's impossible.,phrase,n/a,explanation,
+por ejemplo,for example,Por ejemplo el caso de Ana.,For example the case of Ana.,phrase,n/a,explanation,
+en conclusión,in conclusion,En conclusión el proyecto fue exitoso.,In conclusion the project was successful.,phrase,n/a,conclusion,
+en resumen,in summary,En resumen todo salió bien.,In summary everything went well.,phrase,n/a,conclusion,
+para resumir,to summarize,Para resumir hay tres puntos clave.,To summarize there are three key points.,phrase,n/a,conclusion,

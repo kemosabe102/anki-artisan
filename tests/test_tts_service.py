@@ -70,6 +70,7 @@ class TestTTSService:
                 text="Ciao",
                 language=sample_language_config.language_code,
                 voice_id=sample_language_config.elevenlabs.voice_id,
+                model_id=sample_language_config.elevenlabs.model_id,
             )
             cache_path.parent.mkdir(parents=True, exist_ok=True)
             cache_path.write_bytes(b"cached audio")
@@ -122,3 +123,23 @@ class TestTTSService:
         assert mock_client.text_to_speech.convert.call_count == 3
         assert mock_sleep.call_count == 2  # Backoff delays
         assert result.cached is False
+
+    @patch("anki_artisan.tts_service.ElevenLabs")
+    def test_cache_key_differs_by_model(
+        self,
+        mock_elevenlabs_class: MagicMock,
+        sample_language_config: LanguageConfig,
+        tmp_path: Path,
+    ):
+        """Different model_id produces different cache path."""
+        with patch("anki_artisan.tts_service.CACHE_DIR", tmp_path / "cache"):
+            service = TTSService(api_key="test_key")
+
+            path1 = service._get_cache_path(
+                "ciao", "it", "voice1", "eleven_multilingual_v2"
+            )
+            path2 = service._get_cache_path(
+                "ciao", "it", "voice1", "eleven_turbo_v2_5"
+            )
+
+            assert path1 != path2

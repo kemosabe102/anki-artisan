@@ -1,44 +1,44 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-la educación,education,La educación es fundamental.,Education is fundamental.,noun,f,system
-la formación,training/education,Recibí formación profesional.,I received professional training.,noun,f,system
-la universidad,the university,Estudié en la universidad pública.,I studied at the public university.,noun,f,institutions
-la facultad,the faculty/school,La facultad de medicina es excelente.,The medical school is excellent.,noun,f,institutions
-el instituto,the institute/high school,El instituto tiene buenos profesores.,The high school has good teachers.,noun,m,institutions
-la escuela secundaria,secondary school,Terminé la escuela secundaria en mayo.,I finished secondary school in May.,noun,f,institutions
-la escuela primaria,elementary school,Va a la escuela primaria.,He goes to elementary school.,noun,f,institutions
-el jardín de infantes,kindergarten,El jardín de infantes es divertido.,Kindergarten is fun.,noun,m,institutions
-el curso,the course,El curso dura tres meses.,The course lasts three months.,noun,m,academic
-la clase,the class/lesson,La clase empieza a las nueve.,The class starts at nine.,noun,f,academic
-el seminario,the seminar,Asistí a un seminario interesante.,I attended an interesting seminar.,noun,m,academic
-la carrera,the degree/career,Mi carrera es ingeniería civil.,My degree is civil engineering.,noun,f,academic
-el título,the degree/diploma,Obtuve mi título el año pasado.,I got my degree last year.,noun,m,academic
-el diploma,the diploma,El diploma está en mi oficina.,The diploma is in my office.,noun,m,academic
-el certificado,the certificate,Necesito un certificado de idiomas.,I need a language certificate.,noun,m,academic
-el examen,the exam,El examen final es difícil.,The final exam is difficult.,noun,m,academic
-la calificación,the grade,Mis calificaciones son buenas.,My grades are good.,noun,f,academic
-la nota,the grade/note,Saqué buena nota en matemáticas.,I got a good grade in math.,noun,f,academic
-el boletín,the report card,El boletín llega la próxima semana.,The report card arrives next week.,noun,m,academic
-la materia,the subject,Mi materia favorita es historia.,My favorite subject is history.,noun,f,academic
-la tesis,the thesis,Estoy escribiendo mi tesis doctoral.,I'm writing my doctoral thesis.,noun,f,academic
-la investigación,research,La investigación tomó dos años.,The research took two years.,noun,f,academic
-la beca,the scholarship,Gané una beca completa.,I won a full scholarship.,noun,f,academic
-el docente,the teacher/instructor,El docente es muy paciente.,The instructor is very patient.,noun,m,people
-el director,the principal/dean,El director habló con los padres.,The principal spoke with the parents.,noun,m,people
-el rector,the rector/president,El rector de la universidad.,The president of the university.,noun,m,people
-graduarse,to graduate,Me gradué con honores.,I graduated with honors.,verb,n/a,verbs
-licenciarse,to get a degree,Se licenció en derecho.,He got a law degree.,verb,n/a,verbs
-inscribirse,to enroll,Me inscribí en el curso.,I enrolled in the course.,verb,n/a,verbs
-asistir,to attend,Asisto a todas las clases.,I attend all the classes.,verb,n/a,verbs
-aprobar,to pass,Aprobé todos los exámenes.,I passed all the exams.,verb,n/a,verbs
-reprobar,to fail,Reprobé el examen de física.,I failed the physics exam.,verb,n/a,verbs
-suspender,to fail (Spain),Suspendí el examen final.,I failed the final exam.,verb,n/a,verbs
-repetir,to repeat,Tuve que repetir el curso.,I had to repeat the course.,verb,n/a,verbs
-preparar,to prepare,Preparo el examen con tiempo.,I prepare for the exam in advance.,verb,n/a,verbs
-repasar,to review,Repaso mis notas cada noche.,I review my notes every night.,verb,n/a,verbs
-profundizar,to deepen/go deeper,Quiero profundizar en el tema.,I want to go deeper into the topic.,verb,n/a,verbs
-los apuntes,the notes,Tomé buenos apuntes en clase.,I took good notes in class.,noun,m,objects
-el cuaderno,the notebook,Mi cuaderno está lleno.,My notebook is full.,noun,m,objects
-la biblioteca,the library,Estudio en la biblioteca.,I study in the library.,noun,f,places
-el aula,the classroom,El aula tiene aire acondicionado.,The classroom has air conditioning.,noun,f,places
-obligatorio,mandatory,El curso es obligatorio.,The course is mandatory.,adjective,n/a,adjectives
-optativo,elective,Tomé dos materias optativas.,I took two elective subjects.,adjective,n/a,adjectives
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+la educación,education,La educación es fundamental.,Education is fundamental.,noun,f,system,
+la formación,training/education,Recibí formación profesional.,I received professional training.,noun,f,system,
+la universidad,the university,Estudié en la universidad pública.,I studied at the public university.,noun,f,institutions,
+la facultad,the faculty/school,La facultad de medicina es excelente.,The medical school is excellent.,noun,f,institutions,
+el instituto,the institute/high school,El instituto tiene buenos profesores.,The high school has good teachers.,noun,m,institutions,
+la escuela secundaria,secondary school,Terminé la escuela secundaria en mayo.,I finished secondary school in May.,noun,f,institutions,
+la escuela primaria,elementary school,Va a la escuela primaria.,He goes to elementary school.,noun,f,institutions,
+el jardín de infantes,kindergarten,El jardín de infantes es divertido.,Kindergarten is fun.,noun,m,institutions,
+el curso,the course,El curso dura tres meses.,The course lasts three months.,noun,m,academic,
+la clase,the class/lesson,La clase empieza a las nueve.,The class starts at nine.,noun,f,academic,
+el seminario,the seminar,Asistí a un seminario interesante.,I attended an interesting seminar.,noun,m,academic,
+la carrera,the degree/career,Mi carrera es ingeniería civil.,My degree is civil engineering.,noun,f,academic,
+el título,the degree/diploma,Obtuve mi título el año pasado.,I got my degree last year.,noun,m,academic,
+el diploma,the diploma,El diploma está en mi oficina.,The diploma is in my office.,noun,m,academic,
+el certificado,the certificate,Necesito un certificado de idiomas.,I need a language certificate.,noun,m,academic,
+el examen,the exam,El examen final es difícil.,The final exam is difficult.,noun,m,academic,
+la calificación,the grade,Mis calificaciones son buenas.,My grades are good.,noun,f,academic,
+la nota,the grade/note,Saqué buena nota en matemáticas.,I got a good grade in math.,noun,f,academic,
+el boletín,the report card,El boletín llega la próxima semana.,The report card arrives next week.,noun,m,academic,
+la materia,the subject,Mi materia favorita es historia.,My favorite subject is history.,noun,f,academic,
+la tesis,the thesis,Estoy escribiendo mi tesis doctoral.,I'm writing my doctoral thesis.,noun,f,academic,
+la investigación,research,La investigación tomó dos años.,The research took two years.,noun,f,academic,
+la beca,the scholarship,Gané una beca completa.,I won a full scholarship.,noun,f,academic,
+el docente,the teacher/instructor,El docente es muy paciente.,The instructor is very patient.,noun,m,people,
+el director,the principal/dean,El director habló con los padres.,The principal spoke with the parents.,noun,m,people,
+el rector,the rector/president,El rector de la universidad.,The president of the university.,noun,m,people,
+graduarse,to graduate,Me gradué con honores.,I graduated with honors.,verb,n/a,verbs,
+licenciarse,to get a degree,Se licenció en derecho.,He got a law degree.,verb,n/a,verbs,
+inscribirse,to enroll,Me inscribí en el curso.,I enrolled in the course.,verb,n/a,verbs,
+asistir,to attend,Asisto a todas las clases.,I attend all the classes.,verb,n/a,verbs,
+aprobar,to pass,Aprobé todos los exámenes.,I passed all the exams.,verb,n/a,verbs,
+reprobar,to fail,Reprobé el examen de física.,I failed the physics exam.,verb,n/a,verbs,
+suspender,to fail (Spain),Suspendí el examen final.,I failed the final exam.,verb,n/a,verbs,
+repetir,to repeat,Tuve que repetir el curso.,I had to repeat the course.,verb,n/a,verbs,
+preparar,to prepare,Preparo el examen con tiempo.,I prepare for the exam in advance.,verb,n/a,verbs,
+repasar,to review,Repaso mis notas cada noche.,I review my notes every night.,verb,n/a,verbs,
+profundizar,to deepen/go deeper,Quiero profundizar en el tema.,I want to go deeper into the topic.,verb,n/a,verbs,
+los apuntes,the notes,Tomé buenos apuntes en clase.,I took good notes in class.,noun,m,objects,
+el cuaderno,the notebook,Mi cuaderno está lleno.,My notebook is full.,noun,m,objects,
+la biblioteca,the library,Estudio en la biblioteca.,I study in the library.,noun,f,places,
+el aula,the classroom,El aula tiene aire acondicionado.,The classroom has air conditioning.,noun,f,places,
+obligatorio,mandatory,El curso es obligatorio.,The course is mandatory.,adjective,n/a,adjectives,
+optativo,elective,Tomé dos materias optativas.,I took two elective subjects.,adjective,n/a,adjectives,

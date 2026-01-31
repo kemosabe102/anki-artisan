@@ -1,46 +1,46 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-la pantalla,the screen,La pantalla es muy grande.,The screen is very large.,noun,f,devices
-el teclado,the keyboard,El teclado no funciona bien.,The keyboard doesn't work well.,noun,m,devices
-el ratón,the mouse,Mueve el ratón a la derecha.,Move the mouse to the right.,noun,m,devices
-la impresora,the printer,La impresora está sin papel.,The printer is out of paper.,noun,f,devices
-el portátil,the laptop,Trabajo en mi portátil.,I work on my laptop.,noun,m,devices
-la tableta,the tablet,Leo libros en la tableta.,I read books on the tablet.,noun,f,devices
-el cargador,the charger,Olvidé mi cargador en casa.,I forgot my charger at home.,noun,m,devices
-la batería,the battery,La batería está baja.,The battery is low.,noun,f,devices
-descargar,to download,Descargué la aplicación nueva.,I downloaded the new app.,verb,n/a,actions
-cargar,to upload/charge,Cargué las fotos al sitio.,I uploaded the photos to the site.,verb,n/a,actions
-guardar,to save,Guarda el documento antes de cerrar.,Save the document before closing.,verb,n/a,actions
-borrar,to delete,Borré los archivos viejos.,I deleted the old files.,verb,n/a,actions
-copiar,to copy,Copia y pega el texto.,Copy and paste the text.,verb,n/a,actions
-pegar,to paste,Pega el enlace aquí.,Paste the link here.,verb,n/a,actions
-conectar,to connect,No puedo conectar al wifi.,I can't connect to the wifi.,verb,n/a,actions
-el archivo,the file,El archivo es muy pesado.,The file is very large.,noun,m,digital
-la carpeta,the folder,Creé una carpeta nueva.,I created a new folder.,noun,f,digital
-el adjunto,the attachment,El adjunto no abre.,The attachment won't open.,noun,m,digital
-el sitio web,the website,El sitio web está caído.,The website is down.,noun,m,internet
-la página,the page,La página carga muy lento.,The page loads very slowly.,noun,f,internet
-el enlace,the link,El enlace no funciona.,The link doesn't work.,noun,m,internet
-la red,the network,La red está muy lenta hoy.,The network is very slow today.,noun,f,internet
-la contraseña,the password,Olvidé mi contraseña.,I forgot my password.,noun,f,internet
-el perfil,the profile,Actualicé mi perfil.,I updated my profile.,noun,m,internet
-las redes sociales,social media,Paso mucho tiempo en redes sociales.,I spend a lot of time on social media.,noun,f,internet
-la publicación,the post,Vi tu publicación ayer.,I saw your post yesterday.,noun,f,internet
-el periódico,the newspaper,Leo el periódico cada mañana.,I read the newspaper every morning.,noun,m,media
-la revista,the magazine,La revista sale cada mes.,The magazine comes out every month.,noun,f,media
-las noticias,the news,Las noticias de hoy son preocupantes.,Today's news is worrying.,noun,f,media
-el noticiero,the news broadcast,El noticiero empieza a las ocho.,The news broadcast starts at eight.,noun,m,media
-el programa,the program,Mi programa favorito es los jueves.,My favorite program is on Thursdays.,noun,m,media
-el documental,the documentary,El documental es muy interesante.,The documentary is very interesting.,noun,m,media
-la serie,the series,Estoy viendo una serie nueva.,I'm watching a new series.,noun,f,media
-la publicidad,advertising,Hay mucha publicidad en internet.,There's a lot of advertising on the internet.,noun,f,media
-el canal,the channel,Cambié de canal.,I changed the channel.,noun,m,media
-en directo,live,El concierto es en directo.,The concert is live.,phrase,n/a,media
-en línea,online,Compro mucho en línea.,I buy a lot online.,phrase,n/a,internet
-actualizar,to update,Necesito actualizar el sistema.,I need to update the system.,verb,n/a,actions
-instalar,to install,Instalé el programa nuevo.,I installed the new program.,verb,n/a,actions
-funcionar,to work/function,El programa no funciona.,The program doesn't work.,verb,n/a,actions
-bloquearse,to crash/freeze,La computadora se bloqueó.,The computer crashed.,verb,n/a,actions
-reiniciar,to restart,Reinicia la computadora.,Restart the computer.,verb,n/a,actions
-la aplicación,the app,La aplicación es muy útil.,The app is very useful.,noun,f,digital
-el pódcast,the podcast,Escucho pódcasts al caminar.,I listen to podcasts while walking.,noun,m,media
-transmitir,to stream/broadcast,Transmiten el partido en vivo.,They're streaming the game live.,verb,n/a,media
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+la pantalla,the screen,La pantalla es muy grande.,The screen is very large.,noun,f,devices,
+el teclado,the keyboard,El teclado no funciona bien.,The keyboard doesn't work well.,noun,m,devices,
+el ratón,the mouse,Mueve el ratón a la derecha.,Move the mouse to the right.,noun,m,devices,
+la impresora,the printer,La impresora está sin papel.,The printer is out of paper.,noun,f,devices,
+el portátil,the laptop,Trabajo en mi portátil.,I work on my laptop.,noun,m,devices,
+la tableta,the tablet,Leo libros en la tableta.,I read books on the tablet.,noun,f,devices,
+el cargador,the charger,Olvidé mi cargador en casa.,I forgot my charger at home.,noun,m,devices,
+la batería,the battery,La batería está baja.,The battery is low.,noun,f,devices,
+descargar,to download,Descargué la aplicación nueva.,I downloaded the new app.,verb,n/a,actions,
+cargar,to upload/charge,Cargué las fotos al sitio.,I uploaded the photos to the site.,verb,n/a,actions,
+guardar,to save,Guarda el documento antes de cerrar.,Save the document before closing.,verb,n/a,actions,
+borrar,to delete,Borré los archivos viejos.,I deleted the old files.,verb,n/a,actions,
+copiar,to copy,Copia y pega el texto.,Copy and paste the text.,verb,n/a,actions,
+pegar,to paste,Pega el enlace aquí.,Paste the link here.,verb,n/a,actions,
+conectar,to connect,No puedo conectar al wifi.,I can't connect to the wifi.,verb,n/a,actions,
+el archivo,the file,El archivo es muy pesado.,The file is very large.,noun,m,digital,
+la carpeta,the folder,Creé una carpeta nueva.,I created a new folder.,noun,f,digital,
+el adjunto,the attachment,El adjunto no abre.,The attachment won't open.,noun,m,digital,
+el sitio web,the website,El sitio web está caído.,The website is down.,noun,m,internet,
+la página,the page,La página carga muy lento.,The page loads very slowly.,noun,f,internet,
+el enlace,the link,El enlace no funciona.,The link doesn't work.,noun,m,internet,
+la red,the network,La red está muy lenta hoy.,The network is very slow today.,noun,f,internet,
+la contraseña,the password,Olvidé mi contraseña.,I forgot my password.,noun,f,internet,
+el perfil,the profile,Actualicé mi perfil.,I updated my profile.,noun,m,internet,
+las redes sociales,social media,Paso mucho tiempo en redes sociales.,I spend a lot of time on social media.,noun,f,internet,
+la publicación,the post,Vi tu publicación ayer.,I saw your post yesterday.,noun,f,internet,
+el periódico,the newspaper,Leo el periódico cada mañana.,I read the newspaper every morning.,noun,m,media,
+la revista,the magazine,La revista sale cada mes.,The magazine comes out every month.,noun,f,media,
+las noticias,the news,Las noticias de hoy son preocupantes.,Today's news is worrying.,noun,f,media,
+el noticiero,the news broadcast,El noticiero empieza a las ocho.,The news broadcast starts at eight.,noun,m,media,
+el programa,the program,Mi programa favorito es los jueves.,My favorite program is on Thursdays.,noun,m,media,
+el documental,the documentary,El documental es muy interesante.,The documentary is very interesting.,noun,m,media,
+la serie,the series,Estoy viendo una serie nueva.,I'm watching a new series.,noun,f,media,
+la publicidad,advertising,Hay mucha publicidad en internet.,There's a lot of advertising on the internet.,noun,f,media,
+el canal,the channel,Cambié de canal.,I changed the channel.,noun,m,media,
+en directo,live,El concierto es en directo.,The concert is live.,phrase,n/a,media,
+en línea,online,Compro mucho en línea.,I buy a lot online.,phrase,n/a,internet,
+actualizar,to update,Necesito actualizar el sistema.,I need to update the system.,verb,n/a,actions,
+instalar,to install,Instalé el programa nuevo.,I installed the new program.,verb,n/a,actions,
+funcionar,to work/function,El programa no funciona.,The program doesn't work.,verb,n/a,actions,
+bloquearse,to crash/freeze,La computadora se bloqueó.,The computer crashed.,verb,n/a,actions,
+reiniciar,to restart,Reinicia la computadora.,Restart the computer.,verb,n/a,actions,
+la aplicación,the app,La aplicación es muy útil.,The app is very useful.,noun,f,digital,
+el pódcast,the podcast,Escucho pódcasts al caminar.,I listen to podcasts while walking.,noun,m,media,
+transmitir,to stream/broadcast,Transmiten el partido en vivo.,They're streaming the game live.,verb,n/a,media,

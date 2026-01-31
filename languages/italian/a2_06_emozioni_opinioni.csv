@@ -1,51 +1,51 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-felice,happy,Sono molto felice oggi.,I am very happy today.,adjective,n/a,emotions
-contento,pleased/glad,Sono contento di vederti.,I'm glad to see you.,adjective,n/a,emotions
-triste,sad,Perché sei così triste?,Why are you so sad?,adjective,n/a,emotions
-arrabbiato,angry,È arrabbiato con me.,He is angry with me.,adjective,n/a,emotions
-nervoso,nervous,Sono nervoso per l'esame.,I'm nervous about the exam.,adjective,n/a,emotions
-preoccupato,worried,Sono preoccupato per lui.,I'm worried about him.,adjective,n/a,emotions
-stressato,stressed,Sono molto stressato al lavoro.,I'm very stressed at work.,adjective,n/a,emotions
-tranquillo,calm,Stai tranquillo! Va tutto bene.,Stay calm! Everything is fine.,adjective,n/a,emotions
-rilassato,relaxed,Mi sento rilassato oggi.,I feel relaxed today.,adjective,n/a,emotions
-stanco,tired,Sono stanco morto.,I'm dead tired.,adjective,n/a,emotions
-annoiato,bored,Sono annoiato a casa.,I'm bored at home.,adjective,n/a,emotions
-sorpreso,surprised,Sono sorpreso dalla notizia.,I'm surprised by the news.,adjective,n/a,emotions
-deluso,disappointed,Sono deluso dal risultato.,I'm disappointed with the result.,adjective,n/a,emotions
-spaventato,scared,Il bambino è spaventato.,The child is scared.,adjective,n/a,emotions
-emozionato,excited/moved,Sono emozionato per il viaggio.,I'm excited about the trip.,adjective,n/a,emotions
-innamorato,in love,È innamorato di lei.,He is in love with her.,adjective,n/a,emotions
-geloso,jealous,Non essere geloso!,Don't be jealous!,adjective,n/a,emotions
-orgoglioso,proud,Sono orgoglioso di te.,I'm proud of you.,adjective,n/a,emotions
-imbarazzato,embarrassed,Mi sento imbarazzato.,I feel embarrassed.,adjective,n/a,emotions
-confuso,confused,Sono un po' confuso.,I'm a bit confused.,adjective,n/a,emotions
-la felicità,happiness,La felicità è importante.,Happiness is important.,noun,f,emotions
-la tristezza,sadness,Sento una grande tristezza.,I feel great sadness.,noun,f,emotions
-la rabbia,anger,La rabbia non aiuta.,Anger doesn't help.,noun,f,emotions
-la paura,fear,Ho paura del buio.,I'm afraid of the dark.,noun,f,emotions
-la sorpresa,surprise,Che bella sorpresa!,What a nice surprise!,noun,f,emotions
-sentirsi,to feel,Come ti senti oggi?,How do you feel today?,verb,n/a,verbs
-provare,to feel/experience,Provo molta gioia.,I feel a lot of joy.,verb,n/a,verbs
-arrabbiarsi,to get angry,Non ti arrabbiare!,Don't get angry!,verb,n/a,verbs
-preoccuparsi,to worry,Non ti preoccupare!,Don't worry!,verb,n/a,verbs
-calmarsi,to calm down,Calmati! Non è grave.,Calm down! It's not serious.,verb,n/a,verbs
-piangere,to cry,Non piangere!,Don't cry!,verb,n/a,verbs
-ridere,to laugh,Mi fa ridere sempre.,He always makes me laugh.,verb,n/a,verbs
-sorridere,to smile,Sorridi! Stai bene.,Smile! You look good.,verb,n/a,verbs
-pensare,to think,Penso che sia vero.,I think it's true.,verb,n/a,opinions
-credere,to believe,Credo che abbia ragione.,I believe he's right.,verb,n/a,opinions
-sembrare,to seem,Sembra una buona idea.,It seems like a good idea.,verb,n/a,opinions
-essere d'accordo,to agree,Sono d'accordo con te.,I agree with you.,phrase,n/a,opinions
-non essere d'accordo,to disagree,Non sono d'accordo.,I disagree.,phrase,n/a,opinions
-avere ragione,to be right,Hai ragione tu.,You are right.,phrase,n/a,opinions
-avere torto,to be wrong,Mi dispiace. Avevo torto.,I'm sorry. I was wrong.,phrase,n/a,opinions
-secondo me,in my opinion,Secondo me è sbagliato.,In my opinion it's wrong.,phrase,n/a,opinions
-penso che,I think that,Penso che sia interessante.,I think it's interesting.,phrase,n/a,opinions
-credo che,I believe that,Credo che venga domani.,I believe he's coming tomorrow.,phrase,n/a,opinions
-mi sembra che,it seems to me that,Mi sembra che piova.,It seems to me it's raining.,phrase,n/a,opinions
-forse,maybe/perhaps,Forse hai ragione.,Maybe you're right.,adverb,n/a,opinions
-probabilmente,probably,Probabilmente viene dopo.,He's probably coming later.,adverb,n/a,opinions
-sicuramente,certainly/surely,Sicuramente è vero.,It's certainly true.,adverb,n/a,opinions
-ovviamente,obviously,Ovviamente sono d'accordo.,Obviously I agree.,adverb,n/a,opinions
-purtroppo,unfortunately,Purtroppo non posso venire.,Unfortunately I can't come.,adverb,n/a,opinions
-per fortuna,fortunately,Per fortuna è andato bene.,Fortunately it went well.,phrase,n/a,opinions
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+felice,happy,Sono molto felice oggi.,I am very happy today.,adjective,n/a,emotions,
+contento,pleased/glad,Sono contento di vederti.,I'm glad to see you.,adjective,n/a,emotions,
+triste,sad,Perché sei così triste?,Why are you so sad?,adjective,n/a,emotions,
+arrabbiato,angry,È arrabbiato con me.,He is angry with me.,adjective,n/a,emotions,
+nervoso,nervous,Sono nervoso per l'esame.,I'm nervous about the exam.,adjective,n/a,emotions,
+preoccupato,worried,Sono preoccupato per lui.,I'm worried about him.,adjective,n/a,emotions,
+stressato,stressed,Sono molto stressato al lavoro.,I'm very stressed at work.,adjective,n/a,emotions,
+tranquillo,calm,Stai tranquillo! Va tutto bene.,Stay calm! Everything is fine.,adjective,n/a,emotions,
+rilassato,relaxed,Mi sento rilassato oggi.,I feel relaxed today.,adjective,n/a,emotions,
+stanco,tired,Sono stanco morto.,I'm dead tired.,adjective,n/a,emotions,
+annoiato,bored,Sono annoiato a casa.,I'm bored at home.,adjective,n/a,emotions,
+sorpreso,surprised,Sono sorpreso dalla notizia.,I'm surprised by the news.,adjective,n/a,emotions,
+deluso,disappointed,Sono deluso dal risultato.,I'm disappointed with the result.,adjective,n/a,emotions,
+spaventato,scared,Il bambino è spaventato.,The child is scared.,adjective,n/a,emotions,
+emozionato,excited/moved,Sono emozionato per il viaggio.,I'm excited about the trip.,adjective,n/a,emotions,
+innamorato,in love,È innamorato di lei.,He is in love with her.,adjective,n/a,emotions,
+geloso,jealous,Non essere geloso!,Don't be jealous!,adjective,n/a,emotions,
+orgoglioso,proud,Sono orgoglioso di te.,I'm proud of you.,adjective,n/a,emotions,
+imbarazzato,embarrassed,Mi sento imbarazzato.,I feel embarrassed.,adjective,n/a,emotions,
+confuso,confused,Sono un po' confuso.,I'm a bit confused.,adjective,n/a,emotions,
+la felicità,happiness,La felicità è importante.,Happiness is important.,noun,f,emotions,
+la tristezza,sadness,Sento una grande tristezza.,I feel great sadness.,noun,f,emotions,
+la rabbia,anger,La rabbia non aiuta.,Anger doesn't help.,noun,f,emotions,
+la paura,fear,Ho paura del buio.,I'm afraid of the dark.,noun,f,emotions,
+la sorpresa,surprise,Che bella sorpresa!,What a nice surprise!,noun,f,emotions,
+sentirsi,to feel,Come ti senti oggi?,How do you feel today?,verb,n/a,verbs,
+provare,to feel/experience,Provo molta gioia.,I feel a lot of joy.,verb,n/a,verbs,
+arrabbiarsi,to get angry,Non ti arrabbiare!,Don't get angry!,verb,n/a,verbs,
+preoccuparsi,to worry,Non ti preoccupare!,Don't worry!,verb,n/a,verbs,
+calmarsi,to calm down,Calmati! Non è grave.,Calm down! It's not serious.,verb,n/a,verbs,
+piangere,to cry,Non piangere!,Don't cry!,verb,n/a,verbs,
+ridere,to laugh,Mi fa ridere sempre.,He always makes me laugh.,verb,n/a,verbs,
+sorridere,to smile,Sorridi! Stai bene.,Smile! You look good.,verb,n/a,verbs,
+pensare,to think,Penso che sia vero.,I think it's true.,verb,n/a,opinions,
+credere,to believe,Credo che abbia ragione.,I believe he's right.,verb,n/a,opinions,
+sembrare,to seem,Sembra una buona idea.,It seems like a good idea.,verb,n/a,opinions,
+essere d'accordo,to agree,Sono d'accordo con te.,I agree with you.,phrase,n/a,opinions,
+non essere d'accordo,to disagree,Non sono d'accordo.,I disagree.,phrase,n/a,opinions,
+avere ragione,to be right,Hai ragione tu.,You are right.,phrase,n/a,opinions,
+avere torto,to be wrong,Mi dispiace. Avevo torto.,I'm sorry. I was wrong.,phrase,n/a,opinions,
+secondo me,in my opinion,Secondo me è sbagliato.,In my opinion it's wrong.,phrase,n/a,opinions,
+penso che,I think that,Penso che sia interessante.,I think it's interesting.,phrase,n/a,opinions,
+credo che,I believe that,Credo che venga domani.,I believe he's coming tomorrow.,phrase,n/a,opinions,
+mi sembra che,it seems to me that,Mi sembra che piova.,It seems to me it's raining.,phrase,n/a,opinions,
+forse,maybe/perhaps,Forse hai ragione.,Maybe you're right.,adverb,n/a,opinions,
+probabilmente,probably,Probabilmente viene dopo.,He's probably coming later.,adverb,n/a,opinions,
+sicuramente,certainly/surely,Sicuramente è vero.,It's certainly true.,adverb,n/a,opinions,
+ovviamente,obviously,Ovviamente sono d'accordo.,Obviously I agree.,adverb,n/a,opinions,
+purtroppo,unfortunately,Purtroppo non posso venire.,Unfortunately I can't come.,adverb,n/a,opinions,
+per fortuna,fortunately,Per fortuna è andato bene.,Fortunately it went well.,phrase,n/a,opinions,

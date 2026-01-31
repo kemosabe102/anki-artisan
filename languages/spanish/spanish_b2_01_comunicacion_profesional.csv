@@ -1,46 +1,46 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-Estimado,Dear (formal male),Estimado señor García:,Dear Mr. García:,adjective,n/a,salutations
-Estimada,Dear (formal female),Estimada señora López:,Dear Mrs. López:,adjective,f,salutations
-Distinguido,Distinguished,Distinguido cliente:,Distinguished client:,adjective,n/a,salutations
-Apreciado,Valued/Dear,Apreciado colega:,Dear colleague:,adjective,n/a,salutations
-Lic.,Licensed/Graduate (title),Lic. Rodríguez buenos días.,Mr./Ms. Rodríguez good morning.,noun,n/a,titles
-Ing.,Engineer (title),Ing. Martínez está en reunión.,Engineer Martínez is in a meeting.,noun,n/a,titles
-Dr.,Doctor (title),Dr. Pérez lo atenderá.,Dr. Pérez will see you.,noun,n/a,titles
-Adjunto,Attached,Adjunto encontrará el informe.,Attached you will find the report.,adjective,n/a,email
-En referencia a,In reference to,En referencia a su solicitud...,In reference to your request...,phrase,n/a,email
-Según lo acordado,As agreed,Según lo acordado le envío.,As agreed I send it.,phrase,n/a,email
-A raíz de,Following/As a result of,A raíz de nuestra conversación...,Following our conversation...,phrase,n/a,email
-Le escribo para,I'm writing to,Le escribo para informarle que...,I'm writing to inform you that...,phrase,n/a,email
-Por medio de la presente,By means of this letter,Por medio de la presente comunico...,By means of this letter I communicate...,phrase,n/a,email
-Atentamente,Sincerely,Atentamente María García.,Sincerely María García.,adverb,n/a,closings
-Cordialmente,Cordially,Cordialmente el equipo de ventas.,Cordially the sales team.,adverb,n/a,closings
-Saludos cordiales,Kind regards,Saludos cordiales desde la oficina.,Kind regards from the office.,phrase,n/a,closings
-Quedo a la espera,I await,Quedo a la espera.,I await your response.,phrase,n/a,closings
-Agradeciendo de antemano,Thanking you in advance,Agradeciendo de antemano su atención.,Thanking you in advance for your attention.,phrase,n/a,closings
-Sin otro particular,Without further ado,Sin otro particular me despido.,Without further ado I take my leave.,phrase,n/a,closings
-¿Podría usted?,Could you? (formal),¿Podría usted enviarme el documento?,Could you send me the document?,phrase,n/a,requests
-Le agradecería que,I would appreciate if,Le agradecería que me confirmara.,I would appreciate if you confirmed.,phrase,n/a,requests
-¿Sería posible?,Would it be possible?,¿Sería posible adelantar la reunión?,Would it be possible to move up the meeting?,phrase,n/a,requests
-Le ruego que,I ask you to,Le ruego que considere mi solicitud.,I ask you to consider my request.,phrase,n/a,requests
-Permítame,Allow me,Permítame presentar una propuesta.,Allow me to present a proposal.,verb,n/a,requests
-tratar de usted,to address formally,En el trabajo trato de usted.,At work I address formally.,phrase,n/a,register
-tratar de tú,to address informally,¿Podemos tratarnos de tú?,Can we address each other informally?,phrase,n/a,register
-el registro formal,formal register,Use el registro formal en emails.,Use formal register in emails.,noun,m,register
-el tono,the tone,El tono del mensaje es apropiado.,The tone of the message is appropriate.,noun,m,register
-confirmar,to confirm,Le confirmo la cita para mañana.,I confirm the appointment for tomorrow.,verb,n/a,verbs
-comunicar,to communicate,Le comunico que su pedido llegó.,I communicate that your order arrived.,verb,n/a,verbs
-requerir,to require,Se requiere su aprobación.,Your approval is required.,verb,n/a,verbs
-reenviar,to forward,Le reenvío el correo original.,I forward you the original email.,verb,n/a,verbs
-adjuntar,to attach,Adjunto los documentos solicitados.,I attach the requested documents.,verb,n/a,verbs
-remitir,to send/forward,Le remito la información necesaria.,I send you the necessary information.,verb,n/a,verbs
-la correspondencia,correspondence,La correspondencia está actualizada.,The correspondence is up to date.,noun,f,nouns
-el destinatario,the recipient,El destinatario no recibió el mensaje.,The recipient didn't receive the message.,noun,m,nouns
-el remitente,the sender,El remitente es desconocido.,The sender is unknown.,noun,m,nouns
-el asunto,the subject line,El asunto debe ser claro.,The subject line should be clear.,noun,m,nouns
-la solicitud,the request,Su solicitud está siendo procesada.,Your request is being processed.,noun,f,nouns
-el recordatorio,the reminder,Le envío un recordatorio amable.,I send you a friendly reminder.,noun,m,nouns
-oportuno,timely,Gracias por su oportuna respuesta.,Thank you for your timely response.,adjective,n/a,adjectives
-cortés,courteous,Sea siempre cortés en los correos.,Always be courteous in emails.,adjective,n/a,adjectives
-disponible,available,Estoy disponible para una llamada.,I'm available for a call.,adjective,n/a,adjectives
-urgente,urgent,Es un asunto urgente.,It's an urgent matter.,adjective,n/a,adjectives
-confidencial,confidential,Este documento es confidencial.,This document is confidential.,adjective,n/a,adjectives
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+Estimado,Dear (formal male),Estimado señor García:,Dear Mr. García:,adjective,n/a,salutations,
+Estimada,Dear (formal female),Estimada señora López:,Dear Mrs. López:,adjective,f,salutations,
+Distinguido,Distinguished,Distinguido cliente:,Distinguished client:,adjective,n/a,salutations,
+Apreciado,Valued/Dear,Apreciado colega:,Dear colleague:,adjective,n/a,salutations,
+Lic.,Licensed/Graduate (title),Lic. Rodríguez buenos días.,Mr./Ms. Rodríguez good morning.,noun,n/a,titles,
+Ing.,Engineer (title),Ing. Martínez está en reunión.,Engineer Martínez is in a meeting.,noun,n/a,titles,
+Dr.,Doctor (title),Dr. Pérez lo atenderá.,Dr. Pérez will see you.,noun,n/a,titles,
+Adjunto,Attached,Adjunto encontrará el informe.,Attached you will find the report.,adjective,n/a,email,
+En referencia a,In reference to,En referencia a su solicitud...,In reference to your request...,phrase,n/a,email,
+Según lo acordado,As agreed,Según lo acordado le envío.,As agreed I send it.,phrase,n/a,email,
+A raíz de,Following/As a result of,A raíz de nuestra conversación...,Following our conversation...,phrase,n/a,email,
+Le escribo para,I'm writing to,Le escribo para informarle que...,I'm writing to inform you that...,phrase,n/a,email,
+Por medio de la presente,By means of this letter,Por medio de la presente comunico...,By means of this letter I communicate...,phrase,n/a,email,
+Atentamente,Sincerely,Atentamente María García.,Sincerely María García.,adverb,n/a,closings,
+Cordialmente,Cordially,Cordialmente el equipo de ventas.,Cordially the sales team.,adverb,n/a,closings,
+Saludos cordiales,Kind regards,Saludos cordiales desde la oficina.,Kind regards from the office.,phrase,n/a,closings,
+Quedo a la espera,I await,Quedo a la espera.,I await your response.,phrase,n/a,closings,
+Agradeciendo de antemano,Thanking you in advance,Agradeciendo de antemano su atención.,Thanking you in advance for your attention.,phrase,n/a,closings,
+Sin otro particular,Without further ado,Sin otro particular me despido.,Without further ado I take my leave.,phrase,n/a,closings,
+¿Podría usted?,Could you? (formal),¿Podría usted enviarme el documento?,Could you send me the document?,phrase,n/a,requests,
+Le agradecería que,I would appreciate if,Le agradecería que me confirmara.,I would appreciate if you confirmed.,phrase,n/a,requests,
+¿Sería posible?,Would it be possible?,¿Sería posible adelantar la reunión?,Would it be possible to move up the meeting?,phrase,n/a,requests,
+Le ruego que,I ask you to,Le ruego que considere mi solicitud.,I ask you to consider my request.,phrase,n/a,requests,
+Permítame,Allow me,Permítame presentar una propuesta.,Allow me to present a proposal.,verb,n/a,requests,
+tratar de usted,to address formally,En el trabajo trato de usted.,At work I address formally.,phrase,n/a,register,
+tratar de tú,to address informally,¿Podemos tratarnos de tú?,Can we address each other informally?,phrase,n/a,register,
+el registro formal,formal register,Use el registro formal en emails.,Use formal register in emails.,noun,m,register,
+el tono,the tone,El tono del mensaje es apropiado.,The tone of the message is appropriate.,noun,m,register,
+confirmar,to confirm,Le confirmo la cita para mañana.,I confirm the appointment for tomorrow.,verb,n/a,verbs,
+comunicar,to communicate,Le comunico que su pedido llegó.,I communicate that your order arrived.,verb,n/a,verbs,
+requerir,to require,Se requiere su aprobación.,Your approval is required.,verb,n/a,verbs,
+reenviar,to forward,Le reenvío el correo original.,I forward you the original email.,verb,n/a,verbs,
+adjuntar,to attach,Adjunto los documentos solicitados.,I attach the requested documents.,verb,n/a,verbs,
+remitir,to send/forward,Le remito la información necesaria.,I send you the necessary information.,verb,n/a,verbs,
+la correspondencia,correspondence,La correspondencia está actualizada.,The correspondence is up to date.,noun,f,nouns,
+el destinatario,the recipient,El destinatario no recibió el mensaje.,The recipient didn't receive the message.,noun,m,nouns,
+el remitente,the sender,El remitente es desconocido.,The sender is unknown.,noun,m,nouns,
+el asunto,the subject line,El asunto debe ser claro.,The subject line should be clear.,noun,m,nouns,
+la solicitud,the request,Su solicitud está siendo procesada.,Your request is being processed.,noun,f,nouns,
+el recordatorio,the reminder,Le envío un recordatorio amable.,I send you a friendly reminder.,noun,m,nouns,
+oportuno,timely,Gracias por su oportuna respuesta.,Thank you for your timely response.,adjective,n/a,adjectives,
+cortés,courteous,Sea siempre cortés en los correos.,Always be courteous in emails.,adjective,n/a,adjectives,
+disponible,available,Estoy disponible para una llamada.,I'm available for a call.,adjective,n/a,adjectives,
+urgente,urgent,Es un asunto urgente.,It's an urgent matter.,adjective,n/a,adjectives,
+confidencial,confidential,Este documento es confidencial.,This document is confidential.,adjective,n/a,adjectives,

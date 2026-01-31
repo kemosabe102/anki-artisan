@@ -162,14 +162,25 @@ def cmd_generate(args: argparse.Namespace) -> int:
     audio_map: dict[str, tuple] = {}
     image_map: dict[str, object] = {}
 
+    def _resolve_model_id(vocab_item: "VocabItem") -> str | None:
+        """Resolve per-word TTS model override."""
+        if vocab_item.tts_model == "turbo":
+            return "eleven_turbo_v2_5"
+        return None  # use config default
+
     for i, item in enumerate(vocab_items, 1):
         print(f"  [{i}/{len(vocab_items)}] {item.word}...")
 
         # Audio generation (skip if images_only)
         if tts:
             try:
-                word_audio = tts.generate_audio(item.word, config, voice_id)
-                phrase_audio = tts.generate_audio(item.phrase, config, voice_id)
+                model_override = _resolve_model_id(item)
+                word_audio = tts.generate_audio(
+                    item.word, config, voice_id, model_id_override=model_override
+                )
+                phrase_audio = tts.generate_audio(
+                    item.phrase, config, voice_id, model_id_override=model_override
+                )
                 audio_map[item.word] = (word_audio, phrase_audio)
 
                 status = "cached" if word_audio.cached and phrase_audio.cached else "generated"

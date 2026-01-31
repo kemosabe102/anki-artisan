@@ -1,32 +1,32 @@
-word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-si bien,although/while,Si bien es caro vale.,Although it's expensive it's worth it.,phrase,n/a,concessive
-a pesar de que,despite the fact that,A pesar de que intentó.,Despite the fact that he tried.,phrase,n/a,concessive
-pese a que,in spite of the fact that,Pese a que es difícil.,In spite of it being difficult.,phrase,n/a,concessive
-por más que,no matter how much,Por más que estudie no entiendo.,No matter how much I study I don't understand.,phrase,n/a,concessive
-aun cuando,even when/though,Aun cuando sabía la verdad calló.,Even though he knew the truth he stayed silent.,phrase,n/a,concessive
-a condición de que,on the condition that,A condición de que vengas.,On the condition that you come.,phrase,n/a,conditional
-siempre y cuando,as long as,Iré siempre y cuando vengas.,I'll go as long as you come.,phrase,n/a,conditional
-con tal de que,provided that,Con tal de que funcione.,Provided that it works.,phrase,n/a,conditional
-siempre que,provided that/whenever,Siempre que puedo ayudo.,Whenever I can I help.,phrase,n/a,conditional
-a no ser que,unless,A no ser que cambie.,Unless he changes.,phrase,n/a,conditional
-suponiendo que,assuming that,Suponiendo que sea cierto qué hacemos.,Assuming it's true what do we do.,phrase,n/a,conditional
-en consecuencia,as a consequence,En consecuencia debemos actuar.,As a consequence we must act.,phrase,n/a,result
-de ahí que,hence,De ahí que sea tan importante.,Hence it's so important.,phrase,n/a,result
-de esto se deduce que,from this it follows that,De esto se deduce.,From this it follows.,phrase,n/a,result
-con todo,even so,Con todo vale la pena.,Even so it's worth it.,phrase,n/a,adversative
-dicho de otro modo,in other words,Dicho de otro modo es imposible.,In other words it's impossible.,phrase,n/a,reformulation
-desde mi punto de vista,from my point of view,Desde mi punto de vista.,From my point of view.,phrase,n/a,opinion
-soy de la opinión de que,I'm of the opinion that,Soy de la opinión.,I'm of the opinion.,phrase,n/a,opinion
-al parecer,apparently,Al parecer no vendrá hoy.,Apparently he won't come today.,phrase,n/a,hedging
-por así decirlo,so to speak,Es por así decirlo un experimento.,It's so to speak an experiment.,phrase,n/a,hedging
-en cierto sentido,in a sense,En cierto sentido tienes razón.,In a sense you're right.,phrase,n/a,hedging
-por un lado... por otro,on one hand... on the other,Por un lado bien por otro.,On one hand good on other.,phrase,n/a,contrast
-no solo... sino que también,not only... but also,No solo inteligente sino amable.,Not only smart but kind.,phrase,n/a,contrast
-tanto... como,both... and,Tanto él como ella.,Both he and she.,phrase,n/a,contrast
-cuanto más... tanto más,the more... the more,Cuanto más estudio tanto más aprendo.,The more I study the more I learn.,phrase,n/a,contrast
-en vez de,instead of,En vez de quejarte actúa.,Instead of complaining act.,phrase,n/a,contrast
-más bien,rather,Más bien creo lo contrario.,Rather I think the opposite.,phrase,n/a,contrast
-teniendo en cuenta que,taking into account that,Teniendo en cuenta que es nuevo.,Taking into account he's new.,phrase,n/a,clarification
-en definitiva,ultimately/in short,En definitiva no vale la pena.,Ultimately it's not worth it.,phrase,n/a,conclusion
-en suma,in sum,En suma todo salió bien.,In sum everything went well.,phrase,n/a,conclusion
-a la luz de,in light of,A la luz de los hechos.,In light of the facts.,phrase,n/a,conclusion
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
+si bien,although/while,Si bien es caro vale.,Although it's expensive it's worth it.,phrase,n/a,concessive,
+a pesar de que,despite the fact that,A pesar de que intentó.,Despite the fact that he tried.,phrase,n/a,concessive,
+pese a que,in spite of the fact that,Pese a que es difícil.,In spite of it being difficult.,phrase,n/a,concessive,
+por más que,no matter how much,Por más que estudie no entiendo.,No matter how much I study I don't understand.,phrase,n/a,concessive,
+aun cuando,even when/though,Aun cuando sabía la verdad calló.,Even though he knew the truth he stayed silent.,phrase,n/a,concessive,
+a condición de que,on the condition that,A condición de que vengas.,On the condition that you come.,phrase,n/a,conditional,
+siempre y cuando,as long as,Iré siempre y cuando vengas.,I'll go as long as you come.,phrase,n/a,conditional,
+con tal de que,provided that,Con tal de que funcione.,Provided that it works.,phrase,n/a,conditional,
+siempre que,provided that/whenever,Siempre que puedo ayudo.,Whenever I can I help.,phrase,n/a,conditional,
+a no ser que,unless,A no ser que cambie.,Unless he changes.,phrase,n/a,conditional,
+suponiendo que,assuming that,Suponiendo que sea cierto qué hacemos.,Assuming it's true what do we do.,phrase,n/a,conditional,
+en consecuencia,as a consequence,En consecuencia debemos actuar.,As a consequence we must act.,phrase,n/a,result,
+de ahí que,hence,De ahí que sea tan importante.,Hence it's so important.,phrase,n/a,result,
+de esto se deduce que,from this it follows that,De esto se deduce.,From this it follows.,phrase,n/a,result,
+con todo,even so,Con todo vale la pena.,Even so it's worth it.,phrase,n/a,adversative,
+dicho de otro modo,in other words,Dicho de otro modo es imposible.,In other words it's impossible.,phrase,n/a,reformulation,
+desde mi punto de vista,from my point of view,Desde mi punto de vista.,From my point of view.,phrase,n/a,opinion,
+soy de la opinión de que,I'm of the opinion that,Soy de la opinión.,I'm of the opinion.,phrase,n/a,opinion,
+al parecer,apparently,Al parecer no vendrá hoy.,Apparently he won't come today.,phrase,n/a,hedging,
+por así decirlo,so to speak,Es por así decirlo un experimento.,It's so to speak an experiment.,phrase,n/a,hedging,
+en cierto sentido,in a sense,En cierto sentido tienes razón.,In a sense you're right.,phrase,n/a,hedging,
+por un lado... por otro,on one hand... on the other,Por un lado bien por otro.,On one hand good on other.,phrase,n/a,contrast,
+no solo... sino que también,not only... but also,No solo inteligente sino amable.,Not only smart but kind.,phrase,n/a,contrast,
+tanto... como,both... and,Tanto él como ella.,Both he and she.,phrase,n/a,contrast,
+cuanto más... tanto más,the more... the more,Cuanto más estudio tanto más aprendo.,The more I study the more I learn.,phrase,n/a,contrast,
+en vez de,instead of,En vez de quejarte actúa.,Instead of complaining act.,phrase,n/a,contrast,
+más bien,rather,Más bien creo lo contrario.,Rather I think the opposite.,phrase,n/a,contrast,
+teniendo en cuenta que,taking into account that,Teniendo en cuenta que es nuevo.,Taking into account he's new.,phrase,n/a,clarification,
+en definitiva,ultimately/in short,En definitiva no vale la pena.,Ultimately it's not worth it.,phrase,n/a,conclusion,
+en suma,in sum,En suma todo salió bien.,In sum everything went well.,phrase,n/a,conclusion,
+a la luz de,in light of,A la luz de los hechos.,In light of the facts.,phrase,n/a,conclusion,
