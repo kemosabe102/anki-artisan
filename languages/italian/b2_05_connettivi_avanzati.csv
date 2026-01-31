@@ -2,45 +2,34 @@ word,translation,phrase,phrase_translation,part_of_speech,gender,tags
 sebbene,although,Sebbene sia difficile ci provo.,Although it's difficult I'll try.,conjunction,n/a,concessive
 benché,although,Benché piova esco lo stesso.,Although it's raining I'll go out anyway.,conjunction,n/a,concessive
 nonostante che,despite the fact that,Nonostante che sia tardi continuo.,Despite the fact that it's late I continue.,phrase,n/a,concessive
-malgrado,despite,Malgrado tutto sono ottimista.,Despite everything I'm optimistic.,preposition,n/a,concessive
 per quanto,however much,Per quanto mi sforzi non capisco.,However much I try I don't understand.,phrase,n/a,concessive
 pur,even though/while,Pur essendo stanco continuo a lavorare.,Even though I'm tired I keep working.,conjunction,n/a,concessive
-nel caso che,in case,Nel caso che piova porto l'ombrello.,In case it rains I'll bring an umbrella.,phrase,n/a,conditional
 a condizione che,on condition that,Vengo a condizione che tu venga.,I'll come on condition that you come.,phrase,n/a,conditional
 purché,provided that,Purché tu sia d'accordo.,Provided that you agree.,conjunction,n/a,conditional
 qualora,in the event that,Qualora avessi bisogno chiamami.,In the event you need help call me.,conjunction,n/a,conditional
-a patto che,on the condition that,A patto che tu mantenga la promessa.,On the condition that you keep the promise.,phrase,n/a,conditional
-a meno che non,unless,A meno che non piova andiamo.,Unless it rains we'll go.,phrase,n/a,conditional
+a patto che,on the condition that,A patto che tu venga.,On the condition that you come.,phrase,n/a,conditional
 ammesso che,assuming that,Ammesso che sia vero...,Assuming it's true...,phrase,n/a,conditional
 pertanto,therefore,Pertanto la decisione è definitiva.,Therefore the decision is final.,adverb,n/a,result
-di conseguenza,consequently,Di conseguenza dobbiamo agire.,Consequently we must act.,phrase,n/a,result
 ne deriva che,it follows that,Ne deriva che abbiamo ragione.,It follows that we are right.,phrase,n/a,result
 da ciò si deduce,from this one deduces,Da ciò si deduce la verità.,From this one deduces the truth.,phrase,n/a,result
 ciononostante,nevertheless,Ciononostante continuo a sperare.,Nevertheless I continue to hope.,adverb,n/a,adversative
 nondimeno,nonetheless,Nondimeno la questione resta aperta.,Nonetheless the question remains open.,adverb,n/a,adversative
 eppure,and yet,Eppure non mi arrendo.,And yet I don't give up.,conjunction,n/a,adversative
-vale a dire,that is to say,Vale a dire che non sono d'accordo.,That is to say I don't agree.,phrase,n/a,explanation
+vale a dire,that is to say,Vale a dire che hai torto.,That is to say you're wrong.,phrase,n/a,explanation
 ossia,or rather/namely,Arrivo domani ossia venerdì.,I arrive tomorrow namely Friday.,adverb,n/a,explanation
-ovvero,or rather,La risposta è negativa ovvero no.,The answer is negative or rather no.,adverb,n/a,explanation
-in altre parole,in other words,In altre parole hai torto.,In other words you're wrong.,phrase,n/a,explanation
-a mio parere,in my opinion,A mio parere è sbagliato.,In my opinion it's wrong.,phrase,n/a,opinion
 a mio avviso,in my view,A mio avviso dovremmo aspettare.,In my view we should wait.,phrase,n/a,opinion
-dal mio punto di vista,from my point of view,Dal mio punto di vista è giusto.,From my point of view it's right.,phrase,n/a,opinion
-ritengo che,I believe that,Ritengo che sia importante.,I believe it's important.,phrase,n/a,opinion
+dal mio punto di vista,from my point of view,Dal mio punto di vista...,From my point of view...,phrase,n/a,opinion
 sono del parere che,I am of the opinion that,Sono del parere che sia necessario.,I am of the opinion that it's necessary.,phrase,n/a,opinion
 a quanto pare,apparently,A quanto pare ha ragione.,Apparently he's right.,phrase,n/a,hedging
 per così dire,so to speak,È per così dire un esperto.,He's an expert so to speak.,phrase,n/a,hedging
 in un certo senso,in a sense,In un certo senso hai ragione.,In a sense you're right.,phrase,n/a,hedging
-da un lato... dall'altro,on one hand... on the other,Da un lato è utile dall'altro costoso.,On one hand it's useful on the other expensive.,phrase,n/a,contrast
-non solo... ma anche,not only... but also,Non solo è bravo ma anche simpatico.,Not only is he good but also nice.,phrase,n/a,additive
+da un lato... dall'altro,on one hand... on the other,Da un lato sì dall'altro no.,On one hand yes on the other no.,phrase,n/a,contrast
 sia... sia,both... and,Sia lui sia lei sono d'accordo.,Both he and she agree.,phrase,n/a,additive
 quanto più... tanto più,the more... the more,Quanto più studio tanto più capisco.,The more I study the more I understand.,phrase,n/a,comparative
 anziché,rather than/instead of,Anziché lamentarti agisci.,Rather than complaining take action.,conjunction,n/a,contrast
 piuttosto che,rather than,Piuttosto che arrendermi combatto.,Rather than giving up I fight.,phrase,n/a,contrast
 fermo restando che,it being understood that,Fermo restando che sono d'accordo...,It being understood that I agree...,phrase,n/a,clarification
 posto che,given that,Posto che sia vero cosa facciamo?,Given that it's true what do we do?,phrase,n/a,conditional
-in conclusione,in conclusion,In conclusione il progetto è approvato.,In conclusion the project is approved.,phrase,n/a,conclusion
-in definitiva,ultimately/in the end,In definitiva la scelta spetta a te.,Ultimately the choice is yours.,phrase,n/a,conclusion
-in sintesi,in summary,In sintesi i punti sono tre.,In summary there are three points.,phrase,n/a,conclusion
+in definitiva,ultimately/in the end,In definitiva hai ragione tu.,Ultimately you are right.,phrase,n/a,conclusion
 tirando le somme,to sum up,Tirando le somme abbiamo vinto.,To sum up we won.,phrase,n/a,conclusion
 alla luce di,in light of,Alla luce di questi fatti...,In light of these facts...,phrase,n/a,conclusion

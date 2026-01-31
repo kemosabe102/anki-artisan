@@ -23,6 +23,8 @@ class PartOfSpeech(str, Enum):
     PRONOUN = "pronoun"
     INTERJECTION = "interjection"
     PHRASE = "phrase"
+    IDIOM = "idiom"
+    PROVERB = "proverb"
 
 
 class Gender(str, Enum):

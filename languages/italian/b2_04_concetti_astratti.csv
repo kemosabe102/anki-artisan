@@ -1,7 +1,6 @@
 word,translation,phrase,phrase_translation,part_of_speech,gender,tags
 la libertà,freedom/liberty,La libertà di espressione è fondamentale.,Freedom of expression is fundamental.,noun,f,values
 la giustizia,justice,La giustizia deve prevalere.,Justice must prevail.,noun,f,values
-l'uguaglianza,equality,L'uguaglianza è un diritto.,Equality is a right.,noun,f,values
 la dignità,dignity,La dignità umana è inviolabile.,Human dignity is inviolable.,noun,f,values
 la responsabilità,responsibility,È una grande responsabilità.,It's a great responsibility.,noun,f,values
 l'onestà,honesty,L'onestà è importante nei rapporti.,Honesty is important in relationships.,noun,f,values
@@ -9,25 +8,16 @@ l'integrità,integrity,L'integrità morale è essenziale.,Moral integrity is ess
 la solidarietà,solidarity,La solidarietà tra i popoli.,Solidarity among peoples.,noun,f,values
 la fiducia,trust,La fiducia si costruisce nel tempo.,Trust is built over time.,noun,f,emotions
 il coraggio,courage,Ci vuole coraggio per cambiare.,It takes courage to change.,noun,m,emotions
-la paura,fear,La paura del fallimento.,Fear of failure.,noun,f,emotions
 la speranza,hope,Non perdere la speranza.,Don't lose hope.,noun,f,emotions
-il dubbio,doubt,Ho qualche dubbio sulla decisione.,I have some doubts about the decision.,noun,m,emotions
-la certezza,certainty,Non ho nessuna certezza.,I have no certainty.,noun,f,emotions
 l'ansia,anxiety,L'ansia per il futuro.,Anxiety about the future.,noun,f,emotions
 la conoscenza,knowledge,La conoscenza è potere.,Knowledge is power.,noun,f,intellectual
-l'esperienza,experience,L'esperienza insegna molto.,Experience teaches a lot.,noun,f,intellectual
 il comportamento,behavior,Il comportamento è inaccettabile.,The behavior is unacceptable.,noun,m,intellectual
 l'atteggiamento,attitude,L'atteggiamento positivo aiuta.,A positive attitude helps.,noun,m,intellectual
 il significato,meaning,Il significato profondo del testo.,The deep meaning of the text.,noun,m,intellectual
 il concetto,concept,Il concetto è difficile da spiegare.,The concept is hard to explain.,noun,m,intellectual
-la teoria,theory,La teoria è interessante.,The theory is interesting.,noun,f,intellectual
-l'ipotesi,hypothesis,L'ipotesi deve essere verificata.,The hypothesis must be verified.,noun,f,intellectual
-l'analisi,analysis,L'analisi dei dati è completa.,The data analysis is complete.,noun,f,intellectual
 la conseguenza,consequence,Le conseguenze sono gravi.,The consequences are serious.,noun,f,cause-effect
 la causa,cause,La causa del problema è chiara.,The cause of the problem is clear.,noun,f,cause-effect
 l'effetto,effect,L'effetto è immediato.,The effect is immediate.,noun,m,cause-effect
-il risultato,result,Il risultato è positivo.,The result is positive.,noun,m,cause-effect
-l'obiettivo,objective/goal,L'obiettivo è stato raggiunto.,The objective was achieved.,noun,m,cause-effect
 il successo,success,Il successo dipende dall'impegno.,Success depends on effort.,noun,m,outcomes
 il fallimento,failure,Il fallimento non è la fine.,Failure is not the end.,noun,m,outcomes
 il vantaggio,advantage,Il vantaggio è evidente.,The advantage is evident.,noun,m,outcomes
@@ -42,7 +32,6 @@ interpretare,to interpret,Come interpreti questo testo?,How do you interpret thi
 dedurre,to deduce,Da ciò deduco che hai ragione.,From this I deduce you're right.,verb,n/a,verbs
 concludere,to conclude,Concludo che è necessario agire.,I conclude that action is necessary.,verb,n/a,verbs
 dimostrare,to demonstrate,I dati dimostrano la teoria.,The data demonstrate the theory.,verb,n/a,verbs
-sostenere,to argue/support,Sostengo che sia vero.,I argue that it's true.,verb,n/a,verbs
 contraddire,to contradict,Non voglio contraddirti.,I don't want to contradict you.,verb,n/a,verbs
 fondamentale,fundamental,È un principio fondamentale.,It's a fundamental principle.,adjective,n/a,adjectives
 essenziale,essential,È essenziale capire questo.,It's essential to understand this.,adjective,n/a,adjectives

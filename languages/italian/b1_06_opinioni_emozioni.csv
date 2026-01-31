@@ -1,31 +1,20 @@
 word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-secondo me,in my opinion,Secondo me hai ragione.,In my opinion you're right.,phrase,n/a,opinions
-a mio parere,in my view,A mio parere è sbagliato.,In my view it's wrong.,phrase,n/a,opinions
-penso che,I think that,Penso che sia una buona idea.,I think it's a good idea.,phrase,n/a,opinions
-credo che,I believe that,Credo che venga domani.,I believe he's coming tomorrow.,phrase,n/a,opinions
-mi sembra che,it seems to me that,Mi sembra che piova.,It seems to me it's raining.,phrase,n/a,opinions
 ritengo che,I consider that,Ritengo che sia importante.,I consider it important.,phrase,n/a,opinions
 suppongo che,I suppose that,Suppongo che abbia ragione.,I suppose he's right.,phrase,n/a,opinions
 sono convinto che,I'm convinced that,Sono convinto che sia vero.,I'm convinced it's true.,phrase,n/a,opinions
-essere d'accordo,to agree,Sono d'accordo con te.,I agree with you.,phrase,n/a,opinions
 concordare,to agree/concur,Concordo con la tua opinione.,I agree with your opinion.,verb,n/a,verbs
 condividere,to share (an opinion),Non condivido questa idea.,I don't share this idea.,verb,n/a,verbs
 dissentire,to disagree,Dissento completamente.,I completely disagree.,verb,n/a,verbs
-avere ragione,to be right,Hai ragione tu.,You are right.,phrase,n/a,opinions
-avere torto,to be wrong,Mi dispiace ma hai torto.,I'm sorry but you're wrong.,phrase,n/a,opinions
 dubitare,to doubt,Dubito che sia vero.,I doubt it's true.,verb,n/a,verbs
 il dubbio,the doubt,Ho qualche dubbio.,I have some doubts.,noun,m,nouns
 la certezza,the certainty,Ho la certezza che verrà.,I'm certain he will come.,noun,f,nouns
-preoccupato,worried,Sono preoccupato per lui.,I'm worried about him.,adjective,n/a,emotions
 ansioso,anxious,Sono ansioso per l'esame.,I'm anxious about the exam.,adjective,n/a,emotions
 entusiasta,enthusiastic,Sono entusiasta del progetto.,I'm enthusiastic about the project.,adjective,n/a,emotions
-deluso,disappointed,Sono deluso dal risultato.,I'm disappointed with the result.,adjective,n/a,emotions
 soddisfatto,satisfied,Sono soddisfatto del lavoro.,I'm satisfied with the work.,adjective,n/a,emotions
 frustrato,frustrated,Mi sento frustrato.,I feel frustrated.,adjective,n/a,emotions
 sollevato,relieved,Sono sollevato che sia finita.,I'm relieved it's over.,adjective,n/a,emotions
 stupito,amazed/astonished,Sono stupito dalla notizia.,I'm astonished by the news.,adjective,n/a,emotions
 commosso,moved/touched,Sono commosso dal tuo gesto.,I'm touched by your gesture.,adjective,n/a,emotions
-imbarazzato,embarrassed,Mi sento imbarazzato.,I feel embarrassed.,adjective,n/a,emotions
 offeso,offended,Non volevo offenderti.,I didn't mean to offend you.,adjective,n/a,emotions
 onesto,honest,È una persona onesta.,He's an honest person.,adjective,n/a,qualities
 affidabile,reliable,È molto affidabile.,She's very reliable.,adjective,n/a,qualities
@@ -43,7 +32,7 @@ curioso,curious,Sono curioso di sapere.,I'm curious to know.,adjective,n/a,quali
 sensibile,sensitive,È una persona molto sensibile.,He's a very sensitive person.,adjective,n/a,qualities
 ragionevole,reasonable,È una richiesta ragionevole.,It's a reasonable request.,adjective,n/a,qualities
 irragionevole,unreasonable,È irragionevole aspettarsi questo.,It's unreasonable to expect this.,adjective,n/a,qualities
-maturo,mature,È molto maturo per la sua età.,He's very mature for his age.,adjective,n/a,qualities
+maturo,mature,È maturo per la sua età.,He's mature for his age.,adjective,n/a,qualities
 immaturo,immature,È ancora un po' immaturo.,He's still a bit immature.,adjective,n/a,qualities
 ottimista,optimist/optimistic,Sono ottimista per il futuro.,I'm optimistic about the future.,adjective,n/a,qualities
 pessimista,pessimist/pessimistic,Non essere così pessimista.,Don't be so pessimistic.,adjective,n/a,qualities

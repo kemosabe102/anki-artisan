@@ -1,6 +1,6 @@
 word,translation,phrase,phrase_translation,part_of_speech,gender,tags
 le Risorse Umane,Human Resources,Lavoro nelle Risorse Umane.,I work in Human Resources.,noun,f,departments
-il Marketing,Marketing,Il reparto Marketing è al secondo piano.,The Marketing department is on the second floor.,noun,m,departments
+il Marketing,Marketing,Lavoro nel reparto Marketing.,I work in the Marketing department.,noun,m,departments
 le Vendite,Sales,Lavoro nel reparto Vendite.,I work in the Sales department.,noun,f,departments
 la Contabilità,Accounting,La Contabilità gestisce le fatture.,Accounting handles the invoices.,noun,f,departments
 l'Amministrazione,Administration,L'Amministrazione è chiusa oggi.,Administration is closed today.,noun,f,departments
@@ -14,7 +14,7 @@ il consiglio di amministrazione,board of directors,Il consiglio di amministrazio
 la sede legale,registered office,La sede legale è a Roma.,The registered office is in Rome.,noun,f,business
 la multinazionale,multinational,Lavoro per una multinazionale.,I work for a multinational.,noun,f,business
 la PMI,SME (small-medium enterprise),L'Italia ha molte PMI.,Italy has many SMEs.,noun,f,business
-il fatturato,revenue/turnover,Il fatturato è aumentato del dieci percento.,Revenue increased by ten percent.,noun,m,finance
+il fatturato,revenue/turnover,Il fatturato è aumentato molto.,Revenue increased a lot.,noun,m,finance
 il bilancio,balance sheet/budget,Il bilancio è positivo quest'anno.,The balance sheet is positive this year.,noun,m,finance
 l'utile,profit,L'azienda ha realizzato un utile.,The company made a profit.,noun,m,finance
 la perdita,loss,Abbiamo registrato una perdita.,We recorded a loss.,noun,f,finance
@@ -35,7 +35,6 @@ il compromesso,the compromise,Abbiamo trovato un compromesso.,We found a comprom
 la trattativa,the negotiation,La trattativa è in corso.,The negotiation is underway.,noun,f,negotiations
 le condizioni,terms/conditions,Accettiamo le condizioni del contratto.,We accept the contract terms.,noun,f,negotiations
 la clausola,the clause,La clausola è vincolante.,The clause is binding.,noun,f,contracts
-la scadenza,the deadline,Rispetta la scadenza del progetto.,Respect the project deadline.,noun,f,business
 il preventivo,the quote/estimate,Invio un preventivo entro domani.,I'll send a quote by tomorrow.,noun,m,business
 la fattura,the invoice,La fattura è in allegato.,The invoice is attached.,noun,f,business
 il pagamento,the payment,Il pagamento è in ritardo.,The payment is late.,noun,m,business

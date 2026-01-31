@@ -1,5 +1,4 @@
 word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-il dipendente,the employee,I dipendenti sono in riunione.,The employees are in a meeting.,noun,m,work
 il datore di lavoro,the employer,Il datore di lavoro offre benefici.,The employer offers benefits.,noun,m,work
 il collaboratore,the collaborator/coworker,È un ottimo collaboratore.,He's an excellent coworker.,noun,m,work
 lo stagista,the intern,Lo stagista impara velocemente.,The intern learns quickly.,noun,m,work
@@ -9,7 +8,6 @@ la sede,the headquarters,La sede è a Milano.,The headquarters is in Milan.,noun
 la filiale,the branch office,Abbiamo una filiale a Roma.,We have a branch in Rome.,noun,f,work
 il reparto,the department,Lavoro nel reparto vendite.,I work in the sales department.,noun,m,work
 l'impresa,the business/enterprise,L'impresa sta crescendo.,The business is growing.,noun,f,work
-la ditta,the company/firm,La ditta ha cento dipendenti.,The firm has one hundred employees.,noun,f,work
 il settore,the sector/industry,Lavoro nel settore tecnologico.,I work in the tech sector.,noun,m,work
 il turno,the shift,Faccio il turno di notte.,I work the night shift.,noun,m,work
 lo straordinario,overtime,Faccio spesso straordinari.,I often do overtime.,noun,m,work
@@ -30,7 +28,6 @@ licenziarsi,to resign/quit,Mi sono licenziato il mese scorso.,I resigned last mo
 dimettersi,to resign (formal),Il direttore si è dimesso.,The director resigned.,verb,n/a,verbs
 promuovere,to promote,L'hanno promosso a direttore.,They promoted him to director.,verb,n/a,verbs
 trasferire,to transfer,Mi trasferiscono a Torino.,They're transferring me to Turin.,verb,n/a,verbs
-fare domanda,to apply,Ho fatto domanda per il posto.,I applied for the position.,phrase,n/a,verbs
 sostenere un colloquio,to have an interview,Domani sostengo un colloquio.,Tomorrow I have an interview.,phrase,n/a,verbs
 gestire,to manage,Gestisco un team di dieci persone.,I manage a team of ten people.,verb,n/a,verbs
 coordinare,to coordinate,Coordino i progetti internazionali.,I coordinate international projects.,verb,n/a,verbs
@@ -42,7 +39,6 @@ la partita IVA,VAT number (freelance status),Ho aperto la partita IVA.,I registe
 il libero professionista,freelancer,Sono libero professionista.,I'm a freelancer.,noun,m,work
 il carico di lavoro,workload,Il carico di lavoro è pesante.,The workload is heavy.,noun,m,work
 la scadenza,the deadline,La scadenza è venerdì.,The deadline is Friday.,noun,f,work
-il progetto,the project,Il progetto procede bene.,The project is going well.,noun,m,work
 l'obiettivo,the goal/objective,Abbiamo raggiunto l'obiettivo.,We reached the goal.,noun,m,work
 il risultato,the result,I risultati sono positivi.,The results are positive.,noun,m,work
 la valutazione,the evaluation/review,La valutazione annuale è importante.,The annual review is important.,noun,f,work
