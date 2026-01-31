@@ -1,24 +1,21 @@
 word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-feliz,happy,Estoy muy feliz hoy.,I'm very happy today.,adjective,n/a,emotions
-contento,content/happy,Estoy contento con el resultado.,I'm happy with the result.,adjective,m,emotions
+contento,content/happy,Estoy contento con el resultado.,I'm happy with the result.,adjective,n/a,emotions
 alegre,cheerful,Es una persona muy alegre.,She's a very cheerful person.,adjective,n/a,emotions
-triste,sad,Estoy triste por la noticia.,I'm sad about the news.,adjective,n/a,emotions
-enojado,angry,Está enojado conmigo.,He's angry with me.,adjective,m,emotions
-enfadado,angry (Spain),No estés enfadado.,Don't be angry.,adjective,m,emotions
-nervioso,nervous,Estoy nervioso por el examen.,I'm nervous about the exam.,adjective,m,emotions
-preocupado,worried,Estoy preocupado por mi familia.,I'm worried about my family.,adjective,m,emotions
-estresado,stressed,Estoy muy estresado con el trabajo.,I'm very stressed with work.,adjective,m,emotions
-relajado,relaxed,Me siento relajado después del yoga.,I feel relaxed after yoga.,adjective,m,emotions
-sorprendido,surprised,Estoy sorprendido por la noticia.,I'm surprised by the news.,adjective,m,emotions
-emocionado,excited,Estoy emocionado por el viaje.,I'm excited about the trip.,adjective,m,emotions
-aburrido,bored,Estoy aburrido en casa.,I'm bored at home.,adjective,m,emotions
-cansado,tired,Estoy muy cansado hoy.,I'm very tired today.,adjective,m,emotions
-asustado,scared,El niño está asustado.,The child is scared.,adjective,m,emotions
-confundido,confused,Estoy un poco confundido.,I'm a little confused.,adjective,m,emotions
-decepcionado,disappointed,Estoy decepcionado con el resultado.,I'm disappointed with the result.,adjective,m,emotions
-orgulloso,proud,Estoy orgulloso de ti.,I'm proud of you.,adjective,m,emotions
-avergonzado,embarrassed,Estoy avergonzado por lo que pasó.,I'm embarrassed about what happened.,adjective,m,emotions
-enamorado,in love,Estoy enamorado de ella.,I'm in love with her.,adjective,m,emotions
+enojado,angry,Está enojado conmigo.,He's angry with me.,adjective,n/a,emotions
+enfadado,angry (Spain),No estés enfadado.,Don't be angry.,adjective,n/a,emotions
+nervioso,nervous,Estoy nervioso por el examen.,I'm nervous about the exam.,adjective,n/a,emotions
+preocupado,worried,Estoy preocupado por mi familia.,I'm worried about my family.,adjective,n/a,emotions
+estresado,stressed,Estoy muy estresado con el trabajo.,I'm very stressed with work.,adjective,n/a,emotions
+relajado,relaxed,Me siento relajado después del yoga.,I feel relaxed after yoga.,adjective,n/a,emotions
+sorprendido,surprised,Estoy sorprendido por la noticia.,I'm surprised by the news.,adjective,n/a,emotions
+emocionado,excited,Estoy emocionado por el viaje.,I'm excited about the trip.,adjective,n/a,emotions
+aburrido,bored,Estoy aburrido en casa.,I'm bored at home.,adjective,n/a,emotions
+asustado,scared,El niño está asustado.,The child is scared.,adjective,n/a,emotions
+confundido,confused,Estoy un poco confundido.,I'm a little confused.,adjective,n/a,emotions
+decepcionado,disappointed,Estoy decepcionado con el resultado.,I'm disappointed with the result.,adjective,n/a,emotions
+orgulloso,proud,Estoy orgulloso de ti.,I'm proud of you.,adjective,n/a,emotions
+avergonzado,embarrassed,Estoy avergonzado por lo que pasó.,I'm embarrassed about what happened.,adjective,n/a,emotions
+enamorado,in love,Estoy enamorado de ella.,I'm in love with her.,adjective,n/a,emotions
 la felicidad,happiness,La felicidad es importante.,Happiness is important.,noun,f,nouns
 la tristeza,sadness,Siente mucha tristeza.,He feels a lot of sadness.,noun,f,nouns
 el miedo,fear,Tengo miedo a la oscuridad.,I'm afraid of the dark.,noun,m,nouns

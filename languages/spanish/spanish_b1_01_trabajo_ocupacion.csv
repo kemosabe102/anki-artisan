@@ -1,0 +1,39 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+el empleador,the employer,El empleador ofrece beneficios.,The employer offers benefits.,noun,m,workplace
+el gerente,the manager,El gerente dirige el equipo.,The manager leads the team.,noun,m,workplace
+el colega,the colleague,Mi colega me ayudó mucho.,My colleague helped me a lot.,noun,m,workplace
+el pasante,the intern,El pasante aprende rápido.,The intern learns quickly.,noun,m,workplace
+la sede,the headquarters,La sede está en Madrid.,The headquarters is in Madrid.,noun,f,workplace
+la sucursal,the branch,Abrieron una nueva sucursal.,They opened a new branch.,noun,f,workplace
+el departamento,the department,Trabajo en el departamento de ventas.,I work in the sales department.,noun,m,workplace
+el sector,the sector,El sector tecnológico crece mucho.,The technology sector is growing a lot.,noun,m,workplace
+las horas extras,overtime,Hice muchas horas extras.,I worked a lot of overtime.,noun,f,work
+el ascenso,the promotion,Espero un ascenso pronto.,I hope for a promotion soon.,noun,m,work
+el aumento,the raise,Pedí un aumento de sueldo.,I asked for a salary raise.,noun,m,work
+la nómina,the payroll/paycheck,Recibo mi nómina cada quince días.,I receive my paycheck every two weeks.,noun,f,work
+los beneficios,the benefits,Los beneficios incluyen seguro médico.,Benefits include health insurance.,noun,m,work
+el sindicato,the union,El sindicato negocia mejores condiciones.,The union negotiates better conditions.,noun,m,work
+la pasantía,the internship,Hice una pasantía el verano pasado.,I did an internship last summer.,noun,f,work
+el puesto,the position,Solicité el puesto de gerente.,I applied for the manager position.,noun,m,work
+la tarea,the task,Completé todas las tareas.,I completed all the tasks.,noun,f,work
+la responsabilidad,the responsibility,Tengo muchas responsabilidades.,I have many responsibilities.,noun,f,work
+la capacitación,training,La capacitación dura dos semanas.,The training lasts two weeks.,noun,f,work
+dimitir,to resign (formal),El director dimitió ayer.,The director resigned yesterday.,verb,n/a,verbs
+ascender,to promote,Lo ascendieron a gerente.,They promoted him to manager.,verb,n/a,verbs
+trasladar,to transfer,Me trasladaron a otra oficina.,They transferred me to another office.,verb,n/a,verbs
+solicitar,to apply for,Solicité un trabajo nuevo.,I applied for a new job.,verb,n/a,verbs
+gestionar,to manage,Gestiono varios proyectos.,I manage several projects.,verb,n/a,verbs
+coordinar,to coordinate,Coordino el equipo de ventas.,I coordinate the sales team.,verb,n/a,verbs
+supervisar,to supervise,Superviso a diez empleados.,I supervise ten employees.,verb,n/a,verbs
+el contrato,the contract,Firmé un contrato de un año.,I signed a one-year contract.,noun,m,contracts
+tiempo completo,full-time,Trabajo a tiempo completo.,I work full-time.,phrase,n/a,contracts
+tiempo parcial,part-time,Busco trabajo a tiempo parcial.,I'm looking for part-time work.,phrase,n/a,contracts
+temporal,temporary,Es un puesto temporal.,It's a temporary position.,adjective,n/a,contracts
+permanente,permanent,Tengo un contrato permanente.,I have a permanent contract.,adjective,n/a,contracts
+autónomo,self-employed,Trabajo como autónomo.,I work as a freelancer.,adjective,n/a,contracts
+la carga de trabajo,workload,La carga de trabajo es pesada.,The workload is heavy.,noun,f,work
+la fecha límite,the deadline,La fecha límite es mañana.,The deadline is tomorrow.,noun,f,work
+el objetivo,the objective,Cumplimos el objetivo mensual.,We met the monthly objective.,noun,m,work
+el resultado,the result,Los resultados son positivos.,The results are positive.,noun,m,work
+la evaluación,the evaluation,Tengo mi evaluación anual.,I have my annual evaluation.,noun,f,work
+el teletrabajo,remote work,Hago teletrabajo dos días.,I work remotely two days.,noun,m,work

@@ -11,31 +11,26 @@ el compañero de trabajo,the coworker (male),Mi compañero de trabajo es simpát
 la compañera de trabajo,the coworker (female),Mi compañera me ayuda mucho.,My coworker helps me a lot.,noun,f,people
 el sueldo,the salary,El sueldo es muy bajo.,The salary is very low.,noun,m,work
 el salario,the salary,Recibo mi salario cada mes.,I receive my salary every month.,noun,m,work
-el horario,the schedule,Mi horario es de nueve a cinco.,My schedule is from nine to five.,noun,m,work
+el horario,the schedule,Horario de nueve a cinco.,Schedule from nine to five.,noun,m,work
 la reunión,the meeting,Tengo una reunión a las diez.,I have a meeting at ten.,noun,f,work
 el proyecto,the project,El proyecto termina en diciembre.,The project ends in December.,noun,m,work
 la computadora,the computer,Trabajo en la computadora.,I work on the computer.,noun,f,workplace
 el ordenador,the computer (Spain),El ordenador está roto.,The computer is broken.,noun,m,workplace
 el correo electrónico,email,Te mando un correo electrónico.,I'll send you an email.,noun,m,technology
-la carta,the letter,Escribo una carta al cliente.,I write a letter to the client.,noun,f,work
 el cliente,the client,El cliente está satisfecho.,The client is satisfied.,noun,m,people
-trabajar,to work,Trabajo ocho horas al día.,I work eight hours a day.,verb,n/a,verbs
 buscar,to look for,Busco trabajo desde enero.,I've been looking for work since January.,verb,n/a,verbs
 encontrar,to find,Encontré un trabajo nuevo.,I found a new job.,verb,n/a,verbs
 ganar,to earn,Gano un buen sueldo.,I earn a good salary.,verb,n/a,verbs
 contratar,to hire,La empresa me contrató ayer.,The company hired me yesterday.,verb,n/a,verbs
 despedir,to fire,Lo despidieron la semana pasada.,They fired him last week.,verb,n/a,verbs
-renunciar,to resign,Voy a renunciar el mes que viene.,I'm going to resign next month.,verb,n/a,verbs
-jubilarse,to retire,Mi padre se jubiló el año pasado.,My father retired last year.,verb,n/a,verbs
+renunciar,to resign,Voy a renunciar pronto.,I'm going to resign soon.,verb,n/a,verbs
+jubilarse,to retire,Mi padre se jubiló.,My father retired.,verb,n/a,verbs
 el maestro,the teacher (elementary),El maestro enseña matemáticas.,The teacher teaches math.,noun,m,professions
-el abogado,the lawyer,Mi hermano es abogado.,My brother is a lawyer.,noun,m,professions
 el contador,the accountant,El contador revisa los números.,The accountant reviews the numbers.,noun,m,professions
 el arquitecto,the architect,El arquitecto diseñó la casa.,The architect designed the house.,noun,m,professions
 el enfermero,the nurse (male),El enfermero cuida a los pacientes.,The nurse cares for patients.,noun,m,professions
 la enfermera,the nurse (female),La enfermera trabaja en el hospital.,The nurse works at the hospital.,noun,f,professions
 el vendedor,the salesperson,El vendedor me ayudó mucho.,The salesperson helped me a lot.,noun,m,professions
-el mesero,the waiter,El mesero trae la cuenta.,The waiter brings the bill.,noun,m,professions
-el cocinero,the cook,El cocinero prepara la cena.,The cook prepares dinner.,noun,m,professions
 el peluquero,the hairdresser,El peluquero me cortó el pelo.,The hairdresser cut my hair.,noun,m,professions
 el mecánico,the mechanic,El mecánico arregló mi carro.,The mechanic fixed my car.,noun,m,professions
 el electricista,the electrician,Llamé al electricista.,I called the electrician.,noun,m,professions

@@ -1,0 +1,46 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+el gobierno,the government,El gobierno anunció nuevas medidas.,The government announced new measures.,noun,m,politics
+el ministerio,the ministry,El ministerio de salud informó.,The ministry of health reported.,noun,m,politics
+el ministro,the minister,El ministro renunció ayer.,The minister resigned yesterday.,noun,m,politics
+el congreso,the congress,El congreso aprobó la ley.,Congress approved the law.,noun,m,politics
+la cámara de diputados,chamber of deputies,La cámara de diputados debate.,The chamber of deputies debates.,noun,f,politics
+el senado,the senate,El senado rechazó la propuesta.,The senate rejected the proposal.,noun,m,politics
+el presidente,the president,El presidente firmó el decreto.,The president signed the decree.,noun,m,politics
+el alcalde,the mayor,El alcalde inauguró el parque.,The mayor inaugurated the park.,noun,m,politics
+el partido político,political party,El partido político ganó las elecciones.,The political party won the elections.,noun,m,politics
+las elecciones,elections,Las elecciones son en noviembre.,Elections are in November.,noun,f,politics
+votar,to vote,Voté por primera vez.,I voted for the first time.,verb,n/a,politics
+el tribunal,the court,El tribunal dictó sentencia.,The court issued a verdict.,noun,m,legal
+la ley,the law,La ley entró en vigor.,The law came into effect.,noun,f,legal
+el decreto,the decree,El decreto se publicó hoy.,The decree was published today.,noun,m,legal
+la reforma,the reform,La reforma educativa es necesaria.,Educational reform is necessary.,noun,f,legal
+el reglamento,the regulation,El reglamento prohíbe eso.,The regulation prohibits that.,noun,m,legal
+el juez,the judge,El juez dictará sentencia mañana.,The judge will issue a sentence tomorrow.,noun,m,legal
+el derecho,the right/law,El derecho a la educación.,The right to education.,noun,m,legal
+el deber,the duty,Es nuestro deber como ciudadanos.,It's our duty as citizens.,noun,m,legal
+el ciudadano,the citizen,Los ciudadanos exigen respuestas.,Citizens demand answers.,noun,m,society
+la sociedad,society,La sociedad está cambiando.,Society is changing.,noun,f,society
+la inmigración,immigration,La inmigración es un tema complejo.,Immigration is a complex issue.,noun,f,society
+la integración,integration,La integración social es importante.,Social integration is important.,noun,f,society
+el desempleo,unemployment,El desempleo bajó este año.,Unemployment dropped this year.,noun,m,society
+la pobreza,poverty,La pobreza sigue siendo un problema.,Poverty remains a problem.,noun,f,society
+la igualdad,equality,Luchamos por la igualdad de género.,We fight for gender equality.,noun,f,society
+la discriminación,discrimination,La discriminación está prohibida por ley.,Discrimination is prohibited by law.,noun,f,society
+la crónica,the chronicle/report,La crónica del corresponsal es detallada.,The correspondent's report is detailed.,noun,f,media
+el artículo,the article,El artículo explica la situación.,The article explains the situation.,noun,m,media
+el editorial,the editorial,El editorial critica al gobierno.,The editorial criticizes the government.,noun,m,media
+la investigación periodística,investigative journalism,La investigación periodística reveló corrupción.,The investigative journalism revealed corruption.,noun,f,media
+el reportaje,the report/feature,El reportaje fue muy completo.,The feature was very comprehensive.,noun,m,media
+el periodista,the journalist,El periodista entrevistó al ministro.,The journalist interviewed the minister.,noun,m,media
+la crisis,the crisis,La crisis económica afecta a todos.,The economic crisis affects everyone.,noun,f,issues
+la protesta,the protest,La protesta fue pacífica.,The protest was peaceful.,noun,f,issues
+la manifestación,the demonstration,Miles asistieron a la manifestación.,Thousands attended the demonstration.,noun,f,issues
+la huelga,the strike,La huelga paralizó el transporte.,The strike paralyzed transportation.,noun,f,issues
+el debate,the debate,El debate fue muy intenso.,The debate was very intense.,noun,m,issues
+la cuestión,the issue/question,Es una cuestión de justicia.,It's a matter of justice.,noun,f,issues
+afrontar,to face/confront,Debemos afrontar el problema.,We must face the problem.,verb,n/a,verbs
+resolver,to solve,Hay que resolver la crisis.,We need to solve the crisis.,verb,n/a,verbs
+denunciar,to denounce/report,Denunciaron la corrupción.,They denounced the corruption.,verb,n/a,verbs
+apoyar,to support,Apoyo la nueva iniciativa.,I support the new initiative.,verb,n/a,verbs
+oponerse,to oppose,Se oponen a la reforma.,They oppose the reform.,verb,n/a,verbs
+rechazar,to reject,Rechazaron la propuesta inicial.,They rejected the initial proposal.,verb,n/a,verbs

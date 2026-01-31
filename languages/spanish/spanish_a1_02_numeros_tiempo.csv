@@ -1,22 +1,22 @@
 word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-cero,zero,El resultado es cero.,The result is zero.,adjective,m,numbers
-uno,one,Tengo un hermano.,I have one brother.,adjective,m,numbers
-dos,two,Son las dos de la tarde.,It's two in the afternoon.,adjective,m,numbers
-tres,three,Tres cafés por favor.,Three coffees please.,adjective,m,numbers
-cuatro,four,Hay cuatro sillas.,There are four chairs.,adjective,m,numbers
-cinco,five,Trabajo cinco días.,I work five days.,adjective,m,numbers
-seis,six,Son las seis.,It's six o'clock.,adjective,m,numbers
-siete,seven,A las siete de la mañana.,At seven in the morning.,adjective,m,numbers
-ocho,eight,Ocho horas de sueño.,Eight hours of sleep.,adjective,m,numbers
-nueve,nine,Tengo nueve años aquí.,I've been here nine years.,adjective,m,numbers
-diez,ten,Diez minutos más.,Ten more minutes.,adjective,m,numbers
-once,eleven,El once de enero.,The eleventh of January.,adjective,m,numbers
-doce,twelve,A las doce del mediodía.,At twelve noon.,adjective,m,numbers
-veinte,twenty,Veinte personas vinieron.,Twenty people came.,adjective,m,numbers
-treinta,thirty,Tengo treinta años.,I'm thirty years old.,adjective,m,numbers
-cuarenta,forty,Cuarenta grados de calor.,Forty degrees of heat.,adjective,m,numbers
-cincuenta,fifty,Cuesta cincuenta dólares.,It costs fifty dollars.,adjective,m,numbers
-cien,one hundred,Cien por ciento seguro.,One hundred percent sure.,adjective,m,numbers
+cero,zero,El resultado es cero.,The result is zero.,adjective,n/a,numbers
+uno,one,Tengo un hermano.,I have one brother.,adjective,n/a,numbers
+dos,two,Son las dos de la tarde.,It's two in the afternoon.,adjective,n/a,numbers
+tres,three,Tres cafés por favor.,Three coffees please.,adjective,n/a,numbers
+cuatro,four,Hay cuatro sillas.,There are four chairs.,adjective,n/a,numbers
+cinco,five,Trabajo cinco días.,I work five days.,adjective,n/a,numbers
+seis,six,Son las seis.,It's six o'clock.,adjective,n/a,numbers
+siete,seven,A las siete de la mañana.,At seven in the morning.,adjective,n/a,numbers
+ocho,eight,Ocho horas de sueño.,Eight hours of sleep.,adjective,n/a,numbers
+nueve,nine,Tengo nueve años aquí.,I've been here nine years.,adjective,n/a,numbers
+diez,ten,Diez minutos más.,Ten more minutes.,adjective,n/a,numbers
+once,eleven,El once de enero.,The eleventh of January.,adjective,n/a,numbers
+doce,twelve,A las doce del mediodía.,At twelve noon.,adjective,n/a,numbers
+veinte,twenty,Veinte personas vinieron.,Twenty people came.,adjective,n/a,numbers
+treinta,thirty,Tengo treinta años.,I'm thirty years old.,adjective,n/a,numbers
+cuarenta,forty,Cuarenta grados de calor.,Forty degrees of heat.,adjective,n/a,numbers
+cincuenta,fifty,Cuesta cincuenta dólares.,It costs fifty dollars.,adjective,n/a,numbers
+cien,one hundred,Cien por ciento seguro.,One hundred percent sure.,adjective,n/a,numbers
 el lunes,Monday,El lunes tengo clase.,On Monday I have class.,noun,m,days
 el martes,Tuesday,El martes voy al médico.,On Tuesday I go to the doctor.,noun,m,days
 el miércoles,Wednesday,El miércoles es mi día libre.,Wednesday is my day off.,noun,m,days

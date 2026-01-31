@@ -1,10 +1,9 @@
 word,translation,phrase,phrase_translation,part_of_speech,gender,tags
-la tienda,the store,La tienda está abierta.,The store is open.,noun,f,places
 el centro comercial,the shopping mall,Vamos al centro comercial.,Let's go to the mall.,noun,m,places
 el mercado,the market,Compro fruta en el mercado.,I buy fruit at the market.,noun,m,places
 la caja,the checkout/register,Paga en la caja.,Pay at the register.,noun,f,shopping
 el precio,the price,¿Cuál es el precio?,What's the price?,noun,m,shopping
-el descuento,the discount,Hay un descuento del veinte por ciento.,There's a twenty percent discount.,noun,m,shopping
+el descuento,the discount,Descuento del veinte por ciento.,Twenty percent discount.,noun,m,shopping
 las rebajas,the sales,Las rebajas empiezan mañana.,The sales start tomorrow.,noun,f,shopping
 la talla,the size (clothes),¿Qué talla usas?,What size do you wear?,noun,f,shopping
 el número,the size (shoes),Mi número es cuarenta y dos.,My shoe size is forty-two.,noun,m,shopping
@@ -27,7 +26,7 @@ los zapatos,the shoes,Los zapatos son negros.,The shoes are black.,noun,m,clothe
 las botas,the boots,Las botas son de cuero.,The boots are leather.,noun,f,clothes
 las sandalias,the sandals,Uso sandalias en verano.,I wear sandals in summer.,noun,f,clothes
 los calcetines,the socks,Necesito calcetines nuevos.,I need new socks.,noun,m,clothes
-la ropa interior,underwear,La ropa interior está en el cajón.,The underwear is in the drawer.,noun,f,clothes
+la ropa interior,underwear,La ropa interior es cómoda.,The underwear is comfortable.,noun,f,clothes
 el cinturón,the belt,El cinturón es de cuero.,The belt is leather.,noun,m,accessories
 la corbata,the tie,La corbata es roja.,The tie is red.,noun,f,accessories
 el sombrero,the hat,El sombrero es de mi abuelo.,The hat is my grandfather's.,noun,m,accessories
@@ -45,5 +44,5 @@ quitarse,to take off,Me quito los zapatos.,I take off my shoes.,verb,n/a,verbs
 de algodón,cotton (made of),La camiseta es de algodón.,The t-shirt is cotton.,phrase,n/a,materials
 de lana,wool (made of),El suéter es de lana.,The sweater is wool.,phrase,n/a,materials
 de cuero,leather (made of),Los zapatos son de cuero.,The shoes are leather.,phrase,n/a,materials
-barato,cheap,Este vestido es muy barato.,This dress is very cheap.,adjective,m,adjectives
-caro,expensive,Los zapatos son muy caros.,The shoes are very expensive.,adjective,m,adjectives
+barato,cheap,Este vestido es muy barato.,This dress is very cheap.,adjective,n/a,adjectives
+caro,expensive,Los zapatos son muy caros.,The shoes are very expensive.,adjective,n/a,adjectives

@@ -18,10 +18,7 @@ la pierna,the leg,Me duele la pierna derecha.,My right leg hurts.,noun,f,body
 la rodilla,the knee,Tengo problemas con la rodilla.,I have knee problems.,noun,f,body
 el pie,the foot,Me duelen los pies.,My feet hurt.,noun,m,body
 el corazón,the heart,El corazón late rápido.,The heart beats fast.,noun,m,body
-el médico,the doctor,Voy al médico mañana.,I'm going to the doctor tomorrow.,noun,m,health
-el hospital,the hospital,El hospital está cerca.,The hospital is nearby.,noun,m,health
 la clínica,the clinic,La clínica abre a las ocho.,The clinic opens at eight.,noun,f,health
-la farmacia,the pharmacy,Compro medicinas en la farmacia.,I buy medicines at the pharmacy.,noun,f,health
 la medicina,the medicine,Tomo la medicina tres veces.,I take the medicine three times.,noun,f,health
 la pastilla,the pill,Tomo una pastilla al día.,I take one pill a day.,noun,f,health
 la receta,the prescription,Necesito una receta médica.,I need a medical prescription.,noun,f,health
@@ -33,14 +30,11 @@ la tos,the cough,Tengo mucha tos.,I have a bad cough.,noun,f,symptoms
 el dolor de cabeza,headache,Tengo dolor de cabeza fuerte.,I have a strong headache.,noun,m,symptoms
 el dolor de garganta,sore throat,Tengo dolor de garganta.,I have a sore throat.,noun,m,symptoms
 la alergia,the allergy,Tengo alergia al polen.,I'm allergic to pollen.,noun,f,conditions
-enfermo,sick,Estoy enfermo hoy.,I'm sick today.,adjective,m,adjectives
-sano,healthy,Quiero estar sano.,I want to be healthy.,adjective,m,adjectives
+enfermo,sick,Estoy enfermo hoy.,I'm sick today.,adjective,n/a,adjectives
+sano,healthy,Quiero estar sano.,I want to be healthy.,adjective,n/a,adjectives
 doler,to hurt,Me duele mucho la espalda.,My back hurts a lot.,verb,n/a,verbs
-sentirse,to feel,Me siento muy mal.,I feel very bad.,verb,n/a,verbs
 mejorar,to improve/get better,Espero mejorar pronto.,I hope to get better soon.,verb,n/a,verbs
 empeorar,to get worse,Los síntomas están empeorando.,The symptoms are getting worse.,verb,n/a,verbs
-descansar,to rest,Necesito descansar más.,I need to rest more.,verb,n/a,verbs
-tomar,to take (medicine),Tomo medicina para el dolor.,I take medicine for the pain.,verb,n/a,verbs
 cuidarse,to take care of oneself,Debes cuidarte más.,You should take better care of yourself.,verb,n/a,verbs
 ir al médico,to go to the doctor,Deberías ir al médico.,You should go to the doctor.,phrase,n/a,phrases
 ¿qué te pasa?,what's wrong?,¿Qué te pasa? Te ves mal.,What's wrong? You look bad.,phrase,n/a,phrases

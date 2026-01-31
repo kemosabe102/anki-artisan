@@ -1,0 +1,42 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+Recursos Humanos,Human Resources,Recursos Humanos procesa las nóminas.,Human Resources processes payroll.,noun,m,departments
+Mercadeo,Marketing,Mercadeo lanzó la campaña nueva.,Marketing launched the new campaign.,noun,m,departments
+Ventas,Sales,El equipo de ventas superó.,The sales team exceeded goals.,noun,f,departments
+Contabilidad,Accounting,Contabilidad revisa los números.,Accounting reviews the numbers.,noun,f,departments
+Administración,Administration,La administración aprobó el presupuesto.,Administration approved the budget.,noun,f,departments
+el departamento legal,Legal department,El departamento legal revisó el contrato.,The legal department reviewed the contract.,noun,m,departments
+el director general,CEO,El director general anunció cambios.,The CEO announced changes.,noun,m,hierarchy
+el gerente general,General Manager,El gerente general dirige la empresa.,The General Manager runs the company.,noun,m,hierarchy
+el subdirector,Deputy Director,El subdirector asumió las funciones.,The Deputy Director took over the duties.,noun,m,hierarchy
+el ejecutivo,the executive,Los ejecutivos se reunieron ayer.,The executives met yesterday.,noun,m,hierarchy
+el accionista,the shareholder,Los accionistas votaron a favor.,The shareholders voted in favor.,noun,m,hierarchy
+la junta directiva,the board of directors,La junta directiva tomó la decisión.,The board of directors made the decision.,noun,f,hierarchy
+la sede central,the headquarters,La sede central está aquí.,The headquarters is here.,noun,f,structure
+la multinacional,the multinational,Es una multinacional muy grande.,It's a very large multinational.,noun,f,structure
+la PYME,the SME,Las PYMEs generan muchos empleos.,SMEs generate many jobs.,noun,f,structure
+la facturación,the revenue/turnover,La facturación aumentó mucho.,Revenue increased a lot.,noun,f,finance
+el balance,the balance sheet,El balance muestra ganancias.,The balance sheet shows profits.,noun,m,finance
+las ganancias,the profits,Las ganancias superaron las expectativas.,Profits exceeded expectations.,noun,f,finance
+las pérdidas,the losses,Reportaron pérdidas este trimestre.,They reported losses this quarter.,noun,f,finance
+la inversión,the investment,La inversión fue muy rentable.,The investment was very profitable.,noun,f,finance
+la fusión,the merger,La fusión creó una empresa grande.,The merger created a large company.,noun,f,finance
+la adquisición,the acquisition,La adquisición costó millones.,The acquisition cost millions.,noun,f,finance
+el orden del día,the agenda,Revisemos el orden del día.,Let's review the agenda.,noun,m,meetings
+el acta,the minutes,El acta de la reunión.,The meeting minutes.,noun,f,meetings
+convocar,to convene,Convoqué una reunión urgente.,I convened an urgent meeting.,verb,n/a,meetings
+proponer,to propose,Propongo un nuevo enfoque.,I propose a new approach.,verb,n/a,meetings
+negociar,to negotiate,Negociamos mejores condiciones.,We negotiated better terms.,verb,n/a,negotiations
+tratar,to negotiate/deal,Tratamos directamente con el proveedor.,We deal directly with the supplier.,verb,n/a,negotiations
+acordar,to agree,Acordamos un precio justo.,We agreed on a fair price.,verb,n/a,negotiations
+el compromiso,the compromise,Llegamos a un compromiso.,We reached a compromise.,noun,m,negotiations
+la negociación,the negotiation,La negociación fue difícil.,The negotiation was difficult.,noun,f,negotiations
+las condiciones,the terms,Las condiciones son favorables.,The terms are favorable.,noun,f,negotiations
+la cláusula,the clause,La cláusula protege a ambas partes.,The clause protects both parties.,noun,f,negotiations
+el plazo,the deadline/term,El plazo vence el viernes.,The deadline is Friday.,noun,m,operations
+el cotización,the quote,La cotización incluye impuestos.,The quote includes taxes.,noun,f,operations
+el pago,the payment,El pago se procesó correctamente.,The payment was processed correctly.,noun,m,operations
+la estrategia,the strategy,La estrategia de ventas es agresiva.,The sales strategy is aggressive.,noun,f,operations
+el objetivo empresarial,business objective,Cumplimos el objetivo empresarial.,We met the business objective.,noun,m,operations
+el crecimiento,growth,El crecimiento fue significativo.,Growth was significant.,noun,m,operations
+la competencia,the competition,La competencia es muy fuerte.,The competition is very strong.,noun,f,operations
+el cliente corporativo,corporate client,Atendemos clientes corporativos.,We serve corporate clients.,noun,m,operations

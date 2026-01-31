@@ -11,7 +11,7 @@ los abuelos,the grandparents,Visito a mis abuelos cada mes.,I visit my grandpare
 el tío,the uncle,Mi tío vive en California.,My uncle lives in California.,noun,m,family
 la tía,the aunt,Mi tía es profesora.,My aunt is a teacher.,noun,f,family
 el primo,the cousin (male),Mi primo tiene mi edad.,My cousin is my age.,noun,m,family
-la prima,the cousin (female),Mi prima se casó el año pasado.,My cousin got married last year.,noun,f,family
+la prima,the cousin (female),Se casó el año pasado.,She got married last year.,noun,f,family
 el sobrino,the nephew,Mi sobrino tiene tres años.,My nephew is three years old.,noun,m,family
 la sobrina,the niece,Mi sobrina empieza la escuela.,My niece starts school.,noun,f,family
 el nieto,the grandson,Mi nieto nació ayer.,My grandson was born yesterday.,noun,m,family
@@ -27,11 +27,11 @@ el cuñado,the brother-in-law,Mi cuñado vive cerca.,My brother-in-law lives nea
 la cuñada,the sister-in-law,Mi cuñada trabaja conmigo.,My sister-in-law works with me.,noun,f,family
 el vecino,the neighbor (male),Mi vecino es muy ruidoso.,My neighbor is very noisy.,noun,m,relationships
 la vecina,the neighbor (female),La vecina tiene un perro.,The neighbor has a dog.,noun,f,relationships
-soltero,single,Mi hermano está soltero.,My brother is single.,adjective,m,status
-casado,married,Estoy casado desde hace cinco años.,I've been married for five years.,adjective,m,status
-divorciado,divorced,Mis padres están divorciados.,My parents are divorced.,adjective,m,status
-viudo,widowed,Mi abuelo está viudo.,My grandfather is widowed.,adjective,m,status
-comprometido,engaged,Mi hermana está comprometida.,My sister is engaged.,adjective,m,status
+soltero,single,Mi hermano está soltero.,My brother is single.,adjective,n/a,status
+casado,married,Estoy casado desde hace cinco años.,I've been married for five years.,adjective,n/a,status
+divorciado,divorced,Mis padres están divorciados.,My parents are divorced.,adjective,n/a,status
+viudo,widowed,Mi abuelo está viudo.,My grandfather is widowed.,adjective,n/a,status
+comprometido,engaged,Mi hermana está comprometida.,My sister is engaged.,adjective,n/a,status
 conocer,to know (people)/meet,Quiero conocer a tu familia.,I want to meet your family.,verb,n/a,verbs
 presentar,to introduce,Te presento a mi hermana.,I introduce you to my sister.,verb,n/a,verbs
 casarse,to get married,Se casan en junio.,They're getting married in June.,verb,n/a,verbs

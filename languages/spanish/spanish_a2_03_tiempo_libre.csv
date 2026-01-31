@@ -23,13 +23,9 @@ tocar,to play (instrument),Toco la guitarra.,I play the guitar.,verb,n/a,activit
 la guitarra,the guitar,Aprendo a tocar guitarra.,I'm learning to play guitar.,noun,f,instruments
 el piano,the piano,Mi hija toca el piano.,My daughter plays the piano.,noun,m,instruments
 la lectura,reading,La lectura es mi pasatiempo.,Reading is my hobby.,noun,f,activities
-leer,to read,Leo un libro cada mes.,I read a book every month.,verb,n/a,activities
-escribir,to write,Me gusta escribir poesía.,I like to write poetry.,verb,n/a,activities
 dibujar,to draw,Mi hijo dibuja muy bien.,My son draws very well.,verb,n/a,activities
 pintar,to paint,Pinto en mis ratos libres.,I paint in my free time.,verb,n/a,activities
 la fotografía,photography,La fotografía es mi pasión.,Photography is my passion.,noun,f,activities
-cocinar,to cook,Me encanta cocinar italiano.,I love to cook Italian.,verb,n/a,activities
-viajar,to travel,Viajo siempre que puedo.,I travel whenever I can.,verb,n/a,activities
 los videojuegos,video games,Juego videojuegos a veces.,I play video games sometimes.,noun,m,entertainment
 jugar,to play,Juego al fútbol con amigos.,I play soccer with friends.,verb,n/a,activities
 practicar,to practice,Practico español todos los días.,I practice Spanish every day.,verb,n/a,activities
@@ -37,8 +33,7 @@ hacer ejercicio,to exercise,Hago ejercicio por la mañana.,I exercise in the mor
 montar en bicicleta,to ride a bike,Monto en bicicleta los domingos.,I ride a bike on Sundays.,phrase,n/a,activities
 ir de excursión,to go hiking,Vamos de excursión a la montaña.,We go hiking in the mountains.,phrase,n/a,activities
 interesante,interesting,La película es muy interesante.,The movie is very interesting.,adjective,n/a,opinions
-aburrido,boring,El libro es un poco aburrido.,The book is a little boring.,adjective,m,opinions
-divertido,fun,El juego es muy divertido.,The game is very fun.,adjective,m,opinions
+divertido,fun,El juego es muy divertido.,The game is very fun.,adjective,n/a,opinions
 emocionante,exciting,El concierto fue emocionante.,The concert was exciting.,adjective,n/a,opinions
 relajante,relaxing,El yoga es muy relajante.,Yoga is very relaxing.,adjective,n/a,opinions
 me gusta,I like,Me gusta mucho el cine.,I really like cinema.,phrase,n/a,opinions

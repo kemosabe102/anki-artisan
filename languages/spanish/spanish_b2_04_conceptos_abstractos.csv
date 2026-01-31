@@ -1,0 +1,41 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+la libertad,freedom,La libertad de expresión es fundamental.,Freedom of expression is fundamental.,noun,f,values
+la justicia,justice,Exigimos justicia para las víctimas.,We demand justice for the victims.,noun,f,values
+la dignidad,dignity,La dignidad humana es inviolable.,Human dignity is inviolable.,noun,f,values
+la honestidad,honesty,Valoro la honestidad sobre todo.,I value honesty above all.,noun,f,values
+la integridad,integrity,Su integridad es admirable.,His integrity is admirable.,noun,f,values
+la solidaridad,solidarity,La solidaridad nos une.,Solidarity unites us.,noun,f,values
+la confianza,trust,La confianza se construye con tiempo.,Trust is built over time.,noun,f,emotions
+el coraje,courage,Se necesita coraje para cambiar.,It takes courage to change.,noun,m,emotions
+la esperanza,hope,La esperanza es lo último.,Hope is the last thing.,noun,f,emotions
+la ansiedad,anxiety,La ansiedad afecta a muchos.,Anxiety affects many people.,noun,f,emotions
+el conocimiento,knowledge,El conocimiento es poder.,Knowledge is power.,noun,m,intellectual
+el comportamiento,behavior,Su comportamiento fue inaceptable.,His behavior was unacceptable.,noun,m,intellectual
+la actitud,attitude,Tu actitud determina tu éxito.,Your attitude determines your success.,noun,f,intellectual
+el significado,meaning,¿Cuál es el significado de esto?,What is the meaning of this?,noun,m,intellectual
+el concepto,concept,Es un concepto difícil de explicar.,It's a difficult concept to explain.,noun,m,intellectual
+la teoría,theory,La teoría tiene sus limitaciones.,The theory has its limitations.,noun,f,intellectual
+la hipótesis,hypothesis,Mi hipótesis es que no funciona.,My hypothesis is that it doesn't work.,noun,f,intellectual
+la consecuencia,consequence,Las consecuencias son graves.,The consequences are serious.,noun,f,cause_effect
+la causa,cause,La causa del problema es clara.,The cause of the problem is clear.,noun,f,cause_effect
+el efecto,effect,El efecto fue inmediato.,The effect was immediate.,noun,m,cause_effect
+el éxito,success,El éxito requiere esfuerzo.,Success requires effort.,noun,m,outcomes
+el fracaso,failure,El fracaso es parte del aprendizaje.,Failure is part of learning.,noun,m,outcomes
+la ventaja,advantage,Eso nos da una ventaja competitiva.,That gives us a competitive advantage.,noun,f,outcomes
+la desventaja,disadvantage,La desventaja es el costo alto.,The disadvantage is the high cost.,noun,f,outcomes
+el beneficio,benefit,Los beneficios son evidentes.,The benefits are evident.,noun,m,outcomes
+el riesgo,risk,El riesgo es demasiado alto.,The risk is too high.,noun,m,outcomes
+reflexionar,to reflect,Necesito reflexionar sobre esto.,I need to reflect on this.,verb,n/a,verbs
+analizar,to analyze,Vamos a analizar los datos.,Let's analyze the data.,verb,n/a,verbs
+evaluar,to evaluate,Debemos evaluar todas las opciones.,We must evaluate all options.,verb,n/a,verbs
+considerar,to consider,Considera todas las posibilidades.,Consider all possibilities.,verb,n/a,verbs
+interpretar,to interpret,Puedes interpretar esto de varias formas.,You can interpret this in various ways.,verb,n/a,verbs
+deducir,to deduce,De esto puedo deducir que...,From this I can deduce that...,verb,n/a,verbs
+concluir,to conclude,Concluyo que la mejor opción es...,I conclude that the best option is...,verb,n/a,verbs
+demostrar,to demonstrate,Los datos demuestran mi punto.,The data demonstrates my point.,verb,n/a,verbs
+sostener,to maintain/argue,Sostengo que es posible.,I maintain that it's possible.,verb,n/a,verbs
+contradecir,to contradict,Eso contradice lo que dijiste antes.,That contradicts what you said before.,verb,n/a,verbs
+fundamental,fundamental,Es un principio fundamental.,It's a fundamental principle.,adjective,n/a,adjectives
+esencial,essential,El agua es esencial.,Water is essential.,adjective,n/a,adjectives
+significativo,significant,Es un cambio significativo.,It's a significant change.,adjective,n/a,adjectives
+complejo,complex,Es un tema muy complejo.,It's a very complex topic.,adjective,n/a,adjectives

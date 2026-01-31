@@ -125,6 +125,7 @@ class TTSService:
                     voice_id=voice_id,
                     text=tts_text,
                     model_id=language_config.elevenlabs.model_id,
+                    language_code=language_config.language_code,
                     output_format="mp3_44100_128",
                     voice_settings={
                         "stability": settings.stability,

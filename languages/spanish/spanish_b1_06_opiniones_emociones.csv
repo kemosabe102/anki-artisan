@@ -1,0 +1,38 @@
+word,translation,phrase,phrase_translation,part_of_speech,gender,tags
+a mi parecer,in my view,A mi parecer está equivocado.,In my view he's wrong.,phrase,n/a,opinions
+considero que,I consider that,Considero que es importante.,I consider it important.,phrase,n/a,opinions
+supongo que,I suppose that,Supongo que tienes razón.,I suppose you're right.,phrase,n/a,opinions
+estoy convencido de que,I'm convinced that,Estoy convencido de que funcionará.,I'm convinced it will work.,phrase,n/a,opinions
+concordar,to agree/concur,Concuerdo con tu opinión.,I agree with your opinion.,verb,n/a,agreement
+compartir,to share (opinion),Comparto tu punto de vista.,I share your point of view.,verb,n/a,agreement
+disentir,to dissent/disagree,Disiento respetuosamente.,I respectfully disagree.,verb,n/a,agreement
+dudar,to doubt,Dudo que sea verdad.,I doubt it's true.,verb,n/a,doubt
+la duda,the doubt,Tengo mis dudas al respecto.,I have my doubts about it.,noun,f,doubt
+la certeza,certainty,No tengo ninguna certeza.,I have no certainty.,noun,f,doubt
+ansioso,anxious,Me siento ansioso antes del examen.,I feel anxious before the exam.,adjective,n/a,emotions
+entusiasmado,enthusiastic,Estoy entusiasmado con el proyecto.,I'm enthusiastic about the project.,adjective,n/a,emotions
+satisfecho,satisfied,Estoy satisfecho con mi trabajo.,I'm satisfied with my work.,adjective,n/a,emotions
+frustrado,frustrated,Me siento frustrado con la situación.,I feel frustrated with the situation.,adjective,n/a,emotions
+aliviado,relieved,Me siento aliviado por la noticia.,I feel relieved by the news.,adjective,n/a,emotions
+conmovido,moved/touched,Estoy conmovido por tu generosidad.,I'm moved by your generosity.,adjective,n/a,emotions
+ofendido,offended,Se sintió ofendido por el comentario.,He felt offended by the comment.,adjective,n/a,emotions
+honesto,honest,Es una persona muy honesta.,He's a very honest person.,adjective,n/a,qualities
+confiable,reliable,Ella es muy confiable.,She's very reliable.,adjective,n/a,qualities
+paciente,patient,Necesitas ser más paciente.,You need to be more patient.,adjective,n/a,qualities
+impaciente,impatient,Soy un poco impaciente a veces.,I'm a little impatient sometimes.,adjective,n/a,qualities
+generoso,generous,Mi abuelo era muy generoso.,My grandfather was very generous.,adjective,n/a,qualities
+egoísta,selfish,No seas tan egoísta.,Don't be so selfish.,adjective,n/a,qualities
+terco,stubborn,Es muy terco con sus ideas.,He's very stubborn with his ideas.,adjective,n/a,qualities
+tímido,shy,Es un poco tímido al principio.,He's a little shy at first.,adjective,n/a,qualities
+extrovertido,extroverted,Ella es muy extrovertida.,She's very extroverted.,adjective,n/a,qualities
+introvertido,introverted,Soy bastante introvertido.,I'm quite introverted.,adjective,n/a,qualities
+ambicioso,ambitious,Es una persona muy ambiciosa.,She's a very ambitious person.,adjective,n/a,qualities
+perezoso,lazy,No seas perezoso hoy.,Don't be lazy today.,adjective,n/a,qualities
+curioso,curious,Los niños son muy curiosos.,Children are very curious.,adjective,n/a,qualities
+sensible,sensitive,Es muy sensible a las críticas.,He's very sensitive to criticism.,adjective,n/a,qualities
+razonable,reasonable,Tu propuesta es muy razonable.,Your proposal is very reasonable.,adjective,n/a,qualities
+irrazonable,unreasonable,Su demanda es irrazonable.,His demand is unreasonable.,adjective,n/a,qualities
+maduro,mature,Es muy maduro para su edad.,He's very mature for his age.,adjective,n/a,qualities
+inmaduro,immature,A veces actúa de forma inmadura.,Sometimes he acts immaturely.,adjective,n/a,qualities
+optimista,optimistic,Soy optimista sobre el futuro.,I'm optimistic about the future.,adjective,n/a,qualities
+pesimista,pessimistic,No seas tan pesimista.,Don't be so pessimistic.,adjective,n/a,qualities
