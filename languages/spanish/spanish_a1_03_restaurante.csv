@@ -1,7 +1,7 @@
 word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
 el restaurante,the restaurant,El restaurante está lleno.,The restaurant is full.,noun,m,places,
 el café,the coffee/café,Un café con leche por favor.,A coffee with milk please.,noun,m,drinks,
-el bar,the bar,Vamos al bar.,Let's go to the bar.,noun,m,places,
+el bar,the bar,Vamos al bar.,Let's go to the bar.,noun,m,places,turbo
 la mesa,the table,Una mesa para dos.,A table for two.,noun,f,restaurant,
 el menú,the menu,¿Me trae el menú?,Can you bring me the menu?,noun,m,restaurant,
 la carta,the menu,La carta por favor.,The menu please.,noun,f,restaurant,
@@ -19,7 +19,7 @@ la cerveza,the beer,Dos cervezas frías.,Two cold beers.,noun,f,drinks,
 el jugo,the juice,Un jugo de naranja.,An orange juice.,noun,m,drinks,
 el té,the tea,Un té caliente.,A hot tea.,noun,m,drinks,
 la leche,the milk,Café con leche.,Coffee with milk.,noun,f,drinks,
-el pan,the bread,El pan está fresco.,The bread is fresh.,noun,m,food,
+el pan,the bread,El pan está fresco.,The bread is fresh.,noun,m,food,turbo
 la sopa,the soup,La sopa está caliente.,The soup is hot.,noun,f,food,
 la ensalada,the salad,Una ensalada mixta.,A mixed salad.,noun,f,food,
 el arroz,the rice,Arroz con pollo.,Rice with chicken.,noun,m,food,
@@ -47,5 +47,5 @@ tengo sed,I'm thirsty,Tengo sed. Quiero agua.,I'm thirsty. I want water.,phrase,
 quisiera,I would like,Quisiera una ensalada.,I would like a salad.,verb,n/a,formal,
 quiero,I want,Quiero un café.,I want a coffee.,verb,n/a,verbs,
 para mí,for me,Para mí la sopa.,The soup for me.,phrase,n/a,phrases,
-sin,without,Café sin azúcar.,Coffee without sugar.,preposition,n/a,prepositions,
+sin,without,Café sin azúcar.,Coffee without sugar.,preposition,n/a,prepositions,turbo
 con,with,Pizza con jamón.,Pizza with ham.,preposition,n/a,prepositions,
