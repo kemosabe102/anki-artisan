@@ -1,7 +1,7 @@
 word,translation,phrase,phrase_translation,part_of_speech,gender,tags,tts_model
 inoltre,furthermore/moreover,Inoltre vorrei aggiungere che...,Furthermore I'd like to add that...,adverb,n/a,additive,
 anche,also/too,Anche io penso così.,I think so too.,adverb,n/a,additive,
-pure,also/even,Vengo pure io.,I'm coming too.,adverb,n/a,additive,
+pure,also/even,Vengo pure io.,I'm coming too.,adverb,n/a,additive,turbo
 oltre a ciò,besides that,Oltre a ciò c'è un problema.,Besides that there's a problem.,phrase,n/a,additive,
 in più,in addition,In più ho dimenticato le chiavi.,In addition I forgot my keys.,phrase,n/a,additive,
 non solo... ma anche,not only... but also,Non solo studio ma anche lavoro.,I not only study but also work.,phrase,n/a,additive,
