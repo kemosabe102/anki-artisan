@@ -9,7 +9,8 @@
     "OTEL_TRACES_EXPORTER": "otlp",
     "OTEL_LOGS_EXPORTER": "otlp",
     "OTEL_METRIC_EXPORT_INTERVAL": "60000",
-    "OTEL_EXPORTER_OTLP_INSECURE": "true"
+    "OTEL_EXPORTER_OTLP_INSECURE": "true",
+    "OTEL_RESOURCE_ATTRIBUTES": "environment=local,developer=lyken,host=kemos-win,repo=anki-artisan"
   },
   "permissions": {
     "allow": [],
